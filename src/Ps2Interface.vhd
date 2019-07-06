@@ -188,11 +188,11 @@ architecture Behavioral of Ps2Interface is
 
 -- upper limit for 100us delay counter.
 -- 10000 * 10ns = 100us
-constant DELAY_100US : std_logic_vector(13 downto 0):= "11011100010000";
+constant DELAY_100US : std_logic_vector(13 downto 0):= "10011100010000";
                                                  -- 10000 clock periods
 -- upper limit for 20us delay counter.
 -- 2000 * 10ns = 20us
-constant DELAY_20US  : std_logic_vector(10 downto 0) := "11111110000";
+constant DELAY_20US  : std_logic_vector(10 downto 0) := "11111010000";
                                                   -- 2000 clock periods
 -- upper limit for 63clk delay counter.
 constant DELAY_63CLK : std_logic_vector(6 downto 0)  := "1111111";
