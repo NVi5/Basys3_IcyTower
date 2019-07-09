@@ -37,7 +37,7 @@ module main(
     wire [7:0] key;
     
     
-      MouseCtl myMouseCtl(
+      KeyboardCtl myKeyboardCtl(
       .clk(clk),
       .rst(rst),
       .ps2_clk(ps2_clk),
