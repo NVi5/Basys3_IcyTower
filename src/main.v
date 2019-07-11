@@ -29,15 +29,21 @@ module main(
     
     output wire [15:0] led,
     
+    output wire [3:0] an,
+    output wire [7:0] seg,
+   
+    inout wire ps2_clk,
+    inout wire ps2_data,
+    
     output wire vs,
     output wire hs,
     output wire [3:0] r,
     output wire [3:0] g,
     output wire [3:0] b
-//    output wire pclk_mirror
     );
     
     wire pclk;
+    wire [7:0] key;
     wire [10:0] vcount, hcount, vcount_bg, hcount_bg;
     wire vsync, hsync, vsync_bg, hsync_bg;
     wire vblnk, hblnk, vblnk_bg, hblnk_bg;
@@ -55,19 +61,6 @@ module main(
         .rx(rx),
         .tx(tx)
     );
-    
-//    ODDR pclk_oddr (
-//        .Q(pclk_mirror),
-//        .C(pclk),
-//        .CE(1'b1),
-//        .D1(1'b1),
-//        .D2(1'b0),
-//        .R(1'b0),
-//        .S(1'b0)
-//    );
-  
-    // Instantiate the vga_timing module, which is
-    // the module you are designing for this lab.
   
     vga_timing #(
         .HOR_TOT_TIME(1688),
@@ -119,4 +112,25 @@ module main(
         .hblnk_out(hblnk_bg),
         .rgb_out({r,g,b})
     );
+    
+  KeyboardCtl myKeyboardCtl(
+    .clk(clk),
+    .rst(rst),
+    .ps2_clk(ps2_clk),
+    .ps2_data(ps2_data),
+    .key(key),
+    .new_event()
+  );
+  
+  disp_hex_mux my_disp(
+      .clk(clk),
+      .reset(rst),
+      .hex3(4'b0000),
+      .hex2(4'b0000),
+      .hex1(key[7:4]),
+      .hex0(key[3:0]),
+      .dp_in(4'hf),
+      .an(an),
+      .sseg(seg) 
+  );
 endmodule

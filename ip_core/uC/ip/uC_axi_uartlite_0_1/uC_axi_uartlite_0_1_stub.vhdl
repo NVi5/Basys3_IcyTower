@@ -1,8 +1,8 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sun Jun 30 02:55:33 2019
--- Host        : DESKTOP-V0A11EI running 64-bit major release  (build 9200)
+-- Date        : Thu Jul 11 21:21:53 2019
+-- Host        : DESKTOP-12225QQ running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               D:/Elektronika/Workspace/Xilinx/UEC2_Project/ip_core/uC/ip/uC_axi_uartlite_0_1/uC_axi_uartlite_0_1_stub.vhdl
 -- Design      : uC_axi_uartlite_0_1
