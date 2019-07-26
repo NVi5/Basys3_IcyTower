@@ -83,7 +83,8 @@ module main(
         .rst(rst)
     );
     
-    wire [11:0] rgb_pixel, pixel_addr;
+    wire [11:0] rgb_pixel;
+    wire [7:0] pixel_addr;
     
     image_rom my_image_rom(
       .address(pixel_addr),
