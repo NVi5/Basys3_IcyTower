@@ -83,12 +83,23 @@ module main(
         .rst(rst)
     );
     
-    wire [11:0] rgb_pixel;
+    wire [11:0] rgb_bg, rgb_sides;
     wire [7:0] pixel_addr;
     
-    image_rom my_image_rom(
+    image_rom #(
+      .IMAGE("cobblestone.data")
+    ) bg_rom(
+      .clk(pclk),
       .address(pixel_addr),
-      .rgb(rgb_pixel)
+      .rgb(rgb_bg)
+    );
+    
+    image_rom #(
+      .IMAGE("brick.data")
+    ) sides_rom(
+      .clk(pclk),
+      .address(pixel_addr),
+      .rgb(rgb_sides)
     );
     
     draw_background my_draw_background(
@@ -99,11 +110,14 @@ module main(
         .hsync_in(hsync),
         .hblnk_in(hblnk),
         
-        .rgb_pixel(rgb_pixel),
+        .shift(vcount[9:4]),
+        
+        .rgb_sides(rgb_sides),
+        .rgb_bg(rgb_bg),
         .pixel_addr(pixel_addr),
         
-        .pclk_in(pclk),
-        .rst_in(rst),   
+        .pclk(pclk),
+        .rst(rst),   
          
         .vcount_out(vcount_bg),
         .vsync_out(vs),

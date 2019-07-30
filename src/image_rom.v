@@ -4,17 +4,20 @@
 // 6-bit y and 6-bit x pixel coordinates.
 // The output 'rgb' is 12-bit number with concatenated
 // red, green and blue color values (4-bit each)
-module image_rom (
+module image_rom     
+#( parameter IMAGE = "cobblestone.data")(
+    input wire clk,
     input wire [7:0] address,  // address = {addry[5:0], addrx[5:0]}
     output reg [11:0] rgb
 );
 
 
+
 reg [11:0] rom [0:255];
 
-initial $readmemh("image_rom.data", rom); 
+initial $readmemh(IMAGE, rom); 
 
-always @*
-    rgb = rom[address];
+always @(posedge clk)
+    rgb <= rom[address];
 
 endmodule

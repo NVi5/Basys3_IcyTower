@@ -28,11 +28,14 @@ module draw_background(
     input wire hsync_in,
     input wire hblnk_in,
     
-    input wire [11:0] rgb_pixel,
+    input wire [11:0] rgb_bg,
+    input wire [11:0] rgb_sides,
     output reg [7:0] pixel_addr,
     
-    input wire pclk_in,
-    input wire rst_in,
+    input wire [5:0] shift,
+    
+    input wire pclk,
+    input wire rst,
     
     output reg [10:0] vcount_out,
     output reg vsync_out,
@@ -44,9 +47,24 @@ module draw_background(
     );
     
     reg [11:0] rgb_out_nxt;
+    reg [11:0] yaddr;
     
-     always @(posedge pclk_in)
-      if(rst_in == 1)begin
+    wire [10:0] vcount_d,hcount_d;
+    wire vsync_d,vblnk_d,hsync_d,hblnk_d;
+    
+    delay #(
+      .WIDTH(26),
+      .CLK_DEL(1)
+    ) 
+    my_delay(
+      .clk(pclk),
+      .rst(rst),
+      .din({vcount_in,hcount_in,vsync_in,vblnk_in,hsync_in,hblnk_in}),
+      .dout({vcount_d,hcount_d,vsync_d,vblnk_d,hsync_d,hblnk_d})
+    );
+    
+     always @(posedge pclk)
+      if(rst == 1)begin
           vcount_out <= 0;
           vsync_out <= 0;
           vblnk_out <= 0;
@@ -55,20 +73,22 @@ module draw_background(
           hblnk_out <= 0;
           rgb_out <= 0;
       end else begin
-          hsync_out <= hsync_in;
-          vsync_out <= vsync_in;
-          vcount_out <= vcount_in;
-          vblnk_out <= vblnk_in;
-          hcount_out <= hcount_in;
-          hblnk_out <= hblnk_in;
+          hsync_out <= hsync_d;
+          vsync_out <= vsync_d;
+          vcount_out <= vcount_d;
+          vblnk_out <= vblnk_d;
+          hcount_out <= hcount_d;
+          hblnk_out <= hblnk_d;
           rgb_out <= rgb_out_nxt;
       end
     
     always @*
       if (vblnk_in || hblnk_in) rgb_out_nxt = 12'h0_0_0; 
-      else rgb_out_nxt = rgb_pixel;
+      else if( hcount_in > 127 && hcount_in <1151)rgb_out_nxt = rgb_bg;
+      else rgb_out_nxt = rgb_sides;
 
-    always @*
-        pixel_addr = {vcount_in[5:2],hcount_in[5:2]};
-        
+    always @* begin
+        yaddr = vcount_in + shift;
+        pixel_addr = {yaddr[4:1],hcount_in[4:1]};
+    end  
 endmodule
