@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Thu Jul 11 21:21:53 2019
-// Host        : DESKTOP-12225QQ running 64-bit major release  (build 9200)
+// Date        : Wed Jul 31 19:52:07 2019
+// Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               D:/Elektronika/Workspace/Xilinx/UEC2_Project/ip_core/uC/ip/uC_microblaze_0_axi_intc_2/uC_microblaze_0_axi_intc_2_stub.v
+//               C:/Users/wojte/Desktop/projekt/UEC2_Project/ip_core/uC/ip/uC_microblaze_0_axi_intc_2/uC_microblaze_0_axi_intc_2_stub.v
 // Design      : uC_microblaze_0_axi_intc_2
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1
@@ -19,7 +19,7 @@ module uC_microblaze_0_axi_intc_2(s_axi_aclk, s_axi_aresetn, s_axi_awaddr,
   s_axi_bresp, s_axi_bvalid, s_axi_bready, s_axi_araddr, s_axi_arvalid, s_axi_arready, 
   s_axi_rdata, s_axi_rresp, s_axi_rvalid, s_axi_rready, intr, processor_clk, processor_rst, irq, 
   processor_ack, interrupt_address)
-/* synthesis syn_black_box black_box_pad_pin="s_axi_aclk,s_axi_aresetn,s_axi_awaddr[8:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[8:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,intr[1:0],processor_clk,processor_rst,irq,processor_ack[1:0],interrupt_address[31:0]" */;
+/* synthesis syn_black_box black_box_pad_pin="s_axi_aclk,s_axi_aresetn,s_axi_awaddr[8:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[8:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,intr[2:0],processor_clk,processor_rst,irq,processor_ack[1:0],interrupt_address[31:0]" */;
   input s_axi_aclk;
   input s_axi_aresetn;
   input [8:0]s_axi_awaddr;
@@ -39,7 +39,7 @@ module uC_microblaze_0_axi_intc_2(s_axi_aclk, s_axi_aresetn, s_axi_awaddr,
   output [1:0]s_axi_rresp;
   output s_axi_rvalid;
   input s_axi_rready;
-  input [1:0]intr;
+  input [2:0]intr;
   input processor_clk;
   input processor_rst;
   output irq;

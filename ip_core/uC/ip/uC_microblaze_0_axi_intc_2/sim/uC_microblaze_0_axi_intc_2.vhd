@@ -77,7 +77,7 @@ ENTITY uC_microblaze_0_axi_intc_2 IS
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
-    intr : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+    intr : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
     processor_clk : IN STD_LOGIC;
     processor_rst : IN STD_LOGIC;
     irq : OUT STD_LOGIC;
@@ -137,7 +137,7 @@ ARCHITECTURE uC_microblaze_0_axi_intc_2_arch OF uC_microblaze_0_axi_intc_2 IS
       s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_rvalid : OUT STD_LOGIC;
       s_axi_rready : IN STD_LOGIC;
-      intr : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+      intr : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
       processor_clk : IN STD_LOGIC;
       processor_rst : IN STD_LOGIC;
       irq : OUT STD_LOGIC;
@@ -158,7 +158,7 @@ ARCHITECTURE uC_microblaze_0_axi_intc_2_arch OF uC_microblaze_0_axi_intc_2 IS
   ATTRIBUTE X_INTERFACE_INFO OF processor_rst: SIGNAL IS "xilinx.com:signal:reset:1.0 proc_reset RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF processor_clk: SIGNAL IS "XIL_INTERFACENAME proc_clock, ASSOCIATED_BUSIF interrupt, ASSOCIATED_RESET processor_rst, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN uC_clk_100MHz";
   ATTRIBUTE X_INTERFACE_INFO OF processor_clk: SIGNAL IS "xilinx.com:signal:clock:1.0 proc_clock CLK";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF intr: SIGNAL IS "XIL_INTERFACENAME interrupt_input, SENSITIVITY LEVEL_HIGH:EDGE_RISING, PortWidth 2";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF intr: SIGNAL IS "XIL_INTERFACENAME interrupt_input, SENSITIVITY LEVEL_HIGH:LEVEL_HIGH:EDGE_RISING, PortWidth 3";
   ATTRIBUTE X_INTERFACE_INFO OF intr: SIGNAL IS "xilinx.com:signal:interrupt:1.0 interrupt_input INTERRUPT";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi RREADY";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 s_axi RVALID";
@@ -190,12 +190,12 @@ BEGIN
       C_INSTANCE => "uC_microblaze_0_axi_intc_2",
       C_S_AXI_ADDR_WIDTH => 9,
       C_S_AXI_DATA_WIDTH => 32,
-      C_NUM_INTR_INPUTS => 2,
+      C_NUM_INTR_INPUTS => 3,
       C_NUM_SW_INTR => 0,
-      C_KIND_OF_INTR => X"fffffffd",
+      C_KIND_OF_INTR => X"fffffff9",
       C_KIND_OF_EDGE => X"FFFFFFFF",
       C_KIND_OF_LVL => X"FFFFFFFF",
-      C_ASYNC_INTR => X"FFFFFFFC",
+      C_ASYNC_INTR => X"FFFFFFF8",
       C_NUM_SYNC_FF => 2,
       C_IVAR_RESET_VALUE => X"00000010",
       C_ENABLE_ASYNC => 0,

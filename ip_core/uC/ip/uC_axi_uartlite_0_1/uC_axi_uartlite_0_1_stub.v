@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Thu Jul 11 21:21:53 2019
-// Host        : DESKTOP-12225QQ running 64-bit major release  (build 9200)
+// Date        : Wed Jul 31 19:51:10 2019
+// Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               D:/Elektronika/Workspace/Xilinx/UEC2_Project/ip_core/uC/ip/uC_axi_uartlite_0_1/uC_axi_uartlite_0_1_stub.v
+//               C:/Users/wojte/Desktop/projekt/UEC2_Project/ip_core/uC/ip/uC_axi_uartlite_0_1/uC_axi_uartlite_0_1_stub.v
 // Design      : uC_axi_uartlite_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcpg236-1

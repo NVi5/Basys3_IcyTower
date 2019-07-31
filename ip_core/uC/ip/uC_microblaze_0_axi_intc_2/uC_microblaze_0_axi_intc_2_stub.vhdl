@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Thu Jul 11 21:21:53 2019
--- Host        : DESKTOP-12225QQ running 64-bit major release  (build 9200)
+-- Date        : Wed Jul 31 19:52:08 2019
+-- Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               D:/Elektronika/Workspace/Xilinx/UEC2_Project/ip_core/uC/ip/uC_microblaze_0_axi_intc_2/uC_microblaze_0_axi_intc_2_stub.vhdl
+--               C:/Users/wojte/Desktop/projekt/UEC2_Project/ip_core/uC/ip/uC_microblaze_0_axi_intc_2/uC_microblaze_0_axi_intc_2_stub.vhdl
 -- Design      : uC_microblaze_0_axi_intc_2
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a35tcpg236-1
@@ -33,7 +33,7 @@ entity uC_microblaze_0_axi_intc_2 is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    intr : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    intr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     processor_clk : in STD_LOGIC;
     processor_rst : in STD_LOGIC;
     irq : out STD_LOGIC;
@@ -47,7 +47,7 @@ architecture stub of uC_microblaze_0_axi_intc_2 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "s_axi_aclk,s_axi_aresetn,s_axi_awaddr[8:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[8:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,intr[1:0],processor_clk,processor_rst,irq,processor_ack[1:0],interrupt_address[31:0]";
+attribute black_box_pad_pin of stub : architecture is "s_axi_aclk,s_axi_aresetn,s_axi_awaddr[8:0],s_axi_awvalid,s_axi_awready,s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid,s_axi_wready,s_axi_bresp[1:0],s_axi_bvalid,s_axi_bready,s_axi_araddr[8:0],s_axi_arvalid,s_axi_arready,s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid,s_axi_rready,intr[2:0],processor_clk,processor_rst,irq,processor_ack[1:0],interrupt_address[31:0]";
 attribute x_core_info : string;
 attribute x_core_info of stub : architecture is "axi_intc,Vivado 2018.2";
 begin

@@ -44,9 +44,12 @@ module main(
     
     wire pclk;
     wire [7:0] key;
-    wire [10:0] vcount, hcount, vcount_bg, hcount_bg;
-    wire vsync, hsync, vsync_bg, hsync_bg;
-    wire vblnk, hblnk, vblnk_bg, hblnk_bg;
+    wire [10:0] vcount, hcount, vcount_bg, hcount_bg, vcount_uc, hcount_uc;
+    wire vsync, hsync, vsync_bg, hsync_bg, vsync_uc, hsync_uc;
+    wire vblnk, hblnk, vblnk_bg, hblnk_bg, vblnk_uc, hblnk_uc;
+    wire [11:0] rgb_bg;
+    wire [11:0] rgb_bg_out;
+    wire [11:0] rgb_sides;
     
     clk_wiz_0 my_clk
     (
@@ -59,7 +62,22 @@ module main(
         .led(led),
         .reset(!rst),
         .rx(rx),
-        .tx(tx)
+        .tx(tx),
+        
+        .hblnk_in(hblnk_bg),
+        .hblnk_out(1'b0),
+        .hcount_in(hcount_bg),
+        .hcount_out(11'b0),
+        .hsync_in(hsync_bg),
+        .hsync_out(hs),
+        .rgb_in(rgb_bg_out),
+        .rgb_out({r,g,b}),
+        .vblnk_in(vblnk_bg),
+        .vblnk_out(1'b0),
+        .vcount_in(vcount_bg),
+        .vcount_out(11'b0),
+        .vsync_in(vsync_bg),
+        .vsync_out(vs)
     );
   
     vga_timing #(
@@ -83,7 +101,6 @@ module main(
         .rst(rst)
     );
     
-    wire [11:0] rgb_bg, rgb_sides;
     wire [7:0] pixel_addr;
     
     image_rom #(
@@ -120,12 +137,12 @@ module main(
         .rst(rst),   
          
         .vcount_out(vcount_bg),
-        .vsync_out(vs),
+        .vsync_out(vsync_bg),
         .vblnk_out(vblnk_bg),
         .hcount_out(hcount_bg),
-        .hsync_out(hs),
+        .hsync_out(hsync_bg),
         .hblnk_out(hblnk_bg),
-        .rgb_out({r,g,b})
+        .rgb_out(rgb_bg_out)
     );
     
   KeyboardCtl myKeyboardCtl(
