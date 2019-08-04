@@ -5,6 +5,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\wojte\Desktop\projekt\UEC2_Project\sdk"/>
 			<item value="C:\Users\wojte\Desktop\cyfr_project\UEC2_Project\sdk"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">

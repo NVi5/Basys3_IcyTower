@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="Auto Detect" key="main_hw_platform_0-device"/>
+	<item value="main_hw_platform_0" key="programfpga.hwplatform"/>
+	<item value="main.mmi" key="main_hw_platform_0-bmmFile"/>
+	<item value="Local" key="main_hw_platform_0-target"/>
+	<item value="C:\Users\wojte\Desktop\projekt\UEC2_Project\sdk\klocki_test\Debug\klocki_test.elf" key="main_hw_platform_0-microblaze_0-initElf"/>
+	<item value="false" key="main_hw_platform_0-partial_bit"/>
+	<item value="main.bit" key="main_hw_platform_0-bitFile"/>
 </section>

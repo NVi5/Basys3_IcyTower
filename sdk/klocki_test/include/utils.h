@@ -10,5 +10,5 @@
 #define random(type, max) ((type)rand() % (max))
 #define abs(val) (abs(val)) 
 
-#define enterCritical() mincroblaze_disable_interrupts();
-#define exitCritical() mincroblaze_enable_interrupts();
+#define enterCritical() microblaze_disable_interrupts();
+#define exitCritical() microblaze_enable_interrupts();

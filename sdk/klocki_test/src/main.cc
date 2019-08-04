@@ -7,6 +7,8 @@
 #include "xintc.h"
 #include "xil_exception.h"
 
+#include "../include/utils.h"
+
 #include <algorithm>
 
 #define VGA_BASE 	XPAR_BLOCKS_S00_AXI_BASEADDR
@@ -138,8 +140,20 @@ void DeviceDriverHandler(void *CallbackRef)
 
 	VGA_XPOS = Lines[i].GetStart().GetX();
 	VGA_WIDTH = Lines[i].GetEnd().GetX() - Lines[i].GetStart().GetX();
-	VGA_YPOS = 1023 + 64 - Lines[i].GetStart().GetY();
+
 	VGA_HEIGHT = 64;
+	int y = 1023 - 64 - (int)Lines[i].GetStart().GetY();
+	if (i == 0) xil_printf("%d\r\n", y);
+	if(y < 0){
+		y = 1023 + VGA_HEIGHT + y;
+	}
+	VGA_YPOS = y;
+
+	if((it_counter % 6) == 0){
+		for(int j = 0; j < 6; j++){
+			Lines[j].moveDown(2,-64,1023);
+		}
+	}
 }
 
 void interrupt_init(XIntc *InterruptController, void(*callback)(void*), u16 interrupt_device_id, u8 interrupt_vector ){
@@ -166,7 +180,7 @@ int main(){
 	VGA_WIDTH = 1;
 	VGA_HEIGHT = 1;
 
-	PLAYER_XPOS = 500;
+	PLAYER_XPOS = P1.getPosition().GetX();
 	PLAYER_YPOS = P1.getPosition().GetY();
 	PLAYER_XSCALE = 2;
 	PLAYER_YSCALE = 2;
@@ -203,40 +217,29 @@ int main(){
     while(1){
 
     	int i = 0;
-    	while(i++ < 10000);
+    	while(i++ < 100000);
 
-		for(int j = 0; j < 6; j++){
-			Lines[j].moveDown(1);
-		}
-
-		Point2d x = P1.getPosition();
-		P1.calculateNextPosition(0.1);
-		if(x.GetY() < 63){
-			P1.setVelocity( P1.getVelocity() * Point2d(1, -0.f) );
-			P1.setPosition( Point2d( P1.getPosition().GetX(), 63 ) );
-		}
-		Point2d y = P1.getPosition();
-
-		Line2d PlayerMove(x, y);
-
-		Point2d solution;
-		for (int q = 0; q < 6; q++) {
-			if (PlayerMove.CheckIntersection(Lines[q], solution)){
-				xil_printf("intersection : line %d\r\n", q);
-			}
-		}
-
-		//xil_printf("xd: %d\r\n", (int)P1.getPosition().GetY());
-
-		//Point2d x = P1.getPosition();
-//
-//		if(x.GetY() > 1023 ){
-//			P1.setVelocity( P1.getVelocity() * Point2d(1, 1) );
-//			P1.setPosition( P1.getPosition() * Point2d(1, 0) );
+//		for(int j = 0; j < 6; j++){
+//			Lines[j].moveDown(2,-64,1023);
+//			xil_printf("%d\t", (int)Lines[j].GetEnd().GetY());
 //		}
-		//P1.calculateNextPosition(0.002);
+//		xil_printf("\r\n");
 
-		PLAYER_YPOS = 1023 - P1.getPosition().GetY();
-
+//		Point2d x = P1.getPosition();
+//		P1.calculateNextPosition(0.1);
+//		if(x.GetY() < 63){
+//			P1.setVelocity( P1.getVelocity() * Point2d(1, -0.f) );
+//			P1.setPosition( Point2d( P1.getPosition().GetX(), 63 ) );
+//		}
+//		Point2d y = P1.getPosition();
+//
+//		Line2d PlayerMove(x, y);
+//
+//		Point2d solution;
+////		for (int q = 0; q < 6; q++) {
+////			if (PlayerMove.CheckIntersection(Lines[q], solution)){
+////				xil_printf("intersection : line %d\r\n", q);
+////			}
+////		}
     }
 }

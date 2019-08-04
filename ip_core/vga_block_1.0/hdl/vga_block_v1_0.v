@@ -149,8 +149,8 @@
     wire [RAM_ADDR_WIDTH - 1 : 0] pixel_addr;
     
     ram #(
-        .TEXTURE_WIDTH(16),
-        .TEXTURE_HEIGHT(16)
+        .TEXTURE_WIDTH(TEXTURE_WIDTH),
+        .TEXTURE_HEIGHT(TEXTURE_HEIGHT)
     )
     u_ram(
         .clk(s00_axis_aclk),
@@ -201,36 +201,52 @@
             vblnk_out  <=  vblnk_delay;    
             hcount_out <=  hcount_delay;   
             hsync_out  <=  hsync_delay;    
-            hblnk_out  <=  hblnk_delay;        
+            hblnk_out  <=  hblnk_delay;  
+            
+             if (hcount_delay >= xpos && hcount_delay < xpos + width && vcount_delay >= ypos && vcount_delay < ypos + height && ypos < SCREEN_HEIGHT) begin
+                rgb_out <= rgb_pixel;
+                if(hcount_delay == xpos + width - 1 && (vcount_delay == ypos + height - 1 || vcount_delay == SCREEN_HEIGHT - 1)) interrupt <= 1'b1;
+                else interrupt <= 1'b0;
+             end
+             else if (hcount_delay >= xpos && hcount_delay < xpos + width && vcount_delay <= ypos - SCREEN_HEIGHT && ypos >= SCREEN_HEIGHT) begin
+                rgb_out <= rgb_pixel;
+                if(hcount_delay == xpos + width - 1 && vcount_delay == ypos - SCREEN_HEIGHT) interrupt <= 1'b1;
+                 else interrupt <= 1'b0;
+             end
+             else begin
+                rgb_out <= rgb_delay;
+                interrupt <= 1'b0;
+             end
         
-            if(ypos < SCREEN_HEIGHT) begin
-                if (hcount_delay >= xpos && hcount_delay < xpos + width && vcount_delay >= ypos && vcount_delay < ypos + height) begin
-                    rgb_out <= rgb_pixel;
-                    if( hcount_delay == xpos + width - 1 && (vcount_delay == ypos + height - 1 || vcount_delay == (SCREEN_HEIGHT - 1)) ) interrupt <= 1'b1;
-                    else interrupt <= 1'b0;
-                end
-                else begin
-                    rgb_out <= rgb_delay;
-                    interrupt <= 1'b0;
-                end                     
-            end
-            else begin
-                if (hcount_delay >= xpos && hcount_delay < xpos + width && (vcount_delay + height) >= (ypos - (SCREEN_HEIGHT - 1)) && (vcount_delay + height) < (ypos - (SCREEN_HEIGHT - 1)) + height) begin
-                    rgb_out <= rgb_pixel;                         
-                    if( (hcount_delay == (xpos + width - 1)) && (vcount_delay == (ypos - SCREEN_HEIGHT)) ) interrupt <= 1'b1;
-                    else interrupt <= 1'b0;   
-                end
-                else begin
-                    rgb_out <= rgb_delay;
-                    interrupt <= 1'b0;  
-                end  
-            end
+//            if(ypos < SCREEN_HEIGHT) begin
+//                if (hcount_delay >= xpos && hcount_delay < xpos + width && vcount_delay >= ypos && vcount_delay < ypos + height) begin
+//                    rgb_out <= rgb_pixel;
+//                    if( hcount_delay == xpos + width - 1 && (vcount_delay == ypos + height - 1 || vcount_delay == (SCREEN_HEIGHT - 1)) ) interrupt <= 1'b1;
+//                    else interrupt <= 1'b0;
+//                end
+//                else begin
+//                    rgb_out <= rgb_delay;
+//                    interrupt <= 1'b0;
+//                end                     
+//            end
+//            else begin
+//                if (hcount_delay >= xpos && hcount_delay < xpos + width && (vcount_delay + height) >= (ypos - (SCREEN_HEIGHT)) && (vcount_delay + height) < (ypos - (SCREEN_HEIGHT)) + height) begin
+//                    rgb_out <= rgb_pixel;                         
+//                    if( (hcount_delay == (xpos + width - 1)) && (vcount_delay == (ypos - SCREEN_HEIGHT - 1)) ) interrupt <= 1'b1;
+//                    else interrupt <= 1'b0;   
+//                end
+//                else begin
+//                    rgb_out <= rgb_delay;
+//                    interrupt <= 1'b0;  
+//                end  
+//            end
         end        
     end
         
     always @* begin  
         ram_addrx = (hcount_in - xpos) >> xscale; 
-        ram_addry = (vcount_in - ypos) >> yscale;            
+        if(ypos < SCREEN_HEIGHT) ram_addry = (vcount_in - ypos) >> yscale; 
+        else ram_addry = (vcount_in - ypos - 1) >> yscale;          
     end 
 
 	endmodule
