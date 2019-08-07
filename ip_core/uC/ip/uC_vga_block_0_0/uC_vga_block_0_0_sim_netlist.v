@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sun Aug  4 23:06:44 2019
+// Date        : Mon Aug  5 18:13:13 2019
 // Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/Users/wojte/Desktop/projekt/UEC2_Project/ip_core/uC/ip/uC_vga_block_0_0/uC_vga_block_0_0_sim_netlist.v
@@ -193,7 +193,7 @@ endmodule
 
 (* ORIG_REF_NAME = "ram" *) 
 module uC_vga_block_0_0_ram
-   (\rgb_out_reg[11] ,
+   (D,
     s00_axis_aclk,
     Q,
     write_enable_reg,
@@ -202,8 +202,10 @@ module uC_vga_block_0_0_ram
     write_enable_reg_0,
     pixel_addr0,
     ram_addry,
+    \rgb_delay_reg[11] ,
+    \slv_reg0_reg[26] ,
     write_enable);
-  output [11:0]\rgb_out_reg[11] ;
+  output [11:0]D;
   input s00_axis_aclk;
   input [23:0]Q;
   input write_enable_reg;
@@ -212,9 +214,12 @@ module uC_vga_block_0_0_ram
   input write_enable_reg_0;
   input [0:0]pixel_addr0;
   input [0:0]ram_addry;
+  input [11:0]\rgb_delay_reg[11] ;
+  input \slv_reg0_reg[26] ;
   input write_enable;
 
   wire [5:0]ADDRA;
+  wire [11:0]D;
   wire [23:0]Q;
   wire [5:0]out;
   wire [0:0]pixel_addr0;
@@ -267,6 +272,7 @@ module uC_vga_block_0_0_ram
   wire ram_reg_64_127_9_11_n_0;
   wire ram_reg_64_127_9_11_n_1;
   wire ram_reg_64_127_9_11_n_2;
+  wire [11:0]rgb;
   wire \rgb[0]_i_1_n_0 ;
   wire \rgb[10]_i_1_n_0 ;
   wire \rgb[11]_i_1_n_0 ;
@@ -279,8 +285,12 @@ module uC_vga_block_0_0_ram
   wire \rgb[7]_i_1_n_0 ;
   wire \rgb[8]_i_1_n_0 ;
   wire \rgb[9]_i_1_n_0 ;
-  wire [11:0]\rgb_out_reg[11] ;
+  wire [11:0]\rgb_delay_reg[11] ;
+  wire \rgb_out[11]_i_2_n_0 ;
+  wire \rgb_out[11]_i_3_n_0 ;
+  wire \rgb_out[11]_i_4_n_0 ;
   wire s00_axis_aclk;
+  wire \slv_reg0_reg[26] ;
   wire write_enable;
   wire write_enable_reg;
   wire write_enable_reg_0;
@@ -677,77 +687,199 @@ module uC_vga_block_0_0_ram
         .I4(ram_addry),
         .I5(ram_reg_0_63_9_11_n_0),
         .O(\rgb[9]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \rgb_out[0]_i_1 
+       (.I0(\rgb_out[11]_i_2_n_0 ),
+        .I1(\rgb_delay_reg[11] [0]),
+        .I2(\slv_reg0_reg[26] ),
+        .I3(rgb[0]),
+        .O(D[0]));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \rgb_out[10]_i_1 
+       (.I0(\rgb_out[11]_i_2_n_0 ),
+        .I1(\rgb_delay_reg[11] [10]),
+        .I2(\slv_reg0_reg[26] ),
+        .I3(rgb[10]),
+        .O(D[10]));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \rgb_out[11]_i_1 
+       (.I0(rgb[11]),
+        .I1(\rgb_out[11]_i_2_n_0 ),
+        .I2(\rgb_delay_reg[11] [11]),
+        .O(D[11]));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAAAAA8)) 
+    \rgb_out[11]_i_2 
+       (.I0(\slv_reg0_reg[26] ),
+        .I1(\rgb_out[11]_i_3_n_0 ),
+        .I2(rgb[6]),
+        .I3(rgb[7]),
+        .I4(rgb[3]),
+        .I5(rgb[8]),
+        .O(\rgb_out[11]_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \rgb_out[11]_i_3 
+       (.I0(rgb[10]),
+        .I1(rgb[1]),
+        .I2(rgb[11]),
+        .I3(rgb[9]),
+        .I4(\rgb_out[11]_i_4_n_0 ),
+        .O(\rgb_out[11]_i_3_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \rgb_out[11]_i_4 
+       (.I0(rgb[5]),
+        .I1(rgb[4]),
+        .I2(rgb[2]),
+        .I3(rgb[0]),
+        .O(\rgb_out[11]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \rgb_out[1]_i_1 
+       (.I0(rgb[1]),
+        .I1(\rgb_out[11]_i_2_n_0 ),
+        .I2(\rgb_delay_reg[11] [1]),
+        .O(D[1]));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \rgb_out[2]_i_1 
+       (.I0(\rgb_out[11]_i_2_n_0 ),
+        .I1(\rgb_delay_reg[11] [2]),
+        .I2(\slv_reg0_reg[26] ),
+        .I3(rgb[2]),
+        .O(D[2]));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \rgb_out[3]_i_1 
+       (.I0(\rgb_out[11]_i_2_n_0 ),
+        .I1(\rgb_delay_reg[11] [3]),
+        .I2(\slv_reg0_reg[26] ),
+        .I3(rgb[3]),
+        .O(D[3]));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \rgb_out[4]_i_1 
+       (.I0(\rgb_out[11]_i_2_n_0 ),
+        .I1(\rgb_delay_reg[11] [4]),
+        .I2(\slv_reg0_reg[26] ),
+        .I3(rgb[4]),
+        .O(D[4]));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \rgb_out[5]_i_1 
+       (.I0(\rgb_out[11]_i_2_n_0 ),
+        .I1(\rgb_delay_reg[11] [5]),
+        .I2(\slv_reg0_reg[26] ),
+        .I3(rgb[5]),
+        .O(D[5]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \rgb_out[6]_i_1 
+       (.I0(rgb[6]),
+        .I1(\rgb_out[11]_i_2_n_0 ),
+        .I2(\rgb_delay_reg[11] [6]),
+        .O(D[6]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \rgb_out[7]_i_1 
+       (.I0(rgb[7]),
+        .I1(\rgb_out[11]_i_2_n_0 ),
+        .I2(\rgb_delay_reg[11] [7]),
+        .O(D[7]));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \rgb_out[8]_i_1 
+       (.I0(\rgb_out[11]_i_2_n_0 ),
+        .I1(\rgb_delay_reg[11] [8]),
+        .I2(\slv_reg0_reg[26] ),
+        .I3(rgb[8]),
+        .O(D[8]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \rgb_out[9]_i_1 
+       (.I0(rgb[9]),
+        .I1(\rgb_out[11]_i_2_n_0 ),
+        .I2(\rgb_delay_reg[11] [9]),
+        .O(D[9]));
   FDRE \rgb_reg[0] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[0]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [0]),
+        .Q(rgb[0]),
         .R(write_enable));
   FDRE \rgb_reg[10] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[10]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [10]),
+        .Q(rgb[10]),
         .R(write_enable));
   FDRE \rgb_reg[11] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[11]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [11]),
+        .Q(rgb[11]),
         .R(write_enable));
   FDRE \rgb_reg[1] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[1]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [1]),
+        .Q(rgb[1]),
         .R(write_enable));
   FDRE \rgb_reg[2] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[2]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [2]),
+        .Q(rgb[2]),
         .R(write_enable));
   FDRE \rgb_reg[3] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[3]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [3]),
+        .Q(rgb[3]),
         .R(write_enable));
   FDRE \rgb_reg[4] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[4]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [4]),
+        .Q(rgb[4]),
         .R(write_enable));
   FDRE \rgb_reg[5] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[5]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [5]),
+        .Q(rgb[5]),
         .R(write_enable));
   FDRE \rgb_reg[6] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[6]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [6]),
+        .Q(rgb[6]),
         .R(write_enable));
   FDRE \rgb_reg[7] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[7]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [7]),
+        .Q(rgb[7]),
         .R(write_enable));
   FDRE \rgb_reg[8] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[8]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [8]),
+        .Q(rgb[8]),
         .R(write_enable));
   FDRE \rgb_reg[9] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
         .D(\rgb[9]_i_1_n_0 ),
-        .Q(\rgb_out_reg[11] [9]),
+        .Q(rgb[9]),
         .R(write_enable));
 endmodule
 
@@ -783,8 +915,8 @@ module uC_vga_block_0_0_vga_block_v1_0
     vblnk_in,
     hsync_in,
     hblnk_in,
-    rgb_in,
     s00_axis_tdata,
+    rgb_in,
     s00_axi_wstrb,
     s00_axis_tvalid,
     s00_axi_bready,
@@ -820,8 +952,8 @@ module uC_vga_block_0_0_vga_block_v1_0
   input vblnk_in;
   input hsync_in;
   input hblnk_in;
-  input [11:0]rgb_in;
   input [23:0]s00_axis_tdata;
+  input [11:0]rgb_in;
   input [3:0]s00_axi_wstrb;
   input s00_axis_tvalid;
   input s00_axi_bready;
@@ -977,7 +1109,6 @@ module uC_vga_block_0_0_vga_block_v1_0
   wire ram_addry1_carry_n_1;
   wire ram_addry1_carry_n_2;
   wire ram_addry1_carry_n_3;
-  wire [11:0]rgb;
   wire [11:0]rgb_delay;
   wire [11:0]rgb_in;
   wire [11:0]rgb_out;
@@ -1033,6 +1164,18 @@ module uC_vga_block_0_0_vga_block_v1_0
   wire s00_axis_tlast;
   wire s00_axis_tvalid;
   wire [26:26]slv_reg0;
+  wire u_ram_n_0;
+  wire u_ram_n_1;
+  wire u_ram_n_10;
+  wire u_ram_n_11;
+  wire u_ram_n_2;
+  wire u_ram_n_3;
+  wire u_ram_n_4;
+  wire u_ram_n_5;
+  wire u_ram_n_6;
+  wire u_ram_n_7;
+  wire u_ram_n_8;
+  wire u_ram_n_9;
   wire vblnk_delay;
   wire vblnk_in;
   wire vblnk_out;
@@ -1071,18 +1214,18 @@ module uC_vga_block_0_0_vga_block_v1_0
   wire vga_block_v1_0_S00_AXI_inst_n_119;
   wire vga_block_v1_0_S00_AXI_inst_n_12;
   wire vga_block_v1_0_S00_AXI_inst_n_120;
-  wire vga_block_v1_0_S00_AXI_inst_n_121;
-  wire vga_block_v1_0_S00_AXI_inst_n_122;
-  wire vga_block_v1_0_S00_AXI_inst_n_123;
-  wire vga_block_v1_0_S00_AXI_inst_n_124;
-  wire vga_block_v1_0_S00_AXI_inst_n_125;
-  wire vga_block_v1_0_S00_AXI_inst_n_126;
-  wire vga_block_v1_0_S00_AXI_inst_n_127;
-  wire vga_block_v1_0_S00_AXI_inst_n_128;
   wire vga_block_v1_0_S00_AXI_inst_n_129;
   wire vga_block_v1_0_S00_AXI_inst_n_13;
   wire vga_block_v1_0_S00_AXI_inst_n_130;
   wire vga_block_v1_0_S00_AXI_inst_n_131;
+  wire vga_block_v1_0_S00_AXI_inst_n_132;
+  wire vga_block_v1_0_S00_AXI_inst_n_133;
+  wire vga_block_v1_0_S00_AXI_inst_n_134;
+  wire vga_block_v1_0_S00_AXI_inst_n_135;
+  wire vga_block_v1_0_S00_AXI_inst_n_136;
+  wire vga_block_v1_0_S00_AXI_inst_n_137;
+  wire vga_block_v1_0_S00_AXI_inst_n_138;
+  wire vga_block_v1_0_S00_AXI_inst_n_139;
   wire vga_block_v1_0_S00_AXI_inst_n_14;
   wire vga_block_v1_0_S00_AXI_inst_n_140;
   wire vga_block_v1_0_S00_AXI_inst_n_141;
@@ -1107,18 +1250,7 @@ module uC_vga_block_0_0_vga_block_v1_0
   wire vga_block_v1_0_S00_AXI_inst_n_159;
   wire vga_block_v1_0_S00_AXI_inst_n_16;
   wire vga_block_v1_0_S00_AXI_inst_n_160;
-  wire vga_block_v1_0_S00_AXI_inst_n_161;
-  wire vga_block_v1_0_S00_AXI_inst_n_162;
-  wire vga_block_v1_0_S00_AXI_inst_n_163;
-  wire vga_block_v1_0_S00_AXI_inst_n_164;
-  wire vga_block_v1_0_S00_AXI_inst_n_165;
-  wire vga_block_v1_0_S00_AXI_inst_n_166;
-  wire vga_block_v1_0_S00_AXI_inst_n_167;
-  wire vga_block_v1_0_S00_AXI_inst_n_168;
-  wire vga_block_v1_0_S00_AXI_inst_n_169;
   wire vga_block_v1_0_S00_AXI_inst_n_17;
-  wire vga_block_v1_0_S00_AXI_inst_n_170;
-  wire vga_block_v1_0_S00_AXI_inst_n_171;
   wire vga_block_v1_0_S00_AXI_inst_n_18;
   wire vga_block_v1_0_S00_AXI_inst_n_19;
   wire vga_block_v1_0_S00_AXI_inst_n_20;
@@ -1262,25 +1394,25 @@ module uC_vga_block_0_0_vga_block_v1_0
     .INIT(4'h9)) 
     _carry__0_i_1
        (.I0(hcount_delay[7]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_152),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_141),
         .O(_carry__0_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry__0_i_2
        (.I0(hcount_delay[6]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_153),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_142),
         .O(_carry__0_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry__0_i_3
        (.I0(hcount_delay[5]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_154),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_143),
         .O(_carry__0_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry__0_i_4
        (.I0(hcount_delay[4]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_155),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_144),
         .O(_carry__0_i_4_n_0));
   CARRY4 _carry__1
        (.CI(_carry__0_n_0),
@@ -1293,43 +1425,43 @@ module uC_vga_block_0_0_vga_block_v1_0
     .INIT(4'h9)) 
     _carry__1_i_1
        (.I0(hcount_delay[10]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_156),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_145),
         .O(_carry__1_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry__1_i_2
        (.I0(hcount_delay[9]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_157),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_146),
         .O(_carry__1_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry__1_i_3
        (.I0(hcount_delay[8]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_158),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_147),
         .O(_carry__1_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry_i_1
        (.I0(hcount_delay[3]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_148),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_137),
         .O(_carry_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry_i_2
        (.I0(hcount_delay[2]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_149),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_138),
         .O(_carry_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry_i_3
        (.I0(hcount_delay[1]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_150),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_139),
         .O(_carry_i_3_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     _carry_i_4
        (.I0(hcount_delay[0]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_151),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_140),
         .O(_carry_i_4_n_0));
   CARRY4 \_inferred__0/i__carry 
        (.CI(1'b0),
@@ -1512,43 +1644,43 @@ module uC_vga_block_0_0_vga_block_v1_0
     .INIT(4'h9)) 
     i__carry__0_i_1__2
        (.I0(vcount_delay[7]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_163),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_152),
         .O(i__carry__0_i_1__2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     i__carry__0_i_2__0
        (.I0(vcount_delay[6]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_164),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_153),
         .O(i__carry__0_i_2__0_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     i__carry__0_i_3__0
        (.I0(vcount_delay[5]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_165),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_154),
         .O(i__carry__0_i_3__0_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     i__carry__0_i_4__0
        (.I0(vcount_delay[4]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_166),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_155),
         .O(i__carry__0_i_4__0_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     i__carry__1_i_1
        (.I0(vcount_delay[10]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_167),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_156),
         .O(i__carry__1_i_1_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     i__carry__1_i_2
        (.I0(vcount_delay[9]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_168),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_157),
         .O(i__carry__1_i_2_n_0));
   LUT2 #(
     .INIT(4'h9)) 
     i__carry__1_i_3
        (.I0(vcount_delay[8]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_169),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_158),
         .O(i__carry__1_i_3_n_0));
   LUT5 #(
     .INIT(32'h09000009)) 
@@ -1572,15 +1704,15 @@ module uC_vga_block_0_0_vga_block_v1_0
     .INIT(4'h9)) 
     i__carry_i_1__2
        (.I0(vcount_delay[3]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_159),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_148),
         .O(i__carry_i_1__2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_2__0
-       (.I0(hcount_delay[6]),
-        .I1(interrupt20_in[6]),
-        .I2(hcount_delay[7]),
-        .I3(interrupt20_in[7]),
+       (.I0(hcount_delay[7]),
+        .I1(interrupt20_in[7]),
+        .I2(hcount_delay[6]),
+        .I3(interrupt20_in[6]),
         .I4(interrupt20_in[8]),
         .I5(hcount_delay[8]),
         .O(i__carry_i_2__0_n_0));
@@ -1598,7 +1730,7 @@ module uC_vga_block_0_0_vga_block_v1_0
     .INIT(4'h9)) 
     i__carry_i_2__2
        (.I0(vcount_delay[2]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_160),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_149),
         .O(i__carry_i_2__2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -1624,17 +1756,17 @@ module uC_vga_block_0_0_vga_block_v1_0
     .INIT(4'h9)) 
     i__carry_i_3__2
        (.I0(vcount_delay[1]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_161),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_150),
         .O(i__carry_i_3__2_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     i__carry_i_4__0
-       (.I0(hcount_delay[1]),
-        .I1(interrupt20_in[1]),
+       (.I0(hcount_delay[2]),
+        .I1(interrupt20_in[2]),
         .I2(hcount_delay[0]),
         .I3(interrupt20_in[0]),
-        .I4(interrupt20_in[2]),
-        .I5(hcount_delay[2]),
+        .I4(interrupt20_in[1]),
+        .I5(hcount_delay[1]),
         .O(i__carry_i_4__0_n_0));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
@@ -1650,7 +1782,7 @@ module uC_vga_block_0_0_vga_block_v1_0
     .INIT(4'h9)) 
     i__carry_i_4__2
        (.I0(vcount_delay[0]),
-        .I1(vga_block_v1_0_S00_AXI_inst_n_162),
+        .I1(vga_block_v1_0_S00_AXI_inst_n_151),
         .O(i__carry_i_4__2_n_0));
   CARRY4 interrupt1_carry
        (.CI(1'b0),
@@ -1658,7 +1790,7 @@ module uC_vga_block_0_0_vga_block_v1_0
         .CYINIT(1'b1),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(NLW_interrupt1_carry_O_UNCONNECTED[3:0]),
-        .S({vga_block_v1_0_S00_AXI_inst_n_54,vga_block_v1_0_S00_AXI_inst_n_55,vga_block_v1_0_S00_AXI_inst_n_56,vga_block_v1_0_S00_AXI_inst_n_57}));
+        .S({vga_block_v1_0_S00_AXI_inst_n_55,vga_block_v1_0_S00_AXI_inst_n_56,vga_block_v1_0_S00_AXI_inst_n_57,vga_block_v1_0_S00_AXI_inst_n_58}));
   CARRY4 interrupt1_carry__0
        (.CI(interrupt1_carry_n_0),
         .CO({interrupt1_carry__0_n_0,interrupt1_carry__0_n_1,interrupt1_carry__0_n_2,interrupt1_carry__0_n_3}),
@@ -1686,33 +1818,33 @@ module uC_vga_block_0_0_vga_block_v1_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_interrupt1_inferred__0/i__carry__0_O_UNCONNECTED [3:0]),
-        .S({vga_block_v1_0_S00_AXI_inst_n_170,vga_block_v1_0_S00_AXI_inst_n_170,vga_block_v1_0_S00_AXI_inst_n_170,vga_block_v1_0_S00_AXI_inst_n_170}));
+        .S({vga_block_v1_0_S00_AXI_inst_n_159,vga_block_v1_0_S00_AXI_inst_n_159,vga_block_v1_0_S00_AXI_inst_n_159,vga_block_v1_0_S00_AXI_inst_n_159}));
   CARRY4 \interrupt1_inferred__0/i__carry__1 
        (.CI(\interrupt1_inferred__0/i__carry__0_n_0 ),
         .CO({\NLW_interrupt1_inferred__0/i__carry__1_CO_UNCONNECTED [3],interrupt11_out,\interrupt1_inferred__0/i__carry__1_n_2 ,\interrupt1_inferred__0/i__carry__1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_interrupt1_inferred__0/i__carry__1_O_UNCONNECTED [3:0]),
-        .S({1'b0,vga_block_v1_0_S00_AXI_inst_n_170,vga_block_v1_0_S00_AXI_inst_n_170,vga_block_v1_0_S00_AXI_inst_n_170}));
+        .S({1'b0,vga_block_v1_0_S00_AXI_inst_n_159,vga_block_v1_0_S00_AXI_inst_n_159,vga_block_v1_0_S00_AXI_inst_n_159}));
   CARRY4 interrupt2_carry
        (.CI(1'b0),
         .CO({interrupt2_carry_n_0,interrupt2_carry_n_1,interrupt2_carry_n_2,interrupt2_carry_n_3}),
         .CYINIT(1'b1),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_62,vga_block_v1_0_S00_AXI_inst_n_63,vga_block_v1_0_S00_AXI_inst_n_64,vga_block_v1_0_S00_AXI_inst_n_65}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_63,vga_block_v1_0_S00_AXI_inst_n_64,vga_block_v1_0_S00_AXI_inst_n_65,vga_block_v1_0_S00_AXI_inst_n_66}),
         .O(interrupt20_in[3:0]),
         .S({vga_block_v1_0_S00_AXI_inst_n_27,vga_block_v1_0_S00_AXI_inst_n_28,vga_block_v1_0_S00_AXI_inst_n_29,vga_block_v1_0_S00_AXI_inst_n_30}));
   CARRY4 interrupt2_carry__0
        (.CI(interrupt2_carry_n_0),
         .CO({interrupt2_carry__0_n_0,interrupt2_carry__0_n_1,interrupt2_carry__0_n_2,interrupt2_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_116,vga_block_v1_0_S00_AXI_inst_n_117,vga_block_v1_0_S00_AXI_inst_n_118,vga_block_v1_0_S00_AXI_inst_n_119}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_105,vga_block_v1_0_S00_AXI_inst_n_106,vga_block_v1_0_S00_AXI_inst_n_107,vga_block_v1_0_S00_AXI_inst_n_108}),
         .O(interrupt20_in[7:4]),
         .S({vga_block_v1_0_S00_AXI_inst_n_23,vga_block_v1_0_S00_AXI_inst_n_24,vga_block_v1_0_S00_AXI_inst_n_25,vga_block_v1_0_S00_AXI_inst_n_26}));
   CARRY4 interrupt2_carry__1
        (.CI(interrupt2_carry__0_n_0),
         .CO({interrupt2_carry__1_n_0,interrupt2_carry__1_n_1,interrupt2_carry__1_n_2,interrupt2_carry__1_n_3}),
         .CYINIT(1'b0),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_120,vga_block_v1_0_S00_AXI_inst_n_121,vga_block_v1_0_S00_AXI_inst_n_122,vga_block_v1_0_S00_AXI_inst_n_123}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_109,vga_block_v1_0_S00_AXI_inst_n_110,vga_block_v1_0_S00_AXI_inst_n_111,vga_block_v1_0_S00_AXI_inst_n_112}),
         .O(interrupt20_in[11:8]),
         .S({vga_block_v1_0_S00_AXI_inst_n_19,vga_block_v1_0_S00_AXI_inst_n_20,vga_block_v1_0_S00_AXI_inst_n_21,vga_block_v1_0_S00_AXI_inst_n_22}));
   CARRY4 \interrupt2_inferred__0/i__carry 
@@ -1728,59 +1860,59 @@ module uC_vga_block_0_0_vga_block_v1_0
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_interrupt2_inferred__0/i__carry__0_O_UNCONNECTED [3:0]),
-        .S({vga_block_v1_0_S00_AXI_inst_n_171,vga_block_v1_0_S00_AXI_inst_n_171,vga_block_v1_0_S00_AXI_inst_n_171,vga_block_v1_0_S00_AXI_inst_n_171}));
+        .S({vga_block_v1_0_S00_AXI_inst_n_160,vga_block_v1_0_S00_AXI_inst_n_160,vga_block_v1_0_S00_AXI_inst_n_160,vga_block_v1_0_S00_AXI_inst_n_160}));
   CARRY4 \interrupt2_inferred__0/i__carry__1 
        (.CI(\interrupt2_inferred__0/i__carry__0_n_0 ),
         .CO({\NLW_interrupt2_inferred__0/i__carry__1_CO_UNCONNECTED [3],interrupt2,\interrupt2_inferred__0/i__carry__1_n_2 ,\interrupt2_inferred__0/i__carry__1_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(\NLW_interrupt2_inferred__0/i__carry__1_O_UNCONNECTED [3:0]),
-        .S({1'b0,vga_block_v1_0_S00_AXI_inst_n_171,vga_block_v1_0_S00_AXI_inst_n_171,vga_block_v1_0_S00_AXI_inst_n_171}));
+        .S({1'b0,vga_block_v1_0_S00_AXI_inst_n_160,vga_block_v1_0_S00_AXI_inst_n_160,vga_block_v1_0_S00_AXI_inst_n_160}));
   CARRY4 interrupt3_carry
        (.CI(1'b0),
         .CO({interrupt3_carry_n_0,interrupt3_carry_n_1,interrupt3_carry_n_2,interrupt3_carry_n_3}),
         .CYINIT(1'b1),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_58,vga_block_v1_0_S00_AXI_inst_n_59,vga_block_v1_0_S00_AXI_inst_n_60,vga_block_v1_0_S00_AXI_inst_n_61}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_59,vga_block_v1_0_S00_AXI_inst_n_60,vga_block_v1_0_S00_AXI_inst_n_61,vga_block_v1_0_S00_AXI_inst_n_62}),
         .O(interrupt3[3:0]),
         .S({vga_block_v1_0_S00_AXI_inst_n_15,vga_block_v1_0_S00_AXI_inst_n_16,vga_block_v1_0_S00_AXI_inst_n_17,vga_block_v1_0_S00_AXI_inst_n_18}));
   CARRY4 interrupt3_carry__0
        (.CI(interrupt3_carry_n_0),
         .CO({interrupt3_carry__0_n_0,interrupt3_carry__0_n_1,interrupt3_carry__0_n_2,interrupt3_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_124,vga_block_v1_0_S00_AXI_inst_n_125,vga_block_v1_0_S00_AXI_inst_n_126,vga_block_v1_0_S00_AXI_inst_n_127}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_113,vga_block_v1_0_S00_AXI_inst_n_114,vga_block_v1_0_S00_AXI_inst_n_115,vga_block_v1_0_S00_AXI_inst_n_116}),
         .O(interrupt3[7:4]),
         .S({vga_block_v1_0_S00_AXI_inst_n_11,vga_block_v1_0_S00_AXI_inst_n_12,vga_block_v1_0_S00_AXI_inst_n_13,vga_block_v1_0_S00_AXI_inst_n_14}));
   CARRY4 interrupt3_carry__1
        (.CI(interrupt3_carry__0_n_0),
         .CO({interrupt3_carry__1_n_0,interrupt3_carry__1_n_1,interrupt3_carry__1_n_2,interrupt3_carry__1_n_3}),
         .CYINIT(1'b0),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_128,vga_block_v1_0_S00_AXI_inst_n_129,vga_block_v1_0_S00_AXI_inst_n_130,vga_block_v1_0_S00_AXI_inst_n_131}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_117,vga_block_v1_0_S00_AXI_inst_n_118,vga_block_v1_0_S00_AXI_inst_n_119,vga_block_v1_0_S00_AXI_inst_n_120}),
         .O(interrupt3[11:8]),
         .S({vga_block_v1_0_S00_AXI_inst_n_6,vga_block_v1_0_S00_AXI_inst_n_7,vga_block_v1_0_S00_AXI_inst_n_8,vga_block_v1_0_S00_AXI_inst_n_9}));
   LUT5 #(
     .INIT(32'h00000080)) 
     interrupt_i_3
-       (.I0(vcount_delay[0]),
+       (.I0(vcount_delay[1]),
         .I1(vcount_delay[6]),
         .I2(vcount_delay[2]),
         .I3(interrupt_i_5_n_0),
         .I4(interrupt_i_6_n_0),
         .O(interrupt_i_3_n_0));
   LUT4 #(
-    .INIT(16'h7FFF)) 
+    .INIT(16'hDFFF)) 
     interrupt_i_5
-       (.I0(vcount_delay[7]),
-        .I1(vcount_delay[5]),
+       (.I0(vcount_delay[3]),
+        .I1(vcount_delay[10]),
         .I2(vcount_delay[8]),
-        .I3(vcount_delay[1]),
+        .I3(vcount_delay[5]),
         .O(interrupt_i_5_n_0));
   LUT4 #(
-    .INIT(16'hDFFF)) 
+    .INIT(16'h7FFF)) 
     interrupt_i_6
        (.I0(vcount_delay[9]),
-        .I1(vcount_delay[10]),
+        .I1(vcount_delay[7]),
         .I2(vcount_delay[4]),
-        .I3(vcount_delay[3]),
+        .I3(vcount_delay[0]),
         .O(interrupt_i_6_n_0));
   FDRE interrupt_reg
        (.C(s00_axis_aclk),
@@ -1906,138 +2038,140 @@ module uC_vga_block_0_0_vga_block_v1_0
        (.CI(1'b0),
         .CO({rgb_out3_carry_n_0,rgb_out3_carry_n_1,rgb_out3_carry_n_2,rgb_out3_carry_n_3}),
         .CYINIT(1'b1),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_82,vga_block_v1_0_S00_AXI_inst_n_83,vga_block_v1_0_S00_AXI_inst_n_84,vga_block_v1_0_S00_AXI_inst_n_85}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_71,vga_block_v1_0_S00_AXI_inst_n_72,vga_block_v1_0_S00_AXI_inst_n_73,vga_block_v1_0_S00_AXI_inst_n_74}),
         .O(NLW_rgb_out3_carry_O_UNCONNECTED[3:0]),
-        .S({vga_block_v1_0_S00_AXI_inst_n_140,vga_block_v1_0_S00_AXI_inst_n_141,vga_block_v1_0_S00_AXI_inst_n_142,vga_block_v1_0_S00_AXI_inst_n_143}));
+        .S({vga_block_v1_0_S00_AXI_inst_n_129,vga_block_v1_0_S00_AXI_inst_n_130,vga_block_v1_0_S00_AXI_inst_n_131,vga_block_v1_0_S00_AXI_inst_n_132}));
   CARRY4 rgb_out3_carry__0
        (.CI(rgb_out3_carry_n_0),
         .CO({rgb_out3_carry__0_n_0,rgb_out3_carry__0_n_1,rgb_out3_carry__0_n_2,rgb_out3_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_94,vga_block_v1_0_S00_AXI_inst_n_95,vga_block_v1_0_S00_AXI_inst_n_96,vga_block_v1_0_S00_AXI_inst_n_97}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_83,vga_block_v1_0_S00_AXI_inst_n_84,vga_block_v1_0_S00_AXI_inst_n_85,vga_block_v1_0_S00_AXI_inst_n_86}),
         .O(NLW_rgb_out3_carry__0_O_UNCONNECTED[3:0]),
-        .S({slv_reg0,slv_reg0,vga_block_v1_0_S00_AXI_inst_n_102,vga_block_v1_0_S00_AXI_inst_n_103}));
+        .S({slv_reg0,slv_reg0,vga_block_v1_0_S00_AXI_inst_n_91,vga_block_v1_0_S00_AXI_inst_n_92}));
   CARRY4 rgb_out3_carry__1
        (.CI(rgb_out3_carry__0_n_0),
         .CO({rgb_out3_carry__1_n_0,rgb_out3_carry__1_n_1,rgb_out3_carry__1_n_2,rgb_out3_carry__1_n_3}),
         .CYINIT(1'b0),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_144,vga_block_v1_0_S00_AXI_inst_n_145,vga_block_v1_0_S00_AXI_inst_n_146,vga_block_v1_0_S00_AXI_inst_n_147}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_133,vga_block_v1_0_S00_AXI_inst_n_134,vga_block_v1_0_S00_AXI_inst_n_135,vga_block_v1_0_S00_AXI_inst_n_136}),
         .O(NLW_rgb_out3_carry__1_O_UNCONNECTED[3:0]),
         .S({slv_reg0,slv_reg0,slv_reg0,slv_reg0}));
   CARRY4 rgb_out3_carry__2
        (.CI(rgb_out3_carry__1_n_0),
         .CO({rgb_out3,rgb_out3_carry__2_n_1,rgb_out3_carry__2_n_2,rgb_out3_carry__2_n_3}),
         .CYINIT(1'b0),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_98,vga_block_v1_0_S00_AXI_inst_n_99,vga_block_v1_0_S00_AXI_inst_n_100,vga_block_v1_0_S00_AXI_inst_n_101}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_87,vga_block_v1_0_S00_AXI_inst_n_88,vga_block_v1_0_S00_AXI_inst_n_89,vga_block_v1_0_S00_AXI_inst_n_90}),
         .O(NLW_rgb_out3_carry__2_O_UNCONNECTED[3:0]),
         .S({slv_reg0,slv_reg0,slv_reg0,slv_reg0}));
   CARRY4 \rgb_out4_inferred__1/i__carry 
        (.CI(1'b0),
         .CO({\rgb_out4_inferred__1/i__carry_n_0 ,\rgb_out4_inferred__1/i__carry_n_1 ,\rgb_out4_inferred__1/i__carry_n_2 ,\rgb_out4_inferred__1/i__carry_n_3 }),
         .CYINIT(1'b1),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_86,vga_block_v1_0_S00_AXI_inst_n_87,vga_block_v1_0_S00_AXI_inst_n_88,vga_block_v1_0_S00_AXI_inst_n_89}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_75,vga_block_v1_0_S00_AXI_inst_n_76,vga_block_v1_0_S00_AXI_inst_n_77,vga_block_v1_0_S00_AXI_inst_n_78}),
         .O(\NLW_rgb_out4_inferred__1/i__carry_O_UNCONNECTED [3:0]),
-        .S({vga_block_v1_0_S00_AXI_inst_n_78,vga_block_v1_0_S00_AXI_inst_n_79,vga_block_v1_0_S00_AXI_inst_n_80,vga_block_v1_0_S00_AXI_inst_n_81}));
+        .S({vga_block_v1_0_S00_AXI_inst_n_67,vga_block_v1_0_S00_AXI_inst_n_68,vga_block_v1_0_S00_AXI_inst_n_69,vga_block_v1_0_S00_AXI_inst_n_70}));
   CARRY4 \rgb_out4_inferred__1/i__carry__0 
        (.CI(\rgb_out4_inferred__1/i__carry_n_0 ),
         .CO({\NLW_rgb_out4_inferred__1/i__carry__0_CO_UNCONNECTED [3:2],rgb_out45_in,\rgb_out4_inferred__1/i__carry__0_n_3 }),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_90,vga_block_v1_0_S00_AXI_inst_n_91}),
+        .DI({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_79,vga_block_v1_0_S00_AXI_inst_n_80}),
         .O(\NLW_rgb_out4_inferred__1/i__carry__0_O_UNCONNECTED [3:0]),
-        .S({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_92,vga_block_v1_0_S00_AXI_inst_n_93}));
+        .S({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_81,vga_block_v1_0_S00_AXI_inst_n_82}));
   CARRY4 rgb_out5_carry
        (.CI(1'b0),
         .CO({rgb_out5_carry_n_0,rgb_out5_carry_n_1,rgb_out5_carry_n_2,rgb_out5_carry_n_3}),
         .CYINIT(1'b1),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_108,vga_block_v1_0_S00_AXI_inst_n_109,vga_block_v1_0_S00_AXI_inst_n_110,vga_block_v1_0_S00_AXI_inst_n_111}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_97,vga_block_v1_0_S00_AXI_inst_n_98,vga_block_v1_0_S00_AXI_inst_n_99,vga_block_v1_0_S00_AXI_inst_n_100}),
         .O(NLW_rgb_out5_carry_O_UNCONNECTED[3:0]),
-        .S({vga_block_v1_0_S00_AXI_inst_n_104,vga_block_v1_0_S00_AXI_inst_n_105,vga_block_v1_0_S00_AXI_inst_n_106,vga_block_v1_0_S00_AXI_inst_n_107}));
+        .S({vga_block_v1_0_S00_AXI_inst_n_93,vga_block_v1_0_S00_AXI_inst_n_94,vga_block_v1_0_S00_AXI_inst_n_95,vga_block_v1_0_S00_AXI_inst_n_96}));
   CARRY4 rgb_out5_carry__0
        (.CI(rgb_out5_carry_n_0),
         .CO({NLW_rgb_out5_carry__0_CO_UNCONNECTED[3:2],rgb_out54_in,rgb_out5_carry__0_n_3}),
         .CYINIT(1'b0),
-        .DI({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_114,vga_block_v1_0_S00_AXI_inst_n_115}),
+        .DI({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_103,vga_block_v1_0_S00_AXI_inst_n_104}),
         .O(NLW_rgb_out5_carry__0_O_UNCONNECTED[3:0]),
-        .S({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_112,vga_block_v1_0_S00_AXI_inst_n_113}));
+        .S({1'b0,1'b0,vga_block_v1_0_S00_AXI_inst_n_101,vga_block_v1_0_S00_AXI_inst_n_102}));
   FDRE \rgb_out_reg[0] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_77),
+        .D(u_ram_n_11),
         .Q(rgb_out[0]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[10] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_67),
+        .D(u_ram_n_1),
         .Q(rgb_out[10]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[11] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_66),
+        .D(u_ram_n_0),
         .Q(rgb_out[11]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[1] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_76),
+        .D(u_ram_n_10),
         .Q(rgb_out[1]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[2] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_75),
+        .D(u_ram_n_9),
         .Q(rgb_out[2]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[3] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_74),
+        .D(u_ram_n_8),
         .Q(rgb_out[3]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[4] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_73),
+        .D(u_ram_n_7),
         .Q(rgb_out[4]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[5] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_72),
+        .D(u_ram_n_6),
         .Q(rgb_out[5]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[6] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_71),
+        .D(u_ram_n_5),
         .Q(rgb_out[6]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[7] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_70),
+        .D(u_ram_n_4),
         .Q(rgb_out[7]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[8] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_69),
+        .D(u_ram_n_3),
         .Q(rgb_out[8]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   FDRE \rgb_out_reg[9] 
        (.C(s00_axis_aclk),
         .CE(1'b1),
-        .D(vga_block_v1_0_S00_AXI_inst_n_68),
+        .D(u_ram_n_2),
         .Q(rgb_out[9]),
         .R(vga_block_v1_0_S00_AXI_inst_n_1));
   uC_vga_block_0_0_ram u_ram
        (.ADDRA({ram_addry[2:0],pixel_addr0[3:1]}),
+        .D({u_ram_n_0,u_ram_n_1,u_ram_n_2,u_ram_n_3,u_ram_n_4,u_ram_n_5,u_ram_n_6,u_ram_n_7,u_ram_n_8,u_ram_n_9,u_ram_n_10,u_ram_n_11}),
         .Q({rom_data[27:16],rom_data[11:0]}),
         .out({vga_block_v1_0_S00_AXIS_inst_n_27,vga_block_v1_0_S00_AXIS_inst_n_28,vga_block_v1_0_S00_AXIS_inst_n_29,vga_block_v1_0_S00_AXIS_inst_n_30,vga_block_v1_0_S00_AXIS_inst_n_31,vga_block_v1_0_S00_AXIS_inst_n_32}),
         .pixel_addr0(pixel_addr0[0]),
         .ram_addry(ram_addry[3]),
-        .\rgb_out_reg[11] (rgb),
+        .\rgb_delay_reg[11] (rgb_delay),
         .s00_axis_aclk(s00_axis_aclk),
+        .\slv_reg0_reg[26] (vga_block_v1_0_S00_AXI_inst_n_54),
         .write_enable(write_enable),
         .write_enable_reg(vga_block_v1_0_S00_AXIS_inst_n_1),
         .write_enable_reg_0(vga_block_v1_0_S00_AXIS_inst_n_2));
@@ -2189,7 +2323,7 @@ module uC_vga_block_0_0_vga_block_v1_0
        (.Q({rom_data[27:16],rom_data[11:0]}),
         .out({vga_block_v1_0_S00_AXIS_inst_n_27,vga_block_v1_0_S00_AXIS_inst_n_28,vga_block_v1_0_S00_AXIS_inst_n_29,vga_block_v1_0_S00_AXIS_inst_n_30,vga_block_v1_0_S00_AXIS_inst_n_31,vga_block_v1_0_S00_AXIS_inst_n_32}),
         .\rgb_reg[0] (vga_block_v1_0_S00_AXIS_inst_n_2),
-        .\rgb_reg[9] (vga_block_v1_0_S00_AXIS_inst_n_1),
+        .\rgb_reg[6] (vga_block_v1_0_S00_AXIS_inst_n_1),
         .s00_axis_aclk(s00_axis_aclk),
         .s00_axis_aresetn(s00_axis_aresetn),
         .s00_axis_tdata(s00_axis_tdata),
@@ -2199,9 +2333,8 @@ module uC_vga_block_0_0_vga_block_v1_0
   uC_vga_block_0_0_vga_block_v1_0_S00_AXI vga_block_v1_0_S00_AXI_inst
        (.ADDRA({ram_addry[2:0],pixel_addr0[3:1]}),
         .CO(\_inferred__0/i__carry__1_n_1 ),
-        .D({vga_block_v1_0_S00_AXI_inst_n_66,vga_block_v1_0_S00_AXI_inst_n_67,vga_block_v1_0_S00_AXI_inst_n_68,vga_block_v1_0_S00_AXI_inst_n_69,vga_block_v1_0_S00_AXI_inst_n_70,vga_block_v1_0_S00_AXI_inst_n_71,vga_block_v1_0_S00_AXI_inst_n_72,vga_block_v1_0_S00_AXI_inst_n_73,vga_block_v1_0_S00_AXI_inst_n_74,vga_block_v1_0_S00_AXI_inst_n_75,vga_block_v1_0_S00_AXI_inst_n_76,vga_block_v1_0_S00_AXI_inst_n_77}),
-        .DI({vga_block_v1_0_S00_AXI_inst_n_58,vga_block_v1_0_S00_AXI_inst_n_59,vga_block_v1_0_S00_AXI_inst_n_60,vga_block_v1_0_S00_AXI_inst_n_61}),
-        .O({vga_block_v1_0_S00_AXI_inst_n_148,vga_block_v1_0_S00_AXI_inst_n_149,vga_block_v1_0_S00_AXI_inst_n_150,vga_block_v1_0_S00_AXI_inst_n_151}),
+        .DI({vga_block_v1_0_S00_AXI_inst_n_59,vga_block_v1_0_S00_AXI_inst_n_60,vga_block_v1_0_S00_AXI_inst_n_61,vga_block_v1_0_S00_AXI_inst_n_62}),
+        .O({vga_block_v1_0_S00_AXI_inst_n_137,vga_block_v1_0_S00_AXI_inst_n_138,vga_block_v1_0_S00_AXI_inst_n_139,vga_block_v1_0_S00_AXI_inst_n_140}),
         .Q(slv_reg0),
         .S({vga_block_v1_0_S00_AXI_inst_n_6,vga_block_v1_0_S00_AXI_inst_n_7,vga_block_v1_0_S00_AXI_inst_n_8,vga_block_v1_0_S00_AXI_inst_n_9}),
         .SR(vga_block_v1_0_S00_AXI_inst_n_1),
@@ -2214,48 +2347,47 @@ module uC_vga_block_0_0_vga_block_v1_0
         .interrupt_reg({vga_block_v1_0_S00_AXI_inst_n_11,vga_block_v1_0_S00_AXI_inst_n_12,vga_block_v1_0_S00_AXI_inst_n_13,vga_block_v1_0_S00_AXI_inst_n_14}),
         .interrupt_reg_0({vga_block_v1_0_S00_AXI_inst_n_15,vga_block_v1_0_S00_AXI_inst_n_16,vga_block_v1_0_S00_AXI_inst_n_17,vga_block_v1_0_S00_AXI_inst_n_18}),
         .interrupt_reg_1({vga_block_v1_0_S00_AXI_inst_n_19,vga_block_v1_0_S00_AXI_inst_n_20,vga_block_v1_0_S00_AXI_inst_n_21,vga_block_v1_0_S00_AXI_inst_n_22}),
-        .interrupt_reg_10({vga_block_v1_0_S00_AXI_inst_n_128,vga_block_v1_0_S00_AXI_inst_n_129,vga_block_v1_0_S00_AXI_inst_n_130,vga_block_v1_0_S00_AXI_inst_n_131}),
-        .interrupt_reg_11(vga_block_v1_0_S00_AXI_inst_n_170),
-        .interrupt_reg_12(vga_block_v1_0_S00_AXI_inst_n_171),
+        .interrupt_reg_10({vga_block_v1_0_S00_AXI_inst_n_75,vga_block_v1_0_S00_AXI_inst_n_76,vga_block_v1_0_S00_AXI_inst_n_77,vga_block_v1_0_S00_AXI_inst_n_78}),
+        .interrupt_reg_11({vga_block_v1_0_S00_AXI_inst_n_79,vga_block_v1_0_S00_AXI_inst_n_80}),
+        .interrupt_reg_12({vga_block_v1_0_S00_AXI_inst_n_81,vga_block_v1_0_S00_AXI_inst_n_82}),
+        .interrupt_reg_13({vga_block_v1_0_S00_AXI_inst_n_83,vga_block_v1_0_S00_AXI_inst_n_84,vga_block_v1_0_S00_AXI_inst_n_85,vga_block_v1_0_S00_AXI_inst_n_86}),
+        .interrupt_reg_14({vga_block_v1_0_S00_AXI_inst_n_87,vga_block_v1_0_S00_AXI_inst_n_88,vga_block_v1_0_S00_AXI_inst_n_89,vga_block_v1_0_S00_AXI_inst_n_90}),
+        .interrupt_reg_15({vga_block_v1_0_S00_AXI_inst_n_91,vga_block_v1_0_S00_AXI_inst_n_92}),
+        .interrupt_reg_16({vga_block_v1_0_S00_AXI_inst_n_93,vga_block_v1_0_S00_AXI_inst_n_94,vga_block_v1_0_S00_AXI_inst_n_95,vga_block_v1_0_S00_AXI_inst_n_96}),
+        .interrupt_reg_17({vga_block_v1_0_S00_AXI_inst_n_97,vga_block_v1_0_S00_AXI_inst_n_98,vga_block_v1_0_S00_AXI_inst_n_99,vga_block_v1_0_S00_AXI_inst_n_100}),
+        .interrupt_reg_18({vga_block_v1_0_S00_AXI_inst_n_101,vga_block_v1_0_S00_AXI_inst_n_102}),
+        .interrupt_reg_19({vga_block_v1_0_S00_AXI_inst_n_103,vga_block_v1_0_S00_AXI_inst_n_104}),
         .interrupt_reg_2({vga_block_v1_0_S00_AXI_inst_n_23,vga_block_v1_0_S00_AXI_inst_n_24,vga_block_v1_0_S00_AXI_inst_n_25,vga_block_v1_0_S00_AXI_inst_n_26}),
+        .interrupt_reg_20({vga_block_v1_0_S00_AXI_inst_n_105,vga_block_v1_0_S00_AXI_inst_n_106,vga_block_v1_0_S00_AXI_inst_n_107,vga_block_v1_0_S00_AXI_inst_n_108}),
+        .interrupt_reg_21({vga_block_v1_0_S00_AXI_inst_n_109,vga_block_v1_0_S00_AXI_inst_n_110,vga_block_v1_0_S00_AXI_inst_n_111,vga_block_v1_0_S00_AXI_inst_n_112}),
+        .interrupt_reg_22({vga_block_v1_0_S00_AXI_inst_n_113,vga_block_v1_0_S00_AXI_inst_n_114,vga_block_v1_0_S00_AXI_inst_n_115,vga_block_v1_0_S00_AXI_inst_n_116}),
+        .interrupt_reg_23({vga_block_v1_0_S00_AXI_inst_n_117,vga_block_v1_0_S00_AXI_inst_n_118,vga_block_v1_0_S00_AXI_inst_n_119,vga_block_v1_0_S00_AXI_inst_n_120}),
+        .interrupt_reg_24({vga_block_v1_0_S00_AXI_inst_n_129,vga_block_v1_0_S00_AXI_inst_n_130,vga_block_v1_0_S00_AXI_inst_n_131,vga_block_v1_0_S00_AXI_inst_n_132}),
+        .interrupt_reg_25({vga_block_v1_0_S00_AXI_inst_n_133,vga_block_v1_0_S00_AXI_inst_n_134,vga_block_v1_0_S00_AXI_inst_n_135,vga_block_v1_0_S00_AXI_inst_n_136}),
+        .interrupt_reg_26({vga_block_v1_0_S00_AXI_inst_n_141,vga_block_v1_0_S00_AXI_inst_n_142,vga_block_v1_0_S00_AXI_inst_n_143,vga_block_v1_0_S00_AXI_inst_n_144}),
+        .interrupt_reg_27({vga_block_v1_0_S00_AXI_inst_n_145,vga_block_v1_0_S00_AXI_inst_n_146,vga_block_v1_0_S00_AXI_inst_n_147}),
+        .interrupt_reg_28({vga_block_v1_0_S00_AXI_inst_n_148,vga_block_v1_0_S00_AXI_inst_n_149,vga_block_v1_0_S00_AXI_inst_n_150,vga_block_v1_0_S00_AXI_inst_n_151}),
+        .interrupt_reg_29({vga_block_v1_0_S00_AXI_inst_n_152,vga_block_v1_0_S00_AXI_inst_n_153,vga_block_v1_0_S00_AXI_inst_n_154,vga_block_v1_0_S00_AXI_inst_n_155}),
         .interrupt_reg_3({vga_block_v1_0_S00_AXI_inst_n_27,vga_block_v1_0_S00_AXI_inst_n_28,vga_block_v1_0_S00_AXI_inst_n_29,vga_block_v1_0_S00_AXI_inst_n_30}),
+        .interrupt_reg_30({vga_block_v1_0_S00_AXI_inst_n_156,vga_block_v1_0_S00_AXI_inst_n_157,vga_block_v1_0_S00_AXI_inst_n_158}),
+        .interrupt_reg_31(vga_block_v1_0_S00_AXI_inst_n_159),
+        .interrupt_reg_32(vga_block_v1_0_S00_AXI_inst_n_160),
         .interrupt_reg_4(vga_block_v1_0_S00_AXI_inst_n_53),
-        .interrupt_reg_5({vga_block_v1_0_S00_AXI_inst_n_54,vga_block_v1_0_S00_AXI_inst_n_55,vga_block_v1_0_S00_AXI_inst_n_56,vga_block_v1_0_S00_AXI_inst_n_57}),
-        .interrupt_reg_6({vga_block_v1_0_S00_AXI_inst_n_62,vga_block_v1_0_S00_AXI_inst_n_63,vga_block_v1_0_S00_AXI_inst_n_64,vga_block_v1_0_S00_AXI_inst_n_65}),
-        .interrupt_reg_7({vga_block_v1_0_S00_AXI_inst_n_116,vga_block_v1_0_S00_AXI_inst_n_117,vga_block_v1_0_S00_AXI_inst_n_118,vga_block_v1_0_S00_AXI_inst_n_119}),
-        .interrupt_reg_8({vga_block_v1_0_S00_AXI_inst_n_120,vga_block_v1_0_S00_AXI_inst_n_121,vga_block_v1_0_S00_AXI_inst_n_122,vga_block_v1_0_S00_AXI_inst_n_123}),
-        .interrupt_reg_9({vga_block_v1_0_S00_AXI_inst_n_124,vga_block_v1_0_S00_AXI_inst_n_125,vga_block_v1_0_S00_AXI_inst_n_126,vga_block_v1_0_S00_AXI_inst_n_127}),
+        .interrupt_reg_5(vga_block_v1_0_S00_AXI_inst_n_54),
+        .interrupt_reg_6({vga_block_v1_0_S00_AXI_inst_n_55,vga_block_v1_0_S00_AXI_inst_n_56,vga_block_v1_0_S00_AXI_inst_n_57,vga_block_v1_0_S00_AXI_inst_n_58}),
+        .interrupt_reg_7({vga_block_v1_0_S00_AXI_inst_n_63,vga_block_v1_0_S00_AXI_inst_n_64,vga_block_v1_0_S00_AXI_inst_n_65,vga_block_v1_0_S00_AXI_inst_n_66}),
+        .interrupt_reg_8({vga_block_v1_0_S00_AXI_inst_n_67,vga_block_v1_0_S00_AXI_inst_n_68,vga_block_v1_0_S00_AXI_inst_n_69,vga_block_v1_0_S00_AXI_inst_n_70}),
+        .interrupt_reg_9({vga_block_v1_0_S00_AXI_inst_n_71,vga_block_v1_0_S00_AXI_inst_n_72,vga_block_v1_0_S00_AXI_inst_n_73,vga_block_v1_0_S00_AXI_inst_n_74}),
         .pixel_addr0(pixel_addr0[0]),
         .pixel_addr10_out(pixel_addr10_out),
         .ram_addry(ram_addry[3]),
         .ram_addry1(ram_addry1),
-        .\rgb_delay_reg[11] (rgb_delay),
-        .\rgb_out_reg[11] ({vga_block_v1_0_S00_AXI_inst_n_78,vga_block_v1_0_S00_AXI_inst_n_79,vga_block_v1_0_S00_AXI_inst_n_80,vga_block_v1_0_S00_AXI_inst_n_81}),
-        .\rgb_out_reg[11]_0 ({vga_block_v1_0_S00_AXI_inst_n_82,vga_block_v1_0_S00_AXI_inst_n_83,vga_block_v1_0_S00_AXI_inst_n_84,vga_block_v1_0_S00_AXI_inst_n_85}),
-        .\rgb_out_reg[11]_1 ({vga_block_v1_0_S00_AXI_inst_n_86,vga_block_v1_0_S00_AXI_inst_n_87,vga_block_v1_0_S00_AXI_inst_n_88,vga_block_v1_0_S00_AXI_inst_n_89}),
-        .\rgb_out_reg[11]_10 ({vga_block_v1_0_S00_AXI_inst_n_114,vga_block_v1_0_S00_AXI_inst_n_115}),
-        .\rgb_out_reg[11]_11 ({vga_block_v1_0_S00_AXI_inst_n_140,vga_block_v1_0_S00_AXI_inst_n_141,vga_block_v1_0_S00_AXI_inst_n_142,vga_block_v1_0_S00_AXI_inst_n_143}),
-        .\rgb_out_reg[11]_12 ({vga_block_v1_0_S00_AXI_inst_n_144,vga_block_v1_0_S00_AXI_inst_n_145,vga_block_v1_0_S00_AXI_inst_n_146,vga_block_v1_0_S00_AXI_inst_n_147}),
-        .\rgb_out_reg[11]_13 ({vga_block_v1_0_S00_AXI_inst_n_152,vga_block_v1_0_S00_AXI_inst_n_153,vga_block_v1_0_S00_AXI_inst_n_154,vga_block_v1_0_S00_AXI_inst_n_155}),
-        .\rgb_out_reg[11]_14 ({vga_block_v1_0_S00_AXI_inst_n_156,vga_block_v1_0_S00_AXI_inst_n_157,vga_block_v1_0_S00_AXI_inst_n_158}),
-        .\rgb_out_reg[11]_15 ({vga_block_v1_0_S00_AXI_inst_n_159,vga_block_v1_0_S00_AXI_inst_n_160,vga_block_v1_0_S00_AXI_inst_n_161,vga_block_v1_0_S00_AXI_inst_n_162}),
-        .\rgb_out_reg[11]_16 ({vga_block_v1_0_S00_AXI_inst_n_163,vga_block_v1_0_S00_AXI_inst_n_164,vga_block_v1_0_S00_AXI_inst_n_165,vga_block_v1_0_S00_AXI_inst_n_166}),
-        .\rgb_out_reg[11]_17 ({vga_block_v1_0_S00_AXI_inst_n_167,vga_block_v1_0_S00_AXI_inst_n_168,vga_block_v1_0_S00_AXI_inst_n_169}),
-        .\rgb_out_reg[11]_2 ({vga_block_v1_0_S00_AXI_inst_n_90,vga_block_v1_0_S00_AXI_inst_n_91}),
-        .\rgb_out_reg[11]_3 ({vga_block_v1_0_S00_AXI_inst_n_92,vga_block_v1_0_S00_AXI_inst_n_93}),
-        .\rgb_out_reg[11]_4 ({vga_block_v1_0_S00_AXI_inst_n_94,vga_block_v1_0_S00_AXI_inst_n_95,vga_block_v1_0_S00_AXI_inst_n_96,vga_block_v1_0_S00_AXI_inst_n_97}),
-        .\rgb_out_reg[11]_5 ({vga_block_v1_0_S00_AXI_inst_n_98,vga_block_v1_0_S00_AXI_inst_n_99,vga_block_v1_0_S00_AXI_inst_n_100,vga_block_v1_0_S00_AXI_inst_n_101}),
-        .\rgb_out_reg[11]_6 ({vga_block_v1_0_S00_AXI_inst_n_102,vga_block_v1_0_S00_AXI_inst_n_103}),
-        .\rgb_out_reg[11]_7 ({vga_block_v1_0_S00_AXI_inst_n_104,vga_block_v1_0_S00_AXI_inst_n_105,vga_block_v1_0_S00_AXI_inst_n_106,vga_block_v1_0_S00_AXI_inst_n_107}),
-        .\rgb_out_reg[11]_8 ({vga_block_v1_0_S00_AXI_inst_n_108,vga_block_v1_0_S00_AXI_inst_n_109,vga_block_v1_0_S00_AXI_inst_n_110,vga_block_v1_0_S00_AXI_inst_n_111}),
-        .\rgb_out_reg[11]_9 ({vga_block_v1_0_S00_AXI_inst_n_112,vga_block_v1_0_S00_AXI_inst_n_113}),
         .\rgb_reg[0] ({vga_block_v1_0_S00_AXI_inst_n_31,vga_block_v1_0_S00_AXI_inst_n_32,vga_block_v1_0_S00_AXI_inst_n_33,vga_block_v1_0_S00_AXI_inst_n_34}),
         .\rgb_reg[0]_0 ({vga_block_v1_0_S00_AXI_inst_n_35,vga_block_v1_0_S00_AXI_inst_n_36,vga_block_v1_0_S00_AXI_inst_n_37,vga_block_v1_0_S00_AXI_inst_n_38}),
         .\rgb_reg[0]_1 ({vga_block_v1_0_S00_AXI_inst_n_39,vga_block_v1_0_S00_AXI_inst_n_40,vga_block_v1_0_S00_AXI_inst_n_41}),
         .\rgb_reg[0]_2 ({vga_block_v1_0_S00_AXI_inst_n_42,vga_block_v1_0_S00_AXI_inst_n_43,vga_block_v1_0_S00_AXI_inst_n_44,vga_block_v1_0_S00_AXI_inst_n_45}),
         .\rgb_reg[0]_3 ({vga_block_v1_0_S00_AXI_inst_n_46,vga_block_v1_0_S00_AXI_inst_n_47,vga_block_v1_0_S00_AXI_inst_n_48,vga_block_v1_0_S00_AXI_inst_n_49}),
         .\rgb_reg[0]_4 ({vga_block_v1_0_S00_AXI_inst_n_50,vga_block_v1_0_S00_AXI_inst_n_51,vga_block_v1_0_S00_AXI_inst_n_52}),
-        .\rgb_reg[11] (rgb),
         .s00_axi_aclk(s00_axi_aclk),
         .s00_axi_araddr(s00_axi_araddr),
         .s00_axi_aresetn(s00_axi_aresetn),
@@ -2278,10 +2410,10 @@ module uC_vga_block_0_0_vga_block_v1_0
         .\slv_reg0_reg[26]_1 (interrupt1),
         .\slv_reg0_reg[26]_2 (ram_addry1_carry__1_n_0),
         .\slv_reg1_reg[26]_0 (interrupt3_carry__1_n_0),
-        .\vcount_delay_reg[0] (interrupt_i_3_n_0),
         .\vcount_delay_reg[10] (vcount_delay),
         .\vcount_delay_reg[10]_0 (rgb_out45_in),
         .\vcount_delay_reg[10]_1 (interrupt2),
+        .\vcount_delay_reg[1] (interrupt_i_3_n_0),
         .vcount_in(vcount_in));
   FDRE vsync_delay_reg
        (.C(s00_axis_aclk),
@@ -2320,38 +2452,38 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     \rgb_reg[0]_4 ,
     interrupt_reg_4,
     interrupt_reg_5,
-    DI,
     interrupt_reg_6,
-    D,
-    \rgb_out_reg[11] ,
-    \rgb_out_reg[11]_0 ,
-    \rgb_out_reg[11]_1 ,
-    \rgb_out_reg[11]_2 ,
-    \rgb_out_reg[11]_3 ,
-    \rgb_out_reg[11]_4 ,
-    \rgb_out_reg[11]_5 ,
-    \rgb_out_reg[11]_6 ,
-    \rgb_out_reg[11]_7 ,
-    \rgb_out_reg[11]_8 ,
-    \rgb_out_reg[11]_9 ,
-    \rgb_out_reg[11]_10 ,
+    DI,
     interrupt_reg_7,
     interrupt_reg_8,
     interrupt_reg_9,
     interrupt_reg_10,
+    interrupt_reg_11,
+    interrupt_reg_12,
+    interrupt_reg_13,
+    interrupt_reg_14,
+    interrupt_reg_15,
+    interrupt_reg_16,
+    interrupt_reg_17,
+    interrupt_reg_18,
+    interrupt_reg_19,
+    interrupt_reg_20,
+    interrupt_reg_21,
+    interrupt_reg_22,
+    interrupt_reg_23,
     ADDRA,
     ram_addry,
     pixel_addr0,
-    \rgb_out_reg[11]_11 ,
-    \rgb_out_reg[11]_12 ,
+    interrupt_reg_24,
+    interrupt_reg_25,
     O,
-    \rgb_out_reg[11]_13 ,
-    \rgb_out_reg[11]_14 ,
-    \rgb_out_reg[11]_15 ,
-    \rgb_out_reg[11]_16 ,
-    \rgb_out_reg[11]_17 ,
-    interrupt_reg_11,
-    interrupt_reg_12,
+    interrupt_reg_26,
+    interrupt_reg_27,
+    interrupt_reg_28,
+    interrupt_reg_29,
+    interrupt_reg_30,
+    interrupt_reg_31,
+    interrupt_reg_32,
     s00_axi_rdata,
     s00_axi_aclk,
     vcount_in,
@@ -2359,15 +2491,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     interrupt,
     s00_axi_aresetn,
     \vcount_delay_reg[10] ,
-    \rgb_delay_reg[11] ,
-    \rgb_reg[11] ,
     CO,
     \vcount_delay_reg[10]_0 ,
     \slv_reg0_reg[26]_0 ,
     \hcount_delay_reg[10] ,
     \hcount_delay_reg[10]_0 ,
     \vcount_delay_reg[10]_1 ,
-    \vcount_delay_reg[0] ,
+    \vcount_delay_reg[1] ,
     \slv_reg0_reg[26]_1 ,
     \hcount_delay_reg[10]_1 ,
     \hcount_delay_reg[10]_2 ,
@@ -2405,39 +2535,39 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
   output [3:0]\rgb_reg[0]_3 ;
   output [2:0]\rgb_reg[0]_4 ;
   output interrupt_reg_4;
-  output [3:0]interrupt_reg_5;
-  output [3:0]DI;
+  output interrupt_reg_5;
   output [3:0]interrupt_reg_6;
-  output [11:0]D;
-  output [3:0]\rgb_out_reg[11] ;
-  output [3:0]\rgb_out_reg[11]_0 ;
-  output [3:0]\rgb_out_reg[11]_1 ;
-  output [1:0]\rgb_out_reg[11]_2 ;
-  output [1:0]\rgb_out_reg[11]_3 ;
-  output [3:0]\rgb_out_reg[11]_4 ;
-  output [3:0]\rgb_out_reg[11]_5 ;
-  output [1:0]\rgb_out_reg[11]_6 ;
-  output [3:0]\rgb_out_reg[11]_7 ;
-  output [3:0]\rgb_out_reg[11]_8 ;
-  output [1:0]\rgb_out_reg[11]_9 ;
-  output [1:0]\rgb_out_reg[11]_10 ;
+  output [3:0]DI;
   output [3:0]interrupt_reg_7;
   output [3:0]interrupt_reg_8;
   output [3:0]interrupt_reg_9;
   output [3:0]interrupt_reg_10;
+  output [1:0]interrupt_reg_11;
+  output [1:0]interrupt_reg_12;
+  output [3:0]interrupt_reg_13;
+  output [3:0]interrupt_reg_14;
+  output [1:0]interrupt_reg_15;
+  output [3:0]interrupt_reg_16;
+  output [3:0]interrupt_reg_17;
+  output [1:0]interrupt_reg_18;
+  output [1:0]interrupt_reg_19;
+  output [3:0]interrupt_reg_20;
+  output [3:0]interrupt_reg_21;
+  output [3:0]interrupt_reg_22;
+  output [3:0]interrupt_reg_23;
   output [5:0]ADDRA;
   output [0:0]ram_addry;
   output [0:0]pixel_addr0;
-  output [3:0]\rgb_out_reg[11]_11 ;
-  output [3:0]\rgb_out_reg[11]_12 ;
+  output [3:0]interrupt_reg_24;
+  output [3:0]interrupt_reg_25;
   output [3:0]O;
-  output [3:0]\rgb_out_reg[11]_13 ;
-  output [2:0]\rgb_out_reg[11]_14 ;
-  output [3:0]\rgb_out_reg[11]_15 ;
-  output [3:0]\rgb_out_reg[11]_16 ;
-  output [2:0]\rgb_out_reg[11]_17 ;
-  output [0:0]interrupt_reg_11;
-  output [0:0]interrupt_reg_12;
+  output [3:0]interrupt_reg_26;
+  output [2:0]interrupt_reg_27;
+  output [3:0]interrupt_reg_28;
+  output [3:0]interrupt_reg_29;
+  output [2:0]interrupt_reg_30;
+  output [0:0]interrupt_reg_31;
+  output [0:0]interrupt_reg_32;
   output [31:0]s00_axi_rdata;
   input s00_axi_aclk;
   input [10:0]vcount_in;
@@ -2445,15 +2575,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
   input interrupt;
   input s00_axi_aresetn;
   input [10:0]\vcount_delay_reg[10] ;
-  input [11:0]\rgb_delay_reg[11] ;
-  input [11:0]\rgb_reg[11] ;
   input [0:0]CO;
   input [0:0]\vcount_delay_reg[10]_0 ;
   input [0:0]\slv_reg0_reg[26]_0 ;
   input [0:0]\hcount_delay_reg[10] ;
   input [0:0]\hcount_delay_reg[10]_0 ;
   input [0:0]\vcount_delay_reg[10]_1 ;
-  input \vcount_delay_reg[0] ;
+  input \vcount_delay_reg[1] ;
   input [0:0]\slv_reg0_reg[26]_1 ;
   input [0:0]\hcount_delay_reg[10]_1 ;
   input [10:0]\hcount_delay_reg[10]_2 ;
@@ -2474,7 +2602,6 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
 
   wire [5:0]ADDRA;
   wire [0:0]CO;
-  wire [11:0]D;
   wire [3:0]DI;
   wire [3:0]O;
   wire [0:0]Q;
@@ -2547,12 +2674,32 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
   wire [3:0]interrupt_reg_0;
   wire [3:0]interrupt_reg_1;
   wire [3:0]interrupt_reg_10;
-  wire [0:0]interrupt_reg_11;
-  wire [0:0]interrupt_reg_12;
+  wire [1:0]interrupt_reg_11;
+  wire [1:0]interrupt_reg_12;
+  wire [3:0]interrupt_reg_13;
+  wire [3:0]interrupt_reg_14;
+  wire [1:0]interrupt_reg_15;
+  wire [3:0]interrupt_reg_16;
+  wire [3:0]interrupt_reg_17;
+  wire [1:0]interrupt_reg_18;
+  wire [1:0]interrupt_reg_19;
   wire [3:0]interrupt_reg_2;
+  wire [3:0]interrupt_reg_20;
+  wire [3:0]interrupt_reg_21;
+  wire [3:0]interrupt_reg_22;
+  wire [3:0]interrupt_reg_23;
+  wire [3:0]interrupt_reg_24;
+  wire [3:0]interrupt_reg_25;
+  wire [3:0]interrupt_reg_26;
+  wire [2:0]interrupt_reg_27;
+  wire [3:0]interrupt_reg_28;
+  wire [3:0]interrupt_reg_29;
   wire [3:0]interrupt_reg_3;
+  wire [2:0]interrupt_reg_30;
+  wire [0:0]interrupt_reg_31;
+  wire [0:0]interrupt_reg_32;
   wire interrupt_reg_4;
-  wire [3:0]interrupt_reg_5;
+  wire interrupt_reg_5;
   wire [3:0]interrupt_reg_6;
   wire [3:0]interrupt_reg_7;
   wire [3:0]interrupt_reg_8;
@@ -2624,34 +2771,12 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
   wire \rgb[11]_i_7_n_0 ;
   wire \rgb[11]_i_8_n_0 ;
   wire \rgb[11]_i_9_n_0 ;
-  wire [11:0]\rgb_delay_reg[11] ;
-  wire \rgb_out[11]_i_2_n_0 ;
-  wire [3:0]\rgb_out_reg[11] ;
-  wire [3:0]\rgb_out_reg[11]_0 ;
-  wire [3:0]\rgb_out_reg[11]_1 ;
-  wire [1:0]\rgb_out_reg[11]_10 ;
-  wire [3:0]\rgb_out_reg[11]_11 ;
-  wire [3:0]\rgb_out_reg[11]_12 ;
-  wire [3:0]\rgb_out_reg[11]_13 ;
-  wire [2:0]\rgb_out_reg[11]_14 ;
-  wire [3:0]\rgb_out_reg[11]_15 ;
-  wire [3:0]\rgb_out_reg[11]_16 ;
-  wire [2:0]\rgb_out_reg[11]_17 ;
-  wire [1:0]\rgb_out_reg[11]_2 ;
-  wire [1:0]\rgb_out_reg[11]_3 ;
-  wire [3:0]\rgb_out_reg[11]_4 ;
-  wire [3:0]\rgb_out_reg[11]_5 ;
-  wire [1:0]\rgb_out_reg[11]_6 ;
-  wire [3:0]\rgb_out_reg[11]_7 ;
-  wire [3:0]\rgb_out_reg[11]_8 ;
-  wire [1:0]\rgb_out_reg[11]_9 ;
   wire [3:0]\rgb_reg[0] ;
   wire [3:0]\rgb_reg[0]_0 ;
   wire [2:0]\rgb_reg[0]_1 ;
   wire [3:0]\rgb_reg[0]_2 ;
   wire [3:0]\rgb_reg[0]_3 ;
   wire [2:0]\rgb_reg[0]_4 ;
-  wire [11:0]\rgb_reg[11] ;
   wire \rgb_reg[11]_i_11_n_2 ;
   wire \rgb_reg[11]_i_11_n_3 ;
   wire \rgb_reg[11]_i_12_n_0 ;
@@ -2733,10 +2858,10 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
   wire [31:0]slv_reg3;
   wire slv_reg_rden__0;
   wire slv_reg_wren__0;
-  wire \vcount_delay_reg[0] ;
   wire [10:0]\vcount_delay_reg[10] ;
   wire [0:0]\vcount_delay_reg[10]_0 ;
   wire [0:0]\vcount_delay_reg[10]_1 ;
+  wire \vcount_delay_reg[1] ;
   wire [10:0]vcount_in;
   wire [15:0]yscale;
   wire [3:2]NLW__carry__1_i_4_CO_UNCONNECTED;
@@ -2755,7 +2880,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .CO({_carry__0_i_5_n_0,_carry__0_i_5_n_1,_carry__0_i_5_n_2,_carry__0_i_5_n_3}),
         .CYINIT(1'b0),
         .DI(slv_reg0[7:4]),
-        .O(\rgb_out_reg[11]_13 ),
+        .O(interrupt_reg_26),
         .S({_carry__0_i_6_n_0,_carry__0_i_7_n_0,_carry__0_i_8_n_0,_carry__0_i_9_n_0}));
   LUT2 #(
     .INIT(4'h6)) 
@@ -2786,7 +2911,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .CO({NLW__carry__1_i_4_CO_UNCONNECTED[3:2],_carry__1_i_4_n_2,_carry__1_i_4_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,slv_reg0[9:8]}),
-        .O({NLW__carry__1_i_4_O_UNCONNECTED[3],\rgb_out_reg[11]_14 }),
+        .O({NLW__carry__1_i_4_O_UNCONNECTED[3],interrupt_reg_27}),
         .S({1'b0,_carry__1_i_5_n_0,_carry__1_i_6_n_0,_carry__1_i_7_n_0}));
   LUT2 #(
     .INIT(4'h6)) 
@@ -2881,7 +3006,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .D(\axi_araddr[3]_i_1_n_0 ),
         .Q(axi_araddr[3]),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h2)) 
     axi_arready_i_1
@@ -3468,7 +3593,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .D(reg_data_out[9]),
         .Q(s00_axi_rdata[9]),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
     .INIT(16'h08F8)) 
     axi_rvalid_i_1
@@ -3483,7 +3608,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .D(axi_rvalid_i_1_n_0),
         .Q(s00_axi_rvalid),
         .R(SR));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     axi_wready_i_1
@@ -3503,17 +3628,17 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     i__carry__0_i_1
        (.I0(\vcount_delay_reg[10] [10]),
         .I1(Q),
-        .O(\rgb_out_reg[11]_2 [1]));
+        .O(interrupt_reg_11[1]));
   CARRY4 i__carry__0_i_1__0
        (.CI(\slv_reg0_reg[10]_0 ),
-        .CO({NLW_i__carry__0_i_1__0_CO_UNCONNECTED[3:1],interrupt_reg_11}),
+        .CO({NLW_i__carry__0_i_1__0_CO_UNCONNECTED[3:1],interrupt_reg_31}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(NLW_i__carry__0_i_1__0_O_UNCONNECTED[3:0]),
         .S({1'b0,1'b0,1'b0,1'b1}));
   CARRY4 i__carry__0_i_1__1
        (.CI(\slv_reg1_reg[26]_0 ),
-        .CO({NLW_i__carry__0_i_1__1_CO_UNCONNECTED[3:1],interrupt_reg_12}),
+        .CO({NLW_i__carry__0_i_1__1_CO_UNCONNECTED[3:1],interrupt_reg_32}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(NLW_i__carry__0_i_1__1_O_UNCONNECTED[3:0]),
@@ -3525,13 +3650,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\vcount_delay_reg[10] [9]),
         .I2(\vcount_delay_reg[10] [8]),
         .I3(slv_reg0[24]),
-        .O(\rgb_out_reg[11]_2 [0]));
+        .O(interrupt_reg_11[0]));
   LUT2 #(
     .INIT(4'h9)) 
     i__carry__0_i_3
        (.I0(Q),
         .I1(\vcount_delay_reg[10] [10]),
-        .O(\rgb_out_reg[11]_3 [1]));
+        .O(interrupt_reg_12[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry__0_i_4
@@ -3539,13 +3664,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[25]),
         .I2(\vcount_delay_reg[10] [8]),
         .I3(slv_reg0[24]),
-        .O(\rgb_out_reg[11]_3 [0]));
+        .O(interrupt_reg_12[0]));
   CARRY4 i__carry__0_i_5
        (.CI(i__carry_i_5__0_n_0),
         .CO({i__carry__0_i_5_n_0,i__carry__0_i_5_n_1,i__carry__0_i_5_n_2,i__carry__0_i_5_n_3}),
         .CYINIT(1'b0),
         .DI(slv_reg0[23:20]),
-        .O(\rgb_out_reg[11]_16 ),
+        .O(interrupt_reg_29),
         .S({i__carry__0_i_6_n_0,i__carry__0_i_7_n_0,i__carry__0_i_8_n_0,i__carry__0_i_9_n_0}));
   LUT2 #(
     .INIT(4'h6)) 
@@ -3576,7 +3701,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .CO({NLW_i__carry__1_i_4_CO_UNCONNECTED[3:2],i__carry__1_i_4_n_2,i__carry__1_i_4_n_3}),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,slv_reg0[25:24]}),
-        .O({NLW_i__carry__1_i_4_O_UNCONNECTED[3],\rgb_out_reg[11]_17 }),
+        .O({NLW_i__carry__1_i_4_O_UNCONNECTED[3],interrupt_reg_30}),
         .S({1'b0,i__carry__1_i_5_n_0,i__carry__1_i_6_n_0,i__carry__1_i_7_n_0}));
   LUT2 #(
     .INIT(4'h6)) 
@@ -3603,7 +3728,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[22]),
         .I2(slv_reg0[23]),
         .I3(\vcount_delay_reg[10] [7]),
-        .O(\rgb_out_reg[11]_1 [3]));
+        .O(interrupt_reg_10[3]));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_2
@@ -3611,7 +3736,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[20]),
         .I2(slv_reg0[21]),
         .I3(\vcount_delay_reg[10] [5]),
-        .O(\rgb_out_reg[11]_1 [2]));
+        .O(interrupt_reg_10[2]));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_3
@@ -3619,7 +3744,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[18]),
         .I2(slv_reg0[19]),
         .I3(\vcount_delay_reg[10] [3]),
-        .O(\rgb_out_reg[11]_1 [1]));
+        .O(interrupt_reg_10[1]));
   LUT4 #(
     .INIT(16'h2F02)) 
     i__carry_i_4
@@ -3627,7 +3752,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[16]),
         .I2(slv_reg0[17]),
         .I3(\vcount_delay_reg[10] [1]),
-        .O(\rgb_out_reg[11]_1 [0]));
+        .O(interrupt_reg_10[0]));
   LUT4 #(
     .INIT(16'h9009)) 
     i__carry_i_5
@@ -3635,13 +3760,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[22]),
         .I2(slv_reg0[23]),
         .I3(\vcount_delay_reg[10] [7]),
-        .O(\rgb_out_reg[11] [3]));
+        .O(interrupt_reg_8[3]));
   CARRY4 i__carry_i_5__0
        (.CI(1'b0),
         .CO({i__carry_i_5__0_n_0,i__carry_i_5__0_n_1,i__carry_i_5__0_n_2,i__carry_i_5__0_n_3}),
         .CYINIT(1'b0),
         .DI(slv_reg0[19:16]),
-        .O(\rgb_out_reg[11]_15 ),
+        .O(interrupt_reg_28),
         .S({i__carry_i_6__0_n_0,i__carry_i_7__0_n_0,i__carry_i_8__0_n_0,i__carry_i_9_n_0}));
   LUT4 #(
     .INIT(16'h9009)) 
@@ -3650,7 +3775,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[20]),
         .I2(slv_reg0[21]),
         .I3(\vcount_delay_reg[10] [5]),
-        .O(\rgb_out_reg[11] [2]));
+        .O(interrupt_reg_8[2]));
   LUT2 #(
     .INIT(4'h6)) 
     i__carry_i_6__0
@@ -3664,7 +3789,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[19]),
         .I2(\vcount_delay_reg[10] [2]),
         .I3(slv_reg0[18]),
-        .O(\rgb_out_reg[11] [1]));
+        .O(interrupt_reg_8[1]));
   LUT2 #(
     .INIT(4'h6)) 
     i__carry_i_7__0
@@ -3678,7 +3803,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[16]),
         .I2(slv_reg0[17]),
         .I3(\vcount_delay_reg[10] [1]),
-        .O(\rgb_out_reg[11] [0]));
+        .O(interrupt_reg_8[0]));
   LUT2 #(
     .INIT(4'h6)) 
     i__carry_i_8__0
@@ -3698,7 +3823,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\vcount_delay_reg[10] [10]),
         .I2(\vcount_delay_reg[10] [9]),
         .I3(slv_reg0[25]),
-        .O(interrupt_reg_5[3]));
+        .O(interrupt_reg_6[3]));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     interrupt1_carry_i_2
@@ -3708,7 +3833,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I3(\vcount_delay_reg[10] [6]),
         .I4(\vcount_delay_reg[10] [8]),
         .I5(slv_reg0[24]),
-        .O(interrupt_reg_5[2]));
+        .O(interrupt_reg_6[2]));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     interrupt1_carry_i_3
@@ -3718,7 +3843,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I3(\vcount_delay_reg[10] [4]),
         .I4(\vcount_delay_reg[10] [3]),
         .I5(slv_reg0[19]),
-        .O(interrupt_reg_5[1]));
+        .O(interrupt_reg_6[1]));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     interrupt1_carry_i_4
@@ -3728,31 +3853,31 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I3(\vcount_delay_reg[10] [0]),
         .I4(\vcount_delay_reg[10] [2]),
         .I5(slv_reg0[18]),
-        .O(interrupt_reg_5[0]));
+        .O(interrupt_reg_6[0]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry__0_i_1
        (.I0(slv_reg0[6]),
         .I1(\slv_reg1_reg_n_0_[6] ),
-        .O(interrupt_reg_7[3]));
+        .O(interrupt_reg_20[3]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry__0_i_2
        (.I0(slv_reg0[5]),
         .I1(\slv_reg1_reg_n_0_[5] ),
-        .O(interrupt_reg_7[2]));
+        .O(interrupt_reg_20[2]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry__0_i_3
        (.I0(slv_reg0[4]),
         .I1(\slv_reg1_reg_n_0_[4] ),
-        .O(interrupt_reg_7[1]));
+        .O(interrupt_reg_20[1]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry__0_i_4
        (.I0(slv_reg0[3]),
         .I1(\slv_reg1_reg_n_0_[3] ),
-        .O(interrupt_reg_7[0]));
+        .O(interrupt_reg_20[0]));
   LUT4 #(
     .INIT(16'h1EE1)) 
     interrupt2_carry__0_i_5
@@ -3790,25 +3915,25 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     interrupt2_carry__1_i_1
        (.I0(slv_reg0[10]),
         .I1(\slv_reg1_reg_n_0_[10] ),
-        .O(interrupt_reg_8[3]));
+        .O(interrupt_reg_21[3]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry__1_i_2
        (.I0(slv_reg0[9]),
         .I1(\slv_reg1_reg_n_0_[9] ),
-        .O(interrupt_reg_8[2]));
+        .O(interrupt_reg_21[2]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry__1_i_3
        (.I0(slv_reg0[8]),
         .I1(\slv_reg1_reg_n_0_[8] ),
-        .O(interrupt_reg_8[1]));
+        .O(interrupt_reg_21[1]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry__1_i_4
        (.I0(slv_reg0[7]),
         .I1(\slv_reg1_reg_n_0_[7] ),
-        .O(interrupt_reg_8[0]));
+        .O(interrupt_reg_21[0]));
   LUT2 #(
     .INIT(4'h1)) 
     interrupt2_carry__1_i_5
@@ -3844,25 +3969,25 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     interrupt2_carry_i_1
        (.I0(slv_reg0[2]),
         .I1(\slv_reg1_reg_n_0_[2] ),
-        .O(interrupt_reg_6[3]));
+        .O(interrupt_reg_7[3]));
   LUT2 #(
     .INIT(4'h9)) 
     interrupt2_carry_i_2
        (.I0(\slv_reg1_reg_n_0_[2] ),
         .I1(slv_reg0[2]),
-        .O(interrupt_reg_6[2]));
+        .O(interrupt_reg_7[2]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt2_carry_i_3
        (.I0(slv_reg0[0]),
         .I1(\slv_reg1_reg_n_0_[0] ),
-        .O(interrupt_reg_6[1]));
+        .O(interrupt_reg_7[1]));
   LUT2 #(
     .INIT(4'h9)) 
     interrupt2_carry_i_4
        (.I0(\slv_reg1_reg_n_0_[0] ),
         .I1(slv_reg0[0]),
-        .O(interrupt_reg_6[0]));
+        .O(interrupt_reg_7[0]));
   LUT4 #(
     .INIT(16'h1EE1)) 
     interrupt2_carry_i_5
@@ -3898,25 +4023,25 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     interrupt3_carry__0_i_1
        (.I0(slv_reg0[22]),
         .I1(height[6]),
-        .O(interrupt_reg_9[3]));
+        .O(interrupt_reg_22[3]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt3_carry__0_i_2
        (.I0(slv_reg0[21]),
         .I1(height[5]),
-        .O(interrupt_reg_9[2]));
+        .O(interrupt_reg_22[2]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt3_carry__0_i_3
        (.I0(slv_reg0[20]),
         .I1(height[4]),
-        .O(interrupt_reg_9[1]));
+        .O(interrupt_reg_22[1]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt3_carry__0_i_4
        (.I0(slv_reg0[19]),
         .I1(height[3]),
-        .O(interrupt_reg_9[0]));
+        .O(interrupt_reg_22[0]));
   LUT4 #(
     .INIT(16'h1EE1)) 
     interrupt3_carry__0_i_5
@@ -3954,25 +4079,25 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     interrupt3_carry__1_i_1
        (.I0(height[10]),
         .I1(Q),
-        .O(interrupt_reg_10[3]));
+        .O(interrupt_reg_23[3]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt3_carry__1_i_2
        (.I0(slv_reg0[25]),
         .I1(height[9]),
-        .O(interrupt_reg_10[2]));
+        .O(interrupt_reg_23[2]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt3_carry__1_i_3
        (.I0(slv_reg0[24]),
         .I1(height[8]),
-        .O(interrupt_reg_10[1]));
+        .O(interrupt_reg_23[1]));
   LUT2 #(
     .INIT(4'hE)) 
     interrupt3_carry__1_i_4
        (.I0(slv_reg0[23]),
         .I1(height[7]),
-        .O(interrupt_reg_10[0]));
+        .O(interrupt_reg_23[0]));
   LUT2 #(
     .INIT(4'h1)) 
     interrupt3_carry__1_i_5
@@ -4058,18 +4183,18 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(height[0]),
         .O(interrupt_reg_0[0]));
   LUT4 #(
-    .INIT(16'h0ACA)) 
+    .INIT(16'hC0AA)) 
     interrupt_i_1
        (.I0(interrupt),
         .I1(interrupt_i_2_n_0),
-        .I2(s00_axi_aresetn),
-        .I3(\rgb_out[11]_i_2_n_0 ),
+        .I2(interrupt_reg_5),
+        .I3(s00_axi_aresetn),
         .O(interrupt_reg_4));
   LUT5 #(
     .INIT(32'hEEF00000)) 
     interrupt_i_2
        (.I0(\vcount_delay_reg[10]_1 ),
-        .I1(\vcount_delay_reg[0] ),
+        .I1(\vcount_delay_reg[1] ),
         .I2(\slv_reg0_reg[26]_1 ),
         .I3(interrupt_i_4_n_0),
         .I4(\hcount_delay_reg[10]_1 ),
@@ -4215,27 +4340,28 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
        (.I0(vcount_in[0]),
         .I1(slv_reg0[16]),
         .O(\rgb_reg[0]_2 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     ram_reg_0_63_0_2_i_10
-       (.I0(ram_reg_0_63_0_2_i_24_n_0),
+       (.I0(ram_reg_0_63_0_2_i_25_n_0),
         .I1(yscale[1]),
-        .I2(ram_reg_0_63_0_2_i_25_n_0),
+        .I2(ram_reg_0_63_0_2_i_26_n_0),
         .O(ram_reg_0_63_0_2_i_10_n_0));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
+  LUT4 #(
+    .INIT(16'h003A)) 
     ram_reg_0_63_0_2_i_11
-       (.I0(ram_reg_0_63_0_2_i_26_n_0),
-        .I1(yscale[1]),
-        .I2(ram_reg_0_63_0_2_i_27_n_0),
+       (.I0(ram_reg_0_63_0_2_i_27_n_0),
+        .I1(\rgb[11]_i_7_n_0 ),
+        .I2(yscale[0]),
+        .I3(\rgb[11]_i_8_n_0 ),
         .O(ram_reg_0_63_0_2_i_11_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'h00B8)) 
     ram_reg_0_63_0_2_i_12
-       (.I0(ram_reg_0_63_0_2_i_21_n_0),
+       (.I0(ram_reg_0_63_0_2_i_27_n_0),
         .I1(yscale[0]),
         .I2(ram_reg_0_63_0_2_i_28_n_0),
         .I3(\rgb[11]_i_8_n_0 ),
@@ -4243,14 +4369,14 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
   LUT5 #(
     .INIT(32'h8888BB8B)) 
     ram_reg_0_63_0_2_i_13
-       (.I0(ram_reg_0_63_0_2_i_25_n_0),
+       (.I0(ram_reg_0_63_0_2_i_24_n_0),
         .I1(yscale[1]),
         .I2(yscale[2]),
         .I3(ram_reg_0_63_0_2_i_29_n_0),
         .I4(ram_reg_0_63_0_2_i_30_n_0),
         .O(ram_reg_0_63_0_2_i_13_n_0));
   LUT6 #(
-    .INIT(64'h00000000FFB800B8)) 
+    .INIT(64'h00000000FFE200E2)) 
     ram_reg_0_63_0_2_i_14
        (.I0(ram_reg_0_63_0_2_i_31_n_0),
         .I1(yscale[1]),
@@ -4267,7 +4393,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I2(ram_reg_0_63_0_2_i_34_n_0),
         .I3(yscale[2]),
         .I4(yscale[1]),
-        .I5(ram_reg_0_63_0_2_i_27_n_0),
+        .I5(ram_reg_0_63_0_2_i_26_n_0),
         .O(ram_reg_0_63_0_2_i_15_n_0));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
@@ -4290,19 +4416,19 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I5(ram_reg_0_63_0_2_i_37_n_0),
         .O(ram_reg_0_63_0_2_i_17_n_0));
   LUT6 #(
-    .INIT(64'hFF47FFFFFF470000)) 
+    .INIT(64'hF4F7FFFFF4F70000)) 
     ram_reg_0_63_0_2_i_18
        (.I0(pixel_addr10_out[10]),
         .I1(\slv_reg2_reg_n_0_[2] ),
-        .I2(pixel_addr10_out[6]),
-        .I3(\slv_reg2_reg_n_0_[3] ),
+        .I2(\slv_reg2_reg_n_0_[3] ),
+        .I3(pixel_addr10_out[6]),
         .I4(\slv_reg2_reg_n_0_[1] ),
         .I5(ram_reg_0_63_0_2_i_38_n_0),
         .O(ram_reg_0_63_0_2_i_18_n_0));
   LUT6 #(
     .INIT(64'h0C0C0F00AAAAAAAA)) 
     ram_reg_0_63_0_2_i_19
-       (.I0(\rgb[11]_i_5_n_0 ),
+       (.I0(\rgb[11]_i_4_n_0 ),
         .I1(pixel_addr10_out[8]),
         .I2(\slv_reg2_reg_n_0_[3] ),
         .I3(pixel_addr10_out[4]),
@@ -4310,12 +4436,12 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I5(\slv_reg2_reg_n_0_[1] ),
         .O(ram_reg_0_63_0_2_i_19_n_0));
   LUT5 #(
-    .INIT(32'hBABBBAAA)) 
+    .INIT(32'hFFFF4540)) 
     ram_reg_0_63_0_2_i_2
        (.I0(ram_reg_0_63_0_2_i_8_n_0),
         .I1(ram_reg_0_63_0_2_i_9_n_0),
-        .I2(ram_reg_0_63_0_2_i_10_n_0),
-        .I3(yscale[0]),
+        .I2(yscale[0]),
+        .I3(ram_reg_0_63_0_2_i_10_n_0),
         .I4(ram_reg_0_63_0_2_i_11_n_0),
         .O(ADDRA[5]));
   LUT6 #(
@@ -4329,72 +4455,72 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I5(ram_reg_0_63_0_2_i_39_n_0),
         .O(ram_reg_0_63_0_2_i_20_n_0));
   LUT6 #(
-    .INIT(64'h0000CFC0AAAAAAAA)) 
-    ram_reg_0_63_0_2_i_21
-       (.I0(ram_reg_0_63_0_2_i_31_n_0),
-        .I1(ram_addry11_out[8]),
-        .I2(yscale[2]),
-        .I3(ram_addry11_out[4]),
-        .I4(yscale[3]),
-        .I5(yscale[1]),
-        .O(ram_reg_0_63_0_2_i_21_n_0));
-  LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    ram_reg_0_63_0_2_i_22
+    ram_reg_0_63_0_2_i_21
        (.I0(yscale[11]),
         .I1(yscale[10]),
         .I2(yscale[5]),
         .I3(yscale[6]),
         .I4(yscale[7]),
         .I5(yscale[9]),
-        .O(ram_reg_0_63_0_2_i_22_n_0));
+        .O(ram_reg_0_63_0_2_i_21_n_0));
   LUT4 #(
     .INIT(16'hFFFE)) 
-    ram_reg_0_63_0_2_i_23
+    ram_reg_0_63_0_2_i_22
        (.I0(yscale[15]),
         .I1(yscale[12]),
         .I2(yscale[14]),
         .I3(yscale[13]),
-        .O(ram_reg_0_63_0_2_i_23_n_0));
+        .O(ram_reg_0_63_0_2_i_22_n_0));
   LUT6 #(
     .INIT(64'h030F0FBB030F0F88)) 
-    ram_reg_0_63_0_2_i_24
+    ram_reg_0_63_0_2_i_23
        (.I0(ram_addry1[9]),
         .I1(yscale[2]),
         .I2(\slv_reg0_reg[26]_2 ),
         .I3(yscale[3]),
         .I4(yscale[4]),
         .I5(ram_addry1[5]),
-        .O(ram_reg_0_63_0_2_i_24_n_0));
+        .O(ram_reg_0_63_0_2_i_23_n_0));
   LUT6 #(
     .INIT(64'h5754575757545454)) 
-    ram_reg_0_63_0_2_i_25
+    ram_reg_0_63_0_2_i_24
        (.I0(\slv_reg0_reg[26]_2 ),
         .I1(yscale[3]),
         .I2(yscale[4]),
         .I3(ram_addry1[7]),
         .I4(yscale[2]),
         .I5(ram_addry1[3]),
+        .O(ram_reg_0_63_0_2_i_24_n_0));
+  LUT6 #(
+    .INIT(64'h033A033A333F3330)) 
+    ram_reg_0_63_0_2_i_25
+       (.I0(ram_addry1[8]),
+        .I1(\slv_reg0_reg[26]_2 ),
+        .I2(yscale[3]),
+        .I3(yscale[4]),
+        .I4(ram_addry1[4]),
+        .I5(yscale[2]),
         .O(ram_reg_0_63_0_2_i_25_n_0));
   LUT6 #(
-    .INIT(64'h030F0FBB030F0F88)) 
-    ram_reg_0_63_0_2_i_26
-       (.I0(ram_addry1[8]),
-        .I1(yscale[2]),
-        .I2(\slv_reg0_reg[26]_2 ),
-        .I3(yscale[3]),
-        .I4(yscale[4]),
-        .I5(ram_addry1[4]),
-        .O(ram_reg_0_63_0_2_i_26_n_0));
-  LUT6 #(
     .INIT(64'h00000000777F7775)) 
-    ram_reg_0_63_0_2_i_27
+    ram_reg_0_63_0_2_i_26
        (.I0(yscale[2]),
         .I1(\slv_reg0_reg[26]_2 ),
         .I2(yscale[3]),
         .I3(yscale[4]),
         .I4(ram_addry1[6]),
         .I5(ram_reg_0_63_0_2_i_40_n_0),
+        .O(ram_reg_0_63_0_2_i_26_n_0));
+  LUT6 #(
+    .INIT(64'h0C0C0F00AAAAAAAA)) 
+    ram_reg_0_63_0_2_i_27
+       (.I0(ram_reg_0_63_0_2_i_32_n_0),
+        .I1(ram_addry11_out[8]),
+        .I2(yscale[3]),
+        .I3(ram_addry11_out[4]),
+        .I4(yscale[2]),
+        .I5(yscale[1]),
         .O(ram_reg_0_63_0_2_i_27_n_0));
   LUT6 #(
     .INIT(64'h000000000B08FFFF)) 
@@ -4406,7 +4532,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I4(yscale[1]),
         .I5(ram_reg_0_63_0_2_i_42_n_0),
         .O(ram_reg_0_63_0_2_i_28_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'h5754)) 
     ram_reg_0_63_0_2_i_29
@@ -4416,13 +4542,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I3(ram_addry1[5]),
         .O(ram_reg_0_63_0_2_i_29_n_0));
   LUT5 #(
-    .INIT(32'hBBBAAABA)) 
+    .INIT(32'hBABBBAAA)) 
     ram_reg_0_63_0_2_i_3
        (.I0(ram_reg_0_63_0_2_i_12_n_0),
-        .I1(ram_reg_0_63_0_2_i_9_n_0),
-        .I2(ram_reg_0_63_0_2_i_13_n_0),
+        .I1(ram_reg_0_63_0_2_i_8_n_0),
+        .I2(ram_reg_0_63_0_2_i_10_n_0),
         .I3(yscale[0]),
-        .I4(ram_reg_0_63_0_2_i_11_n_0),
+        .I4(ram_reg_0_63_0_2_i_13_n_0),
         .O(ADDRA[4]));
   LUT6 #(
     .INIT(64'h0000F5F300000503)) 
@@ -4434,36 +4560,36 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I4(yscale[2]),
         .I5(\slv_reg0_reg[26]_2 ),
         .O(ram_reg_0_63_0_2_i_30_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h30BB3088)) 
     ram_reg_0_63_0_2_i_31
-       (.I0(ram_addry11_out[6]),
-        .I1(yscale[2]),
-        .I2(ram_addry11_out[10]),
-        .I3(yscale[3]),
-        .I4(ram_addry11_out[2]),
-        .O(ram_reg_0_63_0_2_i_31_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT5 #(
-    .INIT(32'h30BB3088)) 
-    ram_reg_0_63_0_2_i_32
        (.I0(ram_addry11_out[4]),
         .I1(yscale[2]),
         .I2(ram_addry11_out[8]),
         .I3(yscale[3]),
         .I4(ram_addry11_out[0]),
+        .O(ram_reg_0_63_0_2_i_31_n_0));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    ram_reg_0_63_0_2_i_32
+       (.I0(ram_addry11_out[6]),
+        .I1(yscale[2]),
+        .I2(ram_addry11_out[10]),
+        .I3(yscale[3]),
+        .I4(ram_addry11_out[2]),
         .O(ram_reg_0_63_0_2_i_32_n_0));
   LUT6 #(
-    .INIT(64'h0000FF1D0000001D)) 
+    .INIT(64'h0000F5F300000503)) 
     ram_reg_0_63_0_2_i_33
-       (.I0(ram_addry1[0]),
-        .I1(yscale[3]),
-        .I2(ram_addry1[8]),
-        .I3(yscale[4]),
+       (.I0(ram_addry1[8]),
+        .I1(ram_addry1[0]),
+        .I2(yscale[4]),
+        .I3(yscale[3]),
         .I4(yscale[2]),
         .I5(\slv_reg0_reg[26]_2 ),
         .O(ram_reg_0_63_0_2_i_33_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'h5754)) 
     ram_reg_0_63_0_2_i_34
@@ -4496,7 +4622,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I2(\slv_reg2_reg_n_0_[3] ),
         .I3(\slv_reg2_reg_n_0_[2] ),
         .O(ram_reg_0_63_0_2_i_37_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'hDDCF)) 
     ram_reg_0_63_0_2_i_38
@@ -4518,7 +4644,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
     .INIT(32'hABAAABAB)) 
     ram_reg_0_63_0_2_i_4
        (.I0(ram_reg_0_63_0_2_i_14_n_0),
-        .I1(ram_reg_0_63_0_2_i_9_n_0),
+        .I1(ram_reg_0_63_0_2_i_8_n_0),
         .I2(ram_reg_0_63_0_2_i_15_n_0),
         .I3(ram_reg_0_63_0_2_i_13_n_0),
         .I4(yscale[0]),
@@ -4598,41 +4724,40 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I2(ram_reg_0_63_0_2_i_20_n_0),
         .I3(ram_reg_0_63_0_2_i_16_n_0),
         .O(ADDRA[0]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT4 #(
-    .INIT(16'h003A)) 
-    ram_reg_0_63_0_2_i_8
-       (.I0(ram_reg_0_63_0_2_i_21_n_0),
-        .I1(\rgb[11]_i_7_n_0 ),
-        .I2(yscale[0]),
-        .I3(\rgb[11]_i_8_n_0 ),
-        .O(ram_reg_0_63_0_2_i_8_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT4 #(
     .INIT(16'hFFEF)) 
-    ram_reg_0_63_0_2_i_9
-       (.I0(ram_reg_0_63_0_2_i_22_n_0),
+    ram_reg_0_63_0_2_i_8
+       (.I0(ram_reg_0_63_0_2_i_21_n_0),
         .I1(yscale[8]),
         .I2(Q),
-        .I3(ram_reg_0_63_0_2_i_23_n_0),
+        .I3(ram_reg_0_63_0_2_i_22_n_0),
+        .O(ram_reg_0_63_0_2_i_8_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    ram_reg_0_63_0_2_i_9
+       (.I0(ram_reg_0_63_0_2_i_23_n_0),
+        .I1(yscale[1]),
+        .I2(ram_reg_0_63_0_2_i_24_n_0),
         .O(ram_reg_0_63_0_2_i_9_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
     .INIT(16'hE2FF)) 
     \rgb[11]_i_10 
-       (.I0(ram_reg_0_63_0_2_i_26_n_0),
+       (.I0(ram_reg_0_63_0_2_i_25_n_0),
         .I1(yscale[1]),
         .I2(\rgb[11]_i_15_n_0 ),
         .I3(yscale[0]),
         .O(\rgb[11]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT4 #(
-    .INIT(16'hFF47)) 
+    .INIT(16'hDDCF)) 
     \rgb[11]_i_13 
        (.I0(ram_addry11_out[8]),
-        .I1(yscale[2]),
+        .I1(yscale[3]),
         .I2(ram_addry11_out[4]),
-        .I3(yscale[3]),
+        .I3(yscale[2]),
         .O(\rgb[11]_i_13_n_0 ));
   LUT4 #(
     .INIT(16'hF4F7)) 
@@ -4677,7 +4802,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[23]),
         .O(\rgb[11]_i_19_n_0 ));
   LUT6 #(
-    .INIT(64'h00000000FFE200E2)) 
+    .INIT(64'h00000000FFB800B8)) 
     \rgb[11]_i_2 
        (.I0(\rgb[11]_i_4_n_0 ),
         .I1(\slv_reg2_reg_n_0_[1] ),
@@ -4714,24 +4839,24 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I4(\rgb[11]_i_9_n_0 ),
         .I5(\rgb[11]_i_10_n_0 ),
         .O(ram_addry));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT5 #(
-    .INIT(32'h0F00ACAC)) 
-    \rgb[11]_i_4 
-       (.I0(pixel_addr10_out[8]),
-        .I1(pixel_addr10_out[0]),
-        .I2(\slv_reg2_reg_n_0_[3] ),
-        .I3(pixel_addr10_out[4]),
-        .I4(\slv_reg2_reg_n_0_[2] ),
-        .O(\rgb[11]_i_4_n_0 ));
   LUT5 #(
     .INIT(32'h30BB3088)) 
-    \rgb[11]_i_5 
+    \rgb[11]_i_4 
        (.I0(pixel_addr10_out[6]),
         .I1(\slv_reg2_reg_n_0_[2] ),
         .I2(pixel_addr10_out[10]),
         .I3(\slv_reg2_reg_n_0_[3] ),
         .I4(pixel_addr10_out[2]),
+        .O(\rgb[11]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  LUT5 #(
+    .INIT(32'h0FAC00AC)) 
+    \rgb[11]_i_5 
+       (.I0(pixel_addr10_out[8]),
+        .I1(pixel_addr10_out[0]),
+        .I2(\slv_reg2_reg_n_0_[3] ),
+        .I3(\slv_reg2_reg_n_0_[2] ),
+        .I4(pixel_addr10_out[4]),
         .O(\rgb[11]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'hFF47FFFFFF470000)) 
@@ -4753,41 +4878,41 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I4(yscale[1]),
         .I5(\rgb[11]_i_14_n_0 ),
         .O(\rgb[11]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \rgb[11]_i_8 
-       (.I0(ram_reg_0_63_0_2_i_22_n_0),
+       (.I0(ram_reg_0_63_0_2_i_21_n_0),
         .I1(Q),
         .I2(yscale[8]),
         .I3(yscale[4]),
-        .I4(ram_reg_0_63_0_2_i_23_n_0),
+        .I4(ram_reg_0_63_0_2_i_22_n_0),
         .O(\rgb[11]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
     .INIT(32'hAAAABABF)) 
     \rgb[11]_i_9 
-       (.I0(ram_reg_0_63_0_2_i_9_n_0),
-        .I1(ram_reg_0_63_0_2_i_24_n_0),
+       (.I0(ram_reg_0_63_0_2_i_8_n_0),
+        .I1(ram_reg_0_63_0_2_i_23_n_0),
         .I2(yscale[1]),
-        .I3(ram_reg_0_63_0_2_i_25_n_0),
+        .I3(ram_reg_0_63_0_2_i_24_n_0),
         .I4(yscale[0]),
         .O(\rgb[11]_i_9_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__0_i_1
        (.I0(Q),
-        .O(\rgb_out_reg[11]_4 [3]));
+        .O(interrupt_reg_13[3]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__0_i_2
        (.I0(Q),
-        .O(\rgb_out_reg[11]_4 [2]));
+        .O(interrupt_reg_13[2]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__0_i_3
        (.I0(Q),
-        .O(\rgb_out_reg[11]_4 [1]));
+        .O(interrupt_reg_13[1]));
   LUT4 #(
     .INIT(16'h22B2)) 
     rgb_out3_carry__0_i_4
@@ -4795,13 +4920,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\vcount_delay_reg[10] [9]),
         .I2(slv_reg0[24]),
         .I3(\vcount_delay_reg[10] [8]),
-        .O(\rgb_out_reg[11]_4 [0]));
+        .O(interrupt_reg_13[0]));
   LUT2 #(
     .INIT(4'h2)) 
     rgb_out3_carry__0_i_5
        (.I0(Q),
         .I1(\vcount_delay_reg[10] [10]),
-        .O(\rgb_out_reg[11]_6 [1]));
+        .O(interrupt_reg_15[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out3_carry__0_i_6
@@ -4809,47 +4934,47 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[25]),
         .I2(\vcount_delay_reg[10] [8]),
         .I3(slv_reg0[24]),
-        .O(\rgb_out_reg[11]_6 [0]));
+        .O(interrupt_reg_15[0]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__1_i_1
        (.I0(Q),
-        .O(\rgb_out_reg[11]_12 [3]));
+        .O(interrupt_reg_25[3]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__1_i_2
        (.I0(Q),
-        .O(\rgb_out_reg[11]_12 [2]));
+        .O(interrupt_reg_25[2]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__1_i_3
        (.I0(Q),
-        .O(\rgb_out_reg[11]_12 [1]));
+        .O(interrupt_reg_25[1]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__1_i_4
        (.I0(Q),
-        .O(\rgb_out_reg[11]_12 [0]));
+        .O(interrupt_reg_25[0]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__2_i_1
        (.I0(Q),
-        .O(\rgb_out_reg[11]_5 [3]));
+        .O(interrupt_reg_14[3]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__2_i_2
        (.I0(Q),
-        .O(\rgb_out_reg[11]_5 [2]));
+        .O(interrupt_reg_14[2]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__2_i_3
        (.I0(Q),
-        .O(\rgb_out_reg[11]_5 [1]));
+        .O(interrupt_reg_14[1]));
   LUT1 #(
     .INIT(2'h1)) 
     rgb_out3_carry__2_i_4
        (.I0(Q),
-        .O(\rgb_out_reg[11]_5 [0]));
+        .O(interrupt_reg_14[0]));
   LUT4 #(
     .INIT(16'h2F02)) 
     rgb_out3_carry_i_1
@@ -4857,7 +4982,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\vcount_delay_reg[10] [6]),
         .I2(\vcount_delay_reg[10] [7]),
         .I3(slv_reg0[23]),
-        .O(\rgb_out_reg[11]_0 [3]));
+        .O(interrupt_reg_9[3]));
   LUT4 #(
     .INIT(16'h2F02)) 
     rgb_out3_carry_i_2
@@ -4865,7 +4990,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\vcount_delay_reg[10] [4]),
         .I2(\vcount_delay_reg[10] [5]),
         .I3(slv_reg0[21]),
-        .O(\rgb_out_reg[11]_0 [2]));
+        .O(interrupt_reg_9[2]));
   LUT4 #(
     .INIT(16'h2F02)) 
     rgb_out3_carry_i_3
@@ -4873,7 +4998,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\vcount_delay_reg[10] [2]),
         .I2(\vcount_delay_reg[10] [3]),
         .I3(slv_reg0[19]),
-        .O(\rgb_out_reg[11]_0 [1]));
+        .O(interrupt_reg_9[1]));
   LUT4 #(
     .INIT(16'h2F02)) 
     rgb_out3_carry_i_4
@@ -4881,7 +5006,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\vcount_delay_reg[10] [0]),
         .I2(\vcount_delay_reg[10] [1]),
         .I3(slv_reg0[17]),
-        .O(\rgb_out_reg[11]_0 [0]));
+        .O(interrupt_reg_9[0]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out3_carry_i_5
@@ -4889,7 +5014,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[22]),
         .I2(slv_reg0[23]),
         .I3(\vcount_delay_reg[10] [7]),
-        .O(\rgb_out_reg[11]_11 [3]));
+        .O(interrupt_reg_24[3]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out3_carry_i_6
@@ -4897,7 +5022,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[20]),
         .I2(slv_reg0[21]),
         .I3(\vcount_delay_reg[10] [5]),
-        .O(\rgb_out_reg[11]_11 [2]));
+        .O(interrupt_reg_24[2]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out3_carry_i_7
@@ -4905,7 +5030,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[19]),
         .I2(\vcount_delay_reg[10] [2]),
         .I3(slv_reg0[18]),
-        .O(\rgb_out_reg[11]_11 [1]));
+        .O(interrupt_reg_24[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out3_carry_i_8
@@ -4913,13 +5038,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[16]),
         .I2(slv_reg0[17]),
         .I3(\vcount_delay_reg[10] [1]),
-        .O(\rgb_out_reg[11]_11 [0]));
+        .O(interrupt_reg_24[0]));
   LUT2 #(
     .INIT(4'h2)) 
     rgb_out5_carry__0_i_1
        (.I0(\hcount_delay_reg[10]_2 [10]),
         .I1(slv_reg0[10]),
-        .O(\rgb_out_reg[11]_10 [1]));
+        .O(interrupt_reg_19[1]));
   LUT4 #(
     .INIT(16'h22B2)) 
     rgb_out5_carry__0_i_2
@@ -4927,13 +5052,13 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[9]),
         .I2(\hcount_delay_reg[10]_2 [8]),
         .I3(slv_reg0[8]),
-        .O(\rgb_out_reg[11]_10 [0]));
+        .O(interrupt_reg_19[0]));
   LUT2 #(
     .INIT(4'h9)) 
     rgb_out5_carry__0_i_3
        (.I0(slv_reg0[10]),
         .I1(\hcount_delay_reg[10]_2 [10]),
-        .O(\rgb_out_reg[11]_9 [1]));
+        .O(interrupt_reg_18[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out5_carry__0_i_4
@@ -4941,7 +5066,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\hcount_delay_reg[10]_2 [9]),
         .I2(slv_reg0[8]),
         .I3(\hcount_delay_reg[10]_2 [8]),
-        .O(\rgb_out_reg[11]_9 [0]));
+        .O(interrupt_reg_18[0]));
   LUT4 #(
     .INIT(16'h22B2)) 
     rgb_out5_carry_i_1
@@ -4949,7 +5074,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[7]),
         .I2(\hcount_delay_reg[10]_2 [6]),
         .I3(slv_reg0[6]),
-        .O(\rgb_out_reg[11]_8 [3]));
+        .O(interrupt_reg_17[3]));
   LUT4 #(
     .INIT(16'h22B2)) 
     rgb_out5_carry_i_2
@@ -4957,7 +5082,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[5]),
         .I2(\hcount_delay_reg[10]_2 [4]),
         .I3(slv_reg0[4]),
-        .O(\rgb_out_reg[11]_8 [2]));
+        .O(interrupt_reg_17[2]));
   LUT4 #(
     .INIT(16'h22B2)) 
     rgb_out5_carry_i_3
@@ -4965,7 +5090,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[3]),
         .I2(\hcount_delay_reg[10]_2 [2]),
         .I3(slv_reg0[2]),
-        .O(\rgb_out_reg[11]_8 [1]));
+        .O(interrupt_reg_17[1]));
   LUT4 #(
     .INIT(16'h22B2)) 
     rgb_out5_carry_i_4
@@ -4973,7 +5098,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(slv_reg0[1]),
         .I2(\hcount_delay_reg[10]_2 [0]),
         .I3(slv_reg0[0]),
-        .O(\rgb_out_reg[11]_8 [0]));
+        .O(interrupt_reg_17[0]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out5_carry_i_5
@@ -4981,7 +5106,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\hcount_delay_reg[10]_2 [7]),
         .I2(slv_reg0[6]),
         .I3(\hcount_delay_reg[10]_2 [6]),
-        .O(\rgb_out_reg[11]_7 [3]));
+        .O(interrupt_reg_16[3]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out5_carry_i_6
@@ -4989,7 +5114,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\hcount_delay_reg[10]_2 [5]),
         .I2(slv_reg0[4]),
         .I3(\hcount_delay_reg[10]_2 [4]),
-        .O(\rgb_out_reg[11]_7 [2]));
+        .O(interrupt_reg_16[2]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out5_carry_i_7
@@ -4997,7 +5122,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\hcount_delay_reg[10]_2 [3]),
         .I2(slv_reg0[2]),
         .I3(\hcount_delay_reg[10]_2 [2]),
-        .O(\rgb_out_reg[11]_7 [1]));
+        .O(interrupt_reg_16[1]));
   LUT4 #(
     .INIT(16'h9009)) 
     rgb_out5_carry_i_8
@@ -5005,113 +5130,17 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I1(\hcount_delay_reg[10]_2 [1]),
         .I2(slv_reg0[0]),
         .I3(\hcount_delay_reg[10]_2 [0]),
-        .O(\rgb_out_reg[11]_7 [0]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[0]_i_1 
-       (.I0(\rgb_delay_reg[11] [0]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [0]),
-        .O(D[0]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[10]_i_1 
-       (.I0(\rgb_delay_reg[11] [10]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [10]),
-        .O(D[10]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[11]_i_1 
-       (.I0(\rgb_delay_reg[11] [11]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [11]),
-        .O(D[11]));
+        .O(interrupt_reg_16[0]));
   LUT6 #(
-    .INIT(64'hFFFFFFFF0BFBFFFF)) 
-    \rgb_out[11]_i_2 
+    .INIT(64'h00000000F4040000)) 
+    \rgb_out[10]_i_2 
        (.I0(CO),
         .I1(\vcount_delay_reg[10]_0 ),
         .I2(Q),
         .I3(\slv_reg0_reg[26]_0 ),
         .I4(\hcount_delay_reg[10] ),
         .I5(\hcount_delay_reg[10]_0 ),
-        .O(\rgb_out[11]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[1]_i_1 
-       (.I0(\rgb_delay_reg[11] [1]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [1]),
-        .O(D[1]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[2]_i_1 
-       (.I0(\rgb_delay_reg[11] [2]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [2]),
-        .O(D[2]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[3]_i_1 
-       (.I0(\rgb_delay_reg[11] [3]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [3]),
-        .O(D[3]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[4]_i_1 
-       (.I0(\rgb_delay_reg[11] [4]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [4]),
-        .O(D[4]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[5]_i_1 
-       (.I0(\rgb_delay_reg[11] [5]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [5]),
-        .O(D[5]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[6]_i_1 
-       (.I0(\rgb_delay_reg[11] [6]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [6]),
-        .O(D[6]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[7]_i_1 
-       (.I0(\rgb_delay_reg[11] [7]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [7]),
-        .O(D[7]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[8]_i_1 
-       (.I0(\rgb_delay_reg[11] [8]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [8]),
-        .O(D[8]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \rgb_out[9]_i_1 
-       (.I0(\rgb_delay_reg[11] [9]),
-        .I1(\rgb_out[11]_i_2_n_0 ),
-        .I2(\rgb_reg[11] [9]),
-        .O(D[9]));
+        .O(interrupt_reg_5));
   CARRY4 \rgb_reg[11]_i_11 
        (.CI(\rgb_reg[11]_i_12_n_0 ),
         .CO({\NLW_rgb_reg[11]_i_11_CO_UNCONNECTED [3:2],\rgb_reg[11]_i_11_n_2 ,\rgb_reg[11]_i_11_n_3 }),
@@ -5822,7 +5851,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXI
         .I2(p_0_in[0]),
         .I3(p_0_in[1]),
         .O(p_1_in[31]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     \slv_reg3[31]_i_2 
@@ -6048,7 +6077,7 @@ endmodule
 (* ORIG_REF_NAME = "vga_block_v1_0_S00_AXIS" *) 
 module uC_vga_block_0_0_vga_block_v1_0_S00_AXIS
    (write_enable,
-    \rgb_reg[9] ,
+    \rgb_reg[6] ,
     \rgb_reg[0] ,
     Q,
     out,
@@ -6058,7 +6087,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXIS
     s00_axis_tlast,
     s00_axis_tdata);
   output write_enable;
-  output \rgb_reg[9] ;
+  output \rgb_reg[6] ;
   output \rgb_reg[0] ;
   output [23:0]Q;
   output [5:0]out;
@@ -6071,7 +6100,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXIS
   wire [23:0]Q;
   wire [5:0]out;
   wire \rgb_reg[0] ;
-  wire \rgb_reg[9] ;
+  wire \rgb_reg[6] ;
   wire \rom_data[27]_i_1_n_0 ;
   wire \rom_data[27]_i_2_n_0 ;
   wire s00_axis_aclk;
@@ -6107,7 +6136,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXIS
     ram_reg_0_63_0_2_i_1
        (.I0(write_enable),
         .I1(\write_pointer_reg_n_0_[6] ),
-        .O(\rgb_reg[9] ));
+        .O(\rgb_reg[6] ));
   LUT2 #(
     .INIT(4'h8)) 
     ram_reg_64_127_0_2_i_1
@@ -6269,7 +6298,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXIS
         .D(s00_axis_tdata[9]),
         .Q(Q[9]),
         .R(\rom_data[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h2E00)) 
     state_i_1
@@ -6284,7 +6313,7 @@ module uC_vga_block_0_0_vga_block_v1_0_S00_AXIS
         .D(state_i_1_n_0),
         .Q(state),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'hE200)) 
     write_enable_i_1

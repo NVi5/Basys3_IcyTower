@@ -14,7 +14,7 @@ class Line2d{
         Point2d GetStart();
         Point2d GetEnd();
 
-        void moveDown(int npix, int minY, int maxY);
+        bool moveDown(int npix, int minY, int maxY, bool maxWidth);
 
         bool CheckIntersection(Line2d const &l2, Point2d &solution);
         static Line2d RandomLine(unsigned int minLength, unsigned int maxLength, unsigned int minXPos, unsigned int maxXPos, unsigned int YPos);

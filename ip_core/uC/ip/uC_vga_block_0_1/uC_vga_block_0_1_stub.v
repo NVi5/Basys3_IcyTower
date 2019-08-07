@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Sun Aug  4 23:06:43 2019
+// Date        : Mon Aug  5 18:13:09 2019
 // Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top uC_vga_block_0_1 -prefix
 //               uC_vga_block_0_1_ uC_vga_block_0_0_stub.v

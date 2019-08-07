@@ -1,4 +1,4 @@
-23:28:35 **** Incremental Build of configuration Debug for project klocki_test ****
+06:54:01 **** Auto Build of configuration Debug for project klocki_test ****
 make all 
 'Building file: ../src/main.cc'
 'Invoking: MicroBlaze g++ compiler'
@@ -13,9 +13,9 @@ mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../klocki_test_bsp/microblaze_0/lib -ml
 'Invoking: MicroBlaze Print Size'
 mb-size klocki_test.elf  |tee "klocki_test.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  22604	   1516	   8224	  32344	   7e58	klocki_test.elf
+  21021	   1516	   7196	  29733	   7425	klocki_test.elf
 'Finished building: klocki_test.elf.size'
 ' '
 
-23:28:36 Build Finished (took 1s.642ms)
+06:54:03 Build Finished (took 1s.798ms)
 

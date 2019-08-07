@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sun Aug  4 23:06:44 2019
+-- Date        : Mon Aug  5 18:13:13 2019
 -- Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               C:/Users/wojte/Desktop/projekt/UEC2_Project/ip_core/uC/ip/uC_vga_block_0_0/uC_vga_block_0_0_stub.vhdl

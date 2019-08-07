@@ -208,15 +208,11 @@ _SDA2_BASE_ = __sdata2_start + ((__sbss2_end - __sdata2_start) / 2 );
    __stack = _stack;
 } > microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem
 
-.xd (NOLOAD) : {
-   . = ALIGN(4);
-   __xd_start = .;
-   *(.xd)
-   *(.xd.*)
-   *(.gnu.linkonce.b.*)
-   *(COMMON)
-   . = ALIGN(4);
-   __xd_end = .;
+.texture_memory : {
+   __texture_memory_start = .;
+   *(.texture_memory)
+   *(.texture_memory.*)
+   __texture_memory_end = .;
 } > axi_bram_ctrl_0_Mem0
 
 

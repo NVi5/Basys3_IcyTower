@@ -1,11 +1,7 @@
-src/main.o src/main.o: ../src/main.cc ../src/../include/line2d.hpp \
- ../src/../include/point2d.hpp ../src/../include/utils.h \
- ../../klocki_test_bsp/microblaze_0/include/mb_interface.h \
+src/main.o src/main.o: ../src/main.cc \
+ ../../klocki_test_bsp/microblaze_0/include/xstatus.h \
  ../../klocki_test_bsp/microblaze_0/include/xil_types.h \
  ../../klocki_test_bsp/microblaze_0/include/xil_assert.h \
- ../../klocki_test_bsp/microblaze_0/include/xil_exception.h \
- ../src/../include/player.hpp \
- ../../klocki_test_bsp/microblaze_0/include/xstatus.h \
  ../../klocki_test_bsp/microblaze_0/include/xaxidma.h \
  ../../klocki_test_bsp/microblaze_0/include/xaxidma_bdring.h \
  ../../klocki_test_bsp/microblaze_0/include/xstatus.h \
@@ -16,6 +12,7 @@ src/main.o src/main.o: ../src/main.cc ../src/../include/line2d.hpp \
  ../../klocki_test_bsp/microblaze_0/include/xparameters.h \
  ../../klocki_test_bsp/microblaze_0/include/bspconfig.h \
  ../../klocki_test_bsp/microblaze_0/include/mb_interface.h \
+ ../../klocki_test_bsp/microblaze_0/include/xil_exception.h \
  ../../klocki_test_bsp/microblaze_0/include/xdebug.h \
  ../../klocki_test_bsp/microblaze_0/include/xil_cache.h \
  ../../klocki_test_bsp/microblaze_0/include/xenv.h \
@@ -23,25 +20,17 @@ src/main.o src/main.o: ../src/main.cc ../src/../include/line2d.hpp \
  ../../klocki_test_bsp/microblaze_0/include/xparameters.h \
  ../../klocki_test_bsp/microblaze_0/include/xintc.h \
  ../../klocki_test_bsp/microblaze_0/include/xintc_l.h \
- ../../klocki_test_bsp/microblaze_0/include/xil_exception.h
+ ../../klocki_test_bsp/microblaze_0/include/xil_exception.h \
+ ../src/../include/game.hpp ../src/../include/line2d.hpp \
+ ../src/../include/point2d.hpp ../src/../include/utils.h \
+ ../../klocki_test_bsp/microblaze_0/include/mb_interface.h \
+ ../src/../include/player.hpp ../src/../include/textures.h
 
-../src/../include/line2d.hpp:
-
-../src/../include/point2d.hpp:
-
-../src/../include/utils.h:
-
-../../klocki_test_bsp/microblaze_0/include/mb_interface.h:
+../../klocki_test_bsp/microblaze_0/include/xstatus.h:
 
 ../../klocki_test_bsp/microblaze_0/include/xil_types.h:
 
 ../../klocki_test_bsp/microblaze_0/include/xil_assert.h:
-
-../../klocki_test_bsp/microblaze_0/include/xil_exception.h:
-
-../src/../include/player.hpp:
-
-../../klocki_test_bsp/microblaze_0/include/xstatus.h:
 
 ../../klocki_test_bsp/microblaze_0/include/xaxidma.h:
 
@@ -63,6 +52,8 @@ src/main.o src/main.o: ../src/main.cc ../src/../include/line2d.hpp \
 
 ../../klocki_test_bsp/microblaze_0/include/mb_interface.h:
 
+../../klocki_test_bsp/microblaze_0/include/xil_exception.h:
+
 ../../klocki_test_bsp/microblaze_0/include/xdebug.h:
 
 ../../klocki_test_bsp/microblaze_0/include/xil_cache.h:
@@ -78,3 +69,17 @@ src/main.o src/main.o: ../src/main.cc ../src/../include/line2d.hpp \
 ../../klocki_test_bsp/microblaze_0/include/xintc_l.h:
 
 ../../klocki_test_bsp/microblaze_0/include/xil_exception.h:
+
+../src/../include/game.hpp:
+
+../src/../include/line2d.hpp:
+
+../src/../include/point2d.hpp:
+
+../src/../include/utils.h:
+
+../../klocki_test_bsp/microblaze_0/include/mb_interface.h:
+
+../src/../include/player.hpp:
+
+../src/../include/textures.h:
