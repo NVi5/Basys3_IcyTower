@@ -37,7 +37,7 @@
 								<option id="xilinx.gnu.mb.compiler.inferred.fpu.1539738077" name="FPU" superClass="xilinx.gnu.mb.compiler.inferred.fpu" value="xilinx.gnu.mb.compiler.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.compiler.inferred.mul.115258454" name="Hardware Multiplier" superClass="xilinx.gnu.mb.compiler.inferred.mul" value="xilinx.gnu.mb.compiler.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.2038168286" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/include"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/include"/>
 								</option>
 								<inputType id="xilinx.gnu.compiler.input.665110742" name="C source files" superClass="xilinx.gnu.compiler.input"/>
 							</tool>
@@ -55,7 +55,7 @@
 								<option id="xilinx.gnu.mb.compiler.inferred.fpu.1882722486" name="FPU" superClass="xilinx.gnu.mb.compiler.inferred.fpu" value="xilinx.gnu.mb.compiler.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.compiler.inferred.mul.1682839193" name="Hardware Multiplier" superClass="xilinx.gnu.mb.compiler.inferred.mul" value="xilinx.gnu.mb.compiler.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.172711980" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/include"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/include"/>
 								</option>
 								<inputType id="xilinx.gnu.mb.cxx.compiler.input.1318927724" name="C++ source files" superClass="xilinx.gnu.mb.cxx.compiler.input"/>
 							</tool>
@@ -71,7 +71,7 @@
 								<option id="xilinx.gnu.mb.linker.inferred.fpu.740572955" name="FPU" superClass="xilinx.gnu.mb.linker.inferred.fpu" value="xilinx.gnu.mb.linker.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.linker.inferred.mul.54853266" name="Hardware Multiplier" superClass="xilinx.gnu.mb.linker.inferred.mul" value="xilinx.gnu.mb.linker.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.linker.inferred.swplatform.lpath.1772756028" name="Software Platform Library Path" superClass="xilinx.gnu.linker.inferred.swplatform.lpath" valueType="libPaths">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/lib"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/lib"/>
 								</option>
 								<option id="xilinx.gnu.linker.inferred.swplatform.flags.655313895" name="Software Platform Inferred Flags" superClass="xilinx.gnu.linker.inferred.swplatform.flags" valueType="libs">
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group"/>
@@ -94,7 +94,7 @@
 								<option id="xilinx.gnu.mb.linker.inferred.fpu.1675257940" name="FPU" superClass="xilinx.gnu.mb.linker.inferred.fpu" value="xilinx.gnu.mb.linker.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.linker.inferred.mul.1402553817" name="Hardware Multiplier" superClass="xilinx.gnu.mb.linker.inferred.mul" value="xilinx.gnu.mb.linker.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.linker.inferred.swplatform.lpath.1706603066" name="Software Platform Library Path" superClass="xilinx.gnu.linker.inferred.swplatform.lpath" valueType="libPaths">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/lib"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/lib"/>
 								</option>
 								<option id="xilinx.gnu.linker.inferred.swplatform.flags.919288839" name="Software Platform Inferred Flags" superClass="xilinx.gnu.linker.inferred.swplatform.flags" valueType="libs">
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group"/>
@@ -151,7 +151,7 @@
 								<option id="xilinx.gnu.mb.compiler.inferred.fpu.1781951070" name="FPU" superClass="xilinx.gnu.mb.compiler.inferred.fpu" value="xilinx.gnu.mb.compiler.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.compiler.inferred.mul.916865785" name="Hardware Multiplier" superClass="xilinx.gnu.mb.compiler.inferred.mul" value="xilinx.gnu.mb.compiler.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.1434836600" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/include"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/include"/>
 								</option>
 								<inputType id="xilinx.gnu.compiler.input.1322490296" name="C source files" superClass="xilinx.gnu.compiler.input"/>
 							</tool>
@@ -169,7 +169,7 @@
 								<option id="xilinx.gnu.mb.compiler.inferred.fpu.1694332133" name="FPU" superClass="xilinx.gnu.mb.compiler.inferred.fpu" value="xilinx.gnu.mb.compiler.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.compiler.inferred.mul.1167793190" name="Hardware Multiplier" superClass="xilinx.gnu.mb.compiler.inferred.mul" value="xilinx.gnu.mb.compiler.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.1154788027" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/include"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/include"/>
 								</option>
 								<inputType id="xilinx.gnu.mb.cxx.compiler.input.1454064932" name="C++ source files" superClass="xilinx.gnu.mb.cxx.compiler.input"/>
 							</tool>
@@ -185,7 +185,7 @@
 								<option id="xilinx.gnu.mb.linker.inferred.fpu.1882056382" name="FPU" superClass="xilinx.gnu.mb.linker.inferred.fpu" value="xilinx.gnu.mb.linker.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.linker.inferred.mul.650860072" name="Hardware Multiplier" superClass="xilinx.gnu.mb.linker.inferred.mul" value="xilinx.gnu.mb.linker.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.linker.inferred.swplatform.lpath.47077998" name="Software Platform Library Path" superClass="xilinx.gnu.linker.inferred.swplatform.lpath" valueType="libPaths">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/lib"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/lib"/>
 								</option>
 								<option id="xilinx.gnu.linker.inferred.swplatform.flags.659046307" name="Software Platform Inferred Flags" superClass="xilinx.gnu.linker.inferred.swplatform.flags" valueType="libs">
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group"/>
@@ -208,7 +208,7 @@
 								<option id="xilinx.gnu.mb.linker.inferred.fpu.596079948" name="FPU" superClass="xilinx.gnu.mb.linker.inferred.fpu" value="xilinx.gnu.mb.linker.inferred.fpu.basic" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.linker.inferred.mul.1324220820" name="Hardware Multiplier" superClass="xilinx.gnu.mb.linker.inferred.mul" value="xilinx.gnu.mb.linker.inferred.mul.32bit" valueType="enumerated"/>
 								<option id="xilinx.gnu.linker.inferred.swplatform.lpath.361873930" name="Software Platform Library Path" superClass="xilinx.gnu.linker.inferred.swplatform.lpath" valueType="libPaths">
-									<listOptionValue builtIn="false" value="../../klocki_test_bsp/microblaze_0/lib"/>
+									<listOptionValue builtIn="false" value="../../vga_bsp/microblaze_0/lib"/>
 								</option>
 								<option id="xilinx.gnu.linker.inferred.swplatform.flags.190019240" name="Software Platform Inferred Flags" superClass="xilinx.gnu.linker.inferred.swplatform.flags" valueType="libs">
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group"/>

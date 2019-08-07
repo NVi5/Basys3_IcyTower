@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>klocki_test</name>
-	<comment>Created by SDK v2018.2. klocki_test_bsp - microblaze_0</comment>
+	<comment></comment>
 	<projects>
-		<project>klocki_test_bsp</project>
+		<project>vga_bsp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -11418,3 +11418,111 @@ con
 
 23:03:19 INFO  : Launch script is exported to file 'C:\Users\wojte\Desktop\projekt\UEC2_Project\sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_klocki_test.elf_on_local.tcl'
 19:44:10 INFO  : Disconnected from the channel tcfchan#126.
+20:44:16 INFO  : Registering command handlers for SDK TCF services
+20:44:18 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\temp_xsdb_launch_script.tcl
+20:44:31 INFO  : XSCT server has started successfully.
+20:44:31 INFO  : Successfully done setting XSCT server connection channel  
+20:44:50 INFO  : Successfully done setting SDK workspace  
+20:44:50 INFO  : Processing command line option -hwspec C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/main.hdf.
+20:47:19 INFO  : Registering command handlers for SDK TCF services
+20:47:20 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\temp_xsdb_launch_script.tcl
+20:47:26 INFO  : XSCT server has started successfully.
+20:47:33 INFO  : Successfully done setting XSCT server connection channel  
+20:47:33 INFO  : Processing command line option -hwspec C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/main.hdf.
+20:47:33 INFO  : Successfully done setting SDK workspace  
+20:47:33 INFO  : Checking for hwspec changes in the project main_hw_platform_1.
+20:49:59 INFO  : The new hardware specification file contains the same information as the current specification file. No changes were done to the workspace.
+20:51:25 INFO  : The new hardware specification file contains the same information as the current specification file. No changes were done to the workspace.
+20:53:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:54:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:54:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183738777A" && level==0} -index 0' command is executed.
+20:54:09 INFO  : FPGA configured successfully with bitstream "C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/main_hw_platform_1/download.bit"
+20:56:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183738777A" && level==0} -index 0' command is executed.
+20:56:48 INFO  : 'fpga -state' command is executed.
+20:56:48 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:56:49 INFO  : Jtag cable 'Digilent Basys3 210183738777A' is selected.
+20:56:49 INFO  : 'jtag frequency' command is executed.
+20:56:49 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+20:56:49 INFO  : Context for processor 'microblaze_0' is selected.
+20:56:49 INFO  : Processor reset is completed for 'microblaze_0'.
+20:56:49 INFO  : Context for processor 'microblaze_0' is selected.
+20:56:49 INFO  : The application 'C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf' is downloaded to processor 'microblaze_0'.
+20:56:49 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+dow C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf
+----------------End of Script----------------
+
+20:56:49 INFO  : Memory regions updated for context PA
+20:56:49 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+20:56:49 INFO  : Context for processor 'microblaze_0' is selected.
+20:56:49 INFO  : 'con' command is executed.
+20:56:49 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+con
+----------------End of Script----------------
+
+20:56:49 INFO  : Launch script is exported to file 'C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_klocki_test.elf_on_local.tcl'
+20:57:40 INFO  : Disconnected from the channel tcfchan#1.
+20:57:42 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183738777A" && level==0} -index 0' command is executed.
+20:57:42 INFO  : 'fpga -state' command is executed.
+20:57:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:57:42 INFO  : Jtag cable 'Digilent Basys3 210183738777A' is selected.
+20:57:42 INFO  : 'jtag frequency' command is executed.
+20:57:42 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+20:57:42 INFO  : Context for processor 'microblaze_0' is selected.
+20:57:43 INFO  : Processor reset is completed for 'microblaze_0'.
+20:57:43 INFO  : Context for processor 'microblaze_0' is selected.
+20:57:43 INFO  : The application 'C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf' is downloaded to processor 'microblaze_0'.
+20:57:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+dow C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf
+----------------End of Script----------------
+
+20:57:43 INFO  : Memory regions updated for context PA
+20:57:43 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+20:57:43 INFO  : Context for processor 'microblaze_0' is selected.
+20:57:43 INFO  : 'con' command is executed.
+20:57:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+con
+----------------End of Script----------------
+
+20:57:43 INFO  : Launch script is exported to file 'C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_klocki_test.elf_on_local.tcl'
+20:58:29 INFO  : Disconnected from the channel tcfchan#2.
+20:58:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183738777A" && level==0} -index 0' command is executed.
+20:58:30 INFO  : 'fpga -state' command is executed.
+20:58:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:58:31 INFO  : Jtag cable 'Digilent Basys3 210183738777A' is selected.
+20:58:31 INFO  : 'jtag frequency' command is executed.
+20:58:31 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+20:58:31 INFO  : Context for processor 'microblaze_0' is selected.
+20:58:31 INFO  : Processor reset is completed for 'microblaze_0'.
+20:58:31 INFO  : Context for processor 'microblaze_0' is selected.
+20:58:31 INFO  : The application 'C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf' is downloaded to processor 'microblaze_0'.
+20:58:31 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+dow C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf
+----------------End of Script----------------
+
+20:58:31 INFO  : Memory regions updated for context PA
+20:58:31 INFO  : Memory regions updated for context MicroBlaze Debug Module at USER2
+20:58:31 INFO  : Context for processor 'microblaze_0' is selected.
+20:58:32 INFO  : 'con' command is executed.
+20:58:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+con
+----------------End of Script----------------
+
+20:58:32 INFO  : Launch script is exported to file 'C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\.sdk\launch_scripts\xilinx_c-c++_application_(system_debugger)\system_debugger_using_debug_klocki_test.elf_on_local.tcl'

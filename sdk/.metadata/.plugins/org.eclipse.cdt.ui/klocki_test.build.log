@@ -1,21 +1,6 @@
-06:54:01 **** Auto Build of configuration Debug for project klocki_test ****
+20:58:26 **** Incremental Build of configuration Debug for project klocki_test ****
 make all 
-'Building file: ../src/main.cc'
-'Invoking: MicroBlaze g++ compiler'
-mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../klocki_test_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
-'Finished building: ../src/main.cc'
-' '
-'Building target: klocki_test.elf'
-'Invoking: MicroBlaze g++ linker'
-mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../klocki_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
-'Finished building target: klocki_test.elf'
-' '
-'Invoking: MicroBlaze Print Size'
-mb-size klocki_test.elf  |tee "klocki_test.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  21021	   1516	   7196	  29733	   7425	klocki_test.elf
-'Finished building: klocki_test.elf.size'
-' '
+make: Nie ma nic do zrobienia w `all'.
 
-06:54:03 Build Finished (took 1s.798ms)
+20:58:28 Build Finished (took 1s.53ms)
 

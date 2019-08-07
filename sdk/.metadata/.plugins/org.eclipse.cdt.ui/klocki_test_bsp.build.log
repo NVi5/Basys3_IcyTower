@@ -1,4 +1,4 @@
-18:28:41 **** Build of project klocki_test_bsp ****
+20:51:36 **** Auto Build of project klocki_test_bsp ****
 make -k all 
 "Running Make include in microblaze_0/libsrc/axidma_v9_7/src"
 make -C microblaze_0/libsrc/axidma_v9_7/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
@@ -58,5 +58,5 @@ vga_block_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
       ^~~~~
 'Finished building libraries'
 
-18:29:03 Build Finished (took 22s.789ms)
+20:51:54 Build Finished (took 17s.394ms)
 

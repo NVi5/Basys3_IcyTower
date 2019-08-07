@@ -25,6 +25,9 @@
 #define VGA_PLAYER_XSCALE 	(*(uint16_t*)(VGA_PLAYER_BASE + 8))
 #define VGA_PLAYER_YSCALE 	(*(uint16_t*)(VGA_PLAYER_BASE + 10))
 
+#define KEYBOARD_BASE		XPAR_KEYBOARDCONTROLLER_0_S00_AXI_BASEADDR
+#define KEYBOARD_KEYS		(*(uint16_t*)(KEYBOARD_BASE + 0))
+
 static inline u16 rgb565torgb444(u16 rgb565){
 	return ( ((rgb565 & 0x1e) >> 1) | ((rgb565 & 0x780) >> 3)  | ((rgb565 & 0xf000) >> 4) );
 }
@@ -38,8 +41,10 @@ XAxiDma_Config *dma_config1;
 Game GameInstance;
 
 XIntc InterruptController;
-#define INTC_DEVICE_ID		  XPAR_INTC_0_DEVICE_ID
-#define INTC_DEVICE_INT_ID	  XPAR_INTC_0_VGA_BLOCK_0_VEC_ID
+#define INTC_DEVICE_ID			  XPAR_INTC_0_DEVICE_ID
+#define INTC_DEVICE_INT_ID		  XPAR_INTC_0_VGA_BLOCK_0_VEC_ID
+#define INTC_DEVICE_KEYBOARD_ID	  XPAR_INTC_0_KEYBOARDCONTROLLER_0_VEC_ID
+
 
 int it_counter = 0;
 int block_counter = 0;
@@ -67,6 +72,11 @@ void DeviceDriverHandler(void *CallbackRef)
 		y = 1023 + VGA_HEIGHT + y;
 	}
 	VGA_YPOS = y;
+}
+
+void KeyboardHandler(void *CallbackRef)
+{
+	xil_printf("%d\r\n", KEYBOARD_KEYS);
 }
 
 void interrupt_init(XIntc *InterruptController, void(*callback)(void*), u16 interrupt_device_id, u8 interrupt_vector ){
@@ -119,6 +129,7 @@ int main(){
 	while( XAxiDma_Busy(&dma1, XAXIDMA_DMA_TO_DEVICE) );
 
     interrupt_init(&InterruptController, DeviceDriverHandler, INTC_DEVICE_ID, INTC_DEVICE_INT_ID);
+    interrupt_init(&InterruptController, KeyboardHandler, INTC_DEVICE_ID, INTC_DEVICE_KEYBOARD_ID);
 
 //	Lines[0] = Line2d( Point2d(127, 63), Point2d(1151, 63) );
 //	for(int j = 1; j < 6; j++) Lines[j] = Line2d::RandomLine(200, 600, 127, 1151, 180 * j + 64);
