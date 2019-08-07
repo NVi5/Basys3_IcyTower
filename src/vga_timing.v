@@ -17,7 +17,7 @@ module vga_timing (
   output reg [10:0] hcount,
   output wire hsync,
   output wire hblnk,
-  input wire pclk,
+  input wire clk,
   input wire rst
   );
   
@@ -36,8 +36,8 @@ module vga_timing (
     reg [10:0] hcount_nxt;
     reg [10:0] vcount_nxt;
  
-      always @(posedge pclk)
-      if(rst == 1)begin
+      always @(posedge clk)
+      if(rst == 0)begin
         vcount <= 1023;
         hcount <= 0;
       end else begin
