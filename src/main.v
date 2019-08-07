@@ -42,127 +42,19 @@ module main(
     output wire [3:0] b
     );
     
-    wire pclk;
-    wire [7:0] key;
-    wire [10:0] vcount, hcount, vcount_bg, hcount_bg, vcount_uc, hcount_uc;
-    wire vsync, hsync, vsync_bg, hsync_bg, vsync_uc, hsync_uc;
-    wire vblnk, hblnk, vblnk_bg, hblnk_bg, vblnk_uc, hblnk_uc;
-    wire [11:0] rgb_bg;
-    wire [11:0] rgb_bg_out;
-    wire [11:0] rgb_sides;
-    
-    clk_wiz_0 my_clk
-    (
-        .clk_135MHz(pclk),
-        .clk_in(clk)
-    );
-    
     uC my_uC(
-        .clk_135MHz(pclk),
+        .clk_100MHz(clk),
         .led(led),
         .reset(!rst),
         .rx(rx),
         .tx(tx),
-        
-        .hblnk_in(hblnk_bg),
-        .hblnk_out(1'b0),
-        .hcount_in(hcount_bg),
-        .hcount_out(11'b0),
-        .hsync_in(hsync_bg),
+        .PS2_1_ps2_clk(ps2_clk),
+        .PS2_1_ps2_data(ps2_data),
+        .SevSeg_1_an(an),
+        .SevSeg_1_sseg(seg),
         .hsync_out(hs),
-        .rgb_in(rgb_bg_out),
         .rgb_out({r,g,b}),
-        .vblnk_in(vblnk_bg),
-        .vblnk_out(1'b0),
-        .vcount_in(vcount_bg),
-        .vcount_out(11'b0),
-        .vsync_in(vsync_bg),
         .vsync_out(vs)
     );
-  
-    vga_timing #(
-        .HOR_TOT_TIME(1688),
-        .VER_TOT_TIME(1066),
-        .HOR_ADDR_TIME(1280),
-        .VER_ADDR_TIME(1024),
-        .HOR_SYNC_START(1280+16),
-        .VER_SYNC_START(1024+1),
-        .HOR_SYNC_STOP(1280+16+144),
-        .VER_SYNC_STOP(1024+1+3)
-    ) 
-    my_timing (
-        .vcount(vcount),
-        .vsync(vsync),
-        .vblnk(vblnk),
-        .hcount(hcount),
-        .hsync(hsync),
-        .hblnk(hblnk),
-        .pclk(pclk),
-        .rst(rst)
-    );
     
-    wire [7:0] pixel_addr;
-    
-    image_rom #(
-      .IMAGE("cobblestone.data")
-    ) bg_rom(
-      .clk(pclk),
-      .address(pixel_addr),
-      .rgb(rgb_bg)
-    );
-    
-    image_rom #(
-      .IMAGE("brick.data")
-    ) sides_rom(
-      .clk(pclk),
-      .address(pixel_addr),
-      .rgb(rgb_sides)
-    );
-    
-    draw_background my_draw_background(
-        .vcount_in(vcount),
-        .vsync_in(vsync),
-        .vblnk_in(vblnk),
-        .hcount_in(hcount),
-        .hsync_in(hsync),
-        .hblnk_in(hblnk),
-        
-        .shift(vcount[9:4]),
-        
-        .rgb_sides(rgb_sides),
-        .rgb_bg(rgb_bg),
-        .pixel_addr(pixel_addr),
-        
-        .pclk(pclk),
-        .rst(rst),   
-         
-        .vcount_out(vcount_bg),
-        .vsync_out(vsync_bg),
-        .vblnk_out(vblnk_bg),
-        .hcount_out(hcount_bg),
-        .hsync_out(hsync_bg),
-        .hblnk_out(hblnk_bg),
-        .rgb_out(rgb_bg_out)
-    );
-    
-  KeyboardCtl myKeyboardCtl(
-    .clk(clk),
-    .rst(rst),
-    .ps2_clk(ps2_clk),
-    .ps2_data(ps2_data),
-    .key(key),
-    .new_event()
-  );
-  
-  disp_hex_mux my_disp(
-      .clk(clk),
-      .reset(rst),
-      .hex3(4'b0000),
-      .hex2(4'b0000),
-      .hex1(key[7:4]),
-      .hex0(key[3:0]),
-      .dp_in(4'hf),
-      .an(an),
-      .sseg(seg) 
-  );
 endmodule

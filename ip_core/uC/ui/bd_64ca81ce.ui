@@ -1,97 +1,90 @@
 {
    ExpandedHierarchyInLayout: "",
+   PinnedBlocks: "",
    guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 non-TLS
 #  -string -flagsOSRD
-preplace port tx -pg 1 -y 840 -defaultsOSRD
-preplace port hsync_in -pg 1 -y 1320 -defaultsOSRD
-preplace port clk_135MHz -pg 1 -y 990 -defaultsOSRD
-preplace port hblnk_out -pg 1 -y 1190 -defaultsOSRD
-preplace port vsync_out -pg 1 -y 1110 -defaultsOSRD
-preplace port rx -pg 1 -y 1190 -defaultsOSRD
-preplace port vblnk_in -pg 1 -y 1280 -defaultsOSRD
-preplace port vblnk_out -pg 1 -y 1130 -defaultsOSRD
-preplace port vsync_in -pg 1 -y 1260 -defaultsOSRD
-preplace port hsync_out -pg 1 -y 1170 -defaultsOSRD
-preplace port hblnk_in -pg 1 -y 1340 -defaultsOSRD
-preplace port reset -pg 1 -y 1070 -defaultsOSRD
-preplace portBus hcount_in -pg 1 -y 1300 -defaultsOSRD
-preplace portBus hcount_out -pg 1 -y 1150 -defaultsOSRD
-preplace portBus vcount_in -pg 1 -y 1240 -defaultsOSRD
-preplace portBus vcount_out -pg 1 -y 1090 -defaultsOSRD
-preplace portBus led -pg 1 -y 960 -defaultsOSRD
-preplace portBus rgb_out -pg 1 -y 1210 -defaultsOSRD
-preplace portBus rgb_in -pg 1 -y 1360 -defaultsOSRD
-preplace inst axi_dma_0 -pg 1 -lvl 3 -y 810 -defaultsOSRD
-preplace inst blocks -pg 1 -lvl 5 -y 1310 -defaultsOSRD
-preplace inst axi_dma_1 -pg 1 -lvl 3 -y 620 -defaultsOSRD
-preplace inst microblaze_0_axi_periph -pg 1 -lvl 4 -y 350 -defaultsOSRD
-preplace inst rst_clk_wiz_0_135M -pg 1 -lvl 1 -y 1090 -defaultsOSRD
-preplace inst microblaze_0_xlconcat -pg 1 -lvl 1 -y 910 -defaultsOSRD
-preplace inst axi_timer_0 -pg 1 -lvl 5 -y 630 -defaultsOSRD
-preplace inst axi_gpio_0 -pg 1 -lvl 6 -y 950 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 6 -y 440 -defaultsOSRD
-preplace inst microblaze_0_axi_intc -pg 1 -lvl 2 -y 940 -defaultsOSRD
-preplace inst mdm_1 -pg 1 -lvl 2 -y 1170 -defaultsOSRD
-preplace inst microblaze_0 -pg 1 -lvl 3 -y 1030 -defaultsOSRD
-preplace inst axi_uartlite_0 -pg 1 -lvl 5 -y 830 -defaultsOSRD
-preplace inst player -pg 1 -lvl 6 -y 1150 -defaultsOSRD
-preplace inst axi_bram_ctrl_0 -pg 1 -lvl 5 -y 440 -defaultsOSRD
-preplace inst microblaze_0_local_memory -pg 1 -lvl 4 -y 1480 -defaultsOSRD
-preplace netloc vsync_in_0_1 1 0 5 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ
-preplace netloc hsync_in_0_1 1 0 5 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ
-preplace netloc microblaze_0_axi_periph_M08_AXI 1 4 1 1960
-preplace netloc blocks_vga_interface_out 1 5 1 3960
-preplace netloc microblaze_0_axi_periph_M04_AXI 1 2 3 740J 710 NJ 710 1910
-preplace netloc vcount_in_0_1 1 0 5 NJ 1240 NJ 1240 NJ 1240 NJ 1240 NJ
-preplace netloc blocks_interrupt 1 0 6 30 990 410J 1050 690J 1120 NJ 1120 NJ 1120 3910
-preplace netloc player_hcount_out 1 6 1 NJ
-preplace netloc axi_uartlite_0_interrupt 1 0 6 30 810 NJ 810 720J 920 NJ 920 NJ 920 3910
-preplace netloc microblaze_0_intr 1 1 1 400
-preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 5 1 NJ
-preplace netloc axi_dma_1_M_AXIS_MM2S 1 3 3 1540J 0 NJ 0 3960
-preplace netloc axi_dma_1_M_AXI_MM2S 1 3 1 1550
-preplace netloc hcount_in_0_1 1 0 5 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ
-preplace netloc microblaze_0_Clk 1 0 6 10 830 410 820 710 530 1580 -10 1970 950 3970
-preplace netloc microblaze_0_axi_periph_M06_AXI 1 4 1 1950
-preplace netloc microblaze_0_axi_periph_M03_AXI 1 4 1 1980
-preplace netloc microblaze_0_intc_axi 1 1 4 430 720 NJ 720 NJ 720 1930
-preplace netloc microblaze_0_interrupt 1 2 1 700
-preplace netloc hblnk_in_0_1 1 0 5 NJ 1340 NJ 1340 NJ 1340 NJ 1340 NJ
-preplace netloc microblaze_0_ilmb_1 1 3 1 1560
-preplace netloc player_rgb_out 1 6 1 NJ
-preplace netloc rst_clk_wiz_0_135M_mb_reset 1 1 2 430 1060 N
-preplace netloc microblaze_0_axi_periph_M05_AXI 1 2 3 740J 10 NJ 10 1920
-preplace netloc microblaze_0_axi_dp 1 3 1 1590
-preplace netloc player_vcount_out 1 6 1 NJ
-preplace netloc axi_uartlite_0_tx 1 5 2 NJ 840 NJ
-preplace netloc axi_dma_0_M_AXI_MM2S 1 3 1 1570
-preplace netloc player_hblnk_out 1 6 1 NJ
-preplace netloc vblnk_in_0_1 1 0 5 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ
-preplace netloc rx_0_1 1 0 6 NJ 1190 420J 1270 NJ 1270 NJ 1270 2010J 1110 3920
-preplace netloc axi_gpio_0_gpio_io_o 1 6 1 NJ
-preplace netloc microblaze_0_axi_periph_M01_AXI 1 4 2 2000 350 3970J
-preplace netloc rgb_in_0_1 1 0 5 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ
-preplace netloc reset_rtl_0_1 1 0 1 NJ
-preplace netloc rst_clk_wiz_0_135M_peripheral_aresetn 1 1 5 420 830 730 900 1600 690 2000 970 3950
-preplace netloc rst_clk_wiz_0_135M_bus_struct_reset 1 1 3 NJ 1070 680J 1130 1540
-preplace netloc microblaze_0_axi_periph_M07_AXI 1 4 2 1940 360 3940J
-preplace netloc microblaze_0_axi_periph_M02_AXI 1 4 1 1990
-preplace netloc microblaze_0_dlmb_1 1 3 1 1600
-preplace netloc player_vblnk_out 1 6 1 NJ
-preplace netloc axi_dma_0_M_AXIS_MM2S 1 3 2 NJ 800 1920
-preplace netloc microblaze_0_debug 1 2 1 700
-preplace netloc player_hsync_out 1 6 1 NJ
-preplace netloc mdm_1_debug_sys_rst 1 0 3 30 1250 NJ 1250 710
-preplace netloc rst_clk_wiz_0_135M_interconnect_aresetn 1 1 3 390J 520 NJ 520 1560
-preplace netloc player_vsync_out 1 6 1 NJ
-preplace netloc axi_timer_0_interrupt 1 0 6 20 800 NJ 800 700J 930 NJ 930 NJ 930 3930
-levelinfo -pg 1 -10 220 560 1300 1760 3750 4160 4340 -top -100 -bot 2780
+preplace port SevSeg_1 -pg 1 -y 760 -defaultsOSRD
+preplace port tx -pg 1 -y 670 -defaultsOSRD
+preplace port clk_100MHz -pg 1 -y 1220 -defaultsOSRD
+preplace port vsync_out -pg 1 -y 940 -defaultsOSRD
+preplace port rx -pg 1 -y 1130 -defaultsOSRD
+preplace port PS2_1 -pg 1 -y 1160 -defaultsOSRD
+preplace port hsync_out -pg 1 -y 960 -defaultsOSRD
+preplace port reset -pg 1 -y 1280 -defaultsOSRD
+preplace portBus led -pg 1 -y 340 -defaultsOSRD
+preplace portBus rgb_out -pg 1 -y 980 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 4 -y 840 -defaultsOSRD
+preplace inst blocks -pg 1 -lvl 7 -y 950 -defaultsOSRD
+preplace inst axi_dma_1 -pg 1 -lvl 4 -y 680 -defaultsOSRD
+preplace inst vga_timing_0 -pg 1 -lvl 5 -y 740 -defaultsOSRD
+preplace inst microblaze_0_axi_periph -pg 1 -lvl 5 -y 260 -defaultsOSRD
+preplace inst rst_clk_wiz_0_135M -pg 1 -lvl 2 -y 1300 -defaultsOSRD
+preplace inst microblaze_0_xlconcat -pg 1 -lvl 2 -y 1050 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 6 -y 420 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 8 -y 330 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 7 -y 230 -defaultsOSRD
+preplace inst vga_background_0 -pg 1 -lvl 6 -y 810 -defaultsOSRD
+preplace inst microblaze_0_axi_intc -pg 1 -lvl 3 -y 1000 -defaultsOSRD
+preplace inst mdm_1 -pg 1 -lvl 3 -y 810 -defaultsOSRD
+preplace inst microblaze_0 -pg 1 -lvl 4 -y 1000 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 6 -y 1010 -defaultsOSRD
+preplace inst KeyboardController_0 -pg 1 -lvl 8 -y 770 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 1220 -defaultsOSRD
+preplace inst player -pg 1 -lvl 8 -y 960 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 6 -y 230 -defaultsOSRD
+preplace inst microblaze_0_local_memory -pg 1 -lvl 5 -y 880 -defaultsOSRD
+preplace netloc vga_background_0_vga_interface_out 1 6 1 2400
+preplace netloc microblaze_0_axi_periph_M08_AXI 1 5 1 1930
+preplace netloc blocks_vga_interface_out 1 7 1 N
+preplace netloc microblaze_0_axi_periph_M04_AXI 1 3 3 1000 -120 NJ -120 1890
+preplace netloc blocks_interrupt 1 1 7 230 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 NJ 1160 2750
+preplace netloc axi_uartlite_0_interrupt 1 1 6 210 1180 NJ 1180 NJ 1180 NJ 1180 NJ 1180 2350
+preplace netloc microblaze_0_intr 1 2 1 630
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 6 1 NJ
+preplace netloc axi_dma_1_M_AXIS_MM2S 1 4 4 N 670 1910J 710 2390J 720 2750J
+preplace netloc axi_dma_1_M_AXI_MM2S 1 4 1 1500
+preplace netloc microblaze_0_axi_periph_M06_AXI 1 5 2 1980 680 2420J
+preplace netloc microblaze_0_axi_periph_M03_AXI 1 5 1 2000
+preplace netloc microblaze_0_intc_axi 1 2 4 660 1120 NJ 1120 NJ 1120 1900
+preplace netloc microblaze_0_interrupt 1 3 1 960
+preplace netloc clk_wiz_0_clk_135MHz 1 1 7 220 1200 610 880 980 1100 1520 -130 1960 920 2430 830 2780
+preplace netloc PS2_1_1 1 0 8 -30J 1150 NJ 1150 NJ 1150 NJ 1150 1580J 660 1920J 700 2400J 710 2760J
+preplace netloc microblaze_0_axi_periph_M10_AXI 1 5 3 1940 690 NJ 690 2810J
+preplace netloc microblaze_0_ilmb_1 1 4 1 1570
+preplace netloc player_rgb_out 1 8 1 NJ
+preplace netloc rst_clk_wiz_0_135M_mb_reset 1 2 2 650 1110 960J
+preplace netloc microblaze_0_axi_periph_M05_AXI 1 3 3 1010 1090 NJ 1090 1890
+preplace netloc microblaze_0_axi_dp 1 4 1 1530
+preplace netloc axi_uartlite_0_tx 1 6 3 2410J 700 2800J 680 3130J
+preplace netloc KeyboardController_0_SevSeg_1 1 8 1 NJ
+preplace netloc vga_timing_0_user_vga_interface 1 5 1 1910
+preplace netloc axi_dma_0_M_AXI_MM2S 1 4 1 1490
+preplace netloc rx_0_1 1 0 7 NJ 1130 200J 1190 NJ 1190 NJ 1190 NJ 1190 NJ 1190 2370
+preplace netloc axi_gpio_0_gpio_io_o 1 8 1 NJ
+preplace netloc microblaze_0_axi_periph_M01_AXI 1 5 3 1950 150 NJ 150 2810J
+preplace netloc KeyboardController_0_interrupt 1 1 8 240 1140 NJ 1140 NJ 1140 NJ 1140 NJ 1140 NJ 1140 NJ 1140 3130
+preplace netloc rst_clk_wiz_0_135M_peripheral_aresetn 1 2 6 640 890 990 1110 1560 640 1970 720 2380 730 2790
+preplace netloc rst_clk_wiz_0_135M_bus_struct_reset 1 2 3 NJ 1280 NJ 1280 1590
+preplace netloc microblaze_0_axi_periph_M07_AXI 1 5 3 1990 310 NJ 310 2770J
+preplace netloc microblaze_0_axi_periph_M02_AXI 1 5 1 1950
+preplace netloc microblaze_0_dlmb_1 1 4 1 1550
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 4 3 1540 960 2000J 910 NJ
+preplace netloc microblaze_0_debug 1 3 1 970
+preplace netloc reset_1 1 0 2 NJ 1280 N
+preplace netloc player_hsync_out 1 8 1 NJ
+preplace netloc mdm_1_debug_sys_rst 1 1 3 240 1400 NJ 1400 950
+preplace netloc rst_clk_wiz_0_135M_interconnect_aresetn 1 2 3 620J 590 NJ 590 1510
+preplace netloc microblaze_0_axi_periph_M09_AXI 1 5 1 1930
+preplace netloc clk_100MHz_1 1 0 1 NJ
+preplace netloc player_vsync_out 1 8 1 NJ
+preplace netloc axi_timer_0_interrupt 1 1 6 220 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 2360
+levelinfo -pg 1 -50 100 440 830 1250 1740 2190 2590 2970 3150 -top -140 -bot 1420
 ",
 }
 {
-   da_axi4_cnt: "10",
-   da_board_cnt: "9",
+   da_axi4_cnt: "12",
+   da_board_cnt: "19",
    da_bram_cntlr_cnt: "1",
-   da_clkrst_cnt: "5",
+   da_clkrst_cnt: "53",
    da_mb_cnt: "3",
 }

@@ -1,8 +1,8 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Mon Aug  5 18:09:14 2019
-//Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
+//Date        : Wed Aug  7 19:16:25 2019
+//Host        : DESKTOP-A5397SU running 64-bit major release  (build 9200)
 //Command     : generate_target uC_wrapper.bd
 //Design      : uC_wrapper
 //Purpose     : IP block netlist
@@ -10,83 +10,55 @@
 `timescale 1 ps / 1 ps
 
 module uC_wrapper
-   (clk_135MHz,
-    hblnk_in,
-    hblnk_out,
-    hcount_in,
-    hcount_out,
-    hsync_in,
+   (PS2_1_ps2_clk,
+    PS2_1_ps2_data,
+    SevSeg_1_an,
+    SevSeg_1_sseg,
+    clk_100MHz,
     hsync_out,
     led,
     reset,
-    rgb_in,
     rgb_out,
     rx,
     tx,
-    vblnk_in,
-    vblnk_out,
-    vcount_in,
-    vcount_out,
-    vsync_in,
     vsync_out);
-  input clk_135MHz;
-  input hblnk_in;
-  output hblnk_out;
-  input [10:0]hcount_in;
-  output [10:0]hcount_out;
-  input hsync_in;
+  inout PS2_1_ps2_clk;
+  inout PS2_1_ps2_data;
+  output [3:0]SevSeg_1_an;
+  output [7:0]SevSeg_1_sseg;
+  input clk_100MHz;
   output hsync_out;
   output [15:0]led;
   input reset;
-  input [11:0]rgb_in;
   output [11:0]rgb_out;
   input rx;
   output tx;
-  input vblnk_in;
-  output vblnk_out;
-  input [10:0]vcount_in;
-  output [10:0]vcount_out;
-  input vsync_in;
   output vsync_out;
 
-  wire clk_135MHz;
-  wire hblnk_in;
-  wire hblnk_out;
-  wire [10:0]hcount_in;
-  wire [10:0]hcount_out;
-  wire hsync_in;
+  wire PS2_1_ps2_clk;
+  wire PS2_1_ps2_data;
+  wire [3:0]SevSeg_1_an;
+  wire [7:0]SevSeg_1_sseg;
+  wire clk_100MHz;
   wire hsync_out;
   wire [15:0]led;
   wire reset;
-  wire [11:0]rgb_in;
   wire [11:0]rgb_out;
   wire rx;
   wire tx;
-  wire vblnk_in;
-  wire vblnk_out;
-  wire [10:0]vcount_in;
-  wire [10:0]vcount_out;
-  wire vsync_in;
   wire vsync_out;
 
   uC uC_i
-       (.clk_135MHz(clk_135MHz),
-        .hblnk_in(hblnk_in),
-        .hblnk_out(hblnk_out),
-        .hcount_in(hcount_in),
-        .hcount_out(hcount_out),
-        .hsync_in(hsync_in),
+       (.PS2_1_ps2_clk(PS2_1_ps2_clk),
+        .PS2_1_ps2_data(PS2_1_ps2_data),
+        .SevSeg_1_an(SevSeg_1_an),
+        .SevSeg_1_sseg(SevSeg_1_sseg),
+        .clk_100MHz(clk_100MHz),
         .hsync_out(hsync_out),
         .led(led),
         .reset(reset),
-        .rgb_in(rgb_in),
         .rgb_out(rgb_out),
         .rx(rx),
         .tx(tx),
-        .vblnk_in(vblnk_in),
-        .vblnk_out(vblnk_out),
-        .vcount_in(vcount_in),
-        .vcount_out(vcount_out),
-        .vsync_in(vsync_in),
         .vsync_out(vsync_out));
 endmodule
