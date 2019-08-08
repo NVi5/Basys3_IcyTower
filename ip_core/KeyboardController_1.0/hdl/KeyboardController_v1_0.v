@@ -114,7 +114,7 @@
             OldCode <= 0;
             CurrentCode <= 0;
         end else begin
-            interrupt <= (keys == keys_nxt) ? 1'b1 : 1'b0;
+            interrupt <= (keys != keys_nxt) ? 1'b1 : 1'b0;
             keys <= keys_nxt;
             if(new_event) begin
                 {OldCode,CurrentCode} <= {CurrentCode,code};   

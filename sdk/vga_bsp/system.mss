@@ -6,6 +6,8 @@ BEGIN OS
  PARAMETER OS_NAME = standalone
  PARAMETER OS_VER = 6.7
  PARAMETER PROC_INSTANCE = microblaze_0
+ PARAMETER profile_timer = axi_timer_0
+ PARAMETER sleep_timer = axi_timer_0
  PARAMETER stdin = axi_uartlite_0
  PARAMETER stdout = axi_uartlite_0
 END

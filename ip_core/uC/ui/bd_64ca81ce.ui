@@ -28,8 +28,8 @@ preplace inst microblaze_0_axi_intc -pg 1 -lvl 3 -y 1160 -defaultsOSRD
 preplace inst mdm_1 -pg 1 -lvl 3 -y 1390 -defaultsOSRD
 preplace inst microblaze_0 -pg 1 -lvl 4 -y 1310 -defaultsOSRD
 preplace inst axi_uartlite_0 -pg 1 -lvl 6 -y 1310 -defaultsOSRD
-preplace inst player -pg 1 -lvl 8 -y 630 -defaultsOSRD
 preplace inst KeyboardController_0 -pg 1 -lvl 8 -y 960 -defaultsOSRD
+preplace inst player -pg 1 -lvl 8 -y 630 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -y 1280 -defaultsOSRD
 preplace inst axi_bram_ctrl_0 -pg 1 -lvl 6 -y 470 -defaultsOSRD
 preplace inst microblaze_0_local_memory -pg 1 -lvl 5 -y 1320 -defaultsOSRD

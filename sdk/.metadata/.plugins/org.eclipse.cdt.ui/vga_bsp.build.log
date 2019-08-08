@@ -1,4 +1,4 @@
-20:52:29 **** Build of project vga_bsp ****
+21:39:51 **** Build of project vga_bsp ****
 make -k all 
 "Running Make include in microblaze_0/libsrc/axidma_v9_7/src"
 make -C microblaze_0/libsrc/axidma_v9_7/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
@@ -51,9 +51,9 @@ KeyboardController_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-v
 "Running Make libs in microblaze_0/libsrc/standalone_v6_7/src"
 make -C microblaze_0/libsrc/standalone_v6_7/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
 "Compiling standalone";
-microblaze_sleep.c:74:9: note: #pragma message: For the sleep routines, assembly instructions are used
- #pragma message ("For the sleep routines, assembly instructions are used")
-         ^~~~~~~
+microblaze_sleep.c:69:2: warning: #warning "May wait for more than the specified delay" [-Wcpp]
+ #warning "May wait for more than the specified delay"
+  ^~~~~~~
 "Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src"
 make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
 "Compiling tmrctr"
@@ -82,5 +82,5 @@ vga_block_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
       ^~~~~
 'Finished building libraries'
 
-20:52:48 Build Finished (took 19s.828ms)
+21:40:15 Build Finished (took 24s.234ms)
 
