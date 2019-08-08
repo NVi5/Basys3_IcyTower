@@ -3,7 +3,6 @@
 #include "xparameters.h"
 #include "xintc.h"
 #include "xil_exception.h"
-
 #include "../include/game.hpp"
 #include "../include/textures.h"
 #include "../include/utils.h"
@@ -29,7 +28,8 @@
 #define KEYBOARD_KEYS		(*(uint16_t*)(KEYBOARD_BASE + 0))
 
 #define VGA_BACKGROUND_BASE 	XPAR_VGA_BACKGROUND_0_S00_AXI_BASEADDR
-#define VGA_BACKGROUND_SHIFT 	(*(uint16_t*)(VGA_BACKGROUND_BASE + 0))
+#define VGA_BACKGROUND_SHIFT_BG 	(*(uint32_t*)(VGA_BACKGROUND_BASE + 0))
+#define VGA_BACKGROUND_SHIFT_SIDES 	(*(uint32_t*)(VGA_BACKGROUND_BASE + 4))
 
 static inline u16 rgb565torgb444(u16 rgb565){
 	return ( ((rgb565 & 0x1e) >> 1) | ((rgb565 & 0x780) >> 3)  | ((rgb565 & 0xf000) >> 4) );
@@ -141,6 +141,9 @@ int main(){
     	int i = 0;
 		while(i++ < 100000);
     	GameInstance.Run();
+
+    	VGA_BACKGROUND_SHIFT_BG--;
+    	VGA_BACKGROUND_SHIFT_SIDES -= 2;
 
 //    	int i = 0;
 //    	while(i++ < 100000);

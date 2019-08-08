@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:vga_background:1.0
-// IP Revision: 12
+// IP Revision: 20
 
 (* X_CORE_INFO = "vga_background_v1_0,Vivado 2018.2" *)
 (* CHECK_LICENSE_TYPE = "uC_vga_background_0_0,vga_background_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "uC_vga_background_0_0,vga_background_v1_0,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=vga_background,x_ipVersion=1.0,x_ipCoreRevision=12,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "uC_vga_background_0_0,vga_background_v1_0,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=vga_background,x_ipVersion=1.0,x_ipCoreRevision=20,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module uC_vga_background_0_0 (
   vcount_in,

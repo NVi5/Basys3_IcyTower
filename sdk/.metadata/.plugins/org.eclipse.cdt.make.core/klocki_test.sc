@@ -2,6 +2,12 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="xilinx.gnu.mb.exe.debug.1132824071;xilinx.gnu.mb.exe.debug.1132824071.">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/microblaze-xilinx-elf"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/backward"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/include"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/include-fixed"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include"/>
 <includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0"/>
 <includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/microblaze-xilinx-elf"/>
 <includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/backward"/>
@@ -654,12 +660,12 @@
 </instance>
 <instance id="xilinx.gnu.mb.exe.debug.1132824071;xilinx.gnu.mb.exe.debug.1132824071.;xilinx.gnu.mb.cxx.toolchain.compiler.debug.1165449361;xilinx.gnu.mb.cxx.compiler.input.1318927724">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0"/>
-<includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/microblaze-xilinx-elf"/>
-<includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/backward"/>
-<includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/include"/>
-<includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/include-fixed"/>
-<includePath path="f:\xilinx\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/microblaze-xilinx-elf"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include/c++/7.2.0/backward"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/include"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/include-fixed"/>
+<includePath path="e:\xilinx_2018.2\sdk\2018.2\gnu\microblaze\nt\bin\../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/include"/>
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__cplusplus=201402L"/>
 <definedSymbol symbol="__STDC_UTF_16__=1"/>

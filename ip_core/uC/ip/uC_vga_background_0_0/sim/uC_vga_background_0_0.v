@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:vga_background:1.0
-// IP Revision: 12
+// IP Revision: 20
 
 `timescale 1ns/1ps
 

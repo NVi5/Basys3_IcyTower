@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:KeyboardController:1.0
-// IP Revision: 7
+// IP Revision: 9
 
 `timescale 1ns/1ps
 
@@ -57,6 +57,7 @@ module uC_KeyboardController_0_0 (
   ps2_clk,
   ps2_data,
   interrupt,
+  led,
   sseg,
   an,
   s00_axi_awaddr,
@@ -89,6 +90,7 @@ inout wire ps2_data;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interrupt, SENSITIVITY LEVEL_HIGH, PortWidth 1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 interrupt INTERRUPT" *)
 output wire interrupt;
+output wire [15 : 0] led;
 (* X_INTERFACE_INFO = "xilinx.com:user:SevSeg:1.0 SevSeg_1 sseg" *)
 output wire [7 : 0] sseg;
 (* X_INTERFACE_INFO = "xilinx.com:user:SevSeg:1.0 SevSeg_1 an" *)
@@ -147,6 +149,7 @@ input wire s00_axi_aresetn;
     .ps2_clk(ps2_clk),
     .ps2_data(ps2_data),
     .interrupt(interrupt),
+    .led(led),
     .sseg(sseg),
     .an(an),
     .s00_axi_awaddr(s00_axi_awaddr),
