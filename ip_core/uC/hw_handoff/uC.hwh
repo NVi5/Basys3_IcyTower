@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug  7 20:09:18 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug  7 21:09:39 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="uC" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -5707,7 +5707,6 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axi_mm2s_aclk"/>
             <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="vga_timing_0" PORT="clk"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M03_ACLK"/>
@@ -5732,6 +5731,7 @@
             <CONNECTION INSTANCE="blocks" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="player" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="player" PORT="s00_axis_aclk"/>
+            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -11009,7 +11009,6 @@
             <CONNECTION INSTANCE="axi_dma_1" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="vga_timing_0" PORT="rst"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M00_ARESETN"/>
@@ -11029,6 +11028,7 @@
             <CONNECTION INSTANCE="blocks" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="player" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="player" PORT="s00_axis_aresetn"/>
+            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

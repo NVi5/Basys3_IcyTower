@@ -28,6 +28,9 @@
 #define KEYBOARD_BASE		XPAR_KEYBOARDCONTROLLER_0_S00_AXI_BASEADDR
 #define KEYBOARD_KEYS		(*(uint16_t*)(KEYBOARD_BASE + 0))
 
+#define VGA_BACKGROUND_BASE 	XPAR_VGA_BACKGROUND_0_S00_AXI_BASEADDR
+#define VGA_BACKGROUND_SHIFT 	(*(uint16_t*)(VGA_BACKGROUND_BASE + 0))
+
 static inline u16 rgb565torgb444(u16 rgb565){
 	return ( ((rgb565 & 0x1e) >> 1) | ((rgb565 & 0x780) >> 3)  | ((rgb565 & 0xf000) >> 4) );
 }
@@ -90,7 +93,6 @@ void interrupt_init(XIntc *InterruptController, void(*callback)(void*), u16 inte
 	Xil_ExceptionEnable();
 }
 
-
 int main(){
 
     xil_printf("dupxo\r\n");
@@ -137,7 +139,7 @@ int main(){
     while(1){
 
     	int i = 0;
-		while(i++ < 10000);
+		while(i++ < 100000);
     	GameInstance.Run();
 
 //    	int i = 0;

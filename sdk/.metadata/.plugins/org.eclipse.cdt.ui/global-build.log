@@ -9524,3 +9524,588 @@ mb-size klocki_test.elf  |tee "klocki_test.elf.size"
 20:58:26 **** Incremental Build of configuration Debug for project klocki_test ****
 make all 
 make: Nie ma nic do zrobienia w `all'.
+21:39:45 **** Clean-only build of project vga_bsp ****
+make -k clean 
+make -C microblaze_0/libsrc/axidma_v9_7/src -s clean 
+make -C microblaze_0/libsrc/bram_v4_2/src -s clean 
+make -C microblaze_0/libsrc/cpu_v2_7/src -s clean 
+make -C microblaze_0/libsrc/gpio_v4_3/src -s clean 
+make -C microblaze_0/libsrc/intc_v3_7/src -s clean 
+make -C microblaze_0/libsrc/KeyboardController_v1_0/src -s clean 
+rm: nie mo¿na wykonaæ lstat na `*.o': Invalid argument
+make[1]: *** [clean] B³¹d 1
+make -C microblaze_0/libsrc/standalone_v6_7/src -s clean 
+make: *** [microblaze_0/libsrc/KeyboardController_v1_0/src/make.clean] B³¹d 2
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s clean 
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s clean 
+make -C microblaze_0/libsrc/vga_background_v1_0/src -s clean 
+rm: nie mo¿na wykonaæ lstat na `*.o': Invalid argument
+make[1]: *** [clean] B³¹d 1
+make: *** [microblaze_0/libsrc/vga_background_v1_0/src/make.clean] B³¹d 2
+make -C microblaze_0/libsrc/vga_block_v1_0/src -s clean 
+rm: nie mo¿na wykonaæ lstat na `*.o': Invalid argument
+make[1]: *** [clean] B³¹d 1
+make: *** [microblaze_0/libsrc/vga_block_v1_0/src/make.clean] B³¹d 2
+make: Obiekt `clean' nie zosta³ wykonany z powodu b³êdów.
+21:39:50 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+21:39:51 **** Build of project vga_bsp ****
+make -k all 
+"Running Make include in microblaze_0/libsrc/axidma_v9_7/src"
+make -C microblaze_0/libsrc/axidma_v9_7/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/bram_v4_2/src"
+make -C microblaze_0/libsrc/bram_v4_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/cpu_v2_7/src"
+make -C microblaze_0/libsrc/cpu_v2_7/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/gpio_v4_3/src"
+make -C microblaze_0/libsrc/gpio_v4_3/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/intc_v3_7/src"
+make -C microblaze_0/libsrc/intc_v3_7/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/KeyboardController_v1_0/src"
+make -C microblaze_0/libsrc/KeyboardController_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/standalone_v6_7/src"
+make -C microblaze_0/libsrc/standalone_v6_7/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/tmrctr_v4_4/src"
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/vga_background_v1_0/src"
+make -C microblaze_0/libsrc/vga_background_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make include in microblaze_0/libsrc/vga_block_v1_0/src"
+make -C microblaze_0/libsrc/vga_block_v1_0/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Running Make libs in microblaze_0/libsrc/axidma_v9_7/src"
+make -C microblaze_0/libsrc/axidma_v9_7/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling axidma"
+mb-ar: creating ../../../lib/libxil.a
+"Running Make libs in microblaze_0/libsrc/bram_v4_2/src"
+make -C microblaze_0/libsrc/bram_v4_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling bram"
+"Running Make libs in microblaze_0/libsrc/cpu_v2_7/src"
+make -C microblaze_0/libsrc/cpu_v2_7/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling cpu"
+"Running Make libs in microblaze_0/libsrc/gpio_v4_3/src"
+make -C microblaze_0/libsrc/gpio_v4_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling gpio"
+"Running Make libs in microblaze_0/libsrc/intc_v3_7/src"
+make -C microblaze_0/libsrc/intc_v3_7/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling intc"
+"Running Make libs in microblaze_0/libsrc/KeyboardController_v1_0/src"
+make -C microblaze_0/libsrc/KeyboardController_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling KeyboardController..."
+KeyboardController_selftest.c: In function 'KEYBOARDCONTROLLER_Reg_SelfTest':
+KeyboardController_selftest.c:52:67: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( KEYBOARDCONTROLLER_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                                   ^~
+KeyboardController_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in microblaze_0/libsrc/standalone_v6_7/src"
+make -C microblaze_0/libsrc/standalone_v6_7/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling standalone";
+microblaze_sleep.c:69:2: warning: #warning "May wait for more than the specified delay" [-Wcpp]
+ #warning "May wait for more than the specified delay"
+  ^~~~~~~
+"Running Make libs in microblaze_0/libsrc/tmrctr_v4_4/src"
+make -C microblaze_0/libsrc/tmrctr_v4_4/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling tmrctr"
+"Running Make libs in microblaze_0/libsrc/uartlite_v3_2/src"
+make -C microblaze_0/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling uartlite"
+"Running Make libs in microblaze_0/libsrc/vga_background_v1_0/src"
+make -C microblaze_0/libsrc/vga_background_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling vga_background..."
+vga_background_selftest.c: In function 'VGA_BACKGROUND_Reg_SelfTest':
+vga_background_selftest.c:52:63: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( VGA_BACKGROUND_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                               ^~
+vga_background_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in microblaze_0/libsrc/vga_block_v1_0/src"
+make -C microblaze_0/libsrc/vga_block_v1_0/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v10.0 -mhard-float -mlittle-endian -mno-xl-reorder -mno-xl-soft-div -mno-xl-soft-mul -mxl-barrel-shift -mxl-pattern-compare" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
+"Compiling vga_block..."
+vga_block_selftest.c: In function 'VGA_BLOCK_Reg_SelfTest':
+vga_block_selftest.c:52:58: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( VGA_BLOCK_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                          ^~
+vga_block_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+'Finished building libraries'
+21:40:15 **** Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/line2d.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/player.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/point2d.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21149	   1524	   7196	  29869	   74ad	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:40:26 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+21:48:57 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+../src/game.cpp: In member function 'void Game::Run()':
+../src/game.cpp:23:5: error: 'KEYBOARD_KEYS' was not declared in this scope
+  if(KEYBOARD_KEYS & KEY_SPACE){
+     ^~~~~~~~~~~~~
+../src/game.cpp:23:21: error: 'KEY_SPACE' was not declared in this scope
+  if(KEYBOARD_KEYS & KEY_SPACE){
+                     ^~~~~~~~~
+make: *** [src/game.o] B³¹d 1
+21:49:30 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21361	   1524	   7192	  30077	   757d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:49:35 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21361	   1524	   7192	  30077	   757d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:51:48 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21361	   1524	   7192	  30077	   757d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:52:48 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21361	   1524	   7192	  30077	   757d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:53:04 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21389	   1524	   7196	  30109	   759d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:53:09 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+21:53:24 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21393	   1524	   7192	  30109	   759d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:53:27 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+21:54:52 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21393	   1524	   7192	  30109	   759d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:54:54 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+21:55:13 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21401	   1524	   7192	  30117	   75a5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:55:16 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+21:55:32 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  21401	   1524	   7192	  30117	   75a5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:57:46 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26153	   1524	   7192	  34869	   8835	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:58:58 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26545	   1524	   7192	  35261	   89bd	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:59:01 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+21:59:19 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26549	   1524	   7196	  35269	   89c5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:59:23 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26549	   1524	   7196	  35269	   89c5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+21:59:25 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+21:59:51 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:00:40 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26417	   1524	   7192	  35133	   893d	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:00:43 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:01:46 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+../src/game.cpp: In member function 'void Game::Run()':
+../src/game.cpp:36:56: error: invalid use of non-static member function 'Point2d Player::getVelocity()'
+   this->Player1.setVelocity( this->Player1.getVelocity * Point2d(1, 0) );
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
+In file included from ../src/../include/game.hpp:4:0,
+                 from ../src/game.cpp:1:
+../src/../include/player.hpp:23:17: note: declared here
+         Point2d getVelocity();
+                 ^~~~~~~~~~~
+make: *** [src/game.o] B³¹d 1
+22:01:51 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/game.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26805	   1524	   7196	  35525	   8ac5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:01:54 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:03:23 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:04:03 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26805	   1524	   7196	  35525	   8ac5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:04:05 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:04:22 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26805	   1524	   7196	  35525	   8ac5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:04:30 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26805	   1524	   7196	  35525	   8ac5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:04:32 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:04:50 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26805	   1524	   7196	  35525	   8ac5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:05:00 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26805	   1524	   7196	  35525	   8ac5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:05:02 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:05:20 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:05:29 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../vga_bsp/microblaze_0/include -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../vga_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  26777	   1524	   7192	  35493	   8aa5	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+22:05:32 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+22:07:38 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.

@@ -2,7 +2,7 @@
 
 Game::Game() : 
     Player1(Point2d((MIN_X + MAX_X)/2 - (PLAYER_WIDTH / 2), 0), Point2d(0, 0), Point2d(0, ACCELERATION)),
-    isStarted(1),
+    isStarted(0),
     gameTime(0.0f),
 	floorCounter(5)
 {
@@ -18,7 +18,23 @@ void Game::Display(){
 
 }
 
+#include "xparameters.h"
+#define KEY_SPACE (1 << 0)
+#define KEYBOARD_BASE		XPAR_KEYBOARDCONTROLLER_0_S00_AXI_BASEADDR
+#define KEYBOARD_KEYS		(*(uint16_t*)(KEYBOARD_BASE + 0))
+
 void Game::Run(){
+
+	if(KEYBOARD_KEYS & KEY_SPACE){
+		this->Player1.changePosition(Point2d(0, 5));
+		this->isStarted = 1;
+	}
+
+	this->Player1.calculateNextPosition(0.01);
+	if(this->Player1.getPosition().GetY() < -64){
+		this->Player1.setPosition( Point2d( this->Player1.getPosition().GetY(), -64 ) );
+		this->Player1.setVelocity( this->Player1.getVelocity() * Point2d(1, 0) );
+	}
 
 	if(this->isStarted){
 		for(int i = 0; i < N_FLOORS; i++){
