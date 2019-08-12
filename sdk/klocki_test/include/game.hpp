@@ -16,23 +16,41 @@
 #define ACCELERATION    (-100.0f)
 #define MIN_X           (128)
 #define MAX_X           (1279 - 128)
-#define MIN_Y           (0)
+#define MIN_Y           (-64)
 #define MAX_Y           (1023)
+
+#define PLAYER_MIN_Y	(-2*PLAYER_HEIGHT+1)
+#define PLAYER_MAX_Y	(MAX_Y - 2*PLAYER_HEIGHT - PLAYER_HEIGHT / 2)
+
+#define INITIAL_HEIGHT	(32)
 
 class Game{
 
     private:
         Line2d floors[N_FLOORS];
         Player Player1;
-        bool isStarted;
         float gameTime;
         int floorCounter;
 
+        float floorsPosition;
+        float sidesPosition;
+
+        bool isStarted;
+
+        bool PlayerLocked;
+        int PlayerLockFloor;
+
     public:
+
+        bool gameOver;
+
         Game();
         void Display();
         void Run();
 
         Line2d GetFloor(int FloorIndex);
         Player GetPlayer();
+
+        float GetFloorsPosition();
+		float GetSidesPosition();
 };

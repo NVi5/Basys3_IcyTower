@@ -75,6 +75,9 @@ void DeviceDriverHandler(void *CallbackRef)
 		y = 1023 + VGA_HEIGHT + y;
 	}
 	VGA_YPOS = y;
+
+	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance.GetSidesPosition();
+	VGA_BACKGROUND_SHIFT_SIDES = (int)GameInstance.GetFloorsPosition();
 }
 
 void KeyboardHandler(void *CallbackRef)
@@ -105,8 +108,8 @@ int main(){
 	VGA_HEIGHT = 1;
 
 	VGA_PLAYER_XPOS = GameInstance.GetPlayer().getPosition().GetX();
-	//VGA_PLAYER_YPOS = GameInstance.GetPlayer().getPosition().GetY() -  128;
-	VGA_PLAYER_YPOS = 1024;
+	VGA_PLAYER_YPOS = GameInstance.GetPlayer().getPosition().GetY() -  128;
+	//VGA_PLAYER_YPOS = 1024;
 	VGA_PLAYER_XSCALE = 1;
 	VGA_PLAYER_YSCALE = 1;
 	VGA_PLAYER_WIDTH = 64;
@@ -133,48 +136,17 @@ int main(){
     interrupt_init(&InterruptController, DeviceDriverHandler, INTC_DEVICE_ID, INTC_DEVICE_INT_ID);
     interrupt_init(&InterruptController, KeyboardHandler, INTC_DEVICE_ID, INTC_DEVICE_KEYBOARD_ID);
 
-//	Lines[0] = Line2d( Point2d(127, 63), Point2d(1151, 63) );
-//	for(int j = 1; j < 6; j++) Lines[j] = Line2d::RandomLine(200, 600, 127, 1151, 180 * j + 64);
-
     while(1){
 
     	int i = 0;
 		while(i++ < 100000);
     	GameInstance.Run();
 
-    	VGA_BACKGROUND_SHIFT_BG--;
-    	VGA_BACKGROUND_SHIFT_SIDES -= 2;
+    	if(GameInstance.gameOver){
+    		GameInstance = Game();
+    	}
 
-//    	int i = 0;
-//    	while(i++ < 100000);
-//
-//		for(int j = 0; j < 6; j++){
-//			if (Lines[j].moveDown(10,-64,1023) ) block_counter++;
-//		}
-
-//		for(int j = 0; j < 6; j++){
-//			Lines[j].moveDown(2,-64,1023);
-//			xil_printf("%d\t", (int)Lines[j].GetEnd().GetY());
-//		}
-//		xil_printf("\r\n");
-
-//		Point2d x = P1.getPosition();
-//		P1.calculateNextPosition(0.1);
-//		if(x.GetY() < -64){
-//			P1.setVelocity( P1.getVelocity() * Point2d(1, -0.f) );
-//			P1.setPosition( Point2d( P1.getPosition().GetX(), -64 ) );
-//		}
-//		Point2d y = P1.getPosition();
-		VGA_PLAYER_YPOS = 1024 - 64 - GameInstance.GetPlayer().getPosition().GetY() - 64;
-//		xil_printf("%d\r\n", PLAYER_YPOS);
-//
-//		Line2d PlayerMove(x, y);
-//
-//		Point2d solution;
-//		for (int q = 0; q < 6; q++) {
-//			if (PlayerMove.CheckIntersection(Lines[q], solution)){
-//				xil_printf("intersection : line %d\r\n", q);
-//			}
-//		}
+		VGA_PLAYER_YPOS = 1024 - 64 - 64 - GameInstance.GetPlayer().getPosition().GetY();
+		VGA_PLAYER_XPOS = GameInstance.GetPlayer().getPosition().GetX();
     }
 }

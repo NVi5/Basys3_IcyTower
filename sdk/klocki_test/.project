@@ -3,7 +3,7 @@
 	<name>klocki_test</name>
 	<comment></comment>
 	<projects>
-		<project>vga_bsp</project>
+		<project>basys3_game_bsp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="../../basys3_game_bsp/microblaze_0/lib" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<section name="CPathsPropertyPage">
 		<item value="0" key="pageIndex"/>
 	</section>
