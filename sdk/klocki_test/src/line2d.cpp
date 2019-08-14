@@ -84,7 +84,9 @@ bool Line2d::moveDown(int npix, int minY, int maxY, bool maxWidth){
 	if(this->p1.GetY() < minY){
 		Line2d temp;
 		if(maxWidth) temp = Line2d::RandomLine(1024, 1024, 127, 1151, maxY - diff);
-		else temp = Line2d::RandomLine(200, 600, 127, 1151, maxY - diff);
+
+		// TODO
+		else temp = Line2d::RandomLine(1024, 1024, 127, 1151, maxY - diff);
 		this->p1 = temp.p1;
 		this->p2 = temp.p2;
 		return true;

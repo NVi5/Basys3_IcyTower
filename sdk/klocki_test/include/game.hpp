@@ -6,7 +6,7 @@
 #include "textures.h"
 
 #define N_FLOORS        (5)
-#define FLOOR_SPACING   (224)
+#define FLOOR_SPACING   (218)
 #define REFRESH_FREQ    (75)
 #define DELTA_T         (1/REFRESH_FREQ)
 

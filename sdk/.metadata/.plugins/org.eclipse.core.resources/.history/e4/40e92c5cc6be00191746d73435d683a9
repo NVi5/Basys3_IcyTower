@@ -1,0 +1,32 @@
+#include "../include/game.hpp"
+#include "../include/fpga_interface.h"
+
+#include "xil_printf.h"
+
+Game GameInstance;
+
+
+
+int main(){
+
+	fpga_interface_initialize(&GameInstance);
+	fpga_interface_initialize_hardware();
+
+//    while(1){
+
+//    	int i = 0;
+		//while(i++ < 30000);
+    	//GameInstance.Run();
+    	for(int i = 0; i < 30000; i++ ){
+    		interface_update(NULL);
+    	}
+
+		xil_printf("stop\r\n", i++);
+
+//    	if(GameInstance.gameOver){
+//    		GameInstance = Game();
+//
+//    	}
+//    }
+}
+

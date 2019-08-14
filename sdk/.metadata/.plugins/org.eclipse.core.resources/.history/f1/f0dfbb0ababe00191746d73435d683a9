@@ -1,0 +1,25 @@
+#include "../include/game.hpp"
+#include "../include/fpga_interface.h"
+
+Game GameInstance;
+
+int main(){
+
+	fpga_interface_initialize(&GameInstance);
+	fpga_interface_initialize_hardware();
+
+    while(1){
+
+    	int i = 0;
+		while(i++ < 50000);
+		enterCritical();
+    	GameInstance.Run();
+    	exitCritical();
+
+    	if(GameInstance.gameOver){
+    		GameInstance = Game();
+
+    	}
+    }
+}
+

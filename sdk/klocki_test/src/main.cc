@@ -1,6 +1,8 @@
 #include "../include/game.hpp"
 #include "../include/fpga_interface.h"
 
+#include "xil_printf.h"
+
 Game GameInstance;
 
 int main(){
@@ -10,9 +12,9 @@ int main(){
 
     while(1){
 
-    	int i = 0;
-		while(i++ < 100000);
-    	GameInstance.Run();
+//    	int i = 0;
+		//while(i++ < 30000);
+    	//GameInstance.Run();
 
     	if(GameInstance.gameOver){
     		GameInstance = Game();
