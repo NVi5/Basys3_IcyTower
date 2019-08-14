@@ -112,16 +112,6 @@
       </spirit:views>
       <spirit:ports>
         <spirit:port>
-          <spirit:name>led</spirit:name>
-          <spirit:wire>
-            <spirit:direction>out</spirit:direction>
-            <spirit:vector>
-              <spirit:left>15</spirit:left>
-              <spirit:right>0</spirit:right>
-            </spirit:vector>
-          </spirit:wire>
-        </spirit:port>
-        <spirit:port>
           <spirit:name>rx</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
@@ -165,6 +155,16 @@
           <spirit:name>reset</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>led</spirit:name>
+          <spirit:wire>
+            <spirit:direction>out</spirit:direction>
+            <spirit:vector>
+              <spirit:left>15</spirit:left>
+              <spirit:right>0</spirit:right>
+            </spirit:vector>
           </spirit:wire>
         </spirit:port>
       </spirit:ports>
@@ -254,7 +254,7 @@
         <spirit:componentRef spirit:library="ip" spirit:name="xlconcat" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_microblaze_0_xlconcat_2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="NUM_PORTS">4</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="NUM_PORTS">5</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -375,6 +375,17 @@
         <spirit:componentRef spirit:library="user" spirit:name="vga_background" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_vga_background_0_0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>vga_interrupt_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="vga_interrupt" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_vga_interrupt_0_3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">vga_interrupt</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -531,6 +542,8 @@
         <spirit:internalPortReference spirit:componentRef="blocks" spirit:portRef="s00_axis_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axis_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="vga_background_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ARESETN"/>
@@ -545,8 +558,6 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M08_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M09_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="vga_background_0" spirit:portRef="s00_axi_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>mdm_1_debug_sys_rst</spirit:name>
@@ -622,6 +633,8 @@
         <spirit:internalPortReference spirit:componentRef="blocks" spirit:portRef="s00_axis_aclk"/>
         <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="vga_background_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M02_ACLK"/>
@@ -638,8 +651,7 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M08_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M09_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="vga_background_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="pixel_clock"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>reset_1</spirit:name>
@@ -650,6 +662,21 @@
         <spirit:name>KeyboardController_0_led</spirit:name>
         <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="led"/>
         <spirit:externalPortReference spirit:portRef="led"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>player_hcount_out</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="hcount_out"/>
+        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="hcount_in"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>player_vcount_out</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="vcount_out"/>
+        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="vcount_in"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>vga_interrupt_0_interrupt</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="interrupt"/>
+        <spirit:internalPortReference spirit:componentRef="microblaze_0_xlconcat" spirit:portRef="In4"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

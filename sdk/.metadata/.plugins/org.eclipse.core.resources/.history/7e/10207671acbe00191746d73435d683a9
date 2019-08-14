@@ -1,0 +1,6 @@
+#pragma once
+
+#include "game.hpp"
+
+void interface_initialize_hardware();
+void interface_initialize(Game *Instance);

@@ -2,6 +2,5 @@
 
 #include "game.hpp"
 
-void initialize_hardware();
-void initialize_interface(Game *Instance);
-void interface_update();
+void fpga_interface_initialize_hardware();
+void fpga_interface_initialize(Game *Instance);

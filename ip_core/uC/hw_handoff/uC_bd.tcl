@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# vga_timing
+# vga_interrupt, vga_timing
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -388,7 +388,7 @@ proc create_root_design { parentCell } {
   # Create instance: microblaze_0_xlconcat, and set properties
   set microblaze_0_xlconcat [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 microblaze_0_xlconcat ]
   set_property -dict [ list \
-   CONFIG.NUM_PORTS {4} \
+   CONFIG.NUM_PORTS {5} \
  ] $microblaze_0_xlconcat
 
   # Create instance: player, and set properties
@@ -403,6 +403,17 @@ proc create_root_design { parentCell } {
   # Create instance: vga_background_0, and set properties
   set vga_background_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:vga_background:1.0 vga_background_0 ]
 
+  # Create instance: vga_interrupt_0, and set properties
+  set block_name vga_interrupt
+  set block_cell_name vga_interrupt_0
+  if { [catch {set vga_interrupt_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $vga_interrupt_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: vga_timing_0, and set properties
   set block_name vga_timing
   set block_cell_name vga_timing_0
@@ -459,11 +470,13 @@ proc create_root_design { parentCell } {
   connect_bd_net -net axi_uartlite_0_tx [get_bd_ports tx] [get_bd_pins axi_uartlite_0/tx]
   connect_bd_net -net blocks_interrupt [get_bd_pins blocks/interrupt] [get_bd_pins microblaze_0_xlconcat/In2]
   connect_bd_net -net clk_100MHz_1 [get_bd_ports clk_100MHz] [get_bd_pins clk_wiz_0/clk_in1]
-  connect_bd_net -net clk_wiz_0_clk_135MHz [get_bd_pins KeyboardController_0/s00_axi_aclk] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_dma_0/m_axi_mm2s_aclk] [get_bd_pins axi_dma_0/s_axi_lite_aclk] [get_bd_pins axi_dma_1/m_axi_mm2s_aclk] [get_bd_pins axi_dma_1/s_axi_lite_aclk] [get_bd_pins axi_timer_0/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins blocks/s00_axi_aclk] [get_bd_pins blocks/s00_axis_aclk] [get_bd_pins clk_wiz_0/clk_135MHz] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_axi_intc/processor_clk] [get_bd_pins microblaze_0_axi_intc/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/M02_ACLK] [get_bd_pins microblaze_0_axi_periph/M03_ACLK] [get_bd_pins microblaze_0_axi_periph/M04_ACLK] [get_bd_pins microblaze_0_axi_periph/M05_ACLK] [get_bd_pins microblaze_0_axi_periph/M06_ACLK] [get_bd_pins microblaze_0_axi_periph/M07_ACLK] [get_bd_pins microblaze_0_axi_periph/M08_ACLK] [get_bd_pins microblaze_0_axi_periph/M09_ACLK] [get_bd_pins microblaze_0_axi_periph/M10_ACLK] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins microblaze_0_axi_periph/S01_ACLK] [get_bd_pins microblaze_0_axi_periph/S02_ACLK] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins player/s00_axi_aclk] [get_bd_pins player/s00_axis_aclk] [get_bd_pins rst_clk_wiz_0_135M/slowest_sync_clk] [get_bd_pins vga_background_0/s00_axi_aclk] [get_bd_pins vga_timing_0/clk]
+  connect_bd_net -net clk_wiz_0_clk_135MHz [get_bd_pins KeyboardController_0/s00_axi_aclk] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_dma_0/m_axi_mm2s_aclk] [get_bd_pins axi_dma_0/s_axi_lite_aclk] [get_bd_pins axi_dma_1/m_axi_mm2s_aclk] [get_bd_pins axi_dma_1/s_axi_lite_aclk] [get_bd_pins axi_timer_0/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins blocks/s00_axi_aclk] [get_bd_pins blocks/s00_axis_aclk] [get_bd_pins clk_wiz_0/clk_135MHz] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_axi_intc/processor_clk] [get_bd_pins microblaze_0_axi_intc/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/M02_ACLK] [get_bd_pins microblaze_0_axi_periph/M03_ACLK] [get_bd_pins microblaze_0_axi_periph/M04_ACLK] [get_bd_pins microblaze_0_axi_periph/M05_ACLK] [get_bd_pins microblaze_0_axi_periph/M06_ACLK] [get_bd_pins microblaze_0_axi_periph/M07_ACLK] [get_bd_pins microblaze_0_axi_periph/M08_ACLK] [get_bd_pins microblaze_0_axi_periph/M09_ACLK] [get_bd_pins microblaze_0_axi_periph/M10_ACLK] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins microblaze_0_axi_periph/S01_ACLK] [get_bd_pins microblaze_0_axi_periph/S02_ACLK] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins player/s00_axi_aclk] [get_bd_pins player/s00_axis_aclk] [get_bd_pins rst_clk_wiz_0_135M/slowest_sync_clk] [get_bd_pins vga_background_0/s00_axi_aclk] [get_bd_pins vga_interrupt_0/pixel_clock] [get_bd_pins vga_timing_0/clk]
   connect_bd_net -net mdm_1_debug_sys_rst [get_bd_pins mdm_1/Debug_SYS_Rst] [get_bd_pins rst_clk_wiz_0_135M/mb_debug_sys_rst]
   connect_bd_net -net microblaze_0_intr [get_bd_pins microblaze_0_axi_intc/intr] [get_bd_pins microblaze_0_xlconcat/dout]
+  connect_bd_net -net player_hcount_out [get_bd_pins player/hcount_out] [get_bd_pins vga_interrupt_0/hcount_in]
   connect_bd_net -net player_hsync_out [get_bd_ports hsync_out] [get_bd_pins player/hsync_out]
   connect_bd_net -net player_rgb_out [get_bd_ports rgb_out] [get_bd_pins player/rgb_out]
+  connect_bd_net -net player_vcount_out [get_bd_pins player/vcount_out] [get_bd_pins vga_interrupt_0/vcount_in]
   connect_bd_net -net player_vsync_out [get_bd_ports vsync_out] [get_bd_pins player/vsync_out]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins rst_clk_wiz_0_135M/ext_reset_in]
   connect_bd_net -net rst_clk_wiz_0_135M_bus_struct_reset [get_bd_pins microblaze_0_local_memory/SYS_Rst] [get_bd_pins rst_clk_wiz_0_135M/bus_struct_reset]
@@ -471,6 +484,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_clk_wiz_0_135M_mb_reset [get_bd_pins microblaze_0/Reset] [get_bd_pins microblaze_0_axi_intc/processor_rst] [get_bd_pins rst_clk_wiz_0_135M/mb_reset]
   connect_bd_net -net rst_clk_wiz_0_135M_peripheral_aresetn [get_bd_pins KeyboardController_0/s00_axi_aresetn] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_dma_0/axi_resetn] [get_bd_pins axi_dma_1/axi_resetn] [get_bd_pins axi_timer_0/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins blocks/s00_axi_aresetn] [get_bd_pins blocks/s00_axis_aresetn] [get_bd_pins microblaze_0_axi_intc/s_axi_aresetn] [get_bd_pins microblaze_0_axi_periph/M00_ARESETN] [get_bd_pins microblaze_0_axi_periph/M01_ARESETN] [get_bd_pins microblaze_0_axi_periph/M02_ARESETN] [get_bd_pins microblaze_0_axi_periph/M03_ARESETN] [get_bd_pins microblaze_0_axi_periph/M04_ARESETN] [get_bd_pins microblaze_0_axi_periph/M05_ARESETN] [get_bd_pins microblaze_0_axi_periph/M06_ARESETN] [get_bd_pins microblaze_0_axi_periph/M07_ARESETN] [get_bd_pins microblaze_0_axi_periph/M08_ARESETN] [get_bd_pins microblaze_0_axi_periph/M09_ARESETN] [get_bd_pins microblaze_0_axi_periph/M10_ARESETN] [get_bd_pins microblaze_0_axi_periph/S00_ARESETN] [get_bd_pins microblaze_0_axi_periph/S01_ARESETN] [get_bd_pins microblaze_0_axi_periph/S02_ARESETN] [get_bd_pins player/s00_axi_aresetn] [get_bd_pins player/s00_axis_aresetn] [get_bd_pins rst_clk_wiz_0_135M/peripheral_aresetn] [get_bd_pins vga_background_0/s00_axi_aresetn] [get_bd_pins vga_timing_0/rst]
   connect_bd_net -net rx_0_1 [get_bd_ports rx] [get_bd_pins axi_uartlite_0/rx]
+  connect_bd_net -net vga_interrupt_0_interrupt [get_bd_pins microblaze_0_xlconcat/In4] [get_bd_pins vga_interrupt_0/interrupt]
 
   # Create address segments
   create_bd_addr_seg -range 0x00008000 -offset 0xC0000000 [get_bd_addr_spaces axi_dma_0/Data_MM2S] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0

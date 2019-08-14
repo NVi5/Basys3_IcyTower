@@ -57,14 +57,20 @@ void Game::Run(){
 		}
 	}
 
+
+
 	if(this->isStarted){
+
+		if(this->Player1.getPosition().GetY() < PLAYER_MIN_Y){
+			this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MIN_Y ) );
+			this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), 0) );
+			this->gameOver = true;
+		}
 
 		if(this->PlayerLocked){
 
 			if( this->Player1.getPosition().GetX() < this->floors[this->PlayerLockFloor].GetStart().GetX()) this->PlayerLocked = 0;
 			if( this->Player1.getPosition().GetX() > this->floors[this->PlayerLockFloor].GetEnd().GetX()) this->PlayerLocked = 0;
-
-//			if( (this->Player1.getPosition().GetX() < this->floors[this->PlayerLockFloor].GetStart().GetX()) || (this->Player1.getPosition().GetX() > this->floors[this->PlayerLockFloor].GetEnd().GetX())) this->PlayerLocked = 0;
 
 			this->Player1.calculateNextPosition(0.05);
 
@@ -99,12 +105,6 @@ void Game::Run(){
 			}
 		}
 
-		if(this->Player1.getPosition().GetY() < PLAYER_MIN_Y){
-			this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MIN_Y ) );
-			this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), 0) );
-			this->gameOver = true;
-		}
-
 		if(this->gameOver){
 			this->isStarted = false;
 		}
@@ -117,11 +117,17 @@ void Game::Run(){
 		}
 
 		for(int i = 0; i < N_FLOORS; i++){
+			float prevY = this->floors[i].GetStart().GetY();
 			if(this->floorCounter % 100){
 				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) this->floorCounter++;
 			}
 			else{
 				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) this->floorCounter++;
+			}
+			float currentY = this->floors[i].GetStart().GetY();
+			if(currentY > prevY){
+				this->PlayerLocked = false;
+			//	this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), -1/0.01) );
 			}
 		}
 

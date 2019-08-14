@@ -1,17 +1,12 @@
-#include "xstatus.h"
 #include "../include/game.hpp"
-
 #include "../include/fpga_interface.h"
-#include "xil_printf.h"
 
 Game GameInstance;
 
 int main(){
 
-    xil_printf("dupxo\r\n");
-
-	initialize_interface(&GameInstance);
-	initialize_hardware();
+	fpga_interface_initialize(&GameInstance);
+	fpga_interface_initialize_hardware();
 
     while(1){
 
@@ -23,8 +18,6 @@ int main(){
     		GameInstance = Game();
 
     	}
-
-    	interface_update();
     }
 }
 

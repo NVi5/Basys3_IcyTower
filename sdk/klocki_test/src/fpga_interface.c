@@ -4,13 +4,13 @@
 #include "xintc.h"
 #include "xil_exception.h"
 
-#define VGA_BASE 					XPAR_BLOCKS_S00_AXI_BASEADDR
-#define VGA_XPOS 					(*(uint16_t*)(VGA_BASE + 0))
-#define VGA_YPOS 					(*(uint16_t*)(VGA_BASE + 2))
-#define VGA_WIDTH 					(*(uint16_t*)(VGA_BASE + 4))
-#define VGA_HEIGHT 					(*(uint16_t*)(VGA_BASE + 6))
-#define VGA_XSCALE 					(*(uint16_t*)(VGA_BASE + 8))
-#define VGA_YSCALE 					(*(uint16_t*)(VGA_BASE + 10))
+#define VGA_BLOCKS_BASE 			XPAR_BLOCKS_S00_AXI_BASEADDR
+#define VGA_BLOCKS_XPOS 			(*(uint16_t*)(VGA_BLOCKS_BASE + 0))
+#define VGA_BLOCKS_YPOS 			(*(uint16_t*)(VGA_BLOCKS_BASE + 2))
+#define VGA_BLOCKS_WIDTH 			(*(uint16_t*)(VGA_BLOCKS_BASE + 4))
+#define VGA_BLOCKS_HEIGHT 			(*(uint16_t*)(VGA_BLOCKS_BASE + 6))
+#define VGA_BLOCKS_XSCALE 			(*(uint16_t*)(VGA_BLOCKS_BASE + 8))
+#define VGA_BLOCKS_YSCALE 			(*(uint16_t*)(VGA_BLOCKS_BASE + 10))
 
 #define VGA_PLAYER_BASE 			XPAR_PLAYER_S00_AXI_BASEADDR
 #define VGA_PLAYER_XPOS 			(*(uint16_t*)(VGA_PLAYER_BASE + 0))
@@ -30,6 +30,7 @@
 #define INTC_DEVICE_ID			  	XPAR_INTC_0_DEVICE_ID
 #define INTC_DEVICE_INT_ID		  	XPAR_INTC_0_VGA_BLOCK_0_VEC_ID
 #define INTC_DEVICE_KEYBOARD_ID	 	XPAR_INTC_0_KEYBOARDCONTROLLER_0_VEC_ID
+#define INTC_DEVICE_VGA_ID	 		(4U)
 
 typedef void (*fn_callback)(void *);
 fn_callback keyboard_update_handler;
@@ -69,7 +70,7 @@ static void block_update_handler(void *CallbackRef)
 	static int i = N_FLOORS - 1;
 
 	if(--i < 0){
-		 i = 4;
+		 i = N_FLOORS - 1;
 	}
 
 	Line2d currentFloor = GameInstance->GetFloor(i);
@@ -77,28 +78,28 @@ static void block_update_handler(void *CallbackRef)
 
 	dma_transfer_texture( &blocks_dma, current_texture );
 
-	VGA_XPOS = currentFloor.GetStart().GetX();
-	VGA_WIDTH = currentFloor.GetEnd().GetX() - currentFloor.GetStart().GetX();
+	VGA_BLOCKS_XPOS = currentFloor.GetStart().GetX();
+	VGA_BLOCKS_WIDTH = currentFloor.GetEnd().GetX() - currentFloor.GetStart().GetX();
 
-	VGA_HEIGHT = FLOOR_HEIGHT;
+	VGA_BLOCKS_HEIGHT = FLOOR_HEIGHT;
 	int y = MAX_Y + 1 - FLOOR_HEIGHT - (int)currentFloor.GetStart().GetY();
 	if(y < 0){
-		y = MAX_Y + 1 + VGA_HEIGHT + y;
+		y = MAX_Y + 1 + VGA_BLOCKS_HEIGHT + y;
 	}
-	VGA_YPOS = y;
+	VGA_BLOCKS_YPOS = y;
 }
 
-void initialize_interface(Game *Instance){
+void fpga_interface_initialize(Game *Instance){
 	GameInstance = Instance;
 
 	dma_transfer_texture( &player_dma, TEXTURE_PLAYER );
 
-	VGA_XPOS = 0;
-	VGA_YPOS = 1024;
-	VGA_XSCALE = 2;
-	VGA_YSCALE = 2;
-	VGA_WIDTH = 1;
-	VGA_HEIGHT = 1;
+	VGA_BLOCKS_XPOS = 1;
+	VGA_BLOCKS_YPOS = 1;
+	VGA_BLOCKS_XSCALE = 2;
+	VGA_BLOCKS_YSCALE = 2;
+	VGA_BLOCKS_WIDTH = 10;
+	VGA_BLOCKS_HEIGHT = 10;
 
 	VGA_PLAYER_XPOS = GameInstance->GetPlayer().getPosition().GetX();
 	VGA_PLAYER_YPOS = GameInstance->GetPlayer().getPosition().GetY() -  128;
@@ -108,7 +109,7 @@ void initialize_interface(Game *Instance){
 	VGA_PLAYER_HEIGHT = 64;
 }
 
-void interface_update(){
+void interface_update(void *){
 
 	int v = (int)GameInstance->GetPlayer().getVelocity().GetX();
 
@@ -124,7 +125,7 @@ void interface_update(){
 
 }
 
-void initialize_hardware(){
+void fpga_interface_initialize_hardware(){
 
 	player_dma_config = XAxiDma_LookupConfig(XPAR_AXIDMA_1_DEVICE_ID);
 	XAxiDma_CfgInitialize(&player_dma, player_dma_config);
@@ -133,6 +134,7 @@ void initialize_hardware(){
 	XAxiDma_CfgInitialize(&blocks_dma, blocks_dma_config);
 
 	interrupt_init(&InterruptController, block_update_handler, INTC_DEVICE_ID, INTC_DEVICE_INT_ID);
+	interrupt_init(&InterruptController, interface_update, INTC_DEVICE_ID, INTC_DEVICE_VGA_ID);
 //	interrupt_init(&InterruptController, keyboard_update_handler, INTC_DEVICE_ID, INTC_DEVICE_KEYBOARD_ID);
 }
 
