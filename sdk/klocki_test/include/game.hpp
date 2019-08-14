@@ -3,6 +3,7 @@
 #include "line2d.hpp"
 #include "player.hpp"
 #include "point2d.hpp"
+#include "textures.h"
 
 #define N_FLOORS        (5)
 #define FLOOR_SPACING   (224)
@@ -28,6 +29,8 @@ class Game{
 
     private:
         Line2d floors[N_FLOORS];
+        texture_t floorTexture[N_FLOORS];
+
         Player Player1;
         float gameTime;
         int floorCounter;
@@ -49,6 +52,7 @@ class Game{
         void Run();
 
         Line2d GetFloor(int FloorIndex);
+        texture_t GetFloorTexture(int FloorIndex);
         Player GetPlayer();
 
         float GetFloorsPosition();

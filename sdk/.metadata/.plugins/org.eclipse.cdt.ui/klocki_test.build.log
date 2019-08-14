@@ -1,6 +1,6 @@
-22:40:11 **** Incremental Build of configuration Debug for project klocki_test ****
+21:21:49 **** Incremental Build of configuration Debug for project klocki_test ****
 make all 
 make: Nie ma nic do zrobienia w `all'.
 
-22:40:12 Build Finished (took 278ms)
+21:21:50 Build Finished (took 487ms)
 

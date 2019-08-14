@@ -6,6 +6,13 @@
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
+	<section name="PDOMSearchPage">
+		<item value="false" key="caseSensitive"/>
+		<item value="227191" key="searchFlags"/>
+		<list key="previousPatterns">
+			<item value="texture_memory"/>
+		</list>
+	</section>
 	<section name="IncludeSysmbolsPropertyPage">
 		<item value="0" key="pageIndex"/>
 	</section>

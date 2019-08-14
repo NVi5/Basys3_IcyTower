@@ -1,0 +1,41 @@
+#include "xstatus.h"
+#include "../include/game.hpp"
+
+#include "../include/fpga_interface.h"
+#include "xil_printf.h"
+
+#include "../include/textures.h"
+
+u16 rgb565torgb444(u16 rgb565){
+	return ( ((rgb565 & 0x1e) >> 1) | ((rgb565 & 0x780) >> 3)  | ((rgb565 & 0xf000) >> 4) );
+}
+
+Game GameInstance;
+
+int main(){
+
+    xil_printf("dupxo\r\n");
+
+	uint16_t *pTex = (uint16_t*)texture_memory[TEXTURE_REDSTONE].pixel_data;
+
+	for (int i = 0; i < 16*16; i++){
+		pTex[i] = rgb565torgb444(pTex[i]);
+	}
+
+	initialize_hardware();
+	initialize_interface(&GameInstance);
+
+    while(1){
+
+    	int i = 0;
+		while(i++ < 1000000);
+    	GameInstance.Run();
+
+    	if(GameInstance.gameOver){
+    		GameInstance = Game();
+    	}
+
+    	interface_update();
+    }
+}
+

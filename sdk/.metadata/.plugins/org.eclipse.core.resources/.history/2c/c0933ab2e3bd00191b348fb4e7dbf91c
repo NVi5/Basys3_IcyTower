@@ -1,0 +1,99 @@
+#include "xstatus.h"
+#include "../include/game.hpp"
+#include "../include/textures.h"
+#include "../include/utils.h"
+
+#include "xil_printf.h"
+
+static inline u16 rgb565torgb444(u16 rgb565){
+	return ( ((rgb565 & 0x1e) >> 1) | ((rgb565 & 0x780) >> 3)  | ((rgb565 & 0xf000) >> 4) );
+}
+
+Game GameInstance;
+
+//void DeviceDriverHandler(void *CallbackRef)
+//{
+//	static int i = 4;
+//
+//	it_counter++;
+//
+//
+//	if(--i < 0){
+//		 i = 4;
+//	}
+//
+//	Line2d currentFloor = GameInstance.GetFloor(i);
+//
+//	VGA_XPOS = currentFloor.GetStart().GetX();
+//	VGA_WIDTH = currentFloor.GetEnd().GetX() - currentFloor.GetStart().GetX();
+//
+//	VGA_HEIGHT = 64;
+//	int y = 1024 - 64 - (int)currentFloor.GetStart().GetY();
+//	if(y < 0){
+//		y = 1023 + VGA_HEIGHT + y;
+//	}
+//	VGA_YPOS = y;
+//
+//	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance.GetSidesPosition();
+//	VGA_BACKGROUND_SHIFT_SIDES = (int)GameInstance.GetFloorsPosition();
+//}
+
+//void KeyboardHandler(void *CallbackRef)
+//{
+//	xil_printf("%d\r\n", KEYBOARD_KEYS);
+//}
+
+int main(){
+
+    xil_printf("dupxo\r\n");
+
+//	VGA_XPOS = 0;
+//	VGA_YPOS = 1024;
+//	VGA_XSCALE = 2;
+//	VGA_YSCALE = 2;
+//	VGA_WIDTH = 1;
+//	VGA_HEIGHT = 1;
+//
+//	VGA_PLAYER_XPOS = GameInstance.GetPlayer().getPosition().GetX();
+//	VGA_PLAYER_YPOS = GameInstance.GetPlayer().getPosition().GetY() -  128;
+//	//VGA_PLAYER_YPOS = 1024;
+//	VGA_PLAYER_XSCALE = 1;
+//	VGA_PLAYER_YSCALE = 1;
+//	VGA_PLAYER_WIDTH = 64;
+//	VGA_PLAYER_HEIGHT = 64;
+
+//	dma_config = XAxiDma_LookupConfig(XPAR_AXIDMA_0_DEVICE_ID);
+//	XAxiDma_CfgInitialize(&dma, dma_config);
+//
+//	dma_config1 = XAxiDma_LookupConfig(XPAR_AXIDMA_1_DEVICE_ID);
+//	XAxiDma_CfgInitialize(&dma1, dma_config1);
+
+	uint16_t *pTex = (uint16_t *)texture_memory[TEXTURE_REDSTONE].pixel_data;
+
+	for (int i = 0; i < 16*16; i++){
+		pTex[i] = rgb565torgb444(pTex[i]);
+	}
+
+//	XAxiDma_SimpleTransfer(&dma, (UINTPTR)texture_memory[TEXTURE_REDSTONE].pixel_data, 16*16*2, XAXIDMA_DMA_TO_DEVICE);
+//	while( XAxiDma_Busy(&dma, XAXIDMA_DMA_TO_DEVICE) );
+//
+//	XAxiDma_SimpleTransfer(&dma1, (UINTPTR)texture_memory[TEXTURE_REDSTONE].pixel_data, 16*16*2, XAXIDMA_DMA_TO_DEVICE);
+//	while( XAxiDma_Busy(&dma1, XAXIDMA_DMA_TO_DEVICE) );
+
+
+
+    while(1){
+
+    	int i = 0;
+		while(i++ < 100000);
+    	GameInstance.Run();
+
+    	if(GameInstance.gameOver){
+    		GameInstance = Game();
+    	}
+
+		VGA_PLAYER_YPOS = 1024 - 64 - 64 - GameInstance.GetPlayer().getPosition().GetY();
+		VGA_PLAYER_XPOS = GameInstance.GetPlayer().getPosition().GetX();
+    }
+}
+
