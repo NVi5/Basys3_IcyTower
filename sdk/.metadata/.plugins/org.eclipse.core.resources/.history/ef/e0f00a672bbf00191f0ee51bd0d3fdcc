@@ -38,13 +38,13 @@ fn_callback keyboard_update_handler;
 
 static Game *GameInstance;
 
-static XAxiDma blocks_dma;
-static XAxiDma_Config *blocks_dma_config;
+XAxiDma blocks_dma;
+XAxiDma_Config *blocks_dma_config;
 
-static XAxiDma player_dma;
-static XAxiDma_Config *player_dma_config;
+XAxiDma player_dma;
+XAxiDma_Config *player_dma_config;
 
-static XIntc InterruptController;
+XIntc InterruptController;
 
 static inline void dma_transfer_texture(XAxiDma *dma, texture_t texture){
 	XAxiDma_SimpleTransfer(
@@ -100,8 +100,8 @@ void fpga_interface_initialize(Game *Instance){
 	VGA_BLOCKS_YPOS = 1;
 	VGA_BLOCKS_XSCALE = 2;
 	VGA_BLOCKS_YSCALE = 2;
-	VGA_BLOCKS_WIDTH = 1;
-	VGA_BLOCKS_HEIGHT = 1;
+	VGA_BLOCKS_WIDTH = 10;
+	VGA_BLOCKS_HEIGHT = 10;
 
 	VGA_PLAYER_XPOS = GameInstance->GetPlayer().getPosition().GetX();
 	VGA_PLAYER_YPOS = GameInstance->GetPlayer().getPosition().GetY() -  128;
@@ -124,7 +124,7 @@ void interface_update(void *){
 	VGA_PLAYER_YPOS = (int)(MAX_Y + 1 - 2*PLAYER_HEIGHT - GameInstance->GetPlayer().getPosition().GetY());
 	VGA_PLAYER_XPOS = (int)(GameInstance->GetPlayer().getPosition().GetX() - PLAYER_WIDTH / 2);
 
-	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance->GetBackgroundPosition();
+	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance->GetSidesPosition();
 	VGA_BACKGROUND_SHIFT_SIDES = (int)GameInstance->GetFloorsPosition();
 
 }

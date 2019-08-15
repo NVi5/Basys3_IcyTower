@@ -1,4 +1,7 @@
+#include "../include/game.hpp"
 #include "../include/fpga_interface.h"
+
+#include "xil_printf.h"
 
 Game GameInstance;
 
@@ -8,6 +11,11 @@ int main(){
 	fpga_interface_initialize_hardware();
 
     while(1){
+
+//    	int i = 0;
+		//while(i++ < 30000);
+    	//GameInstance.Run();
+
     	if(GameInstance.gameOver){
     		GameInstance = Game();
 

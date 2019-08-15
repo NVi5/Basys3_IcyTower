@@ -9,9 +9,9 @@ Game::Game() :
 	floorsPosition(0),
 	backgroundPosition(0),
     isStarted(false),
+	gameOver(false),
 	PlayerLocked(true),
-	PlayerLockFloor(0),
-	gameOver(false)
+	PlayerLockFloor(0)
 {
 
     this->floors[0] = Line2d( Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT) );
@@ -147,6 +147,8 @@ void Game::Run(){
 	}
 
 	if( abs(this->Player1.getVelocity().GetX()) < 0.001 ) this->Player1.setVelocity( Point2d(0, this->Player1.getVelocity().GetY()) );
+
+
 }
 
 Line2d Game::GetFloor(int FloorIndex){return this->floors[FloorIndex];};

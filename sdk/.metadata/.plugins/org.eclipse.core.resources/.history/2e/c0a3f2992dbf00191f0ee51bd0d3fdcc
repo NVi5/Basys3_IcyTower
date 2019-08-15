@@ -124,7 +124,7 @@ void interface_update(void *){
 	VGA_PLAYER_YPOS = (int)(MAX_Y + 1 - 2*PLAYER_HEIGHT - GameInstance->GetPlayer().getPosition().GetY());
 	VGA_PLAYER_XPOS = (int)(GameInstance->GetPlayer().getPosition().GetX() - PLAYER_WIDTH / 2);
 
-	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance->GetBackgroundPosition();
+	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance->GetSidesPosition();
 	VGA_BACKGROUND_SHIFT_SIDES = (int)GameInstance->GetFloorsPosition();
 
 }

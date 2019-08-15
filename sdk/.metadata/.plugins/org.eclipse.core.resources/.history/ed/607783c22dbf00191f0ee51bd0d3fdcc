@@ -91,8 +91,8 @@ typedef enum {
 typedef struct {
   unsigned int 	 		width;
   unsigned int 	 		height;
-  unsigned int			bytes_per_pixel;
-  unsigned char const	*pixel_data;
+  unsigned int 	 		bytes_per_pixel;
+  unsigned char const	 *pixel_data;
 } texture_info_t;
 
 __attribute__((section(".texture_memory")))

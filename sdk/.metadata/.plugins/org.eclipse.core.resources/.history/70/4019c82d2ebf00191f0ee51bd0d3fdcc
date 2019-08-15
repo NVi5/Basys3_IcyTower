@@ -9,9 +9,9 @@ Game::Game() :
 	floorsPosition(0),
 	backgroundPosition(0),
     isStarted(false),
+	gameOver(false),
 	PlayerLocked(true),
-	PlayerLockFloor(0),
-	gameOver(false)
+	PlayerLockFloor(0)
 {
 
     this->floors[0] = Line2d( Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT) );
