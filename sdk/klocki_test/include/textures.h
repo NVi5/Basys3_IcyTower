@@ -97,13 +97,8 @@ typedef struct {
 
 __attribute__((section(".texture_memory")))
 const texture_info_t texture_memory[__TEXTURES_END] = {
-//		{16, 16, 2, texture_redstone},
-//		{16, 16, 2, texture_player},
-//		{16, 16, 2, texture_player_left},
-//		{16, 16, 2, texture_player_right},
-
-		{16, 16, 2, texture_redstone},
-		{16, 16, 2, texture_redstone},
-		{16, 16, 2, texture_redstone},
-		{16, 16, 2, texture_redstone},
+	{16, 16, 2, texture_redstone},
+	{16, 16, 2, texture_player},
+	{16, 16, 2, texture_player_left},
+	{16, 16, 2, texture_player_right},
 };

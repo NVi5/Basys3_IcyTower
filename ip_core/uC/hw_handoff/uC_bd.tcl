@@ -428,6 +428,12 @@ proc create_root_design { parentCell } {
      return 1
    }
   
+  set_property -dict [ list \
+   CONFIG.FREQ_HZ {135000000} \
+   CONFIG.PHASE {0.0} \
+   CONFIG.CLK_DOMAIN {/clk_wiz_0_clk_out1} \
+ ] [get_bd_pins /vga_interrupt_0/pixel_clock]
+
   # Create instance: vga_timing_0, and set properties
   set block_name vga_timing
   set block_cell_name vga_timing_0
@@ -448,6 +454,12 @@ proc create_root_design { parentCell } {
    CONFIG.VER_SYNC_STOP {1028} \
    CONFIG.VER_TOT_TIME {1066} \
  ] $vga_timing_0
+
+  set_property -dict [ list \
+   CONFIG.FREQ_HZ {135000000} \
+   CONFIG.PHASE {0.0} \
+   CONFIG.CLK_DOMAIN {/clk_wiz_0_clk_out1} \
+ ] [get_bd_pins /vga_timing_0/clk]
 
   # Create interface connections
   connect_bd_intf_net -intf_net KeyboardController_0_SevSeg_1 [get_bd_intf_ports SevSeg_1] [get_bd_intf_pins KeyboardController_0/SevSeg_1]
@@ -484,8 +496,10 @@ proc create_root_design { parentCell } {
   # Create port connections
   connect_bd_net -net KeyboardController_0_interrupt [get_bd_pins KeyboardController_0/interrupt] [get_bd_pins microblaze_0_xlconcat/In3]
   connect_bd_net -net KeyboardController_0_led [get_bd_ports led] [get_bd_pins KeyboardController_0/led]
+  connect_bd_net -net TextBlock_0_hcount_out [get_bd_pins TextBlock_0/hcount_out] [get_bd_pins vga_interrupt_0/hcount_in]
   connect_bd_net -net TextBlock_0_hsync_out [get_bd_ports hsync_out] [get_bd_pins TextBlock_0/hsync_out]
   connect_bd_net -net TextBlock_0_rgb_out [get_bd_ports rgb_out] [get_bd_pins TextBlock_0/rgb_out]
+  connect_bd_net -net TextBlock_0_vcount_out [get_bd_pins TextBlock_0/vcount_out] [get_bd_pins vga_interrupt_0/vcount_in]
   connect_bd_net -net TextBlock_0_vsync_out [get_bd_ports vsync_out] [get_bd_pins TextBlock_0/vsync_out]
   connect_bd_net -net axi_timer_0_interrupt [get_bd_pins axi_timer_0/interrupt] [get_bd_pins microblaze_0_xlconcat/In1]
   connect_bd_net -net axi_uartlite_0_interrupt [get_bd_pins axi_uartlite_0/interrupt] [get_bd_pins microblaze_0_xlconcat/In0]
@@ -495,8 +509,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net clk_wiz_0_clk_135MHz [get_bd_pins KeyboardController_0/s00_axi_aclk] [get_bd_pins TextBlock_0/s00_axi_aclk] [get_bd_pins TextBlock_0/s00_axis_aclk] [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_dma_0/m_axi_mm2s_aclk] [get_bd_pins axi_dma_0/s_axi_lite_aclk] [get_bd_pins axi_dma_1/m_axi_mm2s_aclk] [get_bd_pins axi_dma_1/s_axi_lite_aclk] [get_bd_pins axi_dma_2/m_axi_mm2s_aclk] [get_bd_pins axi_dma_2/s_axi_lite_aclk] [get_bd_pins axi_timer_0/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins blocks/s00_axi_aclk] [get_bd_pins blocks/s00_axis_aclk] [get_bd_pins clk_wiz_0/clk_135MHz] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_axi_intc/processor_clk] [get_bd_pins microblaze_0_axi_intc/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/M02_ACLK] [get_bd_pins microblaze_0_axi_periph/M03_ACLK] [get_bd_pins microblaze_0_axi_periph/M04_ACLK] [get_bd_pins microblaze_0_axi_periph/M05_ACLK] [get_bd_pins microblaze_0_axi_periph/M06_ACLK] [get_bd_pins microblaze_0_axi_periph/M07_ACLK] [get_bd_pins microblaze_0_axi_periph/M08_ACLK] [get_bd_pins microblaze_0_axi_periph/M09_ACLK] [get_bd_pins microblaze_0_axi_periph/M10_ACLK] [get_bd_pins microblaze_0_axi_periph/M11_ACLK] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins microblaze_0_axi_periph/S01_ACLK] [get_bd_pins microblaze_0_axi_periph/S02_ACLK] [get_bd_pins microblaze_0_axi_periph/S03_ACLK] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins player/s00_axi_aclk] [get_bd_pins player/s00_axis_aclk] [get_bd_pins rst_clk_wiz_0_135M/slowest_sync_clk] [get_bd_pins vga_background_0/s00_axi_aclk] [get_bd_pins vga_interrupt_0/pixel_clock] [get_bd_pins vga_timing_0/clk]
   connect_bd_net -net mdm_1_debug_sys_rst [get_bd_pins mdm_1/Debug_SYS_Rst] [get_bd_pins rst_clk_wiz_0_135M/mb_debug_sys_rst]
   connect_bd_net -net microblaze_0_intr [get_bd_pins microblaze_0_axi_intc/intr] [get_bd_pins microblaze_0_xlconcat/dout]
-  connect_bd_net -net player_hcount_out [get_bd_pins TextBlock_0/hcount_in] [get_bd_pins player/hcount_out] [get_bd_pins vga_interrupt_0/hcount_in]
-  connect_bd_net -net player_vcount_out [get_bd_pins TextBlock_0/vcount_in] [get_bd_pins player/vcount_out] [get_bd_pins vga_interrupt_0/vcount_in]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins rst_clk_wiz_0_135M/ext_reset_in]
   connect_bd_net -net rst_clk_wiz_0_135M_bus_struct_reset [get_bd_pins microblaze_0_local_memory/SYS_Rst] [get_bd_pins rst_clk_wiz_0_135M/bus_struct_reset]
   connect_bd_net -net rst_clk_wiz_0_135M_interconnect_aresetn [get_bd_pins microblaze_0_axi_periph/ARESETN] [get_bd_pins rst_clk_wiz_0_135M/interconnect_aresetn]

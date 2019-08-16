@@ -1,0 +1,20 @@
+#include "../include/fpga_interface.h"
+
+Game GameInstance;
+
+__attribute__((section(".texture_memory")))
+static const unsigned char text[] = "xdddd";
+
+int main(){
+
+	fpga_interface_initialize(&GameInstance);
+	fpga_interface_initialize_hardware();
+
+    while(1){
+    	if(GameInstance.gameOver){
+    		GameInstance = Game();
+
+    	}
+    }
+}
+

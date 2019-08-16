@@ -1,0 +1,27 @@
+#include "../include/fpga_interface.h"
+
+Game GameInstance;
+
+int main(){
+
+	fpga_interface_initialize(&GameInstance);
+	fpga_interface_initialize_hardware();
+
+	int i = 0;
+
+    while(1){
+
+    	for(i = 0; i < 10000000; i++);
+    	fpga_interface_hide_blocks(true);
+    	fpga_interface_hide_player(false);
+    	for(i = 0; i < 10000000; i++);
+		fpga_interface_hide_blocks(false);
+		fpga_interface_hide_player(true);
+
+    	if(GameInstance.gameOver){
+    		GameInstance = Game();
+
+    	}
+    }
+}
+

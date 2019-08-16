@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 16 13:20:03 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 16 20:38:09 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="uC" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -287,9 +287,8 @@
         <PARAMETER NAME="C_S00_AXI_HIGHADDR" VALUE="0x44A4FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="10" NAME="vcount_in" RIGHT="0" SIGIS="undef" SIGNAME="player_vcount_out">
+        <PORT DIR="I" LEFT="10" NAME="vcount_in" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_vcount_in">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="player" PORT="vcount_out"/>
             <CONNECTION INSTANCE="player" PORT="vcount_out"/>
           </CONNECTIONS>
         </PORT>
@@ -303,9 +302,8 @@
             <CONNECTION INSTANCE="player" PORT="vblnk_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="10" NAME="hcount_in" RIGHT="0" SIGIS="undef" SIGNAME="player_hcount_out">
+        <PORT DIR="I" LEFT="10" NAME="hcount_in" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_hcount_in">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="player" PORT="hcount_out"/>
             <CONNECTION INSTANCE="player" PORT="hcount_out"/>
           </CONNECTIONS>
         </PORT>
@@ -324,14 +322,22 @@
             <CONNECTION INSTANCE="player" PORT="rgb_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="10" NAME="vcount_out" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="10" NAME="vcount_out" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_vcount_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="vga_interrupt_0" PORT="vcount_in"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="vsync_out" SIGIS="undef" SIGNAME="TextBlock_0_vsync_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="vsync_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="vblnk_out" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="10" NAME="hcount_out" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="10" NAME="hcount_out" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_hcount_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="vga_interrupt_0" PORT="hcount_in"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="hsync_out" SIGIS="undef" SIGNAME="TextBlock_0_hsync_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="hsync_out"/>
@@ -6899,8 +6905,6 @@
             <CONNECTION INSTANCE="vga_interrupt_0" PORT="pixel_clock"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="s_axi_lite_aclk"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="m_axi_mm2s_aclk"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_ACLK"/>
@@ -6922,6 +6926,8 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M10_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M11_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S03_ACLK"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aclk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -12094,10 +12100,8 @@
             <CONNECTION INSTANCE="blocks" PORT="rgb_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="10" NAME="vcount_out" RIGHT="0" SIGIS="undef" SIGNAME="player_vcount_out">
+        <PORT DIR="O" LEFT="10" NAME="vcount_out" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_vcount_in">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="vcount_in"/>
-            <CONNECTION INSTANCE="vga_interrupt_0" PORT="vcount_in"/>
             <CONNECTION INSTANCE="TextBlock_0" PORT="vcount_in"/>
           </CONNECTIONS>
         </PORT>
@@ -12111,10 +12115,8 @@
             <CONNECTION INSTANCE="TextBlock_0" PORT="vblnk_in"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="10" NAME="hcount_out" RIGHT="0" SIGIS="undef" SIGNAME="player_hcount_out">
+        <PORT DIR="O" LEFT="10" NAME="hcount_out" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_hcount_in">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="hcount_in"/>
-            <CONNECTION INSTANCE="vga_interrupt_0" PORT="hcount_in"/>
             <CONNECTION INSTANCE="TextBlock_0" PORT="hcount_in"/>
           </CONNECTIONS>
         </PORT>
@@ -12446,8 +12448,6 @@
             <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="axi_resetn"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ARESETN"/>
@@ -12464,6 +12464,8 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M10_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M11_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S03_ARESETN"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -12747,14 +12749,14 @@
             <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="10" NAME="hcount_in" RIGHT="0" SIGIS="undef" SIGNAME="player_hcount_out">
+        <PORT DIR="I" LEFT="10" NAME="hcount_in" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_hcount_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="player" PORT="hcount_out"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="hcount_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="10" NAME="vcount_in" RIGHT="0" SIGIS="undef" SIGNAME="player_vcount_out">
+        <PORT DIR="I" LEFT="10" NAME="vcount_in" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_vcount_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="player" PORT="vcount_out"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="vcount_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="interrupt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="vga_interrupt_0_interrupt">

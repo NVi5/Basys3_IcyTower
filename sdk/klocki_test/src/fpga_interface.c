@@ -99,6 +99,9 @@ static void block_update_handler(void *CallbackRef)
 	VGA_BLOCKS_YPOS = y;
 }
 
+__attribute__((section(".texture_memory")))
+static const char text[] = "abcdefghijklmnop                ";
+
 void fpga_interface_initialize(Game *Instance){
 
 	GameInstance = Instance;
@@ -119,10 +122,10 @@ void fpga_interface_initialize(Game *Instance){
 	VGA_PLAYER_WIDTH = 64;
 	VGA_PLAYER_HEIGHT = 64;
 
-	VGA_TEXT_XPOS = 100;
-	VGA_TEXT_YPOS = 100;
-	VGA_TEXT_COLOR = 0;
-	VGA_TEXT_SCALE = 0;
+	VGA_TEXT_XPOS = 600;
+	VGA_TEXT_YPOS = 600;
+	VGA_TEXT_COLOR = 1;
+	VGA_TEXT_SCALE = 1;
 }
 
 void interface_update(void *){
@@ -157,5 +160,12 @@ void fpga_interface_initialize_hardware(){
 	interrupt_init(&InterruptController, block_update_handler, INTC_DEVICE_ID, INTC_DEVICE_INT_ID);
 	interrupt_init(&InterruptController, interface_update, INTC_DEVICE_ID, INTC_DEVICE_VGA_ID);
 //	interrupt_init(&InterruptController, keyboard_update_handler, INTC_DEVICE_ID, INTC_DEVICE_KEYBOARD_ID);
+
+	XAxiDma_SimpleTransfer(
+			&text_dma,
+			(UINTPTR)text,
+			4*8,
+			XAXIDMA_DMA_TO_DEVICE
+		);
 }
 

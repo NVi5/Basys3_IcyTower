@@ -1,8 +1,8 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Fri Aug 16 13:19:57 2019
-//Host        : DESKTOP-A5397SU running 64-bit major release  (build 9200)
+//Date        : Fri Aug 16 20:38:01 2019
+//Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 //Command     : generate_target uC.bd
 //Design      : uC
 //Purpose     : IP block netlist
@@ -4213,8 +4213,10 @@ module uC
   wire [15:0]KeyboardController_0_led;
   wire PS2_1_1_ps2_clk;
   wire PS2_1_1_ps2_data;
+  wire [10:0]TextBlock_0_hcount_out;
   wire TextBlock_0_hsync_out;
   wire [11:0]TextBlock_0_rgb_out;
+  wire [10:0]TextBlock_0_vcount_out;
   wire TextBlock_0_vsync_out;
   wire [14:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
@@ -4564,12 +4566,12 @@ module uC
   wire [31:0]microblaze_0_interrupt_ADDRESS;
   wire microblaze_0_interrupt_INTERRUPT;
   wire [4:0]microblaze_0_intr;
-  wire [10:0]player_hcount_out;
-  wire [10:0]player_vcount_out;
   wire player_vga_interface_out_hblnk;
+  wire [10:0]player_vga_interface_out_hcount;
   wire player_vga_interface_out_hsync;
   wire [11:0]player_vga_interface_out_rgb;
   wire player_vga_interface_out_vblnk;
+  wire [10:0]player_vga_interface_out_vcount;
   wire player_vga_interface_out_vsync;
   wire reset_1;
   wire [0:0]rst_clk_wiz_0_135M_bus_struct_reset;
@@ -4632,7 +4634,8 @@ module uC
         .sseg(KeyboardController_0_SevSeg_1_sseg));
   uC_TextBlock_0_0 TextBlock_0
        (.hblnk_in(player_vga_interface_out_hblnk),
-        .hcount_in(player_hcount_out),
+        .hcount_in(player_vga_interface_out_hcount),
+        .hcount_out(TextBlock_0_hcount_out),
         .hsync_in(player_vga_interface_out_hsync),
         .hsync_out(TextBlock_0_hsync_out),
         .rgb_in(player_vga_interface_out_rgb),
@@ -4666,7 +4669,8 @@ module uC
         .s00_axis_tstrb({1'b1,1'b1,1'b1,1'b1}),
         .s00_axis_tvalid(axi_dma_2_M_AXIS_MM2S_TVALID),
         .vblnk_in(player_vga_interface_out_vblnk),
-        .vcount_in(player_vcount_out),
+        .vcount_in(player_vga_interface_out_vcount),
+        .vcount_out(TextBlock_0_vcount_out),
         .vsync_in(player_vga_interface_out_vsync),
         .vsync_out(TextBlock_0_vsync_out));
   (* BMM_INFO_ADDRESS_SPACE = "byte  0xC0000000 32 > uC blk_mem_gen_0" *) 
@@ -5368,7 +5372,7 @@ module uC
        (.hblnk_in(blocks_vga_interface_out_hblnk),
         .hblnk_out(player_vga_interface_out_hblnk),
         .hcount_in(blocks_vga_interface_out_hcount),
-        .hcount_out(player_hcount_out),
+        .hcount_out(player_vga_interface_out_hcount),
         .hsync_in(blocks_vga_interface_out_hsync),
         .hsync_out(player_vga_interface_out_hsync),
         .rgb_in(blocks_vga_interface_out_rgb),
@@ -5404,7 +5408,7 @@ module uC
         .vblnk_in(blocks_vga_interface_out_vblnk),
         .vblnk_out(player_vga_interface_out_vblnk),
         .vcount_in(blocks_vga_interface_out_vcount),
-        .vcount_out(player_vcount_out),
+        .vcount_out(player_vga_interface_out_vcount),
         .vsync_in(blocks_vga_interface_out_vsync),
         .vsync_out(player_vga_interface_out_vsync));
   uC_rst_clk_wiz_0_135M_1 rst_clk_wiz_0_135M
@@ -5453,10 +5457,10 @@ module uC
         .vsync_in(vga_timing_0_user_vga_interface_vsync),
         .vsync_out(vga_background_0_vga_interface_out_vsync));
   uC_vga_interrupt_0_3 vga_interrupt_0
-       (.hcount_in(player_hcount_out),
+       (.hcount_in(TextBlock_0_hcount_out),
         .interrupt(vga_interrupt_0_interrupt),
         .pixel_clock(clk_wiz_0_clk_135MHz),
-        .vcount_in(player_vcount_out));
+        .vcount_in(TextBlock_0_vcount_out));
   uC_vga_timing_0_1 vga_timing_0
        (.clk(clk_wiz_0_clk_135MHz),
         .hblnk(vga_timing_0_user_vga_interface_hblnk),

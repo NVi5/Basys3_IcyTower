@@ -520,11 +520,6 @@
         <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="KeyboardController_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
-        <spirit:name>player_vga_interface_out</spirit:name>
-        <spirit:activeInterface spirit:busRef="vga_interface_out" spirit:componentRef="player"/>
-        <spirit:activeInterface spirit:busRef="vga_interface_in" spirit:componentRef="TextBlock_0"/>
-      </spirit:interconnection>
-      <spirit:interconnection>
         <spirit:name>microblaze_0_axi_periph_M01_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M01_AXI" spirit:componentRef="microblaze_0_axi_periph"/>
         <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="TextBlock_0"/>
@@ -548,6 +543,11 @@
         <spirit:name>axi_dma_2_M_AXIS_MM2S</spirit:name>
         <spirit:activeInterface spirit:busRef="S00_AXIS" spirit:componentRef="TextBlock_0"/>
         <spirit:activeInterface spirit:busRef="M_AXIS_MM2S" spirit:componentRef="axi_dma_2"/>
+      </spirit:interconnection>
+      <spirit:interconnection>
+        <spirit:name>player_vga_interface_out</spirit:name>
+        <spirit:activeInterface spirit:busRef="vga_interface_out" spirit:componentRef="player"/>
+        <spirit:activeInterface spirit:busRef="vga_interface_in" spirit:componentRef="TextBlock_0"/>
       </spirit:interconnection>
     </spirit:interconnections>
     <spirit:adHocConnections>
@@ -589,8 +589,6 @@
         <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="vga_background_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="axi_resetn"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ARESETN"/>
@@ -607,6 +605,8 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M11_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S03_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>mdm_1_debug_sys_rst</spirit:name>
@@ -672,8 +672,6 @@
         <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="pixel_clock"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="s_axi_lite_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="m_axi_mm2s_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aclk"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M02_ACLK"/>
@@ -692,6 +690,8 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M11_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S03_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>reset_1</spirit:name>
@@ -702,18 +702,6 @@
         <spirit:name>KeyboardController_0_led</spirit:name>
         <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="led"/>
         <spirit:externalPortReference spirit:portRef="led"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>player_hcount_out</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="hcount_out"/>
-        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="hcount_in"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="hcount_in"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>player_vcount_out</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="vcount_out"/>
-        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="vcount_in"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="vcount_in"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>vga_interrupt_0_interrupt</spirit:name>
@@ -734,6 +722,16 @@
         <spirit:name>TextBlock_0_vsync_out</spirit:name>
         <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="vsync_out"/>
         <spirit:externalPortReference spirit:portRef="vsync_out"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>TextBlock_0_vcount_out</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="vcount_out"/>
+        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="vcount_in"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>TextBlock_0_hcount_out</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="hcount_out"/>
+        <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="hcount_in"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -5829,20 +5827,20 @@
     <spirit:version>10.0</spirit:version>
     <spirit:busInterfaces>
       <spirit:busInterface>
-        <spirit:name>M_AXI_DP</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>DLMB</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>M_AXI_DP</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
         <spirit:name>ILMB</spirit:name>

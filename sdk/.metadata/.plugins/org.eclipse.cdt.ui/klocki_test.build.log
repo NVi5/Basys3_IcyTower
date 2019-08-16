@@ -1,9 +1,9 @@
-09:27:47 **** Auto Build of configuration Debug for project klocki_test ****
+21:11:25 **** Incremental Build of configuration Debug for project klocki_test ****
 make all 
-'Building file: ../src/game.cpp'
+'Building file: ../src/fpga_interface.c'
 'Invoking: MicroBlaze g++ compiler'
-mb-g++ -Wall -O0 -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
-'Finished building: ../src/game.cpp'
+mb-g++ -Wall -O0 -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
 ' '
 'Building target: klocki_test.elf'
 'Invoking: MicroBlaze g++ linker'
@@ -13,9 +13,9 @@ mb-g++ -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -ml
 'Invoking: MicroBlaze Print Size'
 mb-size klocki_test.elf  |tee "klocki_test.elf.size"
    text	   data	    bss	    dec	    hex	filename
-  31142	   1528	  10314	  42984	   a7e8	klocki_test.elf
+  31927	   1596	  12182	  45705	   b289	klocki_test.elf
 'Finished building: klocki_test.elf.size'
 ' '
 
-09:27:48 Build Finished (took 1s.685ms)
+21:11:27 Build Finished (took 1s.721ms)
 
