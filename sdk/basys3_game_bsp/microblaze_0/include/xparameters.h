@@ -485,8 +485,19 @@
 
 /******************************************************************/
 
+/* Definitions for driver TEXTBLOCK */
+#define XPAR_TEXTBLOCK_NUM_INSTANCES 1
+
+/* Definitions for peripheral TEXTBLOCK_0 */
+#define XPAR_TEXTBLOCK_0_DEVICE_ID 0
+#define XPAR_TEXTBLOCK_0_S00_AXI_BASEADDR 0x44A40000
+#define XPAR_TEXTBLOCK_0_S00_AXI_HIGHADDR 0x44A4FFFF
+
+
+/******************************************************************/
+
 /* Definitions for driver AXIDMA */
-#define XPAR_XAXIDMA_NUM_INSTANCES 2
+#define XPAR_XAXIDMA_NUM_INSTANCES 3
 
 /* Definitions for peripheral AXI_DMA_0 */
 #define XPAR_AXI_DMA_0_DEVICE_ID 0
@@ -532,6 +543,28 @@
 #define XPAR_AXI_DMA_1_SG_LENGTH_WIDTH 21
 
 
+/* Definitions for peripheral AXI_DMA_2 */
+#define XPAR_AXI_DMA_2_DEVICE_ID 2
+#define XPAR_AXI_DMA_2_BASEADDR 0x41E20000
+#define XPAR_AXI_DMA_2_HIGHADDR 0x41E2FFFF
+#define XPAR_AXI_DMA_2_SG_INCLUDE_STSCNTRL_STRM 0
+#define XPAR_AXI_DMA_2_INCLUDE_MM2S_DRE 0
+#define XPAR_AXI_DMA_2_INCLUDE_S2MM_DRE 0
+#define XPAR_AXI_DMA_2_INCLUDE_MM2S 1
+#define XPAR_AXI_DMA_2_INCLUDE_S2MM 0
+#define XPAR_AXI_DMA_2_M_AXI_MM2S_DATA_WIDTH 32
+#define XPAR_AXI_DMA_2_M_AXI_S2MM_DATA_WIDTH 32
+#define XPAR_AXI_DMA_2_INCLUDE_SG 0
+#define XPAR_AXI_DMA_2_ENABLE_MULTI_CHANNEL 0
+#define XPAR_AXI_DMA_2_NUM_MM2S_CHANNELS 1
+#define XPAR_AXI_DMA_2_NUM_S2MM_CHANNELS 1
+#define XPAR_AXI_DMA_2_MM2S_BURST_SIZE 256
+#define XPAR_AXI_DMA_2_S2MM_BURST_SIZE 16
+#define XPAR_AXI_DMA_2_MICRO_DMA 0
+#define XPAR_AXI_DMA_2_ADDR_WIDTH 32
+#define XPAR_AXI_DMA_2_SG_LENGTH_WIDTH 21
+
+
 /******************************************************************/
 
 /* Canonical definitions for peripheral AXI_DMA_0 */
@@ -573,6 +606,26 @@
 #define XPAR_AXIDMA_1_MICRO_DMA 0
 #define XPAR_AXIDMA_1_c_addr_width 32
 #define XPAR_AXIDMA_1_c_sg_length_width 21
+
+/* Canonical definitions for peripheral AXI_DMA_2 */
+#define XPAR_AXIDMA_2_DEVICE_ID XPAR_AXI_DMA_2_DEVICE_ID
+#define XPAR_AXIDMA_2_BASEADDR 0x41E20000
+#define XPAR_AXIDMA_2_SG_INCLUDE_STSCNTRL_STRM 0
+#define XPAR_AXIDMA_2_INCLUDE_MM2S 1
+#define XPAR_AXIDMA_2_INCLUDE_MM2S_DRE 0
+#define XPAR_AXIDMA_2_M_AXI_MM2S_DATA_WIDTH 32
+#define XPAR_AXIDMA_2_INCLUDE_S2MM 0
+#define XPAR_AXIDMA_2_INCLUDE_S2MM_DRE 0
+#define XPAR_AXIDMA_2_M_AXI_S2MM_DATA_WIDTH 32
+#define XPAR_AXIDMA_2_INCLUDE_SG 0
+#define XPAR_AXIDMA_2_ENABLE_MULTI_CHANNEL 0
+#define XPAR_AXIDMA_2_NUM_MM2S_CHANNELS 1
+#define XPAR_AXIDMA_2_NUM_S2MM_CHANNELS 1
+#define XPAR_AXIDMA_2_MM2S_BURST_SIZE 256
+#define XPAR_AXIDMA_2_S2MM_BURST_SIZE 16
+#define XPAR_AXIDMA_2_MICRO_DMA 0
+#define XPAR_AXIDMA_2_c_addr_width 32
+#define XPAR_AXIDMA_2_c_sg_length_width 21
 
 
 /******************************************************************/

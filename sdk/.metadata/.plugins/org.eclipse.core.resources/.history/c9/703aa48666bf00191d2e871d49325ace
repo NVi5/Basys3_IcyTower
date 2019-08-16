@@ -1,0 +1,24 @@
+#include "../include/fpga_interface.h"
+
+Game GameInstance;
+
+int main(){
+
+	fpga_interface_initialize(&GameInstance);
+	fpga_interface_initialize_hardware();
+
+	XAxiDma_SimpleTransfer(
+		dma,
+		(UINTPTR)texture_memory[texture].pixel_data,
+		texture_memory[texture].height * texture_memory[texture].width * texture_memory[texture].bytes_per_pixel,
+		XAXIDMA_DMA_TO_DEVICE
+	);
+
+    while(1){
+    	if(GameInstance.gameOver){
+    		GameInstance = Game();
+
+    	}
+    }
+}
+
