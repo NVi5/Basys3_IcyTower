@@ -10,7 +10,8 @@ CC_SRCS += \
 ../src/main.cc 
 
 C_SRCS += \
-../src/fpga_interface.c 
+../src/fpga_interface.c \
+../src/tinyprintf.c 
 
 CPP_SRCS += \
 ../src/game.cpp \
@@ -27,10 +28,12 @@ OBJS += \
 ./src/line2d.o \
 ./src/main.o \
 ./src/player.o \
-./src/point2d.o 
+./src/point2d.o \
+./src/tinyprintf.o 
 
 C_DEPS += \
-./src/fpga_interface.d 
+./src/fpga_interface.d \
+./src/tinyprintf.d 
 
 CPP_DEPS += \
 ./src/game.d \
@@ -43,21 +46,21 @@ CPP_DEPS += \
 src/%.o: ../src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MicroBlaze g++ compiler'
-	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: MicroBlaze g++ compiler'
-	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 src/%.o: ../src/%.cc
 	@echo 'Building file: $<'
 	@echo 'Invoking: MicroBlaze g++ compiler'
-	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

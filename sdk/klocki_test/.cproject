@@ -57,6 +57,7 @@
 								<option id="xilinx.gnu.compiler.inferred.swplatform.includes.172711980" name="Software Platform Include Path" superClass="xilinx.gnu.compiler.inferred.swplatform.includes"/>
 								<option id="xilinx.gnu.compiler.dircategory.includes.1350917343" name="Include Paths" superClass="xilinx.gnu.compiler.dircategory.includes" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../basys3_game_bsp/microblaze_0/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/klocki_test/include}&quot;"/>
 								</option>
 								<option id="xilinx.gnu.compiler.misc.other.279297601" name="Other flags" superClass="xilinx.gnu.compiler.misc.other" value="-c -fmessage-length=0 -MT&quot;$@&quot; -std=c++17" valueType="string"/>
 								<inputType id="xilinx.gnu.mb.cxx.compiler.input.1318927724" name="C++ source files" superClass="xilinx.gnu.mb.cxx.compiler.input"/>

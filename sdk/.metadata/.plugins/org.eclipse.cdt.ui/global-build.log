@@ -7945,3 +7945,992 @@ mb-size klocki_test.elf  |tee "klocki_test.elf.size"
   27630	   1592	   8434	  37656	   9318	klocki_test.elf
 'Finished building: klocki_test.elf.size'
 ' '
+12:43:21 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2144 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27630	   1592	   8434	  37656	   9318	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:43:38 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2144 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27630	   1592	   8434	  37656	   9318	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:43:57 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+In file included from ../src/../include/game.hpp:6:0,
+                 from ../src/../include/fpga_interface.h:3,
+                 from ../src/fpga_interface.c:1:
+../src/../include/textures.h:99:22: error: texture_memory causes a section type conflict with text
+ const texture_info_t texture_memory[__TEXTURES_END] = {
+                      ^~~~~~~~~~~~~~
+../src/fpga_interface.c:103:13: note: 'text' was declared here
+ static char text[] = "> abcdefghijklmnop           ";
+             ^~~~
+make: *** [src/fpga_interface.o] B³¹d 1
+12:46:15 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+In file included from ../src/../include/game.hpp:6:0,
+                 from ../src/../include/fpga_interface.h:3,
+                 from ../src/fpga_interface.c:1:
+../src/../include/textures.h:99:22: error: texture_memory causes a section type conflict with text
+ const texture_info_t texture_memory[__TEXTURES_END] = {
+                      ^~~~~~~~~~~~~~
+../src/fpga_interface.c:103:13: note: 'text' was declared here
+ static char text[] = "> abcdefghijklmnop           ";
+             ^~~~
+make: *** [src/fpga_interface.o] B³¹d 1
+12:46:30 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1592	   8464	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:46:39 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:47:14 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1592	   8464	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:49:04 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:50:10 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:50:23 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:50:30 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+12:50:46 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+12:50:48 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+12:51:48 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+../src/fpga_interface.c:106:24: error: conflicting declaration 'const char text []'
+ static const char text[] = "> xdxdx           ";
+                        ^
+../src/fpga_interface.c:103:13: note: previous declaration as 'char text [30]'
+ static char text[] = "> abcdefghijklmnop           ";
+             ^~~~
+../src/fpga_interface.c:106:24: warning: 'text' defined but not used [-Wunused-variable]
+ static const char text[] = "> xdxdx           ";
+                        ^
+make: *** [src/fpga_interface.o] B³¹d 1
+12:51:59 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+13:09:58 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+../src/fpga_interface.c: In function 'void interface_update(void*)':
+../src/fpga_interface.c:139:2: error: 'sprintf' was not declared in this scope
+  sprintf(text, "%d", GameInstance->GetFloorCount());
+  ^~~~~~~
+../src/fpga_interface.c:139:2: note: suggested alternative: 'print'
+  sprintf(text, "%d", GameInstance->GetFloorCount());
+  ^~~~~~~
+  print
+make: *** [src/fpga_interface.o] B³¹d 1
+13:10:25 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       74432 B      65456 B    113.71%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: klocki_test.elf section `.data' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 8976 bytes
+collect2.exe: error: ld returned 1 exit status
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+make: *** [klocki_test.elf] B³¹d 1
+13:27:27 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o  ./src/fpga_interface.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+13:27:28 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       74432 B      65456 B    113.71%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: klocki_test.elf section `.data' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 8976 bytes
+collect2.exe: error: ld returned 1 exit status
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+make: *** [klocki_test.elf] B³¹d 1
+13:27:46 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+../src/fpga_interface.c: In function 'void interface_update(void*)':
+../src/fpga_interface.c:139:2: error: 'sprintf' was not declared in this scope
+  sprintf(text, "%d", GameInstance->GetFloorCount());
+  ^~~~~~~
+../src/fpga_interface.c:139:2: note: suggested alternative: 'print'
+  sprintf(text, "%d", GameInstance->GetFloorCount());
+  ^~~~~~~
+  print
+make: *** [src/fpga_interface.o] B³¹d 1
+13:27:52 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+13:28:39 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+13:28:47 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\newlib-nano" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       74432 B      65456 B    113.71%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: klocki_test.elf section `.data' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 8976 bytes
+collect2.exe: error: ld returned 1 exit status
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+make: *** [klocki_test.elf] B³¹d 1
+13:30:22 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o  ./src/fpga_interface.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+13:35:29 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+../src/fpga_interface.c:8:10: fatal error: ../newlib-nano/newlib/libc/include/stdio.h: No such file or directory
+ #include "../newlib-nano/newlib/libc/include/stdio.h"
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/fpga_interface.o] B³¹d 1
+13:36:02 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       74432 B      65456 B    113.71%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: klocki_test.elf section `.data' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 8976 bytes
+collect2.exe: error: ld returned 1 exit status
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+make: *** [klocki_test.elf] B³¹d 1
+13:37:03 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o  ./src/fpga_interface.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+13:37:04 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -nodefaultlibs -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       74104 B      65456 B    113.21%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: klocki_test.elf section `.data' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 8648 bytes
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/lib/bs/m/le/crt0.o: In function `_vector_sw_exception':
+(.vectors.sw_exception+0x0): undefined reference to `_exception_handler'
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/lib/bs/m/le/crtinit.o: In function `_crtinit':
+(.text+0x58): undefined reference to `_program_init'
+(.text+0x94): undefined reference to `_program_clean'
+../../basys3_game_bsp/microblaze_0/lib\libc.a(lib_a-sbrkr.o): In function `_sbrk_r':
+(.text+0x18): undefined reference to `sbrk'
+../../basys3_game_bsp/microblaze_0/lib\libc.a(lib_a-svfprintf.o): In function `_svfprintf_r':
+(.text+0x2380): undefined reference to `frexp'
+collect2.exe: error: ld returned 1 exit status
+make: *** [klocki_test.elf] B³¹d 1
+13:37:28 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o  ./src/fpga_interface.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+13:37:29 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -nostdlib -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:        2560 B      65456 B      3.91%
+axi_bram_ctrl_0_Mem0:          0 GB        64 KB      0.00%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: warning: cannot find entry symbol _start; not setting start address
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+      0	      0	   2560	   2560	    a00	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+13:37:53 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o  ./src/fpga_interface.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+13:37:53 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       74432 B      65456 B    113.71%
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: klocki_test.elf section `.data' will not fit in region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem'
+f:/xilinx/sdk/2018.2/gnu/microblaze/nt/bin/../lib/gcc/microblaze-xilinx-elf/7.2.0/../../../../microblaze-xilinx-elf/bin/ld.exe: region `microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem' overflowed by 8976 bytes
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+collect2.exe: error: ld returned 1 exit status
+make: *** [klocki_test.elf] B³¹d 1
+13:38:05 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+../src/fpga_interface.c: In function 'void interface_update(void*)':
+../src/fpga_interface.c:139:2: error: 'sprintf' was not declared in this scope
+  sprintf(text, "%d", GameInstance->GetFloorCount());
+  ^~~~~~~
+../src/fpga_interface.c:139:2: note: suggested alternative: 'print'
+  sprintf(text, "%d", GameInstance->GetFloorCount());
+  ^~~~~~~
+  print
+make: *** [src/fpga_interface.o] B³¹d 1
+13:38:15 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:05:09 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o  ./src/fpga_interface.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+14:05:11 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building file: ../src/tinyprintf.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/tinyprintf.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tinyprintf.d" -MT"src/tinyprintf.o" -o "src/tinyprintf.o" "../src/tinyprintf.c"
+../src/tinyprintf.c:22:10: fatal error: tinyprintf.h: No such file or directory
+ #include "tinyprintf.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/tinyprintf.o] B³¹d 1
+14:05:19 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/tinyprintf.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/tinyprintf.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tinyprintf.d" -MT"src/tinyprintf.o" -o "src/tinyprintf.o" "../src/tinyprintf.c"
+../src/tinyprintf.c:22:10: fatal error: tinyprintf.h: No such file or directory
+ #include "tinyprintf.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/tinyprintf.o] B³¹d 1
+14:05:40 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/tinyprintf.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I../../ -c -fmessage-length=0 -MT"src/tinyprintf.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tinyprintf.d" -MT"src/tinyprintf.o" -o "src/tinyprintf.o" "../src/tinyprintf.c"
+'Finished building: ../src/tinyprintf.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:06:17 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o  ./src/fpga_interface.d ./src/tinyprintf.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+14:06:17 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building file: ../src/tinyprintf.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -c -fmessage-length=0 -MT"src/tinyprintf.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tinyprintf.d" -MT"src/tinyprintf.o" -o "src/tinyprintf.o" "../src/tinyprintf.c"
+'Finished building: ../src/tinyprintf.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:06:46 **** Clean-only build of configuration Debug for project klocki_test ****
+make clean 
+rm -rf  ./src/main.d  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o  ./src/fpga_interface.d ./src/tinyprintf.d  ./src/game.d ./src/line2d.d ./src/player.d ./src/point2d.d  klocki_test.elf.size  klocki_test.elf
+' '
+14:06:47 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building file: ../src/game.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/game.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/game.d" -MT"src/game.o" -o "src/game.o" "../src/game.cpp"
+'Finished building: ../src/game.cpp'
+' '
+'Building file: ../src/line2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/line2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/line2d.d" -MT"src/line2d.o" -o "src/line2d.o" "../src/line2d.cpp"
+'Finished building: ../src/line2d.cpp'
+' '
+'Building file: ../src/main.cc'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/main.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.cc"
+'Finished building: ../src/main.cc'
+' '
+'Building file: ../src/player.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/player.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/player.d" -MT"src/player.o" -o "src/player.o" "../src/player.cpp"
+'Finished building: ../src/player.cpp'
+' '
+'Building file: ../src/point2d.cpp'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/point2d.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/point2d.d" -MT"src/point2d.o" -o "src/point2d.o" "../src/point2d.cpp"
+'Finished building: ../src/point2d.cpp'
+' '
+'Building file: ../src/tinyprintf.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/tinyprintf.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/tinyprintf.d" -MT"src/tinyprintf.o" -o "src/tinyprintf.o" "../src/tinyprintf.c"
+'Finished building: ../src/tinyprintf.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:07:17 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       35480 B      65456 B     54.20%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  27598	   1622	   8434	  37654	   9316	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:08:36 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+../src/fpga_interface.c: In function 'void interface_update(void*)':
+../src/fpga_interface.c:141:52: error: invalid conversion from 'int' to 'va_list {aka void*}' [-fpermissive]
+  vsprintf(text, "%d\n", GameInstance->GetFloorCount());
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+In file included from ../src/fpga_interface.c:2:0:
+../src/../include/tinyprintf.h:163:5: note:   initializing argument 3 of 'int tfp_vsprintf(char*, const char*, va_list)'
+ int tfp_vsprintf(char *str, const char *fmt, va_list ap);
+     ^~~~~~~~~~~~
+make: *** [src/fpga_interface.o] B³¹d 1
+14:09:21 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       41904 B      65456 B     64.02%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34018	   1622	   8438	  44078	   ac2e	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:09:32 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       41904 B      65456 B     64.02%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34018	   1622	   8438	  44078	   ac2e	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:10:13 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       41904 B      65456 B     64.02%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34018	   1622	   8438	  44078	   ac2e	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:10:33 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+14:11:08 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       41904 B      65456 B     64.02%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34018	   1622	   8438	  44078	   ac2e	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:11:15 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.
+14:11:37 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       41904 B      65456 B     64.02%
+axi_bram_ctrl_0_Mem0:        2142 B        64 KB      3.27%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34018	   1622	   8438	  44078	   ac2e	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:11:49 **** Auto Build of configuration Debug for project klocki_test ****
+make all 
+'Building file: ../src/fpga_interface.c'
+'Invoking: MicroBlaze g++ compiler'
+mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"src/fpga_interface.o" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/fpga_interface.d" -MT"src/fpga_interface.o" -o "src/fpga_interface.o" "../src/fpga_interface.c"
+'Finished building: ../src/fpga_interface.c'
+' '
+'Building target: klocki_test.elf'
+'Invoking: MicroBlaze g++ linker'
+mb-g++ -Xlinker --print-memory-usage -Wl,-T -Wl,../src/lscript.ld -L../../basys3_game_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -Wl,--gc-sections -o "klocki_test.elf"  ./src/fpga_interface.o ./src/game.o ./src/line2d.o ./src/main.o ./src/player.o ./src/point2d.o ./src/tinyprintf.o   -Wl,--start-group,-lxil,-lgcc,-lc,-lstdc++,--end-group
+Memory region         Used Size  Region Size  %age Used
+microblaze_0_local_memory_ilmb_bram_if_cntlr_Mem_microblaze_0_local_memory_dlmb_bram_if_cntlr_Mem:       41904 B      65456 B     64.02%
+axi_bram_ctrl_0_Mem0:        2368 B        64 KB      3.61%
+'Finished building target: klocki_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size klocki_test.elf  |tee "klocki_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34018	   1848	   8438	  44304	   ad10	klocki_test.elf
+'Finished building: klocki_test.elf.size'
+' '
+14:11:53 **** Incremental Build of configuration Debug for project klocki_test ****
+make all 
+make: Nie ma nic do zrobienia w `all'.

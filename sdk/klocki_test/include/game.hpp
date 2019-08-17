@@ -63,4 +63,5 @@ class Game{
 
         float GetFloorsPosition();
 		float GetBackgroundPosition();
+		int GetFloorCount();
 };

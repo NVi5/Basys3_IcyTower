@@ -1,4 +1,5 @@
 #include "../include/fpga_interface.h"
+#include "../include/tinyprintf.h"
 
 #include "xaxidma.h"
 #include "xparameters.h"
@@ -99,8 +100,8 @@ static void block_update_handler(void *CallbackRef)
 	VGA_BLOCKS_YPOS = y;
 }
 
-__attribute__((section(".texture_memory")))
-static const char text[] = "> abcdefghijklmnop           ";
+__attribute__((section(".vga_text")))
+static char text[16*16] = "";
 
 void fpga_interface_initialize(Game *Instance){
 
@@ -136,6 +137,9 @@ void interface_update(void *){
 
 	GameInstance->Run();
 
+
+	sprintf(text, "%d", GameInstance->GetFloorCount());
+
 	int v = (int)GameInstance->GetPlayer().getVelocity().GetX();
 
 	if( v == 0 ) dma_transfer_texture( &player_dma, TEXTURE_PLAYER );
@@ -147,6 +151,13 @@ void interface_update(void *){
 
 	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance->GetBackgroundPosition();
 	VGA_BACKGROUND_SHIFT_SIDES = (int)GameInstance->GetFloorsPosition();
+
+	XAxiDma_SimpleTransfer(
+			&text_dma,
+			(UINTPTR)text,
+			4*4,
+			XAXIDMA_DMA_TO_DEVICE
+		);
 
 }
 
@@ -164,12 +175,5 @@ void fpga_interface_initialize_hardware(){
 	interrupt_init(&InterruptController, block_update_handler, INTC_DEVICE_ID, INTC_DEVICE_INT_ID);
 	interrupt_init(&InterruptController, interface_update, INTC_DEVICE_ID, INTC_DEVICE_VGA_ID);
 //	interrupt_init(&InterruptController, keyboard_update_handler, INTC_DEVICE_ID, INTC_DEVICE_KEYBOARD_ID);
-
-	XAxiDma_SimpleTransfer(
-			&text_dma,
-			(UINTPTR)text,
-			4*8,
-			XAXIDMA_DMA_TO_DEVICE
-		);
 }
 

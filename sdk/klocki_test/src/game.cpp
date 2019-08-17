@@ -187,3 +187,4 @@ texture_t Game::GetFloorTexture(int FloorIndex){return this->floorTexture[FloorI
 Player Game::GetPlayer(){return this->Player1;};
 float Game::GetFloorsPosition(){return this->floorsPosition;};
 float Game::GetBackgroundPosition(){return this->backgroundPosition;};
+int Game::GetFloorCount(){return this->floorCounter;};
