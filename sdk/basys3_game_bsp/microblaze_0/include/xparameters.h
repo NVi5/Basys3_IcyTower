@@ -791,6 +791,29 @@
 
 /******************************************************************/
 
+/* Definitions for driver SYSMON */
+#define XPAR_XSYSMON_NUM_INSTANCES 1U
+
+/* Definitions for peripheral XADC_WIZ_0 */
+#define XPAR_XADC_WIZ_0_IP_TYPE 0U
+#define XPAR_XADC_WIZ_0_DEVICE_ID 0U
+#define XPAR_XADC_WIZ_0_BASEADDR 0x44A50000U
+#define XPAR_XADC_WIZ_0_HIGHADDR 0x44A5FFFFU
+#define XPAR_XADC_WIZ_0_INCLUDE_INTR 1U
+
+
+/******************************************************************/
+
+/* Canonical definitions for peripheral XADC_WIZ_0 */
+#define XPAR_SYSMON_0_IP_TYPE 0U
+#define XPAR_SYSMON_0_DEVICE_ID XPAR_XADC_WIZ_0_DEVICE_ID
+#define XPAR_SYSMON_0_BASEADDR 0x44A50000U
+#define XPAR_SYSMON_0_HIGHADDR 0x44A5FFFFU
+#define XPAR_SYSMON_0_INCLUDE_INTR 1U
+
+
+/******************************************************************/
+
 /* Definitions for driver TMRCTR */
 #define XPAR_XTMRCTR_NUM_INSTANCES 1U
 

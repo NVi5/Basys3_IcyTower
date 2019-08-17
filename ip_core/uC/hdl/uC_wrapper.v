@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Sat Aug 17 11:59:26 2019
+//Date        : Sat Aug 17 19:25:10 2019
 //Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 //Command     : generate_target uC_wrapper.bd
 //Design      : uC_wrapper
@@ -14,6 +14,8 @@ module uC_wrapper
     PS2_1_ps2_data,
     SevSeg_1_an,
     SevSeg_1_sseg,
+    adc_n,
+    adc_p,
     clk_100MHz,
     hsync_out,
     led,
@@ -26,6 +28,8 @@ module uC_wrapper
   inout PS2_1_ps2_data;
   output [3:0]SevSeg_1_an;
   output [7:0]SevSeg_1_sseg;
+  input adc_n;
+  input adc_p;
   input clk_100MHz;
   output hsync_out;
   output [15:0]led;
@@ -39,6 +43,8 @@ module uC_wrapper
   wire PS2_1_ps2_data;
   wire [3:0]SevSeg_1_an;
   wire [7:0]SevSeg_1_sseg;
+  wire adc_n;
+  wire adc_p;
   wire clk_100MHz;
   wire hsync_out;
   wire [15:0]led;
@@ -53,6 +59,8 @@ module uC_wrapper
         .PS2_1_ps2_data(PS2_1_ps2_data),
         .SevSeg_1_an(SevSeg_1_an),
         .SevSeg_1_sseg(SevSeg_1_sseg),
+        .adc_n(adc_n),
+        .adc_p(adc_p),
         .clk_100MHz(clk_100MHz),
         .hsync_out(hsync_out),
         .led(led),

@@ -39,7 +39,11 @@ module main(
     output wire hs,
     output wire [3:0] r,
     output wire [3:0] g,
-    output wire [3:0] b
+    output wire [3:0] b,
+    
+    output wire adc_n,
+    output wire adc_p
+    
     );
     
     uC my_uC(
@@ -54,7 +58,9 @@ module main(
         .SevSeg_1_sseg(seg),
         .hsync_out(hs),
         .rgb_out({r,g,b}),
-        .vsync_out(vs)
+        .vsync_out(vs),
+        .adc_n(adc_n),
+        .adc_p(adc_p)
     );
     
 endmodule

@@ -1,0 +1,31 @@
+#include "../include/fpga_interface.h"
+
+#include "xsysmon_hw.h"
+#include "xsysmon.h"
+
+#include "xil_printf.h"
+
+static XSysMon adc;
+static XSysMon_Config *adc_config;
+
+int main(){
+
+	Game GameInstance;
+
+	fpga_interface_initialize(&GameInstance);
+	fpga_interface_initialize_hardware();
+
+
+	adc_config = XSysMon_LookupConfig(XPAR_XADC_WIZ_0_DEVICE_ID);
+	XSysMon_CfgInitialize(&adc, adc_config, adc_config->BaseAddress);
+
+
+    while(1){
+
+    	XSysMon_StartAdcConversion(&adc);
+    	while(!(*((uint32_t*)0x44A50000U + XSM_IPISR_OFFSET) & XSM_IPIXR_EOC_MASK));
+    	xil_printf("%d\r\n", XSysMon_GetAdcData(&adc, XSM_CH_AUX_MIN + 4));
+
+    }
+}
+

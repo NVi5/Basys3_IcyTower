@@ -25,7 +25,10 @@ src/fpga_interface.o src/fpga_interface.o: ../src/fpga_interface.c \
  ../../basys3_game_bsp/microblaze_0/include/xparameters.h \
  ../../basys3_game_bsp/microblaze_0/include/xintc.h \
  ../../basys3_game_bsp/microblaze_0/include/xintc_l.h \
- ../../basys3_game_bsp/microblaze_0/include/xil_exception.h
+ ../../basys3_game_bsp/microblaze_0/include/xil_exception.h \
+ ../../basys3_game_bsp/microblaze_0/include/xsysmon_hw.h \
+ ../../basys3_game_bsp/microblaze_0/include/xsysmon.h \
+ ../../basys3_game_bsp/microblaze_0/include/xsysmon_hw.h
 
 ../src/../include/fpga_interface.h:
 
@@ -86,3 +89,9 @@ src/fpga_interface.o src/fpga_interface.o: ../src/fpga_interface.c \
 ../../basys3_game_bsp/microblaze_0/include/xintc_l.h:
 
 ../../basys3_game_bsp/microblaze_0/include/xil_exception.h:
+
+../../basys3_game_bsp/microblaze_0/include/xsysmon_hw.h:
+
+../../basys3_game_bsp/microblaze_0/include/xsysmon.h:
+
+../../basys3_game_bsp/microblaze_0/include/xsysmon_hw.h:

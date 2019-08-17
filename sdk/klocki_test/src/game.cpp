@@ -5,9 +5,9 @@ Game::Game() :
     //Player1(Point2d((MIN_X + MAX_X)/2 - (PLAYER_WIDTH / 2), FLOOR_HEIGHT + PLAYER_HEIGHT), Point2d(0, 0), Point2d(0, ACCELERATION)),
 	Player1(Point2d((MIN_X + MAX_X)/2 ,0), Point2d(0, 0), Point2d(0, ACCELERATION)),
     gameTime(0.0f),
+	playerFloor(0),
 	floorCounter(5),
 	floorsPosition(0),
-	backgroundPosition(0),
     isStarted(false),
 	PlayerLocked(true),
 	PlayerLockFloor(0),
@@ -24,6 +24,10 @@ Game::Game() :
     	this->floorTexture[i] = TEXTURE_REDSTONE;
     }
 
+    for(int i = 0; i < N_FLOORS; i++){
+    	this->relativeFloorNumber[i] = i;
+    }
+
     this->PlayerLocked = true;
     this->PlayerLockFloor = 0;
 }
@@ -34,9 +38,9 @@ void Game::Reset(){
 	this->Player1.setVelocity(Point2d(0, 0));
 	this->Player1.setAcceleration(Point2d(0, ACCELERATION));
 	this->gameTime = 0.0f;
+	this->playerFloor = 0;
 	this->floorCounter = 5;
 	this->floorsPosition = 0;
-	this->backgroundPosition = 0;
 	this->isStarted = false;
     this->PlayerLocked = true;
     this->PlayerLockFloor = 0;
@@ -50,6 +54,10 @@ void Game::Reset(){
 
     for(int i = 0; i < N_FLOORS; i++){
     	this->floorTexture[i] = TEXTURE_REDSTONE;
+    }
+
+    for(int i = 0; i < N_FLOORS; i++){
+    	this->relativeFloorNumber[i] = i;
     }
 
     this->PlayerLocked = true;
@@ -71,7 +79,7 @@ void Game::chceckCollisionsAndLock(int moveRate) {
 	if(this->Player1.getVelocity().GetY() < 0){
 
 		Point2d solution;
-		float collision_distance = 1000.0f;
+		float collision_distance = 10000.0f;
 		for(int i = 0; i < N_FLOORS ; i++){
 			if ( this->floors[i].CheckIntersection( PlayerMove, solution ) ){
 				float distance = abs(solution.GetY() - PlayerMove.GetEnd().GetY());
@@ -79,7 +87,8 @@ void Game::chceckCollisionsAndLock(int moveRate) {
 					collision_distance = distance;
 					this->PlayerLockFloor = i;
 					this->PlayerLocked = true;
-				};
+					if(this->playerFloor < this->relativeFloorNumber[i]) this->playerFloor = this->relativeFloorNumber[i];
+				}
 			}
 		}
 	}
@@ -98,10 +107,16 @@ void Game::moveFloors(int moveRate){
 			float prevY = this->floors[i].GetStart().GetY();
 
 			if(this->floorCounter % 30){
-				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) this->floorCounter++;
+				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) {
+					this->floorCounter++;
+					this->relativeFloorNumber[i] += N_FLOORS;
+				}
 			}
 			else{
-				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) this->floorCounter++;
+				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) {
+					this->floorCounter++;
+					this->relativeFloorNumber[i] += N_FLOORS;
+				}
 			}
 
 			float currentY = this->floors[i].GetStart().GetY();
@@ -109,8 +124,7 @@ void Game::moveFloors(int moveRate){
 				this->PlayerLocked = false;
 			}
 		}
-		this->floorsPosition -= 1.1 * moveRate;
-		this->backgroundPosition -= 0.5 * moveRate;//this->floorsPosition / 2;
+		this->floorsPosition += moveRate;
 	}
 }
 
@@ -159,6 +173,7 @@ void Game::Run(){
 
 	if(this->Player1.getPosition().GetY() > PLAYER_MAX_Y){
 		moveFloors(this->Player1.getPosition().GetY() - PLAYER_MAX_Y);
+		this->floorsPosition += this->Player1.getPosition().GetY() - PLAYER_MAX_Y;
 		this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MAX_Y) );
 	}
 
@@ -186,5 +201,5 @@ Line2d Game::GetFloor(int FloorIndex){return this->floors[FloorIndex];};
 texture_t Game::GetFloorTexture(int FloorIndex){return this->floorTexture[FloorIndex];};
 Player Game::GetPlayer(){return this->Player1;};
 float Game::GetFloorsPosition(){return this->floorsPosition;};
-float Game::GetBackgroundPosition(){return this->backgroundPosition;};
 int Game::GetFloorCount(){return this->floorCounter;};
+int Game::GetPlayerFloor(){return this->playerFloor;};

@@ -2,12 +2,12 @@
 
 int main(){
 
-	Game GameInstance;
-
-	fpga_interface_initialize(&GameInstance);
 	fpga_interface_initialize_hardware();
+	Game GameInstance;
+	fpga_interface_initialize(&GameInstance);
 
     while(1){
+
     }
 }
 
