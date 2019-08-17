@@ -30817,3 +30817,30 @@ con
 ----------------End of Script----------------
 
 23:04:09 INFO  : Disconnected from the channel tcfchan#90.
+23:04:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Basys3 210183738777A" && level==0} -index 0' command is executed.
+23:04:14 INFO  : 'fpga -state' command is executed.
+23:04:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+23:04:15 INFO  : Jtag cable 'Digilent Basys3 210183738777A' is selected.
+23:04:15 INFO  : 'jtag frequency' command is executed.
+23:04:15 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+23:04:15 INFO  : Context for processor 'microblaze_0' is selected.
+23:04:15 INFO  : Processor reset is completed for 'microblaze_0'.
+23:04:15 INFO  : Context for processor 'microblaze_0' is selected.
+23:04:15 INFO  : The application 'C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf' is downloaded to processor 'microblaze_0'.
+23:04:15 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+dow C:/Users/wojte/Desktop/projekt1/UEC2_Project/sdk/klocki_test/Debug/klocki_test.elf
+----------------End of Script----------------
+
+23:04:15 INFO  : Context for processor 'microblaze_0' is selected.
+23:04:15 INFO  : 'con' command is executed.
+23:04:15 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Basys3 210183738777A"} -index 0
+con
+----------------End of Script----------------
+
+23:04:15 INFO  : Disconnected from the channel tcfchan#91.
