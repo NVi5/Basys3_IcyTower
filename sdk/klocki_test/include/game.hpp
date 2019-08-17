@@ -45,11 +45,15 @@ class Game{
         bool PlayerLocked;
         int PlayerLockFloor;
 
+        void chceckCollisionsAndLock(int moveRate);
+        void moveFloors(int moveRate);
+
     public:
 
         bool gameOver;
 
         Game();
+        void Reset();
         void Display();
         void Run();
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Aug 16 20:38:09 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Aug 17 11:59:42 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="uC" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -189,9 +189,9 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M10_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -207,7 +207,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -444,9 +444,9 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -475,9 +475,9 @@
             <CONNECTION INSTANCE="axi_dma_2" PORT="m_axis_mm2s_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axis_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -493,7 +493,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -552,7 +552,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_0_clk_out1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -934,9 +934,9 @@
         <PARAMETER NAME="C_S_AXI_HIGHADDR" VALUE="0xC0007FFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -1139,7 +1139,7 @@
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M08_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="15"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -2103,14 +2103,14 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x41E0FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="axi_resetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -2291,7 +2291,7 @@
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M04_AXI" DATAWIDTH="32" NAME="S_AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="10"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -2343,7 +2343,7 @@
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="16"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -2394,7 +2394,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_0_clk_out1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -3321,14 +3321,14 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x41E1FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="axi_resetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -3509,7 +3509,7 @@
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M05_AXI" DATAWIDTH="32" NAME="S_AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="10"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -3561,7 +3561,7 @@
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="16"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -3612,7 +3612,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_0_clk_out1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -4539,14 +4539,14 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x41E2FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s_axi_lite_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="m_axi_mm2s_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="axi_resetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -4727,7 +4727,7 @@
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M11_AXI" DATAWIDTH="32" NAME="S_AXI_LITE" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="10"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -4779,7 +4779,7 @@
           <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="16"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="32"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -4830,7 +4830,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="1"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_0_clk_out1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -5247,9 +5247,9 @@
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="freeze" SIGIS="undef"/>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -5347,7 +5347,7 @@
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M03_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="5"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -5579,14 +5579,14 @@
       </ADDRESSBLOCKS>
       <PARAMETERS>
         <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
-        <PARAMETER NAME="C_S_AXI_ACLK_FREQ_HZ" VALUE="135000000"/>
+        <PARAMETER NAME="C_S_AXI_ACLK_FREQ_HZ" VALUE="108000000"/>
         <PARAMETER NAME="C_S_AXI_ADDR_WIDTH" VALUE="4"/>
         <PARAMETER NAME="C_S_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_BAUDRATE" VALUE="115200"/>
         <PARAMETER NAME="C_DATA_BITS" VALUE="8"/>
         <PARAMETER NAME="C_USE_PARITY" VALUE="0"/>
         <PARAMETER NAME="C_ODD_PARITY" VALUE="0"/>
-        <PARAMETER NAME="C_S_AXI_ACLK_FREQ_HZ_d" VALUE="135.0"/>
+        <PARAMETER NAME="C_S_AXI_ACLK_FREQ_HZ_d" VALUE="108.0"/>
         <PARAMETER NAME="Component_Name" VALUE="uC_axi_uartlite_0_1"/>
         <PARAMETER NAME="PARITY" VALUE="No_Parity"/>
         <PARAMETER NAME="USE_BOARD_FLOW" VALUE="false"/>
@@ -5596,9 +5596,9 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x4060FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -5711,7 +5711,7 @@
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M02_AXI" DATAWIDTH="32" NAME="S_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -6163,9 +6163,9 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M06_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -6194,9 +6194,9 @@
             <CONNECTION INSTANCE="axi_dma_0" PORT="m_axis_mm2s_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axis_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -6212,7 +6212,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -6271,7 +6271,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_0_clk_out1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -6384,14 +6384,14 @@
         <PARAMETER NAME="C_INCLK_SUM_ROW2" VALUE="no_secondary_input_clock"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0A" VALUE="Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW0B" VALUE="Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)"/>
-        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk_135MHz___135.000______0.000______50.0______122.344_____97.646"/>
+        <PARAMETER NAME="C_OUTCLK_SUM_ROW1" VALUE="clk_108MHz___108.000______0.000______50.0______127.691_____97.646"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW2" VALUE="no_CLK_OUT2_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW3" VALUE="no_CLK_OUT3_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW4" VALUE="no_CLK_OUT4_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW5" VALUE="no_CLK_OUT5_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW6" VALUE="no_CLK_OUT6_output"/>
         <PARAMETER NAME="C_OUTCLK_SUM_ROW7" VALUE="no_CLK_OUT7_output"/>
-        <PARAMETER NAME="C_CLKOUT1_REQUESTED_OUT_FREQ" VALUE="135.000"/>
+        <PARAMETER NAME="C_CLKOUT1_REQUESTED_OUT_FREQ" VALUE="108.000"/>
         <PARAMETER NAME="C_CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT3_REQUESTED_OUT_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT4_REQUESTED_OUT_FREQ" VALUE="100.000"/>
@@ -6412,7 +6412,7 @@
         <PARAMETER NAME="C_CLKOUT5_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
         <PARAMETER NAME="C_CLKOUT6_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
         <PARAMETER NAME="C_CLKOUT7_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
-        <PARAMETER NAME="C_CLKOUT1_OUT_FREQ" VALUE="135.000"/>
+        <PARAMETER NAME="C_CLKOUT1_OUT_FREQ" VALUE="108.000"/>
         <PARAMETER NAME="C_CLKOUT2_OUT_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT3_OUT_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT4_OUT_FREQ" VALUE="100.000"/>
@@ -6454,7 +6454,7 @@
         <PARAMETER NAME="C_MMCM_REF_JITTER1" VALUE="0.010"/>
         <PARAMETER NAME="C_MMCM_REF_JITTER2" VALUE="0.010"/>
         <PARAMETER NAME="C_MMCM_STARTUP_WAIT" VALUE="FALSE"/>
-        <PARAMETER NAME="C_MMCM_CLKOUT0_DIVIDE_F" VALUE="7.500"/>
+        <PARAMETER NAME="C_MMCM_CLKOUT0_DIVIDE_F" VALUE="9.375"/>
         <PARAMETER NAME="C_MMCM_CLKOUT1_DIVIDE" VALUE="1"/>
         <PARAMETER NAME="C_MMCM_CLKOUT2_DIVIDE" VALUE="1"/>
         <PARAMETER NAME="C_MMCM_CLKOUT3_DIVIDE" VALUE="1"/>
@@ -6516,7 +6516,7 @@
         <PARAMETER NAME="C_OVERRIDE_PLL" VALUE="0"/>
         <PARAMETER NAME="C_PRIMARY_PORT" VALUE="clk_in1"/>
         <PARAMETER NAME="C_SECONDARY_PORT" VALUE="clk_in2"/>
-        <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="clk_135MHz"/>
+        <PARAMETER NAME="C_CLK_OUT1_PORT" VALUE="clk_108MHz"/>
         <PARAMETER NAME="C_CLK_OUT2_PORT" VALUE="clk_out2"/>
         <PARAMETER NAME="C_CLK_OUT3_PORT" VALUE="clk_out3"/>
         <PARAMETER NAME="C_CLK_OUT4_PORT" VALUE="clk_out4"/>
@@ -6586,12 +6586,12 @@
         <PARAMETER NAME="C_FILTER_1" VALUE="0000"/>
         <PARAMETER NAME="C_FILTER_2" VALUE="0000"/>
         <PARAMETER NAME="C_DIVIDE1_AUTO" VALUE="1"/>
-        <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="1.35"/>
-        <PARAMETER NAME="C_DIVIDE3_AUTO" VALUE="1.35"/>
-        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="1.35"/>
-        <PARAMETER NAME="C_DIVIDE5_AUTO" VALUE="1.35"/>
-        <PARAMETER NAME="C_DIVIDE6_AUTO" VALUE="1.35"/>
-        <PARAMETER NAME="C_DIVIDE7_AUTO" VALUE="1.35"/>
+        <PARAMETER NAME="C_DIVIDE2_AUTO" VALUE="1.08"/>
+        <PARAMETER NAME="C_DIVIDE3_AUTO" VALUE="1.08"/>
+        <PARAMETER NAME="C_DIVIDE4_AUTO" VALUE="1.08"/>
+        <PARAMETER NAME="C_DIVIDE5_AUTO" VALUE="1.08"/>
+        <PARAMETER NAME="C_DIVIDE6_AUTO" VALUE="1.08"/>
+        <PARAMETER NAME="C_DIVIDE7_AUTO" VALUE="1.08"/>
         <PARAMETER NAME="C_PLLBUFGCEDIV" VALUE="false"/>
         <PARAMETER NAME="C_MMCMBUFGCEDIV" VALUE="false"/>
         <PARAMETER NAME="C_PLLBUFGCEDIV1" VALUE="false"/>
@@ -6612,7 +6612,7 @@
         <PARAMETER NAME="C_CLKOUT5_MATCHED_ROUTING" VALUE="false"/>
         <PARAMETER NAME="C_CLKOUT6_MATCHED_ROUTING" VALUE="false"/>
         <PARAMETER NAME="C_CLKOUT7_MATCHED_ROUTING" VALUE="false"/>
-        <PARAMETER NAME="C_CLKOUT0_ACTUAL_FREQ" VALUE="135.000"/>
+        <PARAMETER NAME="C_CLKOUT0_ACTUAL_FREQ" VALUE="108.000"/>
         <PARAMETER NAME="C_CLKOUT1_ACTUAL_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT2_ACTUAL_FREQ" VALUE="100.000"/>
         <PARAMETER NAME="C_CLKOUT3_ACTUAL_FREQ" VALUE="100.000"/>
@@ -6677,7 +6677,7 @@
         <PARAMETER NAME="CLK_OUT6_USE_FINE_PS_GUI" VALUE="false"/>
         <PARAMETER NAME="CLK_OUT7_USE_FINE_PS_GUI" VALUE="false"/>
         <PARAMETER NAME="PRIMARY_PORT" VALUE="clk_in1"/>
-        <PARAMETER NAME="CLK_OUT1_PORT" VALUE="clk_135MHz"/>
+        <PARAMETER NAME="CLK_OUT1_PORT" VALUE="clk_108MHz"/>
         <PARAMETER NAME="CLK_OUT2_PORT" VALUE="clk_out2"/>
         <PARAMETER NAME="CLK_OUT3_PORT" VALUE="clk_out3"/>
         <PARAMETER NAME="CLK_OUT4_PORT" VALUE="clk_out4"/>
@@ -6695,7 +6695,7 @@
         <PARAMETER NAME="PSEN_PORT" VALUE="psen"/>
         <PARAMETER NAME="PSINCDEC_PORT" VALUE="psincdec"/>
         <PARAMETER NAME="PSDONE_PORT" VALUE="psdone"/>
-        <PARAMETER NAME="CLKOUT1_REQUESTED_OUT_FREQ" VALUE="135.000"/>
+        <PARAMETER NAME="CLKOUT1_REQUESTED_OUT_FREQ" VALUE="108.000"/>
         <PARAMETER NAME="CLKOUT1_REQUESTED_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="CLKOUT1_REQUESTED_DUTY_CYCLE" VALUE="50.000"/>
         <PARAMETER NAME="CLKOUT2_REQUESTED_OUT_FREQ" VALUE="100.000"/>
@@ -6778,7 +6778,7 @@
         <PARAMETER NAME="MMCM_REF_JITTER1" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_REF_JITTER2" VALUE="0.010"/>
         <PARAMETER NAME="MMCM_STARTUP_WAIT" VALUE="false"/>
-        <PARAMETER NAME="MMCM_CLKOUT0_DIVIDE_F" VALUE="7.500"/>
+        <PARAMETER NAME="MMCM_CLKOUT0_DIVIDE_F" VALUE="9.375"/>
         <PARAMETER NAME="MMCM_CLKOUT0_DUTY_CYCLE" VALUE="0.500"/>
         <PARAMETER NAME="MMCM_CLKOUT0_PHASE" VALUE="0.000"/>
         <PARAMETER NAME="MMCM_CLKOUT0_USE_FINE_PS" VALUE="false"/>
@@ -6856,7 +6856,7 @@
         <PARAMETER NAME="CDDCREQ_PORT" VALUE="cddcreq"/>
         <PARAMETER NAME="ENABLE_CLKOUTPHY" VALUE="false"/>
         <PARAMETER NAME="CLKOUTPHY_REQUESTED_FREQ" VALUE="600.000"/>
-        <PARAMETER NAME="CLKOUT1_JITTER" VALUE="122.344"/>
+        <PARAMETER NAME="CLKOUT1_JITTER" VALUE="127.691"/>
         <PARAMETER NAME="CLKOUT1_PHASE_ERROR" VALUE="97.646"/>
         <PARAMETER NAME="CLKOUT2_JITTER" VALUE="0.0"/>
         <PARAMETER NAME="CLKOUT2_PHASE_ERROR" VALUE="0.0"/>
@@ -6882,7 +6882,7 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_100MHz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="O" NAME="clk_135MHz" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="O" NAME="clk_108MHz" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
             <CONNECTION INSTANCE="microblaze_0_axi_intc" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="axi_timer_0" PORT="s_axi_aclk"/>
@@ -6905,6 +6905,8 @@
             <CONNECTION INSTANCE="vga_interrupt_0" PORT="pixel_clock"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="s_axi_lite_aclk"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="m_axi_mm2s_aclk"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_ACLK"/>
@@ -6926,8 +6928,6 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M10_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M11_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S03_ACLK"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aclk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -7274,9 +7274,9 @@
         <PARAMETER NAME="EDK_SPECIAL" VALUE="microblaze"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="Reset" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_mb_reset">
@@ -7591,7 +7591,7 @@
           <PARAMETER NAME="NUM_WRITE_THREADS" VALUE="1"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="WUSER_WIDTH" VALUE="0"/>
@@ -8567,8 +8567,8 @@
         <PARAMETER NAME="Component_Name" VALUE="uC_microblaze_0_axi_intc_2"/>
         <PARAMETER NAME="Sense_of_IRQ_Level_Type" VALUE="Active_High"/>
         <PARAMETER NAME="Sense_of_IRQ_Edge_Type" VALUE="Rising"/>
-        <PARAMETER NAME="C_S_AXI_ACLK_FREQ_MHZ" VALUE="135.0"/>
-        <PARAMETER NAME="C_PROCESSOR_CLK_FREQ_MHZ" VALUE="135.0"/>
+        <PARAMETER NAME="C_S_AXI_ACLK_FREQ_MHZ" VALUE="108.0"/>
+        <PARAMETER NAME="C_PROCESSOR_CLK_FREQ_MHZ" VALUE="108.0"/>
         <PARAMETER NAME="C_IRQ_CONNECTION" VALUE="0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="EDK_SPECIAL" VALUE="INTR_CTRL"/>
@@ -8576,9 +8576,9 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x4120FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -8676,9 +8676,9 @@
             <CONNECTION INSTANCE="microblaze_0_xlconcat" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="processor_clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="processor_clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="processor_rst" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_mb_reset">
@@ -8706,7 +8706,7 @@
         <BUSINTERFACE BUSNAME="microblaze_0_axi_periph_M00_AXI" DATAWIDTH="32" NAME="s_axi" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="9"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -9088,9 +9088,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_interconnect_aresetn">
@@ -9098,9 +9098,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="interconnect_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S00_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="S00_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S00_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9108,9 +9108,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M00_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M00_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M00_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9118,9 +9118,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M01_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M01_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M01_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9128,9 +9128,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M02_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M02_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M02_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9138,9 +9138,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M03_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M03_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M03_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9148,9 +9148,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M04_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M04_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M04_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9158,9 +9158,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M05_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M05_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M05_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9168,9 +9168,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S01_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="S01_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S01_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9178,9 +9178,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S02_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="S02_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S02_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9188,9 +9188,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M06_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M06_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M06_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9198,9 +9198,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M07_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M07_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M07_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9208,9 +9208,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M08_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M08_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M08_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9218,9 +9218,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M09_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M09_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M09_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9228,9 +9228,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M10_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M10_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M10_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9238,9 +9238,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="M11_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="M11_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M11_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -9248,9 +9248,9 @@
             <CONNECTION INSTANCE="rst_clk_wiz_0_135M" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="S03_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT DIR="I" NAME="S03_ACLK" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="S03_ARESETN" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -11062,9 +11062,9 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x0000FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="LMB_Rst" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_bus_struct_reset">
@@ -11213,9 +11213,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="SYS_Rst" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_bus_struct_reset">
@@ -11411,9 +11411,9 @@
         <PARAMETER NAME="C_HIGHADDR" VALUE="0x0000FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="LMB_Rst" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_bus_struct_reset">
@@ -11562,9 +11562,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="LMB_Clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="SYS_Rst" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_bus_struct_reset">
@@ -12231,9 +12231,9 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M07_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -12262,9 +12262,9 @@
             <CONNECTION INSTANCE="axi_dma_1" PORT="m_axis_mm2s_tready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axis_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axis_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -12280,7 +12280,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -12339,7 +12339,7 @@
           <PARAMETER NAME="HAS_TSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
           <PARAMETER NAME="HAS_TLAST" VALUE="1"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="PHASE" VALUE="0.0"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="/clk_wiz_0_clk_out1"/>
           <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
@@ -12395,9 +12395,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="slowest_sync_clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ext_reset_in" SIGIS="rst" SIGNAME="External_Ports_reset">
@@ -12448,6 +12448,8 @@
             <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="axi_resetn"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ARESETN"/>
@@ -12464,8 +12466,6 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M10_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M11_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S03_ARESETN"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -12645,9 +12645,9 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M09_AXI_rready"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="s00_axi_aclk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="s00_axi_aresetn" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">
@@ -12663,7 +12663,7 @@
           <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
-          <PARAMETER NAME="FREQ_HZ" VALUE="135000000"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="108000000"/>
           <PARAMETER NAME="ID_WIDTH" VALUE="0"/>
           <PARAMETER NAME="ADDR_WIDTH" VALUE="4"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
@@ -12744,9 +12744,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="pixel_clock" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="pixel_clock" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="10" NAME="hcount_in" RIGHT="0" SIGIS="undef" SIGNAME="TextBlock_0_hcount_out">
@@ -12774,7 +12774,7 @@
         <PARAMETER NAME="VER_TOT_TIME" VALUE="1066"/>
         <PARAMETER NAME="HOR_ADDR_TIME" VALUE="1280"/>
         <PARAMETER NAME="VER_ADDR_TIME" VALUE="1024"/>
-        <PARAMETER NAME="HOR_SYNC_START" VALUE="1296"/>
+        <PARAMETER NAME="HOR_SYNC_START" VALUE="1328"/>
         <PARAMETER NAME="VER_SYNC_START" VALUE="1025"/>
         <PARAMETER NAME="HOR_SYNC_STOP" VALUE="1440"/>
         <PARAMETER NAME="VER_SYNC_STOP" VALUE="1028"/>
@@ -12812,9 +12812,9 @@
             <CONNECTION INSTANCE="vga_background_0" PORT="hblnk_in"/>
           </CONNECTIONS>
         </PORT>
-        <PORT CLKFREQUENCY="135000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_135MHz">
+        <PORT CLKFREQUENCY="108000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_0_clk_108MHz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_135MHz"/>
+            <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_108MHz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="rst" SIGIS="rst" SIGNAME="rst_clk_wiz_0_135M_peripheral_aresetn">

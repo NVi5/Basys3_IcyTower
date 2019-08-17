@@ -56,7 +56,7 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk_135MHz___135.000______0.000______50.0______122.344_____97.646
+// clk_108MHz___108.000______0.000______50.0______127.691_____97.646
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -70,7 +70,7 @@
 module uC_clk_wiz_0_1 
  (
   // Clock out ports
-  output        clk_135MHz,
+  output        clk_108MHz,
  // Clock in ports
   input         clk_in1
  );
@@ -78,7 +78,7 @@ module uC_clk_wiz_0_1
   uC_clk_wiz_0_1_clk_wiz inst
   (
   // Clock out ports  
-  .clk_135MHz(clk_135MHz),
+  .clk_108MHz(clk_108MHz),
  // Clock in ports
   .clk_in1(clk_in1)
   );

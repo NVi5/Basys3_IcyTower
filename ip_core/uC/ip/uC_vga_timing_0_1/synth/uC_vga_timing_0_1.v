@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "vga_timing,Vivado 2018.2" *)
 (* CHECK_LICENSE_TYPE = "uC_vga_timing_0_1,vga_timing,{}" *)
-(* CORE_GENERATION_INFO = "uC_vga_timing_0_1,vga_timing,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=vga_timing,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,HOR_TOT_TIME=1688,VER_TOT_TIME=1066,HOR_ADDR_TIME=1280,VER_ADDR_TIME=1024,HOR_SYNC_START=1296,VER_SYNC_START=1025,HOR_SYNC_STOP=1440,VER_SYNC_STOP=1028}" *)
+(* CORE_GENERATION_INFO = "uC_vga_timing_0_1,vga_timing,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=vga_timing,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,HOR_TOT_TIME=1688,VER_TOT_TIME=1066,HOR_ADDR_TIME=1280,VER_ADDR_TIME=1024,HOR_SYNC_START=1328,VER_SYNC_START=1025,HOR_SYNC_STOP=1440,VER_SYNC_STOP=1028}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module uC_vga_timing_0_1 (
@@ -78,7 +78,7 @@ output wire [10 : 0] hcount;
 output wire hsync;
 (* X_INTERFACE_INFO = "xilinx.com:user:vga_interface:1.0 user_vga_interface hblnk" *)
 output wire hblnk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 135000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 108000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW" *)
@@ -90,7 +90,7 @@ input wire rst;
     .VER_TOT_TIME(1066),
     .HOR_ADDR_TIME(1280),
     .VER_ADDR_TIME(1024),
-    .HOR_SYNC_START(1296),
+    .HOR_SYNC_START(1328),
     .VER_SYNC_START(1025),
     .HOR_SYNC_STOP(1440),
     .VER_SYNC_STOP(1028)

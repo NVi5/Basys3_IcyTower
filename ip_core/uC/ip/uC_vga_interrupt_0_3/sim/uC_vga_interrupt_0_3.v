@@ -61,7 +61,7 @@ module uC_vga_interrupt_0_3 (
   interrupt
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pixel_clock, FREQ_HZ 135000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pixel_clock, FREQ_HZ 108000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pixel_clock CLK" *)
 input wire pixel_clock;
 input wire [10 : 0] hcount_in;

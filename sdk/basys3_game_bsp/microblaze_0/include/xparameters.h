@@ -2,14 +2,14 @@
 #define XPARAMETERS_H   /* by using protection macros */
 
 /* Definitions for bus frequencies */
-#define XPAR_CPU_M_AXI_DP_FREQ_HZ 135000000
+#define XPAR_CPU_M_AXI_DP_FREQ_HZ 108000000
 /******************************************************************/
 
 /* Canonical definitions for bus frequencies */
 /******************************************************************/
 
-#define XPAR_CPU_CORE_CLOCK_FREQ_HZ 135000000
-#define XPAR_MICROBLAZE_CORE_CLOCK_FREQ_HZ 135000000
+#define XPAR_CPU_CORE_CLOCK_FREQ_HZ 108000000
+#define XPAR_MICROBLAZE_CORE_CLOCK_FREQ_HZ 108000000
 
 /******************************************************************/
 
@@ -798,7 +798,7 @@
 #define XPAR_AXI_TIMER_0_DEVICE_ID 0U
 #define XPAR_AXI_TIMER_0_BASEADDR 0x41C00000U
 #define XPAR_AXI_TIMER_0_HIGHADDR 0x41C0FFFFU
-#define XPAR_AXI_TIMER_0_CLOCK_FREQ_HZ 135000000U
+#define XPAR_AXI_TIMER_0_CLOCK_FREQ_HZ 108000000U
 
 
 /******************************************************************/

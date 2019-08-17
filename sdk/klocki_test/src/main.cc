@@ -1,17 +1,13 @@
 #include "../include/fpga_interface.h"
 
-Game GameInstance;
-
 int main(){
+
+	Game GameInstance;
 
 	fpga_interface_initialize(&GameInstance);
 	fpga_interface_initialize_hardware();
 
     while(1){
-    	if(GameInstance.gameOver){
-    		GameInstance = Game();
-
-    	}
     }
 }
 

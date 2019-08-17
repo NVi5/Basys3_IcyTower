@@ -100,7 +100,7 @@ static void block_update_handler(void *CallbackRef)
 }
 
 __attribute__((section(".texture_memory")))
-static const char text[] = "abcdefghijklmnop                ";
+static const char text[] = "> abcdefghijklmnop           ";
 
 void fpga_interface_initialize(Game *Instance){
 
@@ -124,11 +124,15 @@ void fpga_interface_initialize(Game *Instance){
 
 	VGA_TEXT_XPOS = 600;
 	VGA_TEXT_YPOS = 600;
-	VGA_TEXT_COLOR = 1;
+	VGA_TEXT_COLOR = 789;
 	VGA_TEXT_SCALE = 1;
 }
 
 void interface_update(void *){
+
+	if(GameInstance->gameOver){
+		GameInstance->Reset();
+	}
 
 	GameInstance->Run();
 

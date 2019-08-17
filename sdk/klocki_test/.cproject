@@ -42,7 +42,7 @@
 								<inputType id="xilinx.gnu.compiler.input.665110742" name="C source files" superClass="xilinx.gnu.compiler.input"/>
 							</tool>
 							<tool id="xilinx.gnu.mb.cxx.toolchain.compiler.debug.1165449361" name="MicroBlaze g++ compiler" superClass="xilinx.gnu.mb.cxx.toolchain.compiler.debug">
-								<option defaultValue="gnu.c.optimization.level.none" id="xilinx.gnu.compiler.option.optimization.level.161887416" name="Optimization Level" superClass="xilinx.gnu.compiler.option.optimization.level" value="gnu.c.optimization.level.none" valueType="enumerated"/>
+								<option defaultValue="gnu.c.optimization.level.none" id="xilinx.gnu.compiler.option.optimization.level.161887416" name="Optimization Level" superClass="xilinx.gnu.compiler.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
 								<option id="xilinx.gnu.compiler.option.debugging.level.1747860996" name="Debug Level" superClass="xilinx.gnu.compiler.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="xilinx.gnu.mb.compiler.inferred.mbversion.789258580" name="MicroBlaze Version" superClass="xilinx.gnu.mb.compiler.inferred.mbversion" value="10.0" valueType="string"/>
 								<option id="xilinx.gnu.mb.compiler.inferred.norelax.660359226" name="No relaxation (-Wl,--no-relax)" superClass="xilinx.gnu.mb.compiler.inferred.norelax" value="true" valueType="boolean"/>
@@ -104,6 +104,9 @@
 								<option id="xilinx.gnu.c.linker.option.lscript.1178850252" name="Linker Script" superClass="xilinx.gnu.c.linker.option.lscript" value="../src/lscript.ld" valueType="string"/>
 								<option id="xilinx.gnu.c.link.option.nodeflibs.1040475164" name="Do not use default libraries (-nodefaultlibs)" superClass="xilinx.gnu.c.link.option.nodeflibs" value="false" valueType="boolean"/>
 								<option id="xilinx.gnu.c.link.option.nostdlibs.2110697871" name="No startup or default libs (-nostdlib)" superClass="xilinx.gnu.c.link.option.nostdlibs" value="false" valueType="boolean"/>
+								<option id="xilinx.gnu.c.link.option.other.1289168754" name="Other options (-XLinker [option])" superClass="xilinx.gnu.c.link.option.other" valueType="stringList">
+									<listOptionValue builtIn="false" value="--print-memory-usage"/>
+								</option>
 								<inputType id="xilinx.gnu.linker.input.1347999033" superClass="xilinx.gnu.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>

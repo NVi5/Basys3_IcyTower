@@ -77,7 +77,7 @@ output wire [10 : 0] hcount;
 output wire hsync;
 (* X_INTERFACE_INFO = "xilinx.com:user:vga_interface:1.0 user_vga_interface hblnk" *)
 output wire hblnk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 135000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 108000000, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW" *)
@@ -89,7 +89,7 @@ input wire rst;
     .VER_TOT_TIME(1066),
     .HOR_ADDR_TIME(1280),
     .VER_ADDR_TIME(1024),
-    .HOR_SYNC_START(1296),
+    .HOR_SYNC_START(1328),
     .VER_SYNC_START(1025),
     .HOR_SYNC_STOP(1440),
     .VER_SYNC_STOP(1028)

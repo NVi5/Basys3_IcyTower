@@ -20,12 +20,98 @@ Game::Game() :
     	this->floors[i] = Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT);
     }
 
+    for(int i = 0; i < N_FLOORS; i++){
+    	this->floorTexture[i] = TEXTURE_REDSTONE;
+    }
+
+    this->PlayerLocked = true;
+    this->PlayerLockFloor = 0;
+}
+
+void Game::Reset(){
+
+	this->Player1.setPosition(Point2d((MIN_X + MAX_X)/2 ,0));
+	this->Player1.setVelocity(Point2d(0, 0));
+	this->Player1.setAcceleration(Point2d(0, ACCELERATION));
+	this->gameTime = 0.0f;
+	this->floorCounter = 5;
+	this->floorsPosition = 0;
+	this->backgroundPosition = 0;
+	this->isStarted = false;
+    this->PlayerLocked = true;
+    this->PlayerLockFloor = 0;
+    this->gameOver = false;
+
+    this->floors[0] = Line2d( Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT) );
+
+    for(int i = 1; i < N_FLOORS; i++){
+    	this->floors[i] = Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT);
+    }
+
+    for(int i = 0; i < N_FLOORS; i++){
+    	this->floorTexture[i] = TEXTURE_REDSTONE;
+    }
+
     this->PlayerLocked = true;
     this->PlayerLockFloor = 0;
 }
 
 void Game::Display(){
 
+}
+
+void Game::chceckCollisionsAndLock(int moveRate) {
+
+	Line2d PlayerMove;
+	Point2d p1 = this->Player1.getPosition();
+	this->Player1.calculateNextPosition(DELTA_T);
+	Point2d p2 = this->Player1.getPosition();
+	PlayerMove = Line2d(p2, p1);
+
+	if(this->Player1.getVelocity().GetY() < 0){
+
+		Point2d solution;
+		float collision_distance = 1000.0f;
+		for(int i = 0; i < N_FLOORS ; i++){
+			if ( this->floors[i].CheckIntersection( PlayerMove, solution ) ){
+				float distance = abs(solution.GetY() - PlayerMove.GetEnd().GetY());
+				if(distance < collision_distance){
+					collision_distance = distance;
+					this->PlayerLockFloor = i;
+					this->PlayerLocked = true;
+				};
+			}
+		}
+	}
+
+	if(this->PlayerLocked){
+		this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), this->floors[this->PlayerLockFloor].GetStart().GetY() ) );
+		this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), -moveRate/DELTA_T) );
+	}
+}
+
+void Game::moveFloors(int moveRate){
+
+	if(this->isStarted){
+		for(int i = 0; i < N_FLOORS; i++){
+
+			float prevY = this->floors[i].GetStart().GetY();
+
+			if(this->floorCounter % 30){
+				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) this->floorCounter++;
+			}
+			else{
+				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) this->floorCounter++;
+			}
+
+			float currentY = this->floors[i].GetStart().GetY();
+			if((currentY > prevY) && i == this->PlayerLockFloor){
+				this->PlayerLocked = false;
+			}
+		}
+		this->floorsPosition -= 1.1 * moveRate;
+		this->backgroundPosition -= 0.5 * moveRate;//this->floorsPosition / 2;
+	}
 }
 
 #include "xparameters.h"
@@ -37,7 +123,6 @@ void Game::Display(){
 
 void Game::Run(){
 
-
 	if(KEYBOARD_KEYS & KEY_LEFT){
 		this->Player1.changeVelocity(Point2d(-12, 0));
 	}
@@ -46,112 +131,52 @@ void Game::Run(){
 		this->Player1.changeVelocity(Point2d(12, 0));
 	}
 
+	if( (KEYBOARD_KEYS & KEY_SPACE) && this->PlayerLocked ){
+		this->PlayerLocked = false;
+		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX(), 300 + abs(this->Player1.getVelocity().GetX()) ) );
+	}
+
+	this->moveFloors(1);
+	this->chceckCollisionsAndLock(1);
+
+	if (this->PlayerLocked) {
+		if( this->Player1.getPosition().GetX() < this->floors[this->PlayerLockFloor].GetStart().GetX()) this->PlayerLocked = false;
+		if( this->Player1.getPosition().GetX() > this->floors[this->PlayerLockFloor].GetEnd().GetX()) this->PlayerLocked = false;
+		if (this->floors[this->PlayerLockFloor].GetStart().GetY() < -FLOOR_HEIGHT + 1) this->PlayerLocked = false;
+	}
+
+	if(this->Player1.getPosition().GetY() < PLAYER_MIN_Y){
+		this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MIN_Y ) );
+		this->gameOver = true;
+	}
+
+	if(this->gameOver){
+		this->isStarted = false;
+	}
+
+	// TODO
 	if(this->Player1.getPosition().GetY() > 800) this->isStarted = 1;
 
-//	if(!this->isStarted){
-//		if(KEYBOARD_KEYS & KEY_SPACE){
-//			this->isStarted = 1;
-//		}
-//
-//		if(this->PlayerLocked){
-//			this->Player1.calculateNextPosition(DELTA_T);
-//			this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), this->floors[this->PlayerLockFloor].GetStart().GetY() ) );
-//			this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), -1/DELTA_T) );
-//		}
-//	}
+	if(this->Player1.getPosition().GetY() > PLAYER_MAX_Y){
+		moveFloors(this->Player1.getPosition().GetY() - PLAYER_MAX_Y);
+		this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MAX_Y) );
+	}
 
-	//if(this->isStarted){
+	if( this->Player1.getPosition().GetX() > (MAX_X - PLAYER_WIDTH / 2) ){
+		this->Player1.setPosition( Point2d(MAX_X - PLAYER_WIDTH / 2, this->Player1.getPosition().GetY()) );
+		this->Player1.setVelocity( this->Player1.getVelocity() * Point2d(-0.8f, 1.0f) );
+	}
 
-		if(this->Player1.getPosition().GetY() < PLAYER_MIN_Y){
-			this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MIN_Y ) );
-			this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), 0) );
-			this->gameOver = true;
-		}
-
-		if(this->PlayerLocked){
-
-			this->Player1.calculateNextPosition(DELTA_T);
-
-			if( this->Player1.getPosition().GetX() < this->floors[this->PlayerLockFloor].GetStart().GetX()) this->PlayerLocked = false;
-			if( this->Player1.getPosition().GetX() > this->floors[this->PlayerLockFloor].GetEnd().GetX()) this->PlayerLocked = false;
-			if (this->floors[this->PlayerLockFloor].GetStart().GetY() < -FLOOR_HEIGHT + 1) this->PlayerLocked = false;
-
-			this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), this->floors[this->PlayerLockFloor].GetStart().GetY() ) );
-			this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), -1/DELTA_T) );
-
-			if(KEYBOARD_KEYS & KEY_SPACE){
-				this->PlayerLocked = false;
-				this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX(), 300 + abs(this->Player1.getVelocity().GetX()) ) );
-			}
-		}
-		else {
-			Point2d p1 = Player1.getPosition();
-			this->Player1.calculateNextPosition(DELTA_T);
-			Point2d p2 = Player1.getPosition();
-			Line2d PlayerMove(p2, p1);
-
-			if(this->Player1.getVelocity().GetY() < 0){
-				Point2d solution;
-				float collision_distance = 10000.0f;
-				for(int i = 0; i < N_FLOORS ; i++){
-					if ( this->floors[i].CheckIntersection( PlayerMove, solution ) ){
-						float distance = abs(solution.GetY() - p1.GetY());
-						if(distance < collision_distance){
-							collision_distance = distance;
-							this->PlayerLockFloor = i;
-							this->PlayerLocked = true;
-						};
-					}
-				}
-			}
-		}
-
-		if(this->gameOver){
-			this->isStarted = false;
-		}
-
-		int moveRate = 0;
-		if(this->isStarted) moveRate = 1;
-
-		if(this->Player1.getPosition().GetY() > PLAYER_MAX_Y - 1){
-			moveRate = this->Player1.getPosition().GetY() - PLAYER_MAX_Y - 1;
-			this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MAX_Y - 1) );
-		}
-
-		for(int i = 0; i < N_FLOORS; i++){
-			float prevY = this->floors[i].GetStart().GetY();
-			if(this->floorCounter % 100){
-				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) this->floorCounter++;
-			}
-			else{
-				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) this->floorCounter++;
-			}
-			float currentY = this->floors[i].GetStart().GetY();
-			if(currentY > prevY){
-				//this->PlayerLocked = false;
-			//	this->Player1.setVelocity( Point2d( this->Player1.getVelocity().GetX(), -1/DELTA_T) );
-			}
-		}
-
-
-		// TODO
-		this->floorsPosition -= 1.1 * moveRate;
-		this->backgroundPosition -= 0.5 * moveRate;//this->floorsPosition / 2;
-	//}
+	if( this->Player1.getPosition().GetX() < (MIN_X + PLAYER_WIDTH / 2) ){
+		this->Player1.setPosition( Point2d(MIN_X + PLAYER_WIDTH / 2, this->Player1.getPosition().GetY()) );
+		this->Player1.setVelocity( this->Player1.getVelocity() * Point2d(-0.8f, 1.0f) );
+	}
 
 	if(this->PlayerLocked){
 		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX() * 0.95, this->Player1.getVelocity().GetY()) );
 	}
 	else {
-		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX() * 0.90, this->Player1.getVelocity().GetY()) );
-	}
-
-	if( this->Player1.getPosition().GetX() > (MAX_X - PLAYER_WIDTH / 2) ){
-		this->Player1.setPosition( Point2d(MAX_X - PLAYER_WIDTH / 2, this->Player1.getPosition().GetY()) );
-	}
-
-	if( this->Player1.getPosition().GetX() < (MIN_X + PLAYER_WIDTH / 2) ){
-		this->Player1.setPosition( Point2d(MIN_X + PLAYER_WIDTH / 2, this->Player1.getPosition().GetY()) );
+		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX() * 0.85, this->Player1.getVelocity().GetY()) );
 	}
 
 	if( abs(this->Player1.getVelocity().GetX()) < 0.001 ) this->Player1.setVelocity( Point2d(0, this->Player1.getVelocity().GetY()) );

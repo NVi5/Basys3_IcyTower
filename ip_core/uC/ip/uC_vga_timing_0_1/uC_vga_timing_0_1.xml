@@ -110,7 +110,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.FREQ_HZ">135000000</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK.FREQ_HZ">108000000</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -157,7 +157,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:f4495205</spirit:value>
+            <spirit:value>8:1f263a66</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -173,11 +173,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Aug 07 17:16:26 UTC 2019</spirit:value>
+            <spirit:value>Sat Aug 17 09:59:32 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:f4495205</spirit:value>
+            <spirit:value>8:1f263a66</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -189,7 +189,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:6c80fbc0</spirit:value>
+            <spirit:value>8:29c5b30a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -205,11 +205,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Aug 07 17:16:26 UTC 2019</spirit:value>
+            <spirit:value>Sat Aug 17 09:59:32 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:6c80fbc0</spirit:value>
+            <spirit:value>8:29c5b30a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -352,7 +352,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>HOR_SYNC_START</spirit:name>
         <spirit:displayName>Hor Sync Start</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.HOR_SYNC_START">1296</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.HOR_SYNC_START">1328</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>VER_SYNC_START</spirit:name>
@@ -414,7 +414,7 @@
     <spirit:parameter>
       <spirit:name>HOR_SYNC_START</spirit:name>
       <spirit:displayName>Hor Sync Start</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.HOR_SYNC_START">1296</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.HOR_SYNC_START">1328</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>VER_SYNC_START</spirit:name>

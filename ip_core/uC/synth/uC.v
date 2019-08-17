@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Fri Aug 16 20:38:01 2019
+//Date        : Sat Aug 17 11:59:24 2019
 //Host        : DESKTOP-MKH1C9V running 64-bit major release  (build 9200)
 //Command     : generate_target uC.bd
 //Design      : uC
@@ -4180,7 +4180,7 @@ module s03_couplers_imp_GHD5VN
   assign s03_couplers_to_s03_couplers_RVALID = M_AXI_rvalid;
 endmodule
 
-(* CORE_GENERATION_INFO = "uC,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=uC,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=38,numNonXlnxBlks=0,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=15,da_board_cnt=19,da_bram_cntlr_cnt=1,da_clkrst_cnt=53,da_mb_cnt=3,synth_mode=Global}" *) (* HW_HANDOFF = "uC.hwdef" *) 
+(* CORE_GENERATION_INFO = "uC,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=uC,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=56,numReposBlks=38,numNonXlnxBlks=0,numHierBlks=18,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=15,da_board_cnt=19,da_bram_cntlr_cnt=1,da_clkrst_cnt=54,da_mb_cnt=3,synth_mode=Global}" *) (* HW_HANDOFF = "uC.hwdef" *) 
 module uC
    (PS2_1_ps2_clk,
     PS2_1_ps2_data,
@@ -4927,7 +4927,7 @@ module uC
         .vsync_in(vga_background_0_vga_interface_out_vsync),
         .vsync_out(blocks_vga_interface_out_vsync));
   uC_clk_wiz_0_1 clk_wiz_0
-       (.clk_135MHz(clk_wiz_0_clk_135MHz),
+       (.clk_108MHz(clk_wiz_0_clk_135MHz),
         .clk_in1(clk_100MHz_1));
   uC_mdm_1_2 mdm_1
        (.Dbg_Capture_0(microblaze_0_debug_CAPTURE),

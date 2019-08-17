@@ -194,8 +194,8 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_axi_uartlite_0_1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_BAUDRATE">115200</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_S_AXI_ACLK_FREQ_HZ">135000000</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_S_AXI_ACLK_FREQ_HZ_d">135.0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_S_AXI_ACLK_FREQ_HZ">108000000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_S_AXI_ACLK_FREQ_HZ_d">108.0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -235,8 +235,8 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_microblaze_0_axi_intc_2</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="C_HAS_FAST">1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_S_AXI_ACLK_FREQ_MHZ">135.0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="C_PROCESSOR_CLK_FREQ_MHZ">135.0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_S_AXI_ACLK_FREQ_MHZ">108.0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="C_PROCESSOR_CLK_FREQ_MHZ">108.0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -310,8 +310,8 @@
         <spirit:componentRef spirit:library="ip" spirit:name="clk_wiz" spirit:vendor="xilinx.com" spirit:version="6.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_clk_wiz_0_1</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="CLK_OUT1_PORT">clk_135MHz</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="CLKOUT1_REQUESTED_OUT_FREQ">135.000</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CLK_OUT1_PORT">clk_108MHz</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CLKOUT1_REQUESTED_OUT_FREQ">108.000</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="CLKOUT1_DRIVES">BUFGCE</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="CLKOUT2_DRIVES">BUFGCE</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="CLKOUT3_DRIVES">BUFGCE</spirit:configurableElementValue>
@@ -324,9 +324,9 @@
           <spirit:configurableElementValue spirit:referenceId="USE_RESET">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MMCM_DIVCLK_DIVIDE">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="MMCM_CLKFBOUT_MULT_F">10.125</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="MMCM_CLKOUT0_DIVIDE_F">7.500</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="MMCM_CLKOUT0_DIVIDE_F">9.375</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="USE_SAFE_CLOCK_STARTUP">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="CLKOUT1_JITTER">122.344</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CLKOUT1_JITTER">127.691</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="CLKOUT1_PHASE_ERROR">97.646</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
@@ -339,7 +339,7 @@
           <spirit:configurableElementValue spirit:referenceId="VER_TOT_TIME">1066</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="HOR_ADDR_TIME">1280</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="VER_ADDR_TIME">1024</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="HOR_SYNC_START">1296</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="HOR_SYNC_START">1328</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="VER_SYNC_START">1025</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="HOR_SYNC_STOP">1440</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="VER_SYNC_STOP">1028</spirit:configurableElementValue>
@@ -589,6 +589,8 @@
         <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="vga_background_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="axi_resetn"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ARESETN"/>
@@ -605,8 +607,6 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M11_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S03_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>mdm_1_debug_sys_rst</spirit:name>
@@ -650,7 +650,7 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>clk_wiz_0_clk_135MHz</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="clk_wiz_0" spirit:portRef="clk_135MHz"/>
+        <spirit:internalPortReference spirit:componentRef="clk_wiz_0" spirit:portRef="clk_108MHz"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_intc" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_timer_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_uartlite_0" spirit:portRef="s_axi_aclk"/>
@@ -672,6 +672,8 @@
         <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="pixel_clock"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="s_axi_lite_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="m_axi_mm2s_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aclk"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M02_ACLK"/>
@@ -690,8 +692,6 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M11_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S03_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>reset_1</spirit:name>
@@ -5827,20 +5827,20 @@
     <spirit:version>10.0</spirit:version>
     <spirit:busInterfaces>
       <spirit:busInterface>
-        <spirit:name>DLMB</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>M_AXI_DP</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>DLMB</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
         <spirit:name>ILMB</spirit:name>

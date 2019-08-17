@@ -56,7 +56,7 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk_135MHz___135.000______0.000______50.0______122.344_____97.646
+// clk_108MHz___108.000______0.000______50.0______127.691_____97.646
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -69,7 +69,7 @@ module uC_clk_wiz_0_1_clk_wiz
 
  (// Clock in ports
   // Clock out ports
-  output        clk_135MHz,
+  output        clk_108MHz,
   input         clk_in1
  );
   // Input buffering
@@ -90,7 +90,7 @@ wire clk_in2_uC_clk_wiz_0_1;
   //    * Unused inputs are tied off
   //    * Unused outputs are labeled unused
 
-  wire        clk_135MHz_uC_clk_wiz_0_1;
+  wire        clk_108MHz_uC_clk_wiz_0_1;
   wire        clk_out2_uC_clk_wiz_0_1;
   wire        clk_out3_uC_clk_wiz_0_1;
   wire        clk_out4_uC_clk_wiz_0_1;
@@ -130,7 +130,7 @@ wire clk_in2_uC_clk_wiz_0_1;
     .CLKFBOUT_MULT_F      (10.125),
     .CLKFBOUT_PHASE       (0.000),
     .CLKFBOUT_USE_FINE_PS ("FALSE"),
-    .CLKOUT0_DIVIDE_F     (7.500),
+    .CLKOUT0_DIVIDE_F     (9.375),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT0_USE_FINE_PS  ("FALSE"),
@@ -140,7 +140,7 @@ wire clk_in2_uC_clk_wiz_0_1;
    (
     .CLKFBOUT            (clkfbout_uC_clk_wiz_0_1),
     .CLKFBOUTB           (clkfboutb_unused),
-    .CLKOUT0             (clk_135MHz_uC_clk_wiz_0_1),
+    .CLKOUT0             (clk_108MHz_uC_clk_wiz_0_1),
     .CLKOUT0B            (clkout0b_unused),
     .CLKOUT1             (clkout1_unused),
     .CLKOUT1B            (clkout1b_unused),
@@ -193,14 +193,14 @@ wire clk_in2_uC_clk_wiz_0_1;
 
 
   BUFGCE clkout1_buf
-   (.O   (clk_135MHz),
+   (.O   (clk_108MHz),
     .CE  (seq_reg1[7]),
-    .I   (clk_135MHz_uC_clk_wiz_0_1));
+    .I   (clk_108MHz_uC_clk_wiz_0_1));
 
   BUFH clkout1_buf_en
-   (.O   (clk_135MHz_uC_clk_wiz_0_1_en_clk),
-    .I   (clk_135MHz_uC_clk_wiz_0_1));
-  always @(posedge clk_135MHz_uC_clk_wiz_0_1_en_clk)
+   (.O   (clk_108MHz_uC_clk_wiz_0_1_en_clk),
+    .I   (clk_108MHz_uC_clk_wiz_0_1));
+  always @(posedge clk_108MHz_uC_clk_wiz_0_1_en_clk)
         seq_reg1 <= {seq_reg1[6:0],locked_int};
 
 
