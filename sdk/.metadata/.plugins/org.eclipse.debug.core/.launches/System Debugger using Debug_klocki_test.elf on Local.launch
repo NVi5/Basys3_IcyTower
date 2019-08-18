@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<launchConfiguration type="com.xilinx.sdx.sdk.gdb.debug.launch.SdkGdbLaunch">
+<launchConfiguration type="com.xilinx.sdk.tcf.debug.LaunchConfigurationType">
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.ui.breakpoint.main" value="true"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.ui.exec.script" value="false"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.ui.exec.script.location" value=""/>
@@ -24,38 +24,16 @@
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.uireset.rpu" value="false"/>
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.uireset.system" value="false"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uitarget.peer" value="Local"/>
-<stringAttribute key="com.xilinx.sdx.sdk.gdb.debug.SdkGdbDebugPlugin.is_default_gdb" value="true"/>
-<stringAttribute key="com.xilinx.sdx.sdk.gdb.debug.SdkGdbDebugPlugin.is_default_gdb_port" value="true"/>
-<stringAttribute key="com.xilinx.sdx.sdk.gdb.debug.SdkGdbDebugPlugin.user_gdb" value=""/>
-<stringAttribute key="com.xilinx.sdx.sdk.gdb.debug.SdkGdbDebugPlugin.user_gdb_port" value=""/>
-<stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="mb-gdb"/>
-<stringAttribute key="org.eclipse.cdt.dsf.gdb.HOST" value="127.0.0.1"/>
-<stringAttribute key="org.eclipse.cdt.dsf.gdb.PORT" value="3002"/>
-<booleanAttribute key="org.eclipse.cdt.dsf.gdb.REMOTE_TCP" value="true"/>
-<booleanAttribute key="org.eclipse.cdt.dsf.gdb.internal.ui.launching.RemoteApplicationCDebuggerTab.DEFAULTS_SET" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
-<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="gdbserver"/>
-<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
-<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
-<booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/klocki_test.elf"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="klocki_test"/>
-<booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/klocki_test"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;/&gt;&#13;&#10;"/>
 <booleanAttribute key="org.eclipse.tcf.debug.AttachChildren" value="true"/>
 <booleanAttribute key="org.eclipse.tcf.debug.DisconnectOnCtxExit" value="false"/>
 <booleanAttribute key="org.eclipse.tcf.debug.StopAtEntry" value="false"/>
 <booleanAttribute key="org.eclipse.tcf.debug.StopAtMain" value="true"/>
 <booleanAttribute key="org.eclipse.tcf.debug.UseContextFilter" value="false"/>
 <booleanAttribute key="org.eclipse.tcf.debug.UseTerminal" value="false"/>
-<stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
-<booleanAttribute key="sdk.gdb.proc.stop_at_enty" value="false"/>
-<stringAttribute key="sdk.gdb.process.filter" value="microblaze.*#0"/>
 </launchConfiguration>

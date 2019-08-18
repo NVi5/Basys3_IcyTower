@@ -17,7 +17,7 @@
 	<item value="false" key="main_hw_platform_0-partial_bit"/>
 	<item value="Auto Detect" key="main_hw_platform_3-device"/>
 	<item value="false" key="main_hw_platform_1-partial_bit"/>
-	<item value="C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\Debug\klocki_test.elf" key="main_hw_platform_2-microblaze_0-initElf"/>
+	<item value="bootloop" key="main_hw_platform_2-microblaze_0-initElf"/>
 	<item value="main.mmi" key="main_hw_platform_1-bmmFile"/>
 	<item value="main.mmi" key="main_hw_platform_2-bmmFile"/>
 	<item value="C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\Debug\klocki_test.elf" key="main_hw_platform_1-microblaze_0-initElf"/>

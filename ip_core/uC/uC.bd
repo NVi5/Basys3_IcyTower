@@ -413,13 +413,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>TextBlock_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="TextBlock" spirit:vendor="xilinx.com" spirit:version="1.1"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_TextBlock_0_0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>xadc_wiz_0</spirit:instanceName>
         <spirit:componentRef spirit:library="ip" spirit:name="xadc_wiz" spirit:vendor="xilinx.com" spirit:version="3.3"/>
         <spirit:configurableElementValues>
@@ -435,6 +428,13 @@
           <spirit:configurableElementValue spirit:referenceId="SINGLE_CHANNEL_ACQUISITION_TIME">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="ADC_OFFSET_AND_GAIN_CALIBRATION">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="SENSOR_OFFSET_AND_GAIN_CALIBRATION">false</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>TextBlock_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="user" spirit:name="TextBlock" spirit:vendor="xilinx.com" spirit:version="1.1"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_TextBlock_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
     </spirit:componentInstances>
@@ -624,8 +624,7 @@
         <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="vga_background_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="axi_resetn"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="xadc_wiz_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M00_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ARESETN"/>
@@ -642,8 +641,9 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M11_ARESETN"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S03_ARESETN"/>
-        <spirit:internalPortReference spirit:componentRef="xadc_wiz_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M12_ARESETN"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aresetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>mdm_1_debug_sys_rst</spirit:name>
@@ -709,8 +709,7 @@
         <spirit:internalPortReference spirit:componentRef="vga_interrupt_0" spirit:portRef="pixel_clock"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="s_axi_lite_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="m_axi_mm2s_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="xadc_wiz_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M01_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M03_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M02_ACLK"/>
@@ -729,8 +728,9 @@
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M10_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M11_ACLK"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="S03_ACLK"/>
-        <spirit:internalPortReference spirit:componentRef="xadc_wiz_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_periph" spirit:portRef="M12_ACLK"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="TextBlock_0" spirit:portRef="s00_axis_aclk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>reset_1</spirit:name>

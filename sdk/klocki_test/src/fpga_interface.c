@@ -180,7 +180,7 @@ void interface_update(void *){
 	XAxiDma_SimpleTransfer(
 			&text_dma,
 			(UINTPTR)text,
-			4*4,
+			4*4*2,
 			XAXIDMA_DMA_TO_DEVICE
 		);
 

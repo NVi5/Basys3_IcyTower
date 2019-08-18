@@ -48,7 +48,7 @@
 
 
 // IP VLNV: xilinx.com:user:TextBlock:1.1
-// IP Revision: 8
+// IP Revision: 9
 
 `timescale 1ns/1ps
 

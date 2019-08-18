@@ -1,11 +1,14 @@
 #include "../include/fpga_interface.h"
+#include "../include/tinyprintf.h"
+#include "../include/utils.h"
 
 #include "xaxidma.h"
 #include "xparameters.h"
 #include "xintc.h"
 #include "xil_exception.h"
 
-#include "newlib/libc/include/stdio.h"
+#include "xsysmon_hw.h"
+#include "xsysmon.h"
 
 #define VGA_BLOCKS_BASE 			XPAR_BLOCKS_S00_AXI_BASEADDR
 #define VGA_BLOCKS_XPOS 			(*(uint16_t*)(VGA_BLOCKS_BASE + 0))
@@ -55,6 +58,9 @@ static XAxiDma_Config *player_dma_config;
 static XAxiDma text_dma;
 static XAxiDma_Config *text_dma_config;
 
+static XSysMon adc;
+static XSysMon_Config *adc_config;
+
 static XIntc InterruptController;
 
 static inline void dma_transfer_texture(XAxiDma *dma, texture_t texture){
@@ -102,7 +108,7 @@ static void block_update_handler(void *CallbackRef)
 }
 
 __attribute__((section(".vga_text")))
-static char text[] = "> abcdefghijklmnop           ";
+static char text[16*16] = {0};
 
 void fpga_interface_initialize(Game *Instance){
 
@@ -124,21 +130,40 @@ void fpga_interface_initialize(Game *Instance){
 	VGA_PLAYER_WIDTH = 64;
 	VGA_PLAYER_HEIGHT = 64;
 
-	VGA_TEXT_XPOS = 600;
-	VGA_TEXT_YPOS = 600;
-	VGA_TEXT_COLOR = 789;
-	VGA_TEXT_SCALE = 1;
+	VGA_TEXT_XPOS = 140;
+	VGA_TEXT_YPOS = 12;
+	VGA_TEXT_COLOR = 0xfff;
+	VGA_TEXT_SCALE = 5;
+}
+
+static void rng_init(){
+
+	u16 adc_tab[8] = {0};
+	uint32_t seed = 0;
+
+	for(int i = 0; i < 8; i++) {
+		(void)XSysMon_GetStatus(&adc);
+		while(!(XSysMon_GetStatus(&adc) & XSM_SR_EOC_MASK));
+		adc_tab[i] = XSysMon_GetAdcData(&adc, XSM_CH_AUX_MIN + 4) & 0xf;
+	}
+
+	for(int i = 0; i < 8; i++) {
+    	seed |= (adc_tab[i] << (4 * i));
+	}
+
+	randomInit(seed);
 }
 
 void interface_update(void *){
 
 	if(GameInstance->gameOver){
 		GameInstance->Reset();
+		sprintf(text, "                  ");
 	}
 
 	GameInstance->Run();
 
-	sprintf(text, "%d", GameInstance->GetFloorCount());
+	sprintf(text, "%d", GameInstance-> GetPlayerFloor());
 
 	int v = (int)GameInstance->GetPlayer().getVelocity().GetX();
 
@@ -149,13 +174,13 @@ void interface_update(void *){
 	VGA_PLAYER_YPOS = (int)(MAX_Y + 1 - 2*PLAYER_HEIGHT - GameInstance->GetPlayer().getPosition().GetY());
 	VGA_PLAYER_XPOS = (int)(GameInstance->GetPlayer().getPosition().GetX() - PLAYER_WIDTH / 2);
 
-	VGA_BACKGROUND_SHIFT_BG = (int)GameInstance->GetBackgroundPosition();
-	VGA_BACKGROUND_SHIFT_SIDES = (int)GameInstance->GetFloorsPosition();
+	VGA_BACKGROUND_SHIFT_BG = -(int)GameInstance->GetFloorsPosition() / 2;
+	VGA_BACKGROUND_SHIFT_SIDES = -(int)(GameInstance->GetFloorsPosition() * 1.1f);
 
 	XAxiDma_SimpleTransfer(
 			&text_dma,
 			(UINTPTR)text,
-			4*8,
+			4*4,
 			XAXIDMA_DMA_TO_DEVICE
 		);
 
@@ -171,6 +196,11 @@ void fpga_interface_initialize_hardware(){
 
 	blocks_dma_config = XAxiDma_LookupConfig(XPAR_AXIDMA_0_DEVICE_ID);
 	XAxiDma_CfgInitialize(&blocks_dma, blocks_dma_config);
+
+	adc_config = XSysMon_LookupConfig(XPAR_XADC_WIZ_0_DEVICE_ID);
+	XSysMon_CfgInitialize(&adc, adc_config, adc_config->BaseAddress);
+
+	rng_init();
 
 	interrupt_init(&InterruptController, block_update_handler, INTC_DEVICE_ID, INTC_DEVICE_INT_ID);
 	interrupt_init(&InterruptController, interface_update, INTC_DEVICE_ID, INTC_DEVICE_VGA_ID);
