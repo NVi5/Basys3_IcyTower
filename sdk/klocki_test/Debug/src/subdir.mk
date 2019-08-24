@@ -10,10 +10,10 @@ CC_SRCS += \
 ../src/main.cc 
 
 C_SRCS += \
-../src/fpga_interface.c \
 ../src/tinyprintf.c 
 
 CPP_SRCS += \
+../src/fpga_interface.cpp \
 ../src/game.cpp \
 ../src/line2d.cpp \
 ../src/menu.cpp \
@@ -34,10 +34,10 @@ OBJS += \
 ./src/tinyprintf.o 
 
 C_DEPS += \
-./src/fpga_interface.d \
 ./src/tinyprintf.d 
 
 CPP_DEPS += \
+./src/fpga_interface.d \
 ./src/game.d \
 ./src/line2d.d \
 ./src/menu.d \
@@ -46,13 +46,6 @@ CPP_DEPS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-src/%.o: ../src/%.c
-	@echo 'Building file: $<'
-	@echo 'Invoking: MicroBlaze g++ compiler'
-	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: MicroBlaze g++ compiler'
@@ -61,6 +54,13 @@ src/%.o: ../src/%.cpp
 	@echo ' '
 
 src/%.o: ../src/%.cc
+	@echo 'Building file: $<'
+	@echo 'Invoking: MicroBlaze g++ compiler'
+	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+src/%.o: ../src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MicroBlaze g++ compiler'
 	mb-g++ -Wall -Os -g3 -I../../basys3_game_bsp/microblaze_0/include -I"D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\klocki_test\include" -c -fmessage-length=0 -MT"$@" -std=c++17 -mno-xl-reorder -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mcpu=v10.0 -mno-xl-soft-mul -mhard-float -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"

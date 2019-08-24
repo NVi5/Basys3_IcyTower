@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Sun Aug 18 21:54:58 2019
+//Date        : Sat Aug 24 15:11:08 2019
 //Host        : DESKTOP-A5397SU running 64-bit major release  (build 9200)
 //Command     : generate_target uC.bd
 //Design      : uC
@@ -4466,8 +4466,7 @@ module uC
     PS2_1_ps2_data,
     SevSeg_1_an,
     SevSeg_1_sseg,
-    adc_n,
-    adc_p,
+    adc,
     clk_100MHz,
     hsync_out,
     led,
@@ -4480,8 +4479,7 @@ module uC
   (* X_INTERFACE_INFO = "xilinx.com:user:PS2:1.0 PS2_1 ps2_data" *) inout PS2_1_ps2_data;
   (* X_INTERFACE_INFO = "xilinx.com:user:SevSeg:1.0 SevSeg_1 an" *) output [3:0]SevSeg_1_an;
   (* X_INTERFACE_INFO = "xilinx.com:user:SevSeg:1.0 SevSeg_1 sseg" *) output [7:0]SevSeg_1_sseg;
-  input adc_n;
-  input adc_p;
+  input adc;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_100MHZ CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_100MHZ, CLK_DOMAIN uC_clk_100MHz, FREQ_HZ 100000000, PHASE 0.000" *) input clk_100MHz;
   output hsync_out;
   output [15:0]led;
@@ -4880,7 +4878,6 @@ module uC
   wire rst_clk_wiz_0_135M_mb_reset;
   wire [0:0]rst_clk_wiz_0_135M_peripheral_aresetn;
   wire rx_0_1;
-  wire vauxn4_0_1;
   wire vauxp4_0_1;
   wire vga_background_0_vga_interface_out_hblnk;
   wire [10:0]vga_background_0_vga_interface_out_hcount;
@@ -4906,8 +4903,7 @@ module uC
   assign rgb_out[11:0] = TextBlock_0_rgb_out;
   assign rx_0_1 = rx;
   assign tx = axi_uartlite_0_tx;
-  assign vauxn4_0_1 = adc_n;
-  assign vauxp4_0_1 = adc_p;
+  assign vauxp4_0_1 = adc;
   assign vsync_out = TextBlock_0_vsync_out;
   uC_KeyboardController_0_0 KeyboardController_0
        (.an(KeyboardController_0_SevSeg_1_an),
@@ -5814,7 +5810,7 @@ module uC
         .s_axi_wready(microblaze_0_axi_periph_M12_AXI_WREADY),
         .s_axi_wstrb(microblaze_0_axi_periph_M12_AXI_WSTRB),
         .s_axi_wvalid(microblaze_0_axi_periph_M12_AXI_WVALID),
-        .vauxn4(vauxn4_0_1),
+        .vauxn4(1'b0),
         .vauxp4(vauxp4_0_1),
         .vn_in(1'b0),
         .vp_in(1'b0));

@@ -1,4 +1,4 @@
-src/fpga_interface.o src/fpga_interface.o: ../src/fpga_interface.c \
+src/fpga_interface.o src/fpga_interface.o: ../src/fpga_interface.cpp \
  ../src/../include/fpga_interface.h ../src/../include/game.hpp \
  ../src/../include/line2d.hpp ../src/../include/point2d.hpp \
  ../src/../include/utils.h \

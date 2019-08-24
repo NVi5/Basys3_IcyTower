@@ -252,8 +252,7 @@ proc create_root_design { parentCell } {
   set SevSeg_1 [ create_bd_intf_port -mode Master -vlnv xilinx.com:user:SevSeg_rtl:1.0 SevSeg_1 ]
 
   # Create ports
-  set adc_n [ create_bd_port -dir I adc_n ]
-  set adc_p [ create_bd_port -dir I adc_p ]
+  set adc [ create_bd_port -dir I adc ]
   set clk_100MHz [ create_bd_port -dir I -type clk clk_100MHz ]
   set_property -dict [ list \
    CONFIG.FREQ_HZ {100000000} \
@@ -534,8 +533,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_clk_wiz_0_135M_mb_reset [get_bd_pins microblaze_0/Reset] [get_bd_pins microblaze_0_axi_intc/processor_rst] [get_bd_pins rst_clk_wiz_0_135M/mb_reset]
   connect_bd_net -net rst_clk_wiz_0_135M_peripheral_aresetn [get_bd_pins KeyboardController_0/s00_axi_aresetn] [get_bd_pins TextBlock_0/s00_axi_aresetn] [get_bd_pins TextBlock_0/s00_axis_aresetn] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_dma_0/axi_resetn] [get_bd_pins axi_dma_1/axi_resetn] [get_bd_pins axi_dma_2/axi_resetn] [get_bd_pins axi_timer_0/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins blocks/s00_axi_aresetn] [get_bd_pins blocks/s00_axis_aresetn] [get_bd_pins microblaze_0_axi_intc/s_axi_aresetn] [get_bd_pins microblaze_0_axi_periph/M00_ARESETN] [get_bd_pins microblaze_0_axi_periph/M01_ARESETN] [get_bd_pins microblaze_0_axi_periph/M02_ARESETN] [get_bd_pins microblaze_0_axi_periph/M03_ARESETN] [get_bd_pins microblaze_0_axi_periph/M04_ARESETN] [get_bd_pins microblaze_0_axi_periph/M05_ARESETN] [get_bd_pins microblaze_0_axi_periph/M06_ARESETN] [get_bd_pins microblaze_0_axi_periph/M07_ARESETN] [get_bd_pins microblaze_0_axi_periph/M08_ARESETN] [get_bd_pins microblaze_0_axi_periph/M09_ARESETN] [get_bd_pins microblaze_0_axi_periph/M10_ARESETN] [get_bd_pins microblaze_0_axi_periph/M11_ARESETN] [get_bd_pins microblaze_0_axi_periph/M12_ARESETN] [get_bd_pins microblaze_0_axi_periph/S00_ARESETN] [get_bd_pins microblaze_0_axi_periph/S01_ARESETN] [get_bd_pins microblaze_0_axi_periph/S02_ARESETN] [get_bd_pins microblaze_0_axi_periph/S03_ARESETN] [get_bd_pins player/s00_axi_aresetn] [get_bd_pins player/s00_axis_aresetn] [get_bd_pins rst_clk_wiz_0_135M/peripheral_aresetn] [get_bd_pins vga_background_0/s00_axi_aresetn] [get_bd_pins vga_timing_0/rst] [get_bd_pins xadc_wiz_0/s_axi_aresetn]
   connect_bd_net -net rx_0_1 [get_bd_ports rx] [get_bd_pins axi_uartlite_0/rx]
-  connect_bd_net -net vauxn4_0_1 [get_bd_ports adc_n] [get_bd_pins xadc_wiz_0/vauxn4]
-  connect_bd_net -net vauxp4_0_1 [get_bd_ports adc_p] [get_bd_pins xadc_wiz_0/vauxp4]
+  connect_bd_net -net vauxp4_0_1 [get_bd_ports adc] [get_bd_pins xadc_wiz_0/vauxp4]
   connect_bd_net -net vga_interrupt_0_interrupt [get_bd_pins microblaze_0_xlconcat/In4] [get_bd_pins vga_interrupt_0/interrupt]
 
   # Create address segments

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Aug 18 21:55:05 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Aug 24 15:11:15 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="uC" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -48,12 +48,7 @@
         <CONNECTION INSTANCE="TextBlock_0" PORT="vsync_out"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="adc_n" SIGIS="undef" SIGNAME="External_Ports_adc_n">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xadc_wiz_0" PORT="vauxn4"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="adc_p" SIGIS="undef" SIGNAME="External_Ports_adc_p">
+    <PORT DIR="I" NAME="adc" SIGIS="undef" SIGNAME="External_Ports_adc">
       <CONNECTIONS>
         <CONNECTION INSTANCE="xadc_wiz_0" PORT="vauxp4"/>
       </CONNECTIONS>
@@ -6922,6 +6917,8 @@
             <CONNECTION INSTANCE="axi_dma_2" PORT="s_axi_lite_aclk"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="m_axi_mm2s_aclk"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axi_aclk"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_ACLK"/>
@@ -6944,8 +6941,6 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M11_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S03_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M12_ACLK"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aclk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -12585,6 +12580,8 @@
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ARESETN"/>
@@ -12602,8 +12599,6 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M11_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S03_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M12_ARESETN"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -13320,16 +13315,12 @@
         <PORT DIR="O" NAME="ip2intc_irpt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
         <PORT DIR="I" NAME="vp_in" SIGIS="undef"/>
         <PORT DIR="I" NAME="vn_in" SIGIS="undef"/>
-        <PORT DIR="I" NAME="vauxp4" SIGIS="undef" SIGNAME="External_Ports_adc_p">
+        <PORT DIR="I" NAME="vauxp4" SIGIS="undef" SIGNAME="External_Ports_adc">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="adc_p"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="adc"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="vauxn4" SIGIS="undef" SIGNAME="External_Ports_adc_n">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="adc_n"/>
-          </CONNECTIONS>
-        </PORT>
+        <PORT DIR="I" NAME="vauxn4" SIGIS="undef"/>
         <PORT DIR="O" LEFT="4" NAME="channel_out" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" NAME="eoc_out" SIGIS="undef"/>
         <PORT DIR="O" NAME="alarm_out" SIGIS="undef"/>
