@@ -41,8 +41,7 @@ module main(
     output wire [3:0] g,
     output wire [3:0] b,
     
-    output wire adc_n,
-    output wire adc_p
+    output wire adc
     
     );
     
@@ -59,8 +58,7 @@ module main(
         .hsync_out(hs),
         .rgb_out({r,g,b}),
         .vsync_out(vs),
-        .adc_n(adc_n),
-        .adc_p(adc_p)
+        .adc(adc)
     );
     
 endmodule

@@ -1,3 +1,4 @@
+*.log
 backup/
 ip_repo/
 sdk/SDK.log
