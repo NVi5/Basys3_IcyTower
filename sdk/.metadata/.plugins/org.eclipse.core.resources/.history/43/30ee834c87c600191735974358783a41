@@ -20,6 +20,7 @@ class Menu{
 		void SetPosition(unsigned int pos);
 		void SetLevel(enum Level lv);
 		void SetCounter(unsigned int count);
+		char * GetBuffer(void);
 		unsigned int GetXPos(void);
 		unsigned int GetYPos(void);
 		unsigned int GetColor(void);

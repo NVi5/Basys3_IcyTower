@@ -54,6 +54,10 @@ void Menu::SetCounter(unsigned int count){
 	this->Counter = count;
 }
 
+char * Menu::GetBuffer(void){
+	return this->Buffer;
+}
+
 unsigned int Menu::GetXPos(void){
 	return this->XPos;
 }

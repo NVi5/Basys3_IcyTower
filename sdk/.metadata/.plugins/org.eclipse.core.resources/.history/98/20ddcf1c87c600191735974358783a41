@@ -24,7 +24,7 @@ static const char * menu_level[]={
 
 
 Menu::Menu(char * buf){
-	this->Position = 0;
+	this->Position = Position::RUN;
 	this->Level = Level::EASY;
 	this->State = State::STARTED;
 	this->Counter = 0;
@@ -42,7 +42,7 @@ void Menu::SetState(enum Menu::State st){
 	this->State = st;
 }
 
-void Menu::SetPosition(unsigned int pos){
+void Menu::SetPosition(enum Menu::Position pos){
 	this->Position = pos;
 }
 
@@ -52,6 +52,10 @@ void Menu::SetLevel(enum Menu::Level lv){
 
 void Menu::SetCounter(unsigned int count){
 	this->Counter = count;
+}
+
+char * Menu::GetBuffer(void){
+	return this->Buffer;
 }
 
 unsigned int Menu::GetXPos(void){
