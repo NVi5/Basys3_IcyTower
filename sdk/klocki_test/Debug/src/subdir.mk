@@ -16,6 +16,7 @@ C_SRCS += \
 CPP_SRCS += \
 ../src/game.cpp \
 ../src/line2d.cpp \
+../src/menu.cpp \
 ../src/player.cpp \
 ../src/point2d.cpp 
 
@@ -27,6 +28,7 @@ OBJS += \
 ./src/game.o \
 ./src/line2d.o \
 ./src/main.o \
+./src/menu.o \
 ./src/player.o \
 ./src/point2d.o \
 ./src/tinyprintf.o 
@@ -38,6 +40,7 @@ C_DEPS += \
 CPP_DEPS += \
 ./src/game.d \
 ./src/line2d.d \
+./src/menu.d \
 ./src/player.d \
 ./src/point2d.d 
 

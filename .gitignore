@@ -1,2 +1,5 @@
-vivado/
 backup/
+ip_repo/
+sdk/SDK.log
+vivado/*
+!vivado/vivado.xpr

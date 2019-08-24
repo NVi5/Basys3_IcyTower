@@ -1,6 +1,6 @@
 #include "../include/fpga_interface.h"
-#include "../include/tinyprintf.h"
 #include "../include/utils.h"
+#include "../include/menu.hpp"
 
 #include "xaxidma.h"
 #include "xparameters.h"
@@ -33,19 +33,24 @@
 #define VGA_BACKGROUND_SHIFT_BG 	(*(uint32_t*)(VGA_BACKGROUND_BASE + 0))
 #define VGA_BACKGROUND_SHIFT_SIDES 	(*(uint32_t*)(VGA_BACKGROUND_BASE + 4))
 
-#define INTC_DEVICE_ID			  	XPAR_INTC_0_DEVICE_ID
-#define INTC_DEVICE_INT_ID		  	XPAR_INTC_0_VGA_BLOCK_0_VEC_ID
-#define INTC_DEVICE_KEYBOARD_ID	 	XPAR_INTC_0_KEYBOARDCONTROLLER_0_VEC_ID
-#define INTC_DEVICE_VGA_ID	 		(4U)
-
 #define VGA_TEXT_BASE				XPAR_TEXTBLOCK_0_S00_AXI_BASEADDR
 #define VGA_TEXT_XPOS				(*(uint32_t*)(VGA_TEXT_BASE + 0))
 #define VGA_TEXT_YPOS				(*(uint32_t*)(VGA_TEXT_BASE + 4))
 #define VGA_TEXT_COLOR				(*(uint32_t*)(VGA_TEXT_BASE + 8))
 #define VGA_TEXT_SCALE				(*(uint32_t*)(VGA_TEXT_BASE + 12))
 
+#define INTC_DEVICE_ID			  	XPAR_INTC_0_DEVICE_ID
+#define INTC_DEVICE_INT_ID		  	XPAR_INTC_0_VGA_BLOCK_0_VEC_ID
+#define INTC_DEVICE_KEYBOARD_ID	 	XPAR_INTC_0_KEYBOARDCONTROLLER_0_VEC_ID
+#define INTC_DEVICE_VGA_ID	 		(4U)
+
 typedef void (*fn_callback)(void *);
 fn_callback keyboard_update_handler;
+
+__attribute__((section(".vga_text")))
+static char text[16*16] = {0};
+//TODO
+Menu MenuInstance(text);
 
 static Game *GameInstance;
 
@@ -107,9 +112,6 @@ static void block_update_handler(void *CallbackRef)
 	VGA_BLOCKS_YPOS = y;
 }
 
-__attribute__((section(".vga_text")))
-static char text[16*16] = {0};
-
 void fpga_interface_initialize(Game *Instance){
 
 	GameInstance = Instance;
@@ -129,11 +131,6 @@ void fpga_interface_initialize(Game *Instance){
 	VGA_PLAYER_YSCALE = 2;
 	VGA_PLAYER_WIDTH = 64;
 	VGA_PLAYER_HEIGHT = 64;
-
-	VGA_TEXT_XPOS = 140;
-	VGA_TEXT_YPOS = 12;
-	VGA_TEXT_COLOR = 0xfff;
-	VGA_TEXT_SCALE = 2;
 }
 
 static void rng_init(){
@@ -154,16 +151,17 @@ static void rng_init(){
 	randomInit(seed);
 }
 
-void interface_update(void *){
 
+void interface_update(void *){
+	//TODO
 	if(GameInstance->gameOver){
 		GameInstance->Reset();
-		sprintf(text, "                  ");
 	}
 
 	GameInstance->Run();
+	MenuInstance.Draw();
 
-	sprintf(text, "%d", GameInstance-> GetPlayerFloor());
+//	sprintf(text, "%d", GameInstance-> GetPlayerFloor());
 
 	int v = (int)GameInstance->GetPlayer().getVelocity().GetX();
 
@@ -183,6 +181,10 @@ void interface_update(void *){
 			4*4*2,
 			XAXIDMA_DMA_TO_DEVICE
 		);
+	VGA_TEXT_XPOS = MenuInstance.GetXPos();
+	VGA_TEXT_YPOS = MenuInstance.GetYPos();
+	VGA_TEXT_COLOR = MenuInstance.GetColor();
+	VGA_TEXT_SCALE = MenuInstance.GetScale();
 
 }
 

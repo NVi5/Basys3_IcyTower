@@ -1,0 +1,22 @@
+#pragma once
+
+class Menu{
+	public:
+		enum Position{RESTART, RESUME, LEVEL};
+		enum Level{EASY, MEDIUM, HARD};
+		enum State{GAME, PAUSED, FAILED};
+
+		Menu(unsigned int SizeX, unsigned int SizeY);
+		char * GetBuffer(void);
+		void SetState(State st);
+		void SetPosition(Menu pos);
+		void SetLevel(Level lv);
+		void Draw(void);
+
+	private:
+		enum Position Position;
+		enum Level Level;
+		enum State State;
+		char * Buffer;
+
+};

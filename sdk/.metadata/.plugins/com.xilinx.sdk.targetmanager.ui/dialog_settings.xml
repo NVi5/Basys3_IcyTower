@@ -5,7 +5,7 @@
 	<item value="C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\Debug\klocki_test.elf" key="main_hw_platform_3-microblaze_0-initElf"/>
 	<item value="Local" key="main_hw_platform_0-target"/>
 	<item value="main.bit" key="main_hw_platform_3-bitFile"/>
-	<item value="C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\Debug\klocki_test.elf" key="main_hw_platform_0-microblaze_0-initElf"/>
+	<item value="bootloop" key="main_hw_platform_0-microblaze_0-initElf"/>
 	<item value="main.bit" key="main_hw_platform_2-bitFile"/>
 	<item value="Auto Detect" key="main_hw_platform_0-device"/>
 	<item value="Auto Detect" key="main_hw_platform_1-device"/>
@@ -21,7 +21,7 @@
 	<item value="main.mmi" key="main_hw_platform_1-bmmFile"/>
 	<item value="main.mmi" key="main_hw_platform_2-bmmFile"/>
 	<item value="C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\Debug\klocki_test.elf" key="main_hw_platform_1-microblaze_0-initElf"/>
-	<item value="main_hw_platform_2" key="programfpga.hwplatform"/>
+	<item value="main_hw_platform_0" key="programfpga.hwplatform"/>
 	<item value="main.bit" key="main_hw_platform_1-bitFile"/>
 	<item value="main.mmi" key="main_hw_platform_3-bmmFile"/>
 	<item value="main.bit" key="main_hw_platform_0-bitFile"/>
