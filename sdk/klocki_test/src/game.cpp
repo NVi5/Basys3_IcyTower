@@ -1,17 +1,28 @@
 #include "../include/game.hpp"
-#include "xil_printf.h"
 
-Game::Game() : 
+Game::Game(char * buf) :
     //Player1(Point2d((MIN_X + MAX_X)/2 - (PLAYER_WIDTH / 2), FLOOR_HEIGHT + PLAYER_HEIGHT), Point2d(0, 0), Point2d(0, ACCELERATION)),
+	KeyUp(0),
+	KeyDown(0),
+	KeyEsc(0),
+	KeyEnter(0),
+	LastKeyUp(0),
+	LastKeyDown(0),
+	LastKeyEsc(0),
+	LastKeyEnter(0),
 	Player1(Point2d((MIN_X + MAX_X)/2 ,0), Point2d(0, 0), Point2d(0, ACCELERATION)),
+	GameMenu(buf),
+	MenuPosition(0),
+	gameOver(false),
     gameTime(0.0f),
+	CurrentState(Menu::State::STARTED),
+	CurrentLevel(0),
 	playerFloor(0),
 	floorCounter(5),
 	floorsPosition(0),
-    isStarted(false),
+    ScrollFast(false),
 	PlayerLocked(true),
-	PlayerLockFloor(0),
-	gameOver(false)
+	PlayerLockFloor(0)
 {
 
     this->floors[0] = Line2d( Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT) );
@@ -41,10 +52,11 @@ void Game::Reset(){
 	this->playerFloor = 0;
 	this->floorCounter = 5;
 	this->floorsPosition = 0;
-	this->isStarted = false;
+	this->ScrollFast = false;
     this->PlayerLocked = true;
     this->PlayerLockFloor = 0;
     this->gameOver = false;
+    this->CurrentState = Menu::State::GAME;
 
     this->floors[0] = Line2d( Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT) );
 
@@ -101,7 +113,7 @@ void Game::chceckCollisionsAndLock(int moveRate) {
 
 void Game::moveFloors(int moveRate){
 
-	if(this->isStarted){
+	if(this->ScrollFast){
 		for(int i = 0; i < N_FLOORS; i++){
 
 			float prevY = this->floors[i].GetStart().GetY();
@@ -130,16 +142,114 @@ void Game::moveFloors(int moveRate){
 
 #include "xparameters.h"
 #define KEY_SPACE (1 << 0)
+#define KEY_ENTER (1 << 1)
 #define KEY_LEFT (1 << 2)
+#define KEY_DOWN (1 << 3)
 #define KEY_RIGHT (1 << 4)
+#define KEY_UP (1 << 5)
+#define KEY_ESC (1 << 6)
 #define KEYBOARD_BASE		XPAR_KEYBOARDCONTROLLER_0_S00_AXI_BASEADDR
 #define KEYBOARD_KEYS		(*(uint32_t*)(KEYBOARD_BASE + 0))
-
+//TODO
 void Game::Run(){
+	GameMenu.SetState(this->CurrentState);
+	switch(this->CurrentState){
+		case Menu::State::STARTED:
+		case Menu::State::FAILED:
+			this->StateMenu();
+			break;
+		case Menu::State::GAME:
+			this->StateGame();
+			break;
+		case Menu::State::PAUSED:
+			this->StatePaused();
+			break;
+	}
+	GameMenu.Draw();
+	GameMenu.SetPosition(this->MenuPosition);
+}
+
+void Game::StatePaused(){
+	KeyUp = KEYBOARD_KEYS & KEY_UP;
+	KeyDown = KEYBOARD_KEYS & KEY_DOWN;
+	KeyEsc = KEYBOARD_KEYS & KEY_ESC;
+	if(KeyUp && (!LastKeyUp)){
+		if(this->MenuPosition < 1) this->MenuPosition++;
+		else this->MenuPosition = 0;
+	}
+
+	if(KeyDown && (!LastKeyDown)){
+		if(this->MenuPosition != 0) this->MenuPosition--;
+		else this->MenuPosition = 1;
+	}
+
+	if(KeyEsc && (!LastKeyEsc)){
+		this->CurrentState = Menu::State::GAME;
+	}
+
+	if(KEYBOARD_KEYS & KEY_ENTER){
+		switch(this->MenuPosition){
+			case 0:
+				this->CurrentState = Menu::State::GAME;
+				break;
+			case 1:
+				this->CurrentState = Menu::State::STARTED;
+				break;
+			default:
+				break;
+		}
+	}
+	LastKeyUp = KeyUp;
+	LastKeyDown = KeyDown;
+	LastKeyEsc = KeyEsc;
+
+}
+
+void Game::StateMenu(){
+	KeyUp = KEYBOARD_KEYS & KEY_UP;
+	KeyDown = KEYBOARD_KEYS & KEY_DOWN;
+	KeyEnter = KEYBOARD_KEYS & KEY_ENTER;
+	if(KeyUp && (!LastKeyUp)){
+		if(this->MenuPosition < 1) this->MenuPosition++;
+		else this->MenuPosition = 0;
+	}
+
+	if(KeyDown && (!LastKeyDown)){
+		if(this->MenuPosition != 0) this->MenuPosition--;
+		else this->MenuPosition = 1;
+	}
+
+	if(KeyEnter && (!LastKeyEnter)){
+		switch(this->MenuPosition){
+			case 0:
+				this->Reset();
+				this->CurrentState = Menu::State::GAME;
+				break;
+			case 1:
+				this->CurrentLevel++;
+				this->CurrentLevel %= N_LEVELS;
+				GameMenu.SetLevel(this->CurrentLevel);
+				break;
+			default:
+				break;
+		}
+	}
+	LastKeyUp = KeyUp;
+	LastKeyDown = KeyDown;
+	LastKeyEnter = KeyEnter;
+}
+
+void Game::StateGame(){
 
 	if(KEYBOARD_KEYS & KEY_LEFT){
 		this->Player1.changeVelocity(Point2d(-12, 0));
 	}
+
+	KeyEsc = KEYBOARD_KEYS & KEY_ESC;
+	if(KeyEsc && (!LastKeyEsc)){
+		this->CurrentState = Menu::State::PAUSED;
+	}
+	LastKeyEsc = KeyEsc;
 
 	if(KEYBOARD_KEYS & KEY_RIGHT){
 		this->Player1.changeVelocity(Point2d(12, 0));
@@ -153,6 +263,8 @@ void Game::Run(){
 	this->moveFloors(1);
 	this->chceckCollisionsAndLock(1);
 
+	GameMenu.SetCounter(this->playerFloor);
+
 	if (this->PlayerLocked) {
 		if( this->Player1.getPosition().GetX() < this->floors[this->PlayerLockFloor].GetStart().GetX()) this->PlayerLocked = false;
 		if( this->Player1.getPosition().GetX() > this->floors[this->PlayerLockFloor].GetEnd().GetX()) this->PlayerLocked = false;
@@ -162,14 +274,15 @@ void Game::Run(){
 	if(this->Player1.getPosition().GetY() < PLAYER_MIN_Y){
 		this->Player1.setPosition( Point2d( this->Player1.getPosition().GetX(), PLAYER_MIN_Y ) );
 		this->gameOver = true;
+		this->CurrentState = Menu::State::FAILED;
 	}
-
+	//TODO Put in upper if?
 	if(this->gameOver){
-		this->isStarted = false;
+		this->ScrollFast = false;
 	}
 
 	// TODO
-	if(this->Player1.getPosition().GetY() > 800) this->isStarted = 1;
+	if(this->Player1.getPosition().GetY() > 800) this->ScrollFast = 1;
 
 	if(this->Player1.getPosition().GetY() > PLAYER_MAX_Y){
 		moveFloors(this->Player1.getPosition().GetY() - PLAYER_MAX_Y);
@@ -203,3 +316,7 @@ Player Game::GetPlayer(){return this->Player1;};
 float Game::GetFloorsPosition(){return this->floorsPosition;};
 int Game::GetFloorCount(){return this->floorCounter;};
 int Game::GetPlayerFloor(){return this->playerFloor;};
+unsigned int Game::GetXPos(){return GameMenu.GetXPos();};
+unsigned int Game::GetYPos(){return GameMenu.GetYPos();};
+unsigned int Game::GetColor(){return GameMenu.GetColor();};
+unsigned int Game::GetScale(){return GameMenu.GetScale();};

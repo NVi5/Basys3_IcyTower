@@ -4,6 +4,7 @@
 #include "player.hpp"
 #include "point2d.hpp"
 #include "textures.h"
+#include "menu.hpp"
 
 #define N_FLOORS        (5)
 #define FLOOR_SPACING   (218)
@@ -25,15 +26,29 @@
 
 #define INITIAL_HEIGHT	(32)
 
+#define N_LEVELS		(3)
+
 class Game{
 
     private:
+		bool KeyUp, KeyDown, KeyEsc, KeyEnter, LastKeyUp, LastKeyDown, LastKeyEsc, LastKeyEnter;
         Line2d floors[N_FLOORS];
         unsigned int relativeFloorNumber[N_FLOORS];
         texture_t floorTexture[N_FLOORS];
 
         Player Player1;
+        Menu GameMenu;
+        unsigned int MenuPosition;
+
+        bool gameOver;
         float gameTime;
+
+        enum Menu::State CurrentState;
+        unsigned int CurrentLevel;
+
+        void StatePaused(void);
+        void StateMenu(void);
+        void StateGame(void);
 
         unsigned int playerFloor;
         unsigned int floorCounter;
@@ -41,7 +56,7 @@ class Game{
         float floorsPosition;
         float backgroundPosition;
 
-        bool isStarted;
+        bool ScrollFast;
 
         bool PlayerLocked;
         int PlayerLockFloor;
@@ -51,12 +66,15 @@ class Game{
 
     public:
 
-        bool gameOver;
-
-        Game();
+        Game(char * buf);
         void Reset();
         void Display();
         void Run();
+
+		unsigned int GetXPos(void);
+		unsigned int GetYPos(void);
+		unsigned int GetColor(void);
+		unsigned int GetScale(void);
 
         Line2d GetFloor(int FloorIndex);
         texture_t GetFloorTexture(int FloorIndex);
