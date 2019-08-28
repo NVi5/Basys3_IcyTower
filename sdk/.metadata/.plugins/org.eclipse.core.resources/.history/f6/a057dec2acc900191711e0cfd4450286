@@ -1,0 +1,14 @@
+#pragma once
+
+#include "line2d.hpp"
+#include "textures.h"
+
+class Floor {
+
+	public:
+
+		Line2d top;
+		texture_t texture;
+
+
+};

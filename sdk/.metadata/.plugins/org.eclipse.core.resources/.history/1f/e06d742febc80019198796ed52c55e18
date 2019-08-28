@@ -1,0 +1,18 @@
+#include "../include/fpga_interface.h"
+
+extern int update_flag;
+
+int main(){
+
+	fpga_interface_initialize_hardware();
+	Game GameInstance;
+	fpga_interface_initialize(&GameInstance);
+
+    while(1){
+    	if(!update_flag){
+    		interface_run();
+    		update_flag = 1;
+    	}
+    }
+}
+

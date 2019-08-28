@@ -1,7 +1,6 @@
 #include "../include/game.hpp"
 
 Game::Game(char * buf) :
-    //Player1(Point2d((MIN_X + MAX_X)/2 - (PLAYER_WIDTH / 2), FLOOR_HEIGHT + PLAYER_HEIGHT), Point2d(0, 0), Point2d(0, ACCELERATION)),
 	KeyUp(0),
 	KeyDown(0),
 	KeyEsc(0),
@@ -25,14 +24,10 @@ Game::Game(char * buf) :
 	PlayerLockFloor(0)
 {
 
-    this->floors[0] = Line2d( Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT) );
+    this->floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), TEXTURE_REDSTONE );
 
     for(int i = 1; i < N_FLOORS; i++){
-    	this->floors[i] = Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT);
-    }
-
-    for(int i = 0; i < N_FLOORS; i++){
-    	this->floorTexture[i] = TEXTURE_REDSTONE;
+    	this->floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), TEXTURE_REDSTONE);
     }
 
     for(int i = 0; i < N_FLOORS; i++){
@@ -58,14 +53,10 @@ void Game::Reset(){
     this->gameOver = false;
     this->CurrentState = Menu::State::GAME;
 
-    this->floors[0] = Line2d( Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT) );
+    this->floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), TEXTURE_REDSTONE );
 
     for(int i = 1; i < N_FLOORS; i++){
-    	this->floors[i] = Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT);
-    }
-
-    for(int i = 0; i < N_FLOORS; i++){
-    	this->floorTexture[i] = TEXTURE_REDSTONE;
+    	this->floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), TEXTURE_REDSTONE);
     }
 
     for(int i = 0; i < N_FLOORS; i++){
@@ -310,8 +301,8 @@ void Game::StateGame(){
 	if( abs(this->Player1.getVelocity().GetX()) < 0.001 ) this->Player1.setVelocity( Point2d(0, this->Player1.getVelocity().GetY()) );
 }
 
-Line2d Game::GetFloor(int FloorIndex){return this->floors[FloorIndex];};
-texture_t Game::GetFloorTexture(int FloorIndex){return this->floorTexture[FloorIndex];};
+Floor Game::GetFloor(int FloorIndex){return this->floors[FloorIndex];};
+texture_t Game::GetFloorTexture(int FloorIndex){return this->floors[FloorIndex].GetTexture();};
 Player Game::GetPlayer(){return this->Player1;};
 float Game::GetFloorsPosition(){return this->floorsPosition;};
 int Game::GetFloorCount(){return this->floorCounter;};

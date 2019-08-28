@@ -1,6 +1,6 @@
 #pragma once
 
-#include "line2d.hpp"
+#include "floor.hpp"
 #include "player.hpp"
 #include "point2d.hpp"
 #include "textures.h"
@@ -32,9 +32,8 @@ class Game{
 
     private:
 		bool KeyUp, KeyDown, KeyEsc, KeyEnter, LastKeyUp, LastKeyDown, LastKeyEsc, LastKeyEnter;
-        Line2d floors[N_FLOORS];
+        Floor floors[N_FLOORS];
         unsigned int relativeFloorNumber[N_FLOORS];
-        texture_t floorTexture[N_FLOORS];
 
         Player Player1;
         Menu GameMenu;
@@ -76,7 +75,7 @@ class Game{
 		unsigned int GetColor(void);
 		unsigned int GetScale(void);
 
-        Line2d GetFloor(int FloorIndex);
+		Floor GetFloor(int FloorIndex);
         texture_t GetFloorTexture(int FloorIndex);
         Player GetPlayer();
 

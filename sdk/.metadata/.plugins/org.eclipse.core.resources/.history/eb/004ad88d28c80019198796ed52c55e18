@@ -1,0 +1,16 @@
+#include "../include/fpga_interface.h"
+
+int main(){
+
+	fpga_interface_initialize_hardware();
+	Game GameInstance;
+	fpga_interface_initialize(&GameInstance);
+
+    while(1){
+    	int i = 0;
+    	while(i++ < 100000000);
+
+    	GameInstance.Run();
+    }
+}
+

@@ -1,0 +1,18 @@
+#include "../include/fpga_interface.h"
+
+extern bool update_flag;
+
+int main(){
+
+	fpga_interface_initialize_hardware();
+	Game GameInstance;
+	fpga_interface_initialize(&GameInstance);
+
+    while(1){
+    	if(!update_flag){
+    		GameInstance.Run();
+    		update_flag = true;
+    	}
+    }
+}
+

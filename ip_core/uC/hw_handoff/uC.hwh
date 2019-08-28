@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Aug 24 15:11:15 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Aug 28 17:14:30 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="uC" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -6913,7 +6913,6 @@
             <CONNECTION INSTANCE="player" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="vga_interrupt_0" PORT="pixel_clock"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="s_axi_lite_aclk"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="m_axi_mm2s_aclk"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axi_aclk"/>
@@ -6941,6 +6940,7 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M11_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S03_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M12_ACLK"/>
+            <CONNECTION INSTANCE="vga_interrupt_0" PORT="pixel_clock"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

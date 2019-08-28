@@ -7,7 +7,7 @@ int main(){
 	fpga_interface_initialize(&GameInstance);
 
     while(1){
-
+    	fpga_interface_run();
     }
 }
 

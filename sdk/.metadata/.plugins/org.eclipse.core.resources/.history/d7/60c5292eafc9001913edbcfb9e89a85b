@@ -1,0 +1,15 @@
+#include "../include/floor.hpp"
+
+Floor::Floor() :
+{
+
+}
+
+Floor::Floor(Line2d position, texture_t texture) :
+	Line2d(position)
+{
+	this->texture = texture;
+}
+
+void Floor::SetTexture(texture_t texture){this->texture = texture;};
+texture_t Floor::GetTexture(){return this->texture;};

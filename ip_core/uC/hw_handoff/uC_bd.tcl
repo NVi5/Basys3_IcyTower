@@ -429,12 +429,6 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  set_property -dict [ list \
-   CONFIG.FREQ_HZ {108000000} \
-   CONFIG.PHASE {0.0} \
-   CONFIG.CLK_DOMAIN {/clk_wiz_0_clk_out1} \
- ] [get_bd_pins /vga_interrupt_0/pixel_clock]
-
   # Create instance: vga_timing_0, and set properties
   set block_name vga_timing
   set block_cell_name vga_timing_0
