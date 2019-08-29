@@ -3,6 +3,7 @@
 	<name>basys3_game_bsp</name>
 	<comment>Created by SDK v2018.2</comment>
 	<projects>
+		<project>main_hw_platform_2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

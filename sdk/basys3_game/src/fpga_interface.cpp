@@ -41,6 +41,11 @@
 #define VGA_TEXT_COLOR				(*(uint32_t*)(VGA_TEXT_BASE + 8))
 #define VGA_TEXT_SCALE				(*(uint32_t*)(VGA_TEXT_BASE + 12))
 
+#define VGA_COUNTER_BASE 			(0x44A60000u)
+#define VGA_COUNTER_XPOS 			(*(uint16_t*)(VGA_COUNTER_BASE + 0))
+#define VGA_COUNTER_YPOS 			(*(uint16_t*)(VGA_COUNTER_BASE + 2))
+#define VGA_COUNTER_COUNT 			(*(uint32_t*)(VGA_COUNTER_BASE + 4))
+
 #define INTC_DEVICE_ID			  	XPAR_INTC_0_DEVICE_ID
 #define INTC_DEVICE_INT_ID		  	XPAR_INTC_0_VGA_BLOCK_0_VEC_ID
 #define INTC_DEVICE_KEYBOARD_ID	 	XPAR_INTC_0_KEYBOARDCONTROLLER_0_VEC_ID
@@ -136,8 +141,8 @@ void fpga_interface_initialize(Game *Instance){
 
 	VGA_BLOCKS_XPOS = 1;
 	VGA_BLOCKS_YPOS = 1;
-	VGA_BLOCKS_XSCALE = 2;
-	VGA_BLOCKS_YSCALE = 2;
+	VGA_BLOCKS_XSCALE = 1;
+	VGA_BLOCKS_YSCALE = 1;
 	VGA_BLOCKS_WIDTH = 1;
 	VGA_BLOCKS_HEIGHT = 1;
 
@@ -147,6 +152,10 @@ void fpga_interface_initialize(Game *Instance){
 	VGA_PLAYER_YSCALE = 2;
 	VGA_PLAYER_WIDTH = 64;
 	VGA_PLAYER_HEIGHT = 64;
+
+	VGA_COUNTER_XPOS = 32;
+	VGA_COUNTER_YPOS = 32;
+
 }
 
 static void rng_init(){
@@ -171,6 +180,8 @@ volatile bool update_flag = true;
 
 void interface_update(void *){
 
+	VGA_COUNTER_COUNT = (VGA_COUNTER_COUNT + 1) % 256;
+
 	if(update_flag){
 		for(int i = 0; i < N_FLOORS; i++) display_floor[i] = sort_floor[i];
 		update_flag = !update_flag;
@@ -185,7 +196,8 @@ void interface_update(void *){
 	else if (v < 0) dma_transfer_texture( &player_dma, TEXTURE_PLAYER_LEFT );
 	else dma_transfer_texture( &player_dma, TEXTURE_PLAYER_RIGHT );
 
-	VGA_PLAYER_YPOS = (int)(MAX_Y + 1 - 2*PLAYER_HEIGHT - GameInstance->GetPlayer().getPosition().GetY());
+	VGA_PLAYER_YPOS = (int)(MAX_Y + 1 - (PLAYER_HEIGHT + FLOOR_HEIGHT) - GameInstance->GetPlayer().getPosition().GetY());
+	if(VGA_PLAYER_YPOS > 1023) VGA_PLAYER_YPOS = 1023;
 	VGA_PLAYER_XPOS = (int)(GameInstance->GetPlayer().getPosition().GetX() - PLAYER_WIDTH / 2);
 
 	VGA_BACKGROUND_SHIFT_BG = background_shift_bg;

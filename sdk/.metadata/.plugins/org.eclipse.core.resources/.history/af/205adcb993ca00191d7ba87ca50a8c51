@@ -1,0 +1,28 @@
+#include "../include/fpga_interface.h"
+
+#include "xparameters.h"
+
+#define VGA_COUNTER_BASE 			(0x44A60000u)
+#define VGA_COUNTER_XPOS 			(*(uint16_t*)(VGA_COUNTER_BASE + 0))
+#define VGA_COUNTER_YPOS 			(*(uint16_t*)(VGA_COUNTER_BASE + 2))
+#define VGA_COUNTER_COUNT 			(*(uint32_t*)(VGA_COUNTER_BASE + 4))
+
+int main(){
+
+	fpga_interface_initialize_hardware();
+	Game GameInstance(fpga_interface_get_buffer());
+	fpga_interface_initialize(&GameInstance);
+
+	VGA_COUNTER_XPOS = 50;
+	VGA_COUNTER_YPOS = 50;
+
+
+    while(1){
+
+    	for(int i = 0; i < 10000000; i++);
+    	VGA_COUNTER_COUNT = (VGA_COUNTER_COUNT + 1) % 256;
+
+    	fpga_interface_run();
+    }
+}
+

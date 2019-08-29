@@ -6,14 +6,14 @@
 #include "textures.h"
 #include "menu.hpp"
 
-#define N_FLOORS        (5)
-#define FLOOR_SPACING   (218)
+#define N_FLOORS        (6)
+#define FLOOR_SPACING   (182)
 
 #define DELTA_T			0.1
 
 #define PLAYER_WIDTH    (64)
 #define PLAYER_HEIGHT   (64)
-#define FLOOR_HEIGHT	(64)
+#define FLOOR_HEIGHT	(32)
 
 #define ACCELERATION    (-100.0f)
 #define MIN_X           (128)
@@ -22,7 +22,7 @@
 #define MAX_Y           (1023)
 
 #define PLAYER_MIN_Y	(-2*PLAYER_HEIGHT+1)
-#define PLAYER_MAX_Y	(MAX_Y - 2*PLAYER_HEIGHT - PLAYER_HEIGHT / 2)
+#define PLAYER_MAX_Y	(MAX_Y - (PLAYER_HEIGHT + FLOOR_HEIGHT) - PLAYER_HEIGHT / 2)
 
 #define INITIAL_HEIGHT	(32)
 

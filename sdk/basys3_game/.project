@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>basys3_game_bsp</project>
+		<project>main_hw_platform_2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

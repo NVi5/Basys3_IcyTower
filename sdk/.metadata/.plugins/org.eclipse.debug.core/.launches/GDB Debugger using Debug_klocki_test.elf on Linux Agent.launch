@@ -37,8 +37,8 @@
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="gdbserver"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
 <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/klocki_test.elf"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="klocki_test"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value=""/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
 <booleanAttribute key="org.eclipse.tcf.debug.AttachChildren" value="true"/>
@@ -49,5 +49,5 @@
 <booleanAttribute key="org.eclipse.tcf.debug.UseTerminal" value="false"/>
 <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 <booleanAttribute key="sdk.gdb.proc.stop_at_enty" value="false"/>
-<stringAttribute key="sdk.gdb.process.filter" value="microblaze.*#0"/>
+<stringAttribute key="sdk.gdb.process.filter" value=""/>
 </launchConfiguration>
