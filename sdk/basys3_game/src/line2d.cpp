@@ -74,22 +74,22 @@ Line2d Line2d::RandomLine(unsigned int minLength, unsigned int maxLength, unsign
     return Line2d( Point2d(x1, YPos), Point2d(x2, YPos) );
 }
 
-bool Line2d::moveDown(int npix, int minY, int maxY, bool maxWidth){
+void Line2d::moveDown(int npix){
 
 	this->p1 = this->p1 + Point2d(0, -npix);
 	this->p2 = this->p2 + Point2d(0, -npix);
 
-	int diff = minY - this->p1.GetY();
+	//TODO - do usuniecia
+//	int diff = minY - this->p1.GetY();
 
-	if(this->p1.GetY() < minY){
-		Line2d temp;
-		if(maxWidth) temp = Line2d::RandomLine(1024, 1024, 127, 1151, maxY - diff);
-
-		// TODO
-		else temp = Line2d::RandomLine(300, 700, 127, 1151, maxY - diff);
-		this->p1 = temp.p1;
-		this->p2 = temp.p2;
-		return true;
-	}
-	return false;
+//	if(this->p1.GetY() < minY){
+//		Line2d temp;
+//		if(maxWidth) temp = Line2d::RandomLine(1024, 1024, 127, 1151, maxY - diff);
+//
+//		else temp = Line2d::RandomLine(300, 700, 127, 1151, maxY - diff);
+//		this->p1 = temp.p1;
+//		this->p2 = temp.p2;
+//		return true;
+//	}
+//	return false;
 }

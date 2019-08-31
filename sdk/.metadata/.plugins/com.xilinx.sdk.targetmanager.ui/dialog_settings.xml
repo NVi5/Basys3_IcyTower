@@ -20,7 +20,7 @@
 	<item value="C:\Users\wojte\Desktop\projekt24.08.2019\UEC2_Project\sdk\basys3_game\Debug\basys3_game.elf" key="main_hw_platform_2-microblaze_0-initElf"/>
 	<item value="main.mmi" key="main_hw_platform_1-bmmFile"/>
 	<item value="main.mmi" key="main_hw_platform_2-bmmFile"/>
-	<item value="C:\Users\wojte\Desktop\projekt1\UEC2_Project\sdk\klocki_test\Debug\klocki_test.elf" key="main_hw_platform_1-microblaze_0-initElf"/>
+	<item value="bootloop" key="main_hw_platform_1-microblaze_0-initElf"/>
 	<item value="main_hw_platform_2" key="programfpga.hwplatform"/>
 	<item value="main.bit" key="main_hw_platform_1-bitFile"/>
 	<item value="main.mmi" key="main_hw_platform_3-bmmFile"/>

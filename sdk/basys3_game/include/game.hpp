@@ -17,14 +17,25 @@
 
 #define ACCELERATION    (-100.0f)
 #define MIN_X           (128)
+//#define MAX_X           (1279 - 128)
 #define MAX_X           (1279 - 128)
-#define MIN_Y           (-64)
+// TODO tutaj bylo -64
+#define MIN_Y           (-FLOOR_HEIGHT)
 #define MAX_Y           (1023)
+
+#define SCREEN_WIDTH	(1024)
 
 #define PLAYER_MIN_Y	(-2*PLAYER_HEIGHT+1)
 #define PLAYER_MAX_Y	(MAX_Y - (PLAYER_HEIGHT + FLOOR_HEIGHT) - PLAYER_HEIGHT / 2)
 
 #define INITIAL_HEIGHT	(32)
+#define SCROLL_HEIGHT	(800)
+
+#define NEXT_STAGE		(50)
+#define MAX_STAGES		(10)
+
+#define FLOOR_FRICTION  (0.95f)
+#define AIR_FRICTION    (0.85f)
 
 #define N_LEVELS		(3)
 
@@ -45,10 +56,6 @@ class Game{
         enum Menu::State CurrentState;
         unsigned int CurrentLevel;
 
-        void StatePaused(void);
-        void StateMenu(void);
-        void StateGame(void);
-
         unsigned int playerFloor;
         unsigned int floorCounter;
 
@@ -59,6 +66,12 @@ class Game{
 
         bool PlayerLocked;
         int PlayerLockFloor;
+
+        int CurrentStage;
+
+        void StatePaused(void);
+        void StateMenu(void);
+        void StateGame(void);
 
         void chceckCollisionsAndLock(int moveRate);
         void moveFloors(int moveRate);

@@ -21,13 +21,15 @@ Game::Game(char * buf) :
 	floorsPosition(0),
     ScrollFast(false),
 	PlayerLocked(true),
-	PlayerLockFloor(0)
+	PlayerLockFloor(0),
+	CurrentStage(0)
 {
 
-    this->floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), TEXTURE_REDSTONE );
+    this->floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), (texture_t)this->CurrentStage );
 
     for(int i = 1; i < N_FLOORS; i++){
-    	this->floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), TEXTURE_REDSTONE);
+    	//TODO
+    	this->floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), (texture_t)this->CurrentStage);
     }
 
     for(int i = 0; i < N_FLOORS; i++){
@@ -52,11 +54,13 @@ void Game::Reset(){
     this->PlayerLockFloor = 0;
     this->gameOver = false;
     this->CurrentState = Menu::State::GAME;
+    this->CurrentStage = 0;
 
-    this->floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), TEXTURE_REDSTONE );
+    this->floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), (texture_t)this->CurrentStage );
 
     for(int i = 1; i < N_FLOORS; i++){
-    	this->floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), TEXTURE_REDSTONE);
+    	// TODO
+    	this->floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), (texture_t)this->CurrentStage);
     }
 
     for(int i = 0; i < N_FLOORS; i++){
@@ -109,18 +113,40 @@ void Game::moveFloors(int moveRate){
 
 			float prevY = this->floors[i].GetStart().GetY();
 
-			if(this->floorCounter % 30){
-				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) {
-					this->floorCounter++;
-					this->relativeFloorNumber[i] += N_FLOORS;
+			this->floors[i].moveDown(moveRate);
+
+			//TODO tutaj funkcje ktore zwracaja minimalna i maksymalna dlugosc
+			int minLength = 300;
+			int maxLength = 400;
+
+			int diff = MIN_Y - this->floors[i].GetStart().GetY();
+
+			if(diff > 0){
+				if (!(this->floorCounter++ % NEXT_STAGE)){
+					this->CurrentStage++;
+					if(this->CurrentStage > MAX_STAGES - 1) CurrentStage = random(unsigned int, MAX_STAGES);
+					this->floors[i] = Floor( Line2d::RandomLine(SCREEN_WIDTH, SCREEN_WIDTH, MIN_X, MAX_X, MAX_Y - diff), (texture_t)this->CurrentStage );
 				}
-			}
-			else{
-				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) {
-					this->floorCounter++;
-					this->relativeFloorNumber[i] += N_FLOORS;
+				else {
+					this->floors[i] = Floor( Line2d::RandomLine(minLength, maxLength, MIN_X, MAX_X, MAX_Y - diff), (texture_t)this->CurrentStage );
 				}
+				this->floorCounter++;
+				this->relativeFloorNumber[i] += N_FLOORS;
 			}
+
+// TODO jak zadziala to wyzej to usunac
+//			if(this->floorCounter % 30){
+//				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) {
+//					this->floorCounter++;
+//					this->relativeFloorNumber[i] += N_FLOORS;
+//				}
+//			}
+//			else{
+//				if (this->floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) {
+//					this->floorCounter++;
+//					this->relativeFloorNumber[i] += N_FLOORS;
+//				}
+//			}
 
 			float currentY = this->floors[i].GetStart().GetY();
 			if((currentY > prevY) && i == this->PlayerLockFloor){
@@ -251,6 +277,7 @@ void Game::StateGame(){
 		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX(), 300 + abs(this->Player1.getVelocity().GetX()) ) );
 	}
 
+	// TODO funkcja zwracajaca predkosc przesuwania
 	this->moveFloors(1);
 	this->chceckCollisionsAndLock(1);
 
@@ -267,13 +294,13 @@ void Game::StateGame(){
 		this->gameOver = true;
 		this->CurrentState = Menu::State::FAILED;
 	}
-	//TODO Put in upper if?
-	if(this->gameOver){
-		this->ScrollFast = false;
-	}
 
-	// TODO
-	if(this->Player1.getPosition().GetY() > 800) this->ScrollFast = 1;
+//	//TODO do usuniecia jak zadziala
+//	if(this->gameOver){
+//		this->ScrollFast = false;
+//	}
+
+	if(this->Player1.getPosition().GetY() > SCROLL_HEIGHT) this->ScrollFast = 1;
 
 	if(this->Player1.getPosition().GetY() > PLAYER_MAX_Y){
 		moveFloors(this->Player1.getPosition().GetY() - PLAYER_MAX_Y);
@@ -292,10 +319,10 @@ void Game::StateGame(){
 	}
 
 	if(this->PlayerLocked){
-		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX() * 0.95, this->Player1.getVelocity().GetY()) );
+		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX() * FLOOR_FRICTION, this->Player1.getVelocity().GetY()) );
 	}
 	else {
-		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX() * 0.85, this->Player1.getVelocity().GetY()) );
+		this->Player1.setVelocity( Point2d(this->Player1.getVelocity().GetX() * AIR_FRICTION, this->Player1.getVelocity().GetY()) );
 	}
 
 	if( abs(this->Player1.getVelocity().GetX()) < 0.001 ) this->Player1.setVelocity( Point2d(0, this->Player1.getVelocity().GetY()) );
