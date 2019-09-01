@@ -6,7 +6,7 @@ Floor::Floor()
 }
 
 Floor::Floor(Line2d position, texture_t texture) :
-	Line2d(position)
+	Line2d(position.GetStart(), position.GetEnd())
 {
 	this->texture = texture;
 }

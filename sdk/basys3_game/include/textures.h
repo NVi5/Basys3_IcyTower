@@ -44,6 +44,9 @@ static const unsigned short texture_player_right[]  = {
 
 typedef enum {
 	TEXTURE_REDSTONE,
+	TEXTURE_REDSTONE2,
+	TEXTURE_REDSTONE3,
+	TEXTURE_REDSTONE4,
 	TEXTURE_PLAYER,
 	TEXTURE_PLAYER_LEFT,
 	TEXTURE_PLAYER_RIGHT,
@@ -58,6 +61,9 @@ typedef struct {
 
 __attribute__((section(".texture_memory")))
 const texture_info_t texture_memory[] = {
+	{16, 16, 2, texture_redstone},
+	{16, 16, 2, texture_redstone},
+	{16, 16, 2, texture_redstone},
 	{16, 16, 2, texture_redstone},
 	{16, 16, 2, texture_player},
 	{16, 16, 2, texture_player_left},

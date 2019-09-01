@@ -67,8 +67,21 @@ bool Line2d::CheckIntersection(Line2d const &l2, Point2d &solution){
 
 Line2d Line2d::RandomLine(unsigned int minLength, unsigned int maxLength, unsigned int minXPos, unsigned int maxXPos, unsigned int YPos){
 
-    unsigned int length = minLength + random(unsigned int, maxLength - minLength + 1);
-    unsigned int x1 = minXPos + random(unsigned int, maxXPos - length + 1 - minXPos);
+	unsigned int length;
+	if(minLength == maxLength) {
+		length = maxLength;
+	}
+	else {
+		length = minLength + random(unsigned int, maxLength - minLength);
+	}
+
+	unsigned int x1;
+	if (length > maxXPos - minXPos) {
+		x1 = minXPos;
+	}
+	else {
+	    x1 = minXPos + random(unsigned int, maxXPos - length - minXPos);
+	}
     unsigned int x2 = x1 + length;
 
     return Line2d( Point2d(x1, YPos), Point2d(x2, YPos) );

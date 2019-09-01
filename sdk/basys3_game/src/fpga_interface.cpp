@@ -9,7 +9,6 @@
 #include "xsysmon.h"
 
 #include <algorithm>
-#include <functional>
 #include <array>
 
 #define VGA_BLOCKS_BASE 			XPAR_BLOCKS_S00_AXI_BASEADDR
@@ -41,7 +40,7 @@
 #define VGA_TEXT_COLOR				(*(uint32_t*)(VGA_TEXT_BASE + 8))
 #define VGA_TEXT_SCALE				(*(uint32_t*)(VGA_TEXT_BASE + 12))
 
-#define VGA_COUNTER_BASE 			(0x44A60000u)
+#define VGA_COUNTER_BASE 			(0x44A60000U)
 #define VGA_COUNTER_XPOS 			(*(uint16_t*)(VGA_COUNTER_BASE + 0))
 #define VGA_COUNTER_YPOS 			(*(uint16_t*)(VGA_COUNTER_BASE + 2))
 #define VGA_COUNTER_COUNT 			(*(uint32_t*)(VGA_COUNTER_BASE + 4))
@@ -73,9 +72,9 @@ static XIntc InterruptController;
 Floor display_floor[N_FLOORS];
 Floor sort_floor[N_FLOORS];
 int background_shift_bg = -(int)GameInstance->GetFloorsPosition() / 2;
-int background_shift_sides = -(int)(GameInstance->GetFloorsPosition() * 1.1f);
+int background_shift_sides = -(int)(GameInstance->GetFloorsPosition());
 
-int compare_floors(Floor f1, Floor f2){
+static int compare_floors(Floor f1, Floor f2){
 	if (((int)f1.GetStart().GetY()) > ((int)f2.GetStart().GetY())) return 1;
 	else return 0;
 }
@@ -157,7 +156,7 @@ void fpga_interface_initialize(Game *Instance){
 	VGA_PLAYER_WIDTH = 64;
 	VGA_PLAYER_HEIGHT = 64;
 
-	VGA_COUNTER_XPOS = 32;
+	VGA_COUNTER_XPOS = 32 + 16;
 	VGA_COUNTER_YPOS = 32;
 
 }
@@ -184,7 +183,7 @@ volatile bool update_flag = true;
 
 void interface_update(void *){
 
-	VGA_COUNTER_COUNT = (VGA_COUNTER_COUNT + 1) % 256;
+	VGA_COUNTER_COUNT = (int)(GameInstance->GetCounter() * 256.0f/(COUNTER_MAX) ) + 32;
 
 	if(update_flag){
 		for(int i = 0; i < N_FLOORS; i++) display_floor[i] = sort_floor[i];

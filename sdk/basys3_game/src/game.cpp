@@ -10,7 +10,7 @@ Game::Game(char * buf, uint32_t *ptrKeys) :
 	LastKeyDown(0),
 	LastKeyEsc(0),
 	LastKeyEnter(0),
-	Player1(Point2d((MIN_X + MAX_X)/2 ,0), Point2d(0, 0), Point2d(0, ACCELERATION)),
+	Player1(Point2d((MIN_X + MAX_X)/2 + FLOOR_HEIGHT ,0), Point2d(0, 0), Point2d(0, ACCELERATION)),
 	GameMenu(buf),
 	MenuPosition(0),
 	gameOver(false),
@@ -18,13 +18,15 @@ Game::Game(char * buf, uint32_t *ptrKeys) :
 	CurrentState(Menu::State::STARTED),
 	CurrentLevel(0),
 	playerFloor(0),
-	floorCounter(5),
+	floorCounter(N_FLOORS-1),
 	floorsPosition(0),
     ScrollFast(false),
 	PlayerLocked(true),
 	PlayerLockFloor(0),
 	CurrentStage(0),
-	keyboard(Keyboard(ptrKeys))
+	keyboard(Keyboard(ptrKeys)),
+    Counter(COUNTER_MAX),
+    CounterOverflows(0)
 {
 
     floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), (texture_t)CurrentStage );
@@ -49,7 +51,7 @@ void Game::Reset(){
 	Player1.setAcceleration(Point2d(0, ACCELERATION));
 	gameTime = 0.0f;
 	playerFloor = 0;
-	floorCounter = 5;
+	floorCounter = N_FLOORS - 1;
 	floorsPosition = 0;
 	ScrollFast = false;
     PlayerLocked = true;
@@ -57,6 +59,8 @@ void Game::Reset(){
     gameOver = false;
     CurrentState = Menu::State::GAME;
     CurrentStage = 0;
+    Counter = COUNTER_MAX;
+    CounterOverflows = 0;
 
     floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), (texture_t)CurrentStage );
 
@@ -73,8 +77,13 @@ void Game::Reset(){
     PlayerLockFloor = 0;
 }
 
-void Game::Display(){
-
+void Game::CountDown(){
+	// TODO szybkosc liczenia
+	Counter -= 10;
+	if(Counter < 0){
+		Counter = COUNTER_MAX;
+		CounterOverflows++;
+	}
 }
 
 void Game::chceckCollisionsAndLock(int moveRate) {
@@ -126,13 +135,13 @@ void Game::moveFloors(int moveRate){
 			if(diff > 0){
 				if (!(floorCounter++ % NEXT_STAGE)){
 					CurrentStage++;
-					if(CurrentStage > MAX_STAGES - 1) CurrentStage = random(unsigned int, MAX_STAGES);
+					if(CurrentStage > (MAX_STAGES - 1)) CurrentStage = MAX_STAGES - 1;
 					floors[i] = Floor( Line2d::RandomLine(SCREEN_WIDTH, SCREEN_WIDTH, MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
 				}
 				else {
 					floors[i] = Floor( Line2d::RandomLine(minLength, maxLength, MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
 				}
-				floorCounter++;
+				//floorCounter++;
 				relativeFloorNumber[i] += N_FLOORS;
 			}
 
@@ -283,8 +292,9 @@ void Game::StateGame(){
 	// TODO funkcja zwracajaca predkosc przesuwania
 	moveFloors(1);
 	chceckCollisionsAndLock(1);
+	if(ScrollFast) CountDown();
 
-	GameMenu.SetCounter(playerFloor);
+	GameMenu.SetCounter(Counter);//playerFloor);
 
 	if (PlayerLocked) {
 		if( Player1.getPosition().GetX() < floors[PlayerLockFloor].GetStart().GetX()) PlayerLocked = false;
@@ -341,3 +351,4 @@ unsigned int Game::GetXPos(){return GameMenu.GetXPos();};
 unsigned int Game::GetYPos(){return GameMenu.GetYPos();};
 unsigned int Game::GetColor(){return GameMenu.GetColor();};
 unsigned int Game::GetScale(){return GameMenu.GetScale();};
+int Game::GetCounter(){return Counter;};
