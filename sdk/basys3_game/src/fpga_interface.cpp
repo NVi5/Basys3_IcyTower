@@ -131,6 +131,10 @@ char *fpga_interface_get_buffer(void){
 	return text;
 }
 
+uint32_t *fpga_interface_get_keyboard(){
+	return ((uint32_t*)KEYBOARD_BASE);
+}
+
 void fpga_interface_initialize(Game *Instance){
 
 	GameInstance = Instance;

@@ -1,0 +1,13 @@
+#include "../include/keyboard.hpp"
+#include "../include/utils.h"
+
+bool Keyboard::GetKeyState(Keyboard::Key key){
+//	enterCritical();
+	if (Keys & ((uint32_t)key)) return true;
+	else return false;
+//	exitCritical();
+}
+
+void Keyboard::SetKeyboardState(uint32_t state){
+	Keys = state;
+}

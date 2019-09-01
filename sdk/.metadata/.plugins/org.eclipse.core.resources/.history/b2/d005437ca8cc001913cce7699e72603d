@@ -1,0 +1,8 @@
+#include "../include/keyboard.hpp"
+#include "../include/utils.h"
+
+bool Keyboard::GetKeyState(Keyboard::Key key){
+	if (Keys & key) return true;
+	else return false;
+}
+bool Keyboard::SetKeyState(Keyboard::Key key, bool state);

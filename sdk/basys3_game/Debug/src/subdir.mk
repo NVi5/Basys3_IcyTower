@@ -16,6 +16,7 @@ CPP_SRCS += \
 ../src/floor.cpp \
 ../src/fpga_interface.cpp \
 ../src/game.cpp \
+../src/keyboard.cpp \
 ../src/line2d.cpp \
 ../src/menu.cpp \
 ../src/player.cpp \
@@ -28,6 +29,7 @@ OBJS += \
 ./src/floor.o \
 ./src/fpga_interface.o \
 ./src/game.o \
+./src/keyboard.o \
 ./src/line2d.o \
 ./src/main.o \
 ./src/menu.o \
@@ -42,6 +44,7 @@ CPP_DEPS += \
 ./src/floor.d \
 ./src/fpga_interface.d \
 ./src/game.d \
+./src/keyboard.d \
 ./src/line2d.d \
 ./src/menu.d \
 ./src/player.d \

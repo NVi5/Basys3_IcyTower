@@ -5,6 +5,7 @@
 #include "point2d.hpp"
 #include "textures.h"
 #include "menu.hpp"
+#include "keyboard.hpp"
 
 #define N_FLOORS        (6)
 #define FLOOR_SPACING   (182)
@@ -69,6 +70,8 @@ class Game{
 
         int CurrentStage;
 
+        Keyboard keyboard;
+
         void StatePaused(void);
         void StateMenu(void);
         void StateGame(void);
@@ -78,7 +81,7 @@ class Game{
 
     public:
 
-        Game(char * buf);
+        Game(char * buf, uint32_t *ptrKeys);
         void Reset();
         void Display();
         void Run();

@@ -1,0 +1,11 @@
+#include "../include/keyboard.hpp"
+
+class Keyboard {
+
+	private:
+		enum class Key {
+			KEY_SPACE,
+
+		};
+
+};

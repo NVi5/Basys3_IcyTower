@@ -11,11 +11,11 @@ Line2d::Line2d(Point2d const &p1, Point2d const &p2){
 }
 
 Point2d Line2d::GetStart(){
-    return this->p1;
+    return p1;
 }
 
 Point2d Line2d::GetEnd(){
-    return this->p2;
+    return p2;
 }
 
 bool Line2d::CheckIntersection(Line2d const &l2, Point2d &solution){
@@ -76,8 +76,8 @@ Line2d Line2d::RandomLine(unsigned int minLength, unsigned int maxLength, unsign
 
 void Line2d::moveDown(int npix){
 
-	this->p1 = this->p1 + Point2d(0, -npix);
-	this->p2 = this->p2 + Point2d(0, -npix);
+	p1 = p1 + Point2d(0, -npix);
+	p2 = p2 + Point2d(0, -npix);
 
 	//TODO - do usuniecia
 //	int diff = minY - this->p1.GetY();

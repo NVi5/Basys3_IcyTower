@@ -7,7 +7,7 @@ src/fpga_interface.o src/fpga_interface.o: ../src/fpga_interface.cpp \
  ../../basys3_game_bsp/microblaze_0/include/xil_assert.h \
  ../../basys3_game_bsp/microblaze_0/include/xil_exception.h \
  ../src/../include/textures.h ../src/../include/player.hpp \
- ../src/../include/menu.hpp \
+ ../src/../include/menu.hpp ../src/../include/keyboard.hpp \
  ../../basys3_game_bsp/microblaze_0/include/xaxidma.h \
  ../../basys3_game_bsp/microblaze_0/include/xaxidma_bdring.h \
  ../../basys3_game_bsp/microblaze_0/include/xstatus.h \
@@ -55,6 +55,8 @@ src/fpga_interface.o src/fpga_interface.o: ../src/fpga_interface.cpp \
 ../src/../include/player.hpp:
 
 ../src/../include/menu.hpp:
+
+../src/../include/keyboard.hpp:
 
 ../../basys3_game_bsp/microblaze_0/include/xaxidma.h:
 

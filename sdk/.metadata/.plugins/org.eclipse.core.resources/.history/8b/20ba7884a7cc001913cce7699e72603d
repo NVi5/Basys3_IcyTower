@@ -1,0 +1,20 @@
+#include "../include/keyboard.hpp"
+
+class Keyboard {
+
+	private:
+
+		enum class Key {
+			KEY_ENTER,
+			KEY_LEFT,
+			KEY_DOWN,
+			KEY_RIGHT,
+			KEY_UP,
+			KEY_ESC
+		};
+
+
+	public:
+		bool GetKeyState(Keyboard::Key key);
+
+};

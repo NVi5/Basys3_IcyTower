@@ -1,0 +1,24 @@
+#include "../include/keyboard.hpp"
+#include "stdint.h"
+
+#define N_KEYS 6
+
+class Keyboard {
+
+	private:
+		uint32_t keys;
+
+	public:
+		enum class Key {
+			KEY_ENTER,
+			KEY_LEFT,
+			KEY_DOWN,
+			KEY_RIGHT,
+			KEY_UP,
+			KEY_ESC
+		};
+
+		bool GetKeyState(Keyboard::Key key);
+		bool SetKeyState(Keyboard::Key key, bool state);
+
+};
