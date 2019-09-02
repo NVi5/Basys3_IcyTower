@@ -737,6 +737,14 @@
 
 /******************************************************************/
 
+
+/* Definitions for peripheral VGA_TIME_COUNTER_0 */
+#define XPAR_VGA_TIME_COUNTER_0_S00_AXI_BASEADDR 0x44A60000
+#define XPAR_VGA_TIME_COUNTER_0_S00_AXI_HIGHADDR 0x44A6FFFF
+
+
+/******************************************************************/
+
 #define XPAR_INTC_MAX_NUM_INTR_INPUTS 5
 #define XPAR_XINTC_HAS_IPR 1
 #define XPAR_XINTC_HAS_SIE 1

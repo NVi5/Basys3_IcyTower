@@ -183,7 +183,7 @@ volatile bool update_flag = true;
 
 void interface_update(void *){
 
-	VGA_COUNTER_COUNT = (int)(GameInstance->GetCounter() * 256.0f/(GameInstance->GetCounterMax()) );
+	VGA_COUNTER_COUNT = (int)(GameInstance->GetCounter() * 256.0f/(GameInstance->GetCounterMax()) ) + 32;
 
 	if(update_flag){
 		for(int i = 0; i < N_FLOORS; i++) display_floor[i] = sort_floor[i];

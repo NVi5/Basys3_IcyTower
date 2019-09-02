@@ -157,7 +157,7 @@
      
     always @* begin 
         if (hcount_d >= xpos && hcount_d < xpos + WIDTH && vcount_d >= ypos && vcount_d < ypos + HEIGHT) begin
-            if (vcount_d > xpos + HEIGHT - count) rgb_out_nxt = rgb_counter;
+            if (vcount_d > ypos + HEIGHT - count) rgb_out_nxt = rgb_counter;
             else rgb_out_nxt = 12'h0_0_0;
         end 
         else rgb_out_nxt = rgb_d;

@@ -48,11 +48,11 @@
 
 
 // IP VLNV: xilinx.com:user:vga_time_counter:1.0
-// IP Revision: 8
+// IP Revision: 9
 
 (* X_CORE_INFO = "vga_time_counter_v1_0,Vivado 2018.2" *)
 (* CHECK_LICENSE_TYPE = "uC_vga_time_counter_0_1,vga_time_counter_v1_0,{}" *)
-(* CORE_GENERATION_INFO = "uC_vga_time_counter_0_1,vga_time_counter_v1_0,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=vga_time_counter,x_ipVersion=1.0,x_ipCoreRevision=8,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
+(* CORE_GENERATION_INFO = "uC_vga_time_counter_0_1,vga_time_counter_v1_0,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=vga_time_counter,x_ipVersion=1.0,x_ipCoreRevision=9,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=4}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module uC_vga_time_counter_0_1 (
   vcount_in,
