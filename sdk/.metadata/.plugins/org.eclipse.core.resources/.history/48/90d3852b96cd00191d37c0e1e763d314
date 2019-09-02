@@ -39,6 +39,8 @@
 #define FLOOR_FRICTION  (0.95f)
 #define AIR_FRICTION    (0.85f)
 
+#define COUNTER_MAX		((600 * 10)-1)
+
 #define N_GAME_LEVELS		(3)
 
 class Game{
@@ -105,5 +107,4 @@ class Game{
 		int GetFloorCount();
 		int GetPlayerFloor();
 		int GetCounter();
-		unsigned int GetCounterMax();
 };

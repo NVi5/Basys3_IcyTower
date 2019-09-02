@@ -1,13 +1,13 @@
 #include "../include/level.hpp"
 
 	Level::Level() :
-		CounterMax{599,299,149},
+		AccelRate{1,2,3},
 		MaxWidth{{800,700,600,500,400}, {500,400,300,250,200}, {400,300,200,100,50}},
 		MinWidth{{700,600,500,400,300}, {400,300,250,200,150}, {300,200,100,50,25}
 		} {};
 
-	unsigned int Level::GetCounterMax(unsigned int LevelIndex){
-		if(LevelIndex < N_LEVELS) return this->CounterMax[LevelIndex];
+	unsigned int Level::GetAccelRate(unsigned int LevelIndex){
+		if(LevelIndex < N_LEVELS) return this->AccelRate[LevelIndex];
 		else return 0;
 	}
 

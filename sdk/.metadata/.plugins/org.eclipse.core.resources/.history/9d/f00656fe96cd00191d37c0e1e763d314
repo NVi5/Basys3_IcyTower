@@ -105,5 +105,5 @@ class Game{
 		int GetFloorCount();
 		int GetPlayerFloor();
 		int GetCounter();
-		unsigned int GetCounterMax();
+		unsigned int GetLevel();
 };

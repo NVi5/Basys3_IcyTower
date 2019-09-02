@@ -25,7 +25,7 @@ Game::Game(char * buf, uint32_t *ptrKeys) :
 	PlayerLockFloor(0),
 	CurrentStage(0),
 	keyboard(Keyboard(ptrKeys)),
-    Counter(0),
+    Counter(COUNTER_MAX),
     CounterOverflows(0)
 {
 
@@ -33,7 +33,7 @@ Game::Game(char * buf, uint32_t *ptrKeys) :
 
     for(int i = 1; i < N_FLOORS; i++){
 //    	floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), (texture_t)CurrentStage);
-    	floors[i] = floors[0];
+    	floors[i] = Floor( Line2d::RandomLine(0, 0, 0, 0, 0), (texture_t)CurrentStage);
 
     }
 
@@ -347,4 +347,4 @@ unsigned int Game::GetYPos(){return GameMenu.GetYPos();};
 unsigned int Game::GetColor(){return GameMenu.GetColor();};
 unsigned int Game::GetScale(){return GameMenu.GetScale();};
 int Game::GetCounter(){return Counter;};
-unsigned int Game::GetCounterMax(){return GameLevel.GetCounterMax(this->CurrentLevel);};
+unsigned int GetLevel(){return this-};
