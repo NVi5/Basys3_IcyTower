@@ -80,6 +80,7 @@ class Game{
         void StateGame(void);
 
         int Counter;
+        unsigned int CounterMax;
         int CounterOverflows;
 
         void chceckCollisionsAndLock(int moveRate);

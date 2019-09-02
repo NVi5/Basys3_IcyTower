@@ -25,10 +25,10 @@ Game::Game(char * buf, uint32_t *ptrKeys) :
 	PlayerLockFloor(0),
 	CurrentStage(0),
 	keyboard(Keyboard(ptrKeys)),
-    Counter(0),
     CounterOverflows(0)
 {
-
+	this->CounterMax = GameLevel.GetCounterMax(this->CurrentLevel);
+	this->Counter = this->CounterMax;
     floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), (texture_t)CurrentStage );
 
     for(int i = 1; i < N_FLOORS; i++){
@@ -59,7 +59,8 @@ void Game::Reset(){
     PlayerLockFloor = 0;
     gameOver = false;
     CurrentStage = 0;
-    Counter = GameLevel.GetCounterMax(this->CurrentLevel);
+	CounterMax = GameLevel.GetCounterMax(this->CurrentLevel);
+	Counter = CounterMax;
     CounterOverflows = 0;
 
     floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), (texture_t)CurrentStage );
@@ -79,10 +80,9 @@ void Game::Reset(){
 }
 
 void Game::CountDown(){
-	// TODO szybkosc liczenia
 	Counter--;
 	if(Counter < 0){
-		Counter = GameLevel.GetCounterMax(this->CurrentLevel);
+		Counter = CounterMax;
 		CounterOverflows++;
 	}
 }
@@ -137,7 +137,7 @@ void Game::moveFloors(int moveRate){
 				else {
 					floors[i] = Floor( Line2d::RandomLine(GameLevel.GetMinWidth(this->CurrentLevel, this->CurrentStage), GameLevel.GetMaxWidth(this->CurrentLevel, this->CurrentStage), MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
 				}
-				//floorCounter++;
+//				floorCounter++;
 				relativeFloorNumber[i] += N_FLOORS;
 			}
 
@@ -305,7 +305,7 @@ void Game::StateGame(){
 
 //	//TODO do usuniecia (albo i nie xD) jak zadziala
 //	if(gameOver){
-//		ScrollFast = false;
+//		ScrollGame = false;
 //	}
 
 	if(Player1.getPosition().GetY() > SCROLL_HEIGHT) ScrollGame = 1;
@@ -347,4 +347,4 @@ unsigned int Game::GetYPos(){return GameMenu.GetYPos();};
 unsigned int Game::GetColor(){return GameMenu.GetColor();};
 unsigned int Game::GetScale(){return GameMenu.GetScale();};
 int Game::GetCounter(){return Counter;};
-unsigned int Game::GetCounterMax(){return GameLevel.GetCounterMax(this->CurrentLevel);};
+unsigned int Game::GetCounterMax(){return this->CounterMax;};
