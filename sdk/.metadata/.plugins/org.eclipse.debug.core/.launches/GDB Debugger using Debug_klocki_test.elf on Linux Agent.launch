@@ -3,7 +3,7 @@
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.ui.breakpoint.main" value="true"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.ui.exec.script" value="false"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.ui.exec.script.location" value=""/>
-<stringAttribute key="com.xilinx.sdk.tcf.debug.uiapplication.path" value="Debug/klocki_test.elf"/>
+<stringAttribute key="com.xilinx.sdk.tcf.debug.uiapplication.path" value="D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\basys3_game\Debug\basys3_game.elf"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uicrosstrigger.bpcontainer" value="{&quot;arch&quot;:&quot;non_zynq&quot;,&quot;isSelected&quot;:false,&quot;breakPoints&quot;:[]}"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uidebug.type" value="STANDALONE_DEBUG"/>
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.uienable.crosstrigger" value="false"/>
@@ -12,7 +12,7 @@
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uihw.init.tcl" value=""/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uihw_platform.name" value="main_hw_platform_0"/>
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.uipl.powerup" value="false"/>
-<stringAttribute key="com.xilinx.sdk.tcf.debug.uiproc.appl.map" value="{&quot;microblaze_0&quot;:{&quot;xilinx.tcf.application&quot;:&quot;&quot;,&quot;xilinx.tcf.datafiles&quot;:&quot;&quot;,&quot;xilinx.tcf.no_download&quot;:true,&quot;xilinx.tcf.profile_enabled&quot;:false,&quot;xilinx.tcf.profile_frequency&quot;:&quot;10000&quot;,&quot;xilinx.tcf.profile_non_int_frequency&quot;:&quot;135000000&quot;,&quot;xilinx.tcf.profile_non_int_high_addr&quot;:&quot;&quot;,&quot;xilinx.tcf.profile_non_int_low_addr&quot;:&quot;&quot;,&quot;xilinx.tcf.profile_non_int_use_count_instr&quot;:false,&quot;xilinx.tcf.profile_non_int_use_cumulate&quot;:false,&quot;xilinx.tcf.profile_non_intrusive_support&quot;:false,&quot;xilinx.tcf.profile_store_address&quot;:&quot;0x0&quot;,&quot;xilinx.tcf.profile_use_intrusive&quot;:false,&quot;xilinx.tcf.project&quot;:&quot;&quot;,&quot;xilinx.tcf.relocate&quot;:false,&quot;xilinx.tcf.relocate_addr&quot;:&quot;&quot;,&quot;xilinx.tcf.reset&quot;:true,&quot;xilinx.tcf.stop_at_entry&quot;:false}}"/>
+<stringAttribute key="com.xilinx.sdk.tcf.debug.uiproc.appl.map" value="{&quot;microblaze_0&quot;:{&quot;xilinx.tcf.application&quot;:&quot;D:\\Elektronika\\Workspace\\Xilinx\\UEC2_Project\\sdk\\basys3_game\\Debug\\basys3_game.elf&quot;,&quot;xilinx.tcf.datafiles&quot;:&quot;&quot;,&quot;xilinx.tcf.no_download&quot;:false,&quot;xilinx.tcf.profile_enabled&quot;:false,&quot;xilinx.tcf.profile_frequency&quot;:&quot;10000&quot;,&quot;xilinx.tcf.profile_non_int_frequency&quot;:&quot;135000000&quot;,&quot;xilinx.tcf.profile_non_int_high_addr&quot;:&quot;&quot;,&quot;xilinx.tcf.profile_non_int_low_addr&quot;:&quot;&quot;,&quot;xilinx.tcf.profile_non_int_use_count_instr&quot;:false,&quot;xilinx.tcf.profile_non_int_use_cumulate&quot;:false,&quot;xilinx.tcf.profile_non_intrusive_support&quot;:false,&quot;xilinx.tcf.profile_store_address&quot;:&quot;0x0&quot;,&quot;xilinx.tcf.profile_use_intrusive&quot;:false,&quot;xilinx.tcf.project&quot;:&quot;&quot;,&quot;xilinx.tcf.relocate&quot;:false,&quot;xilinx.tcf.relocate_addr&quot;:&quot;&quot;,&quot;xilinx.tcf.reset&quot;:true,&quot;xilinx.tcf.stop_at_entry&quot;:false}}"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uiproc.selection" value="microblaze_0"/>
 <booleanAttribute key="com.xilinx.sdk.tcf.debug.uiprogram.fpga" value="false"/>
 <stringAttribute key="com.xilinx.sdk.tcf.debug.uiproject.name" value="klocki_test"/>
@@ -37,7 +37,7 @@
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="gdbserver"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
 <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\basys3_game\Debug\basys3_game.elf"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value=""/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
@@ -49,5 +49,5 @@
 <booleanAttribute key="org.eclipse.tcf.debug.UseTerminal" value="false"/>
 <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 <booleanAttribute key="sdk.gdb.proc.stop_at_enty" value="false"/>
-<stringAttribute key="sdk.gdb.process.filter" value=""/>
+<stringAttribute key="sdk.gdb.process.filter" value="microblaze.*#0"/>
 </launchConfiguration>

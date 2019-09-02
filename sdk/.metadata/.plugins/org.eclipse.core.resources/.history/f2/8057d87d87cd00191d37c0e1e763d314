@@ -1,0 +1,18 @@
+#include "../include/level.hpp"
+
+	Level::Level() : AccelRate{1,2,3}, MaxWidth{400,300,200}, MinWidth{300,200,100} {};
+
+	unsigned int Level::GetAccelRate(unsigned int LvIndex){
+		if(LvIndex < N_LEVELS) return this->AccelRate[LvIndex];
+		else return 0;
+	}
+
+	unsigned int Level::GetMaxWidth(unsigned int LvIndex){
+		if(LvIndex < N_LEVELS) return this->MaxWidth[LvIndex];
+		else return 0;
+	}
+
+	unsigned int Level::GetMinWidth(unsigned int LvIndex){
+		if(LvIndex < N_LEVELS) return this->MinWidth[LvIndex];
+		else return 0;
+	}

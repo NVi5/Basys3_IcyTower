@@ -1,0 +1,16 @@
+#pragma once
+
+#define N_LEVELS 3
+#define N_STAGES 5
+
+class Level{
+	private:
+		unsigned int AccelRate[N_STAGES];
+		unsigned int MaxWidth[N_STAGES];
+		unsigned int MinWidth[N_STAGES];
+	public:
+		Level();
+		unsigned int GetAccelRate(unsigned int LvIndex);
+		unsigned int GetMaxWidth(unsigned int LvIndex);
+		unsigned int GetMinWidth(unsigned int LvIndex);
+};

@@ -6,6 +6,7 @@
 #include "textures.h"
 #include "menu.hpp"
 #include "keyboard.hpp"
+#include "level.hpp"
 
 #define N_FLOORS        (6L)
 #define FLOOR_SPACING   (182L)
@@ -40,7 +41,7 @@
 
 #define COUNTER_MAX		((600 * 10)-1)
 
-#define N_LEVELS		(3)
+#define N_GAME_LEVELS		(3)
 
 class Game{
 
@@ -74,6 +75,7 @@ class Game{
         int CurrentStage;
 
         Keyboard keyboard;
+        Level GameLevel;
 
         void StatePaused(void);
         void StateMenu(void);

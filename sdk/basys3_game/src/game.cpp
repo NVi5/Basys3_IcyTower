@@ -125,11 +125,7 @@ void Game::moveFloors(int moveRate){
 			float prevY = floors[i].GetStart().GetY();
 
 			floors[i].moveDown(moveRate);
-
-			//TODO tutaj funkcje ktore zwracaja minimalna i maksymalna dlugosc
-			int minLength = 300;
-			int maxLength = 400;
-
+			//TODO added functions
 			int diff = MIN_Y - floors[i].GetStart().GetY();
 
 			if(diff > 0){
@@ -139,7 +135,7 @@ void Game::moveFloors(int moveRate){
 					floors[i] = Floor( Line2d::RandomLine(SCREEN_WIDTH, SCREEN_WIDTH, MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
 				}
 				else {
-					floors[i] = Floor( Line2d::RandomLine(minLength, maxLength, MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
+					floors[i] = Floor( Line2d::RandomLine(GameLevel.GetMinWidth(this->CurrentLevel, this->CurrentStage), GameLevel.GetMaxWidth(this->CurrentLevel, this->CurrentStage), MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
 				}
 				//floorCounter++;
 				relativeFloorNumber[i] += N_FLOORS;
@@ -256,7 +252,7 @@ void Game::StateMenu(){
 				break;
 			case 1:
 				CurrentLevel++;
-				CurrentLevel %= N_LEVELS;
+				CurrentLevel %= N_GAME_LEVELS;
 				GameMenu.SetLevel(CurrentLevel);
 				break;
 			default:

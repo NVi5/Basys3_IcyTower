@@ -1,0 +1,15 @@
+#pragma once
+
+#define N_LEVELS 3
+
+class Level{
+	private:
+		unsigned int ShrinkRate[N_LEVELS];
+		unsigned int AccelRate[N_LEVELS];
+		unsigned int MinWidth[N_LEVELS];
+	public:
+		Level();
+		unsigned int GetShrinkRate(unsigned int LvIndex);
+		unsigned int GetAccelRate(unsigned int LvIndex);
+		unsigned int GetMinWidth(unsigned int LvIndex);
+};

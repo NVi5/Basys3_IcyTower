@@ -6,7 +6,8 @@ src/game.o src/game.o: ../src/game.cpp ../src/../include/game.hpp \
  ../../basys3_game_bsp/microblaze_0/include/xil_assert.h \
  ../../basys3_game_bsp/microblaze_0/include/xil_exception.h \
  ../src/../include/textures.h ../src/../include/player.hpp \
- ../src/../include/menu.hpp ../src/../include/keyboard.hpp
+ ../src/../include/menu.hpp ../src/../include/keyboard.hpp \
+ ../src/../include/level.hpp
 
 ../src/../include/game.hpp:
 
@@ -33,3 +34,5 @@ src/game.o src/game.o: ../src/game.cpp ../src/../include/game.hpp \
 ../src/../include/menu.hpp:
 
 ../src/../include/keyboard.hpp:
+
+../src/../include/level.hpp:
