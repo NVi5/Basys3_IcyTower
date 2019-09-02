@@ -109,7 +109,7 @@
         );
         
         image_rom #(
-          .IMAGE("cobblestone.data")
+          .IMAGE("background.data")
         ) bg_rom(
           .clk(s00_axi_aclk),
           .address(pixel_addr),
@@ -117,7 +117,7 @@
         );
         
         image_rom #(
-          .IMAGE("brick.data")
+          .IMAGE("sides.data")
         ) sides_rom(
           .clk(s00_axi_aclk),
           .address(pixel_addr),

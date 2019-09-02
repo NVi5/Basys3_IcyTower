@@ -26,8 +26,8 @@ preplace inst rst_clk_wiz_0_135M -pg 1 -lvl 3 -y 1870 -defaultsOSRD
 preplace inst microblaze_0_xlconcat -pg 1 -lvl 3 -y 1460 -defaultsOSRD
 preplace inst axi_timer_0 -pg 1 -lvl 7 -y 770 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 8 -y 980 -defaultsOSRD
-preplace inst vga_time_counter_0 -pg 1 -lvl 10 -y 600 -defaultsOSRD
 preplace inst vga_background_0 -pg 1 -lvl 7 -y 1180 -defaultsOSRD
+preplace inst vga_time_counter_0 -pg 1 -lvl 10 -y 600 -defaultsOSRD
 preplace inst microblaze_0_axi_intc -pg 1 -lvl 4 -y 1700 -defaultsOSRD
 preplace inst mdm_1 -pg 1 -lvl 4 -y 1890 -defaultsOSRD
 preplace inst vga_interrupt_0 -pg 1 -lvl 2 -y 1510 -defaultsOSRD

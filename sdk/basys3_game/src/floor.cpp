@@ -2,7 +2,7 @@
 
 Floor::Floor()
 {
-	this->texture = TEXTURE_ENDSTONE;
+	this->texture = TEXTURE_PURPLEDIRT;
 }
 
 Floor::Floor(Line2d position, texture_t texture) :
