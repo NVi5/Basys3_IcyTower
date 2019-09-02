@@ -10,7 +10,7 @@ Game::Game(char * buf, uint32_t *ptrKeys) :
 	LastKeyDown(0),
 	LastKeyEsc(0),
 	LastKeyEnter(0),
-	Player1(Point2d((MIN_X + MAX_X)/2, FLOOR_HEIGHT), Point2d(0, 0), Point2d(0, ACCELERATION)),
+	Player1(Point2d((MIN_X + MAX_X)/2 + FLOOR_HEIGHT ,31), Point2d(0, 0), Point2d(0, ACCELERATION)),
 	GameMenu(buf),
 	MenuPosition(0),
 	gameOver(false),
