@@ -285,8 +285,8 @@ void Game::StateGame(){
 		Player1.setVelocity( Point2d(Player1.getVelocity().GetX(), 300 + abs(Player1.getVelocity().GetX()) ) );
 	}
 
-	moveFloors(1 + (GameLevel.GetAccelRate(this->CurrentLevel) * this->CounterOverflows));
-	chceckCollisionsAndLock(1 + (GameLevel.GetAccelRate(this->CurrentLevel) * this->CounterOverflows));
+	moveFloors(1 + (int)(GameLevel.GetAccelRate(this->CurrentLevel) * this->CounterOverflows/10));
+	chceckCollisionsAndLock(1 + (int)(GameLevel.GetAccelRate(this->CurrentLevel) * this->CounterOverflows/10));
 	if(ScrollGame) CountDown();
 
 	GameMenu.SetCounter(this->playerFloor);

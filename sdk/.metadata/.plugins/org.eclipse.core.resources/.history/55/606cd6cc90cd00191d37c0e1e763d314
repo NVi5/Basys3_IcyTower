@@ -67,7 +67,7 @@ class Game{
         float floorsPosition;
         float backgroundPosition;
 
-        bool ScrollGame;
+        bool ScrollFast;
 
         bool PlayerLocked;
         int PlayerLockFloor;
