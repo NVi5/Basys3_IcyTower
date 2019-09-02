@@ -52,7 +52,7 @@ void Game::Reset(){
 	Player1.setAcceleration(Point2d(0, ACCELERATION));
 	gameTime = 0.0f;
 	playerFloor = 0;
-	floorCounter = N_FLOORS;
+	floorCounter = N_FLOORS - 1;
 	floorsPosition = 0;
 	ScrollGame = false;
     PlayerLocked = true;
