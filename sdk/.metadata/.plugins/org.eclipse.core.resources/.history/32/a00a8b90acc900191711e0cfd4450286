@@ -1,7 +1,0 @@
-#pragma once
-
-#include "line2d.hpp"
-
-class Floor {
-
-}

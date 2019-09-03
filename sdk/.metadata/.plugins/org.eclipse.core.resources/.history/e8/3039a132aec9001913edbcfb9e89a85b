@@ -1,5 +1,0 @@
-#include "../include/floor.hpp"
-
-void Floor::SetTexture(texture_t texture){this->texture = texture;};
-texture_t Floor::GetTexture(){return this->texture;};
-

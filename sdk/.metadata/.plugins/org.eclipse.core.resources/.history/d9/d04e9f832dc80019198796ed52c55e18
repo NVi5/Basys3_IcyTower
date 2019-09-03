@@ -1,9 +1,0 @@
-#pragma once
-
-#include "game.hpp"
-
-bool update_flag;
-
-void fpga_interface_initialize_hardware();
-void fpga_interface_initialize(Game *Instance);
-void interface_update(void *);

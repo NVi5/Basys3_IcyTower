@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<section name="Workbench">
-	<item value="D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\klocki_test\Debug" key="tcf_debug_app_selection"/>
-	<item value="D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\basys3_game\Debug" key="fpga_elf_mem_selection"/>
-	<item value="D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk" key="hwspec_file_selection"/>
-	<item value="D:\Elektronika\Workspace\Xilinx\UEC2_Project\sdk\basys3_game\Debug" key="last_stored_selection"/>
-</section>
