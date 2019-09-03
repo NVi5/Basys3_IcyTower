@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Sep  2 23:15:20 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Sep  3 11:42:41 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="uC" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -6925,7 +6925,6 @@
             <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="vga_interrupt_0" PORT="pixel_clock"/>
             <CONNECTION INSTANCE="vga_time_counter_0" PORT="s00_axi_aclk"/>
-            <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_ACLK"/>
@@ -6950,6 +6949,7 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M12_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M13_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M14_ACLK"/>
+            <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -12805,7 +12805,6 @@
             <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="vga_time_counter_0" PORT="s00_axi_aresetn"/>
-            <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ARESETN"/>
@@ -12825,6 +12824,7 @@
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M12_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M13_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M14_ARESETN"/>
+            <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
