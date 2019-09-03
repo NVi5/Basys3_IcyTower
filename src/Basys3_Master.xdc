@@ -276,19 +276,19 @@ set_property IOSTANDARD LVCMOS33 [get_ports tx]
 
 
 ##USB HID (PS/2)
-#set_property PACKAGE_PIN C17 [get_ports ps2_clk]						
-#	set_property IOSTANDARD LVCMOS33 [get_ports ps2_clk]
-#	set_property PULLUP true [get_ports ps2_clk]
-#set_property PACKAGE_PIN B17 [get_ports ps2_data]					
-#	set_property IOSTANDARD LVCMOS33 [get_ports ps2_data]	
-#	set_property PULLUP true [get_ports ps2_data]
+set_property PACKAGE_PIN C17 [get_ports ps2_clk]						
+	set_property IOSTANDARD LVCMOS33 [get_ports ps2_clk]
+	set_property PULLUP true [get_ports ps2_clk]
+set_property PACKAGE_PIN B17 [get_ports ps2_data]					
+	set_property IOSTANDARD LVCMOS33 [get_ports ps2_data]	
+	set_property PULLUP true [get_ports ps2_data]
 ##Alternative PS/2	
-set_property PACKAGE_PIN A14 [get_ports ps2_clk]						
-    set_property IOSTANDARD LVCMOS33 [get_ports ps2_clk]
-    set_property PULLUP true [get_ports ps2_clk]
-set_property PACKAGE_PIN A16 [get_ports ps2_data]                    
-    set_property IOSTANDARD LVCMOS33 [get_ports ps2_data]    
-    set_property PULLUP true [get_ports ps2_data]
+#set_property PACKAGE_PIN A14 [get_ports ps2_clk]						
+#    set_property IOSTANDARD LVCMOS33 [get_ports ps2_clk]
+#    set_property PULLUP true [get_ports ps2_clk]
+#set_property PACKAGE_PIN A16 [get_ports ps2_data]                    
+#    set_property IOSTANDARD LVCMOS33 [get_ports ps2_data]    
+#    set_property PULLUP true [get_ports ps2_data]
 
 
 
