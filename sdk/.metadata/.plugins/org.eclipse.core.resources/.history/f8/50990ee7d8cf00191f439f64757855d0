@@ -142,12 +142,12 @@ void fpga_interface_initialize(Game *Instance){
 
 	dma_transfer_texture( &player_dma, TEXTURE_PLAYER );
 
-	VGA_FLOORS_XPOS = 1;
-	VGA_FLOORS_YPOS = 1;
-	VGA_FLOORS_XSCALE = 1;
-	VGA_FLOORS_YSCALE = 1;
-	VGA_FLOORS_WIDTH = 1;
-	VGA_FLOORS_HEIGHT = 1;
+	VGA_BLOCKS_XPOS = 1;
+	VGA_BLOCKS_YPOS = 1;
+	VGA_BLOCKS_XSCALE = 1;
+	VGA_BLOCKS_YSCALE = 1;
+	VGA_BLOCKS_WIDTH = 1;
+	VGA_BLOCKS_HEIGHT = 1;
 
 	VGA_PLAYER_XPOS = GameInstance->GetPlayer().getPosition().GetX();
 	VGA_PLAYER_YPOS = GameInstance->GetPlayer().getPosition().GetY() -  128;
