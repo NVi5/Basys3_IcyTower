@@ -137,8 +137,23 @@ void Game::moveFloors(int moveRate){
 				else {
 					floors[i] = Floor( Line2d::RandomLine(GameLevel.GetMinWidth(this->CurrentLevel, this->CurrentStage), GameLevel.GetMaxWidth(this->CurrentLevel, this->CurrentStage), MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
 				}
+//				floorCounter++;
 				relativeFloorNumber[i] += N_FLOORS;
 			}
+
+// TODO jak zadziala to wyzej to usunac
+//			if(floorCounter % 30){
+//				if (floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) {
+//					floorCounter++;
+//					relativeFloorNumber[i] += N_FLOORS;
+//				}
+//			}
+//			else{
+//				if (floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) {
+//					floorCounter++;
+//					relativeFloorNumber[i] += N_FLOORS;
+//				}
+//			}
 
 			float currentY = floors[i].GetStart().GetY();
 			if((currentY > prevY) && i == PlayerLockFloor){
@@ -149,6 +164,18 @@ void Game::moveFloors(int moveRate){
 	}
 }
 
+// TODO do usuniecia
+//#include "xparameters.h"
+//#define KEY_SPACE (1 << 0)
+//#define KEY_ENTER (1 << 1)
+//#define KEY_LEFT (1 << 2)
+//#define KEY_DOWN (1 << 3)
+//#define KEY_RIGHT (1 << 4)
+//#define KEY_UP (1 << 5)
+//#define KEY_ESC (1 << 6)
+//#define KEYBOARD_BASE		XPAR_KEYBOARDCONTROLLER_0_S00_AXI_BASEADDR
+//#define KEYBOARD_KEYS		(*(uint32_t*)(KEYBOARD_BASE + 0))
+//TODO
 void Game::Run(){
 	GameMenu.SetState(CurrentState);
 	switch(CurrentState){
@@ -275,6 +302,11 @@ void Game::StateGame(){
 		gameOver = true;
 		CurrentState = Menu::State::FAILED;
 	}
+
+//	//TODO do usuniecia (albo i nie xD) jak zadziala
+//	if(gameOver){
+//		ScrollGame = false;
+//	}
 
 	if(Player1.getPosition().GetY() > SCROLL_HEIGHT) ScrollGame = 1;
 

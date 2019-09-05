@@ -137,8 +137,23 @@ void Game::moveFloors(int moveRate){
 				else {
 					floors[i] = Floor( Line2d::RandomLine(GameLevel.GetMinWidth(this->CurrentLevel, this->CurrentStage), GameLevel.GetMaxWidth(this->CurrentLevel, this->CurrentStage), MIN_X, MAX_X, MAX_Y - diff), (texture_t)CurrentStage );
 				}
+//				floorCounter++;
 				relativeFloorNumber[i] += N_FLOORS;
 			}
+
+// TODO jak zadziala to wyzej to usunac
+//			if(floorCounter % 30){
+//				if (floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, false) ) {
+//					floorCounter++;
+//					relativeFloorNumber[i] += N_FLOORS;
+//				}
+//			}
+//			else{
+//				if (floors[i].moveDown(moveRate,-FLOOR_HEIGHT,MAX_Y, true) ) {
+//					floorCounter++;
+//					relativeFloorNumber[i] += N_FLOORS;
+//				}
+//			}
 
 			float currentY = floors[i].GetStart().GetY();
 			if((currentY > prevY) && i == PlayerLockFloor){
@@ -275,6 +290,11 @@ void Game::StateGame(){
 		gameOver = true;
 		CurrentState = Menu::State::FAILED;
 	}
+
+//	//TODO do usuniecia (albo i nie xD) jak zadziala
+//	if(gameOver){
+//		ScrollGame = false;
+//	}
 
 	if(Player1.getPosition().GetY() > SCROLL_HEIGHT) ScrollGame = 1;
 
