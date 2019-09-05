@@ -349,14 +349,14 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>blocks</spirit:instanceName>
+        <spirit:instanceName>Floors</spirit:instanceName>
         <spirit:componentRef spirit:library="user" spirit:name="vga_block" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_vga_block_0_0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>player</spirit:instanceName>
+        <spirit:instanceName>Player</spirit:instanceName>
         <spirit:componentRef spirit:library="user" spirit:name="vga_block" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">uC_vga_block_0_1</spirit:configurableElementValue>
@@ -491,22 +491,22 @@
       <spirit:interconnection>
         <spirit:name>axi_dma_0_M_AXIS_MM2S</spirit:name>
         <spirit:activeInterface spirit:busRef="M_AXIS_MM2S" spirit:componentRef="axi_dma_0"/>
-        <spirit:activeInterface spirit:busRef="S00_AXIS" spirit:componentRef="blocks"/>
+        <spirit:activeInterface spirit:busRef="S00_AXIS" spirit:componentRef="Floors"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>microblaze_0_axi_periph_M06_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M06_AXI" spirit:componentRef="microblaze_0_axi_periph"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="blocks"/>
+        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="Floors"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>microblaze_0_axi_periph_M07_AXI</spirit:name>
         <spirit:activeInterface spirit:busRef="M07_AXI" spirit:componentRef="microblaze_0_axi_periph"/>
-        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="player"/>
+        <spirit:activeInterface spirit:busRef="S00_AXI" spirit:componentRef="Player"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>blocks_vga_interface_out</spirit:name>
-        <spirit:activeInterface spirit:busRef="vga_interface_out" spirit:componentRef="blocks"/>
-        <spirit:activeInterface spirit:busRef="vga_interface_in" spirit:componentRef="player"/>
+        <spirit:activeInterface spirit:busRef="vga_interface_out" spirit:componentRef="Floors"/>
+        <spirit:activeInterface spirit:busRef="vga_interface_in" spirit:componentRef="Player"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>microblaze_0_axi_periph_M08_AXI</spirit:name>
@@ -526,7 +526,7 @@
       <spirit:interconnection>
         <spirit:name>vga_background_0_vga_interface_out</spirit:name>
         <spirit:activeInterface spirit:busRef="vga_interface_out" spirit:componentRef="vga_background_0"/>
-        <spirit:activeInterface spirit:busRef="vga_interface_in" spirit:componentRef="blocks"/>
+        <spirit:activeInterface spirit:busRef="vga_interface_in" spirit:componentRef="Floors"/>
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>vga_timing_0_user_vga_interface</spirit:name>
@@ -555,7 +555,7 @@
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>axi_dma_1_M_AXIS_MM2S</spirit:name>
-        <spirit:activeInterface spirit:busRef="S00_AXIS" spirit:componentRef="player"/>
+        <spirit:activeInterface spirit:busRef="S00_AXIS" spirit:componentRef="Player"/>
         <spirit:activeInterface spirit:busRef="M_AXIS_MM2S" spirit:componentRef="axi_dma_1"/>
       </spirit:interconnection>
       <spirit:interconnection>
@@ -575,7 +575,7 @@
       </spirit:interconnection>
       <spirit:interconnection>
         <spirit:name>player_vga_interface_out</spirit:name>
-        <spirit:activeInterface spirit:busRef="vga_interface_out" spirit:componentRef="player"/>
+        <spirit:activeInterface spirit:busRef="vga_interface_out" spirit:componentRef="Player"/>
         <spirit:activeInterface spirit:busRef="vga_interface_in" spirit:componentRef="vga_time_counter_0"/>
       </spirit:interconnection>
       <spirit:interconnection>
@@ -615,10 +615,10 @@
         <spirit:internalPortReference spirit:componentRef="axi_dma_1" spirit:portRef="axi_resetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_0" spirit:portRef="s_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="vga_timing_0" spirit:portRef="rst"/>
-        <spirit:internalPortReference spirit:componentRef="blocks" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="blocks" spirit:portRef="s00_axis_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axi_aresetn"/>
-        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axis_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="Floors" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="Floors" spirit:portRef="s00_axis_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="Player" spirit:portRef="s00_axi_aresetn"/>
+        <spirit:internalPortReference spirit:componentRef="Player" spirit:portRef="s00_axis_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aresetn"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="axi_resetn"/>
         <spirit:internalPortReference spirit:componentRef="xadc_wiz_0" spirit:portRef="s_axi_aresetn"/>
@@ -683,10 +683,10 @@
         <spirit:internalPortReference spirit:componentRef="axi_dma_0" spirit:portRef="m_axi_mm2s_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_bram_ctrl_0" spirit:portRef="s_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="vga_timing_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="blocks" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="blocks" spirit:portRef="s00_axis_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axi_aclk"/>
-        <spirit:internalPortReference spirit:componentRef="player" spirit:portRef="s00_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="Floors" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="Floors" spirit:portRef="s00_axis_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="Player" spirit:portRef="s00_axi_aclk"/>
+        <spirit:internalPortReference spirit:componentRef="Player" spirit:portRef="s00_axis_aclk"/>
         <spirit:internalPortReference spirit:componentRef="KeyboardController_0" spirit:portRef="s00_axi_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="s_axi_lite_aclk"/>
         <spirit:internalPortReference spirit:componentRef="axi_dma_2" spirit:portRef="m_axi_mm2s_aclk"/>
@@ -758,7 +758,7 @@
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>blocks_interrupt</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="blocks" spirit:portRef="interrupt"/>
+        <spirit:internalPortReference spirit:componentRef="Floors" spirit:portRef="interrupt"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_xlconcat" spirit:portRef="In1"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
@@ -6165,20 +6165,20 @@
     <spirit:version>10.0</spirit:version>
     <spirit:busInterfaces>
       <spirit:busInterface>
-        <spirit:name>M_AXI_DP</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>DLMB</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
         </spirit:master>
         <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>M_AXI_DP</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
         <spirit:name>ILMB</spirit:name>
@@ -6239,7 +6239,7 @@
           </spirit:segment>
           <spirit:segment>
             <spirit:name>SEG_blocks_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/blocks/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Floors/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A00000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
@@ -6257,7 +6257,7 @@
           </spirit:segment>
           <spirit:segment>
             <spirit:name>SEG_player_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/player/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Player/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A10000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
@@ -6370,7 +6370,7 @@
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_blocks_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/blocks/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Floors/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A00000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
@@ -6382,7 +6382,7 @@
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_player_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/player/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Player/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A10000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
@@ -6476,7 +6476,7 @@
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_blocks_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/blocks/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Floors/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A00000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
@@ -6488,7 +6488,7 @@
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_player_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/player/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Player/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A10000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
@@ -6582,7 +6582,7 @@
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_blocks_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/blocks/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Floors/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A00000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>
@@ -6594,7 +6594,7 @@
           </spirit:segment>
           <spirit:segment bd:isExcluded="true">
             <spirit:name>SEG_player_S00_AXI_reg</spirit:name>
-            <spirit:displayName>/player/S00_AXI/S00_AXI_reg</spirit:displayName>
+            <spirit:displayName>/Player/S00_AXI/S00_AXI_reg</spirit:displayName>
             <spirit:addressOffset>0x44A10000</spirit:addressOffset>
             <spirit:range>64K</spirit:range>
           </spirit:segment>

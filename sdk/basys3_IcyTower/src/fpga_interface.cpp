@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <array>
 
-#define VGA_BLOCKS_BASE 			XPAR_BLOCKS_S00_AXI_BASEADDR
+#define VGA_BLOCKS_BASE 			XPAR_FLOORS_S00_AXI_BASEADDR
 #define VGA_BLOCKS_XPOS 			(*(uint16_t*)(VGA_BLOCKS_BASE + 0))
 #define VGA_BLOCKS_YPOS 			(*(uint16_t*)(VGA_BLOCKS_BASE + 2))
 #define VGA_BLOCKS_WIDTH 			(*(uint16_t*)(VGA_BLOCKS_BASE + 4))
