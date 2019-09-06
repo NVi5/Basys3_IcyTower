@@ -32,7 +32,9 @@ Game::Game(char * buf, uint32_t *ptrKeys) :
     floors[0] = Floor( Line2d(Point2d(MIN_X,INITIAL_HEIGHT), Point2d(MAX_X, INITIAL_HEIGHT)), (texture_t)CurrentStage );
 
     for(int i = 1; i < N_FLOORS; i++){
+//    	floors[i] = Floor( Line2d::RandomLine(200, 600, MIN_X, MAX_X, FLOOR_SPACING * i + INITIAL_HEIGHT), (texture_t)CurrentStage);
     	floors[i] = floors[0];
+
     }
 
     for(int i = 0; i < N_FLOORS; i++){
