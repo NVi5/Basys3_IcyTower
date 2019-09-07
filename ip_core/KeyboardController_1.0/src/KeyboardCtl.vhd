@@ -11,7 +11,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 	entity KeyboardCtl is
 	generic
 	(
-	   SYSCLK_FREQUENCY_HZ : integer := 135_000_000;
+	   SYSCLK_FREQUENCY_HZ : integer := 108_000_000;
 	   CHECK_PERIOD_MS     : integer := 500;
 	   TIMEOUT_PERIOD_MS   : integer := 100
 	);

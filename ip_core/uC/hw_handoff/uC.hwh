@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Sep  5 13:12:14 2019" VIVADOVERSION="2018.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Sep  7 18:16:41 2019" VIVADOVERSION="2018.2">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a35t" NAME="uC" PACKAGE="cpg236" SPEEDGRADE="-1"/>
 
@@ -6705,7 +6705,6 @@
             <CONNECTION INSTANCE="Floors" PORT="s00_axis_aclk"/>
             <CONNECTION INSTANCE="Player" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="Player" PORT="s00_axis_aclk"/>
-            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="s_axi_lite_aclk"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="m_axi_mm2s_aclk"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axi_aclk"/>
@@ -6714,6 +6713,7 @@
             <CONNECTION INSTANCE="vga_interrupt_0" PORT="pixel_clock"/>
             <CONNECTION INSTANCE="vga_time_counter_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M03_ACLK"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M02_ACLK"/>
@@ -12043,13 +12043,13 @@
             <CONNECTION INSTANCE="Floors" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="Player" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="Player" PORT="s00_axis_aresetn"/>
-            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_dma_2" PORT="axi_resetn"/>
             <CONNECTION INSTANCE="xadc_wiz_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="TextBlock_0" PORT="s00_axis_aresetn"/>
             <CONNECTION INSTANCE="vga_time_counter_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="vga_background_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="KeyboardController_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="microblaze_0_axi_periph" PORT="M01_ARESETN"/>
